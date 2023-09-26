@@ -1,6 +1,6 @@
 const SocialMedia = () => {
   return(
-    <div>
+    <div style={{textAlign: "center"}}>
       <h1>SOCIAL MEDIA</h1>
     </div>
   )

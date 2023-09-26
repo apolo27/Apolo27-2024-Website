@@ -1,15 +1,13 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import logo from '../imgs/logo.png'
+import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap/';
 
 function Header(){
   return(
     <div>
       <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand>Apolo 27</Navbar.Brand>
+        <Navbar.Brand><img src={logo} width={50} alt='logo' />{' '}Apolo 27</Navbar.Brand>
         <div className='links'>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

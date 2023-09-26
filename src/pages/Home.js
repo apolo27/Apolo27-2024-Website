@@ -1,6 +1,6 @@
 function Home(){
   return(
-    <div>
+    <div style={{textAlign: "center"}}>
       <h1>HOME</h1>
     </div>
   )

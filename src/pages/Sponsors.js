@@ -1,6 +1,6 @@
 function Sponsors(){
   return(
-    <div>
+    <div style={{textAlign: "center"}}>
       <h1>SPONSORS</h1>
     </div>
   )
