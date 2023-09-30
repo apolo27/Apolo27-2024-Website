@@ -10,7 +10,7 @@ const DataDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Assuming you have a 'data' node in your database, you can read it like this:
+        // Assuming we have a 'data' node in our database
         const snapshot = await database
           .ref('/sensors')
           .orderByChild('dateAdded')
