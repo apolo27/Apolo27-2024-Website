@@ -7,6 +7,7 @@ import AboutUs from './pages/AboutUs/AboutUs.js'
 import DataDashboard from './pages/DataDashboard.js'
 import Sponsors from './pages/Sponsors.js'
 import SocialMedia from './pages/SocialMedia.js'
+import StemWithUs from './pages/StemWithUs';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/Data-Dashboard' element={<DataDashboard />}/>
           <Route path='/Sponsors' element={<Sponsors />}/>
           <Route path='/Social-Media' element={<SocialMedia />}/>
+          <Route path='/Stem-With-Us' element={<StemWithUs />}/>
         </Routes>
       </Container>
     </div>
