@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { getEvents } from "../../FetchCalendarEvents";
+import React, { useState, useEffect } from "react";
+import request from "superagent";
 import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -19,11 +19,32 @@ const localizer = dateFnsLocalizer({
   locales
 })
 
+let GOOGLE_CALENDAR_URL = `https://www.googleapis.com/calendar/v3/calendars/${process.env.REACT_APP_CALENDAR_ID}/events?key=${process.env.REACT_APP_API_KEY}`
+
+
 const StemWithUs = () => {
   const [events, setEvents] = useState([])
-  /*getEvents((events) => {
-    setEvents(events)
-  })*/
+
+  useEffect(() => {
+    const fetchData = async () => {
+      request.get(GOOGLE_CALENDAR_URL).end((err, resp) => {
+        if (!err) {
+          JSON.parse(resp.text).items.map(event => {
+            console.log(event)
+            let newEvent = {
+              start: new Date(event.start.date.toString()),
+              end: new Date(event.end.date.toString()),
+              title: event.summary
+            }
+            setEvents([...events, newEvent]);
+          });
+        }
+      });
+    }
+
+    fetchData()
+
+  });
 
   return(
     <div style={{textAlign: "center"}}>
