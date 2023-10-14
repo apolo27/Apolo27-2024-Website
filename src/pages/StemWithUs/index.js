@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { getEvents } from "../../FetchCalendarEvents";
 import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import Card from 'react-bootstrap/Card';
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import Card from 'react-bootstrap/Card';
+import Form from "../../components/Form";
 import './StemWithUs.css'
 
 const locales = {
@@ -46,6 +47,9 @@ const StemWithUs = () => {
             )
           })
         }
+
+        <h1>Contactenos</h1>
+        <Form />
       </div>
     </div>
   )

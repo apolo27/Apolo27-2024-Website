@@ -49,7 +49,7 @@ function AboutUs(){
       {
         members.map((member) => {
           return(
-            <Card style={{ width: '18rem', margin: '15px'}}>
+            <Card key={member.nombre} style={{ width: '18rem', margin: '15px'}}>
             <Card.Img variant="top" src={member.img} />
             <Card.Body>
               <Card.Title>{member.nombre}</Card.Title>
