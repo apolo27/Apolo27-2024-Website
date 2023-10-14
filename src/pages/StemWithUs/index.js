@@ -21,9 +21,9 @@ const localizer = dateFnsLocalizer({
 
 const StemWithUs = () => {
   const [events, setEvents] = useState([])
-  getEvents((events) => {
+  /*getEvents((events) => {
     setEvents(events)
-  })
+  })*/
 
   return(
     <div style={{textAlign: "center"}}>
@@ -47,10 +47,9 @@ const StemWithUs = () => {
             )
           })
         }
-
-        <h1>Contactenos</h1>
-        <Form />
       </div>
+      <h1>Contactenos</h1>
+        <Form />
     </div>
   )
 }
