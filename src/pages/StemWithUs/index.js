@@ -23,7 +23,7 @@ const StemWithUs = () => {
   const [events, setEvents] = useState([])
 
   useEffect(() => {
-    getEvents(setEvents)
+    //getEvents(setEvents)
   }, []);
 
   return(
