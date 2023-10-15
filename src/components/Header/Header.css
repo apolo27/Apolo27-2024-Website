@@ -1,0 +1,10 @@
+.titulo{
+  font-family: 'Nazalization';
+}
+
+@font-face {
+  font-family: "Nazalization";
+  src: local("Nazalization"),
+    url("../../fonts/nasalization-rg.otf") format("truetype");
+  font-weight: bold;
+}
