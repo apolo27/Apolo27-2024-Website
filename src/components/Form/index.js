@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import {TextField, Button } from '@mui/material/';
 import emailjs from '@emailjs/browser';
+import './Form.css'
 
 const Form = () => {
   const form = useRef();
@@ -20,8 +21,8 @@ const Form = () => {
   }
 
   return(
-    <form ref={form} onSubmit={HandleSubmit}>
-    <h4>Hable con nosotros</h4>
+    <form ref={form} onSubmit={HandleSubmit} className='formulario'>
+      <h4>Hable con nosotros</h4>
       <TextField 
         id="nombre"
         label="Nombre"
