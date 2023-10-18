@@ -1,5 +1,4 @@
 import './AboutUs.css';
-import blankPicture from '../../imgs/blank-profile.png'
 import Card from 'react-bootstrap/Card';
 
 function AboutUs(){

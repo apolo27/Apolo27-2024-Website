@@ -1,7 +1,9 @@
 import React from 'react'
 import logo from '../../imgs/logo.png'
-import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap/';
+import {Container, Nav, Navbar} from 'react-bootstrap/';
 import './Header.css'
+import Themes from '../Themes';
+import SelectLanguage from '../SelectLanguage';
 
 function Header(){
   return(
@@ -9,6 +11,7 @@ function Header(){
       <Navbar className='titulo' bg="dark" data-bs-theme="dark" expand="lg">
       <Container>
         <Navbar.Brand><img src={logo} width={75} alt='logo' />{' '}Apolo 27</Navbar.Brand>
+
         <div className='links'>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -22,6 +25,8 @@ function Header(){
             </Nav>
           </Navbar.Collapse>
         </div>
+        <Themes />
+        <SelectLanguage />
       </Container>
       </Navbar>
     </div>

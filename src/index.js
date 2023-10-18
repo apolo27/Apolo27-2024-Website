@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import './fonts/nasalization-rg.otf';
 import { BrowserRouter as Router } from 'react-router-dom';
+import './index.css'
+import './i18n'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -8,12 +8,16 @@ import DataDashboard from './pages/DataDashboard.js'
 import Sponsors from './pages/Sponsors.js'
 import StemWithUs from './pages/StemWithUs';
 import RoverSimulation from './pages/RoverSimulation'
+import { useTranslation } from 'react-i18next'
 
 function App() {
+  const {t} = useTranslation();
   return (
     <div>
       <Header />
       <Container>
+        <h1>{t('Hola_Mundo')}</h1>
+        <h2>{t('Me_gusta_bailar')}</h2>
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/About-Us' element={<AboutUs />}/>
