@@ -17,16 +17,8 @@ function Header(){
               <Nav.Link href="/About-Us">About Us</Nav.Link>
               <Nav.Link href="/Data-Dashboard">Data Dashboard</Nav.Link>
               <Nav.Link href="/Sponsors">Sponsors</Nav.Link>
-              <Nav.Link href="/Social-Media">Social Media</Nav.Link>
-              <Nav.Link href="/Stem-With-Us">Stem with us</Nav.Link>
-
-              <NavDropdown id="basic-nav-dropdown">
-                <NavDropdown.Item href="/">Home</NavDropdown.Item>
-                <NavDropdown.Item href="/About-Us">About Us</NavDropdown.Item>
-                <NavDropdown.Item href="/Data-Dashboard">Data Dashboard</NavDropdown.Item>
-                <NavDropdown.Item href="/Sponsors">Sponsors</NavDropdown.Item>
-                <NavDropdown.Item href="/Social-Media">Social Media</NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Link href="/Stem-With-Us">Stem With Us</Nav.Link>
+              <Nav.Link href="/Rover-Simulation">Rover Simulation</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </div>

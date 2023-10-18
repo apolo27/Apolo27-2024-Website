@@ -6,8 +6,8 @@ import Home from './pages/Home.js'
 import AboutUs from './pages/AboutUs/AboutUs.js'
 import DataDashboard from './pages/DataDashboard.js'
 import Sponsors from './pages/Sponsors.js'
-import SocialMedia from './pages/SocialMedia.js'
 import StemWithUs from './pages/StemWithUs';
+import RoverSimulation from './pages/RoverSimulation'
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
           <Route path='/About-Us' element={<AboutUs />}/>
           <Route path='/Data-Dashboard' element={<DataDashboard />}/>
           <Route path='/Sponsors' element={<Sponsors />}/>
-          <Route path='/Social-Media' element={<SocialMedia />}/>
           <Route path='/Stem-With-Us' element={<StemWithUs />}/>
+          <Route path='/Rover-Simulation' element={<RoverSimulation />}/>
         </Routes>
       </Container>
     </div>
