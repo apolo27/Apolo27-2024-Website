@@ -16,6 +16,12 @@ Calendario sincronizado con google calendar para STEM
 ## Formulario para visitas
 Formulario para que instituciones puedan 
 
+## Modo Oscuro
+Checkbox a estilizar para legir entre modo oscuro y claro para la pagina
+
+## Idiomas
+Idioma ingles y español para la página, debemos ir traduciendo los textos que pondremos
+
 
 # Getting Started with Create React App
 
