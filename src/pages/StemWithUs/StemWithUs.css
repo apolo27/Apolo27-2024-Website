@@ -4,3 +4,8 @@
 .eventos{
   display: flex;
 }
+
+.section-formulario{
+  display: flex;
+  justify-content: center;
+}

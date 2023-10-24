@@ -54,8 +54,10 @@ const StemWithUs = () => {
         })
         }
       </section>
-      <h1>Contactenos</h1>
+        <h1>Contactenos</h1>
+      <section className="section-formulario">
         <Form />
+      </section>
     </div>
   )
 }
