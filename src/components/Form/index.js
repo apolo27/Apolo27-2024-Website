@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
-import {TextField, Checkbox, FormGroup, FormControlLabel, Button } from '@mui/material/';
-import {List, ListItem, ListItemButton, ListItemText, ListItemIcon } from '@mui/material/';
+import {TextField, Checkbox, FormGroup, FormControlLabel, Button} from '@mui/material/';
 import emailjs from '@emailjs/browser';
 import './Form.css'
 
@@ -13,9 +12,15 @@ const Form = () => {
   const [grades, setGrades] = useState("")
   const [date, setDate] = useState("")
   const [message, setMessage] = useState("")
-  const [recursos, setRecusos] = useState(["Proyector", "Pantallas digitales", "Bocinas", "Microfonos"])
-  const [newRecurso, setNewRecurso] = useState("")
 
+  const [salonActividadesChecked, setSalonActividadesChecked] = useState(false)
+  const [bajoTechoChecked, setBajoTechoChecked] = useState(false)
+  const [labsChecked, setLabsChecked] = useState(false)
+
+  const [recurso1, setRecurso1] = useState(false)
+  const [recurso2, setRecurso2] = useState(false)
+  const [recurso3, setRecurso3] = useState(false)
+  const [recurso4, setRecurso4] = useState(false)
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -26,8 +31,6 @@ const Form = () => {
       }, (error) => {
           console.log(error.text);
       });
-
-      console.log("date: ", date);
   }
 
   return(
@@ -84,18 +87,30 @@ const Form = () => {
         />
       <h4>Con cuales de estas areas cuenta su institucion</h4>
       <FormGroup>
-        <FormControlLabel control={<Checkbox id='salonactividadesID' value='salonactividades'/>} label="Salón para actividades" />
-        <FormControlLabel control={<Checkbox id='reunionesbajotechoID' value='reunionesbajotecho'/>} label="Reuniones bajo techo" />
-        <FormControlLabel control={<Checkbox id='laboratoriosID' value='laboratorios'/>} label="¿Laboratorios? " />
+        <input type='hidden' value='no' name='salonactividades' disabled={salonActividadesChecked}></input>
+        <FormControlLabel control={<Checkbox name="salonactividades" onChange={() => setSalonActividadesChecked(!salonActividadesChecked)} value={salonActividadesChecked ? "si" : "no"}/>}  label="Salón para actividades" />
+        
+        <input type='hidden' value='no' name='reunionesbajotecho' disabled={bajoTechoChecked}></input>
+        <FormControlLabel control={<Checkbox name="reunionesbajotecho" onChange={() => setBajoTechoChecked(!bajoTechoChecked)} value={bajoTechoChecked ? "si" : "no"} />}  label="Reuniones bajo techo" />
+        
+        <input type='hidden' value='no' name='laboratorios' disabled={labsChecked}></input>
+        <FormControlLabel control={<Checkbox name="laboratorios" onChange={() => setLabsChecked(!labsChecked)}value={labsChecked ? "si" : "no"} />} label="Laboratorios" />
       </FormGroup>
 
       <h4>Indique los recursos tecnologicos disponibles en su institucion</h4>
+
       <FormGroup>
-      {recursos.map((recurso) => {
-        return (
-          <FormControlLabel control={<Checkbox id={recurso}/>} label={recurso} ></FormControlLabel>
-        );
-      })}
+        <input type='hidden' value='no' name='Proyector' disabled={recurso1}></input>
+        <FormControlLabel control={<Checkbox name="Proyector" onChange={() => setRecurso1(!recurso1)} value={recurso1 ? "si" : "no"}/>}  label="Proyector" />
+        
+        <input type='hidden' value='no' name='Pantallas' disabled={recurso2}></input>
+        <FormControlLabel control={<Checkbox name="Pantallas" onChange={() => setRecurso2(!recurso2)} value={recurso2 ? "si" : "no"} />}  label="Pantallas" />
+        
+        <input type='hidden' value='no' name='Bocinas' disabled={recurso3}></input>
+        <FormControlLabel control={<Checkbox name="Bocinas" onChange={() => setRecurso3(!recurso3)}value={recurso3 ? "si" : "no"} />} label="Bocinas" />
+
+        <input type='hidden' value='no' name='Microfonos' disabled={recurso4}></input>
+        <FormControlLabel control={<Checkbox name="Microfonos" onChange={() => setRecurso4(!recurso4)}value={recurso4 ? "si" : "no"} />} label="Microfonos" />
       </FormGroup>
 
       <h4>¿Qué grados estarían interesados en que visitemos? </h4>

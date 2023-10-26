@@ -1,11 +1,15 @@
+import './StemWithUs.css'
 import React, { useState, useEffect } from "react";
+import i18next from "i18next";
 import { getEvents } from "../../FetchCalendarEvents";
 import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
 import { Card, Button } from "react-bootstrap";
 import Form from "../../components/Form";
-import './StemWithUs.css'
+
+import pin from "../../imgs/pin.png"
 
 const locales = {
   "en-US": require("date-fns/locale/en-US")
@@ -41,12 +45,10 @@ const StemWithUs = () => {
         events.map((event) => {
           return(
             <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
-            <Card.Body>
+            <Card.Body style={{backgroundColor: '#F1AEAE'}}>
+              <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
               <Card.Title>{event.title}</Card.Title>
-              <Card.Title>{event.description}</Card.Title>
-              <Card.Title>Inicio: {event.start.toString()}</Card.Title>
-              <Card.Title>Fin: {event.end.toString()}</Card.Title>
-              <Card.Title>Estado del evento: {event.status}</Card.Title>
+              <Card.Text> <img src={pin} alt='pin' width={20}></img> {event.location}</Card.Text>
               <Button href={event.htmlLink}>Seguir</Button>
             </Card.Body>
           </Card>

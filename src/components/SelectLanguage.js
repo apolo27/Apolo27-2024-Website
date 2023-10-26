@@ -32,7 +32,9 @@ const SelectLanguage = () => {
 
     <Dropdown.Menu>
       {languages.map(({code, name, country_flag}) =>(
-        <Dropdown.Item key={code} onClick={() => i18next.changeLanguage(code)}>
+        <Dropdown.Item key={code} onClick={() => {
+          i18next.changeLanguage(code)
+        }}>
           <img src={country_flag} width={25} alt='country flag' style={{marginRight: 3}}></img>
           {name}
         </Dropdown.Item>
