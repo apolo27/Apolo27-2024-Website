@@ -16,14 +16,12 @@ function App() {
     <div>
       <Header />
       <Container>
-        <h1>{t('Hola_Mundo')}</h1>
-        <h2>{t('Me_gusta_bailar')}</h2>
         <Routes>
-          <Route path='/' element={<Home />}/>
+          <Route path='/' element={<Home/>}/>
           <Route path='/About-Us' element={<AboutUs />}/>
           <Route path='/Data-Dashboard' element={<DataDashboard />}/>
           <Route path='/Sponsors' element={<Sponsors />}/>
-          <Route path='/Stem-With-Us' element={<StemWithUs />}/>
+          <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
           <Route path='/Rover-Simulation' element={<RoverSimulation />}/>
         </Routes>
       </Container>

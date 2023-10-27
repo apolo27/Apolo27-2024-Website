@@ -1,6 +1,8 @@
 import request from "superagent";
+import moment from 'moment';
 
 let GOOGLE_CALENDAR_URL = `https://www.googleapis.com/calendar/v3/calendars/${process.env.REACT_APP_CALENDAR_ID}/events?key=${process.env.REACT_APP_API_KEY}`
+
 export function getEvents(callback) {
   request.get(GOOGLE_CALENDAR_URL).end((err, resp) => {
     if (!err) {
@@ -9,8 +11,8 @@ export function getEvents(callback) {
         return events.push({
           title: event.summary,
           htmlLink: event.htmlLink,
-          start: new Date(event.start.date),
-          end: new Date(event.end.date),
+          start: moment(event.start.dateTime).toDate(),
+          end: moment(event.end.dateTime).toDate(),
           location: event.location
         });
       });

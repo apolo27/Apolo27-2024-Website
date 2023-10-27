@@ -23,11 +23,14 @@ const localizer = dateFnsLocalizer({
   locales
 })
 
-const StemWithUs = () => {
+const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
+  const t = props.t;
+
+  var today = new Date()
 
   useEffect(() => {
-    getEvents(setEvents)
+    //getEvents(setEvents)
   }, []);
 
   return(
@@ -38,27 +41,30 @@ const StemWithUs = () => {
         startAccessor="start" 
         endAccessor="end"
         defaultView="month"
+        //toolbar={false}
         style={{height: 500, margin: "50px"}}/>
       </div>
+      
+      <h2>{t('Eventos_Proximos')}</h2>
       <section className="eventos">
       {
         events.map((event) => {
           return(
             <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
-            <Card.Body style={{backgroundColor: '#F1AEAE'}}>
-              <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
-              <Card.Title>{event.title}</Card.Title>
-              <Card.Text> <img src={pin} alt='pin' width={20}></img> {event.location}</Card.Text>
-              <Button href={event.htmlLink}>Seguir</Button>
-            </Card.Body>
-          </Card>
-          )
+              <Card.Body style={{backgroundColor: '#F1AEAE'}}>
+                <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
+                <Card.Title>{event.title}</Card.Title>
+                <Card.Text> <img src={pin} alt='pin' width={20}></img> {event.location}</Card.Text>
+                <Button href={event.htmlLink}>{t('Seguir')}</Button>
+              </Card.Body>
+            </Card>
+            )
         })
         }
       </section>
-        <h1>Contactenos</h1>
+        <h1>{t('Contactenos')}</h1>
       <section className="section-formulario">
-        <Form />
+        <Form t={t}/>
       </section>
     </div>
   )

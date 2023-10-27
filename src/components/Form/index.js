@@ -3,7 +3,8 @@ import {TextField, Checkbox, FormGroup, FormControlLabel, Button} from '@mui/mat
 import emailjs from '@emailjs/browser';
 import './Form.css'
 
-const Form = () => {
+const Form = (props) => {
+  const t = props.t;
   const form = useRef();
   const [name, setName] = useState("")
   const [tel, setTel] = useState("")
@@ -35,10 +36,10 @@ const Form = () => {
 
   return(
     <form ref={form} onSubmit={HandleSubmit} className='formulario'>
-      <h4>Solicite una visita a su institucion</h4>
+      <h4>{t('Solicite')}</h4>
       <TextField 
         id="nombre"
-        label="Nombre"
+        label={t('Nombre')}
         name="user_name"
         variant="outlined"
         fullWidth
@@ -51,7 +52,7 @@ const Form = () => {
       <TextField 
         type='tel'
         id="telefono"
-        label="Telefono"
+        label={t('Tel')}
         name="user_tel" 
         variant="outlined" 
         fullWidth
@@ -64,7 +65,7 @@ const Form = () => {
       <TextField 
         type='email'
         id="email"
-        label="Email"
+        label={t('Email')}
         name="user_email" 
         variant="outlined" 
         fullWidth
@@ -76,7 +77,7 @@ const Form = () => {
 
       <TextField 
         id="location"
-        label="Ubicacion"
+        label={t('Ubicacion')}
         name="user_location" 
         variant="outlined" 
         fullWidth
@@ -85,38 +86,38 @@ const Form = () => {
         onChange={(e) => {
           setLocation(e.target.value)}}
         />
-      <h4>Con cuales de estas areas cuenta su institucion</h4>
+      <h4>{t('Areas')}</h4>
       <FormGroup>
         <input type='hidden' value='no' name='salonactividades' disabled={salonActividadesChecked}></input>
-        <FormControlLabel control={<Checkbox name="salonactividades" onChange={() => setSalonActividadesChecked(!salonActividadesChecked)} value={salonActividadesChecked ? "si" : "no"}/>}  label="Salón para actividades" />
+        <FormControlLabel control={<Checkbox name="salonactividades" onChange={() => setSalonActividadesChecked(!salonActividadesChecked)} value={salonActividadesChecked ? "si" : "no"}/>}  label={t('Salon')} />
         
         <input type='hidden' value='no' name='reunionesbajotecho' disabled={bajoTechoChecked}></input>
-        <FormControlLabel control={<Checkbox name="reunionesbajotecho" onChange={() => setBajoTechoChecked(!bajoTechoChecked)} value={bajoTechoChecked ? "si" : "no"} />}  label="Reuniones bajo techo" />
+        <FormControlLabel control={<Checkbox name="reunionesbajotecho" onChange={() => setBajoTechoChecked(!bajoTechoChecked)} value={bajoTechoChecked ? "si" : "no"} />}  label={t('Bajotecho')}/>
         
         <input type='hidden' value='no' name='laboratorios' disabled={labsChecked}></input>
-        <FormControlLabel control={<Checkbox name="laboratorios" onChange={() => setLabsChecked(!labsChecked)}value={labsChecked ? "si" : "no"} />} label="Laboratorios" />
+        <FormControlLabel control={<Checkbox name="laboratorios" onChange={() => setLabsChecked(!labsChecked)}value={labsChecked ? "si" : "no"} />} label={t('Labs')} />
       </FormGroup>
 
-      <h4>Indique los recursos tecnologicos disponibles en su institucion</h4>
+      <h4>{t('Recursos')}</h4>
 
       <FormGroup>
         <input type='hidden' value='no' name='Proyector' disabled={recurso1}></input>
-        <FormControlLabel control={<Checkbox name="Proyector" onChange={() => setRecurso1(!recurso1)} value={recurso1 ? "si" : "no"}/>}  label="Proyector" />
+        <FormControlLabel control={<Checkbox name="Proyector" onChange={() => setRecurso1(!recurso1)} value={recurso1 ? "si" : "no"}/>}  label={t('Proyector')} />
         
         <input type='hidden' value='no' name='Pantallas' disabled={recurso2}></input>
-        <FormControlLabel control={<Checkbox name="Pantallas" onChange={() => setRecurso2(!recurso2)} value={recurso2 ? "si" : "no"} />}  label="Pantallas" />
+        <FormControlLabel control={<Checkbox name="Pantallas" onChange={() => setRecurso2(!recurso2)} value={recurso2 ? "si" : "no"} />}  label={t('Pantallas')} />
         
         <input type='hidden' value='no' name='Bocinas' disabled={recurso3}></input>
-        <FormControlLabel control={<Checkbox name="Bocinas" onChange={() => setRecurso3(!recurso3)}value={recurso3 ? "si" : "no"} />} label="Bocinas" />
+        <FormControlLabel control={<Checkbox name="Bocinas" onChange={() => setRecurso3(!recurso3)}value={recurso3 ? "si" : "no"} />} label={t('Bocinas')} />
 
         <input type='hidden' value='no' name='Microfonos' disabled={recurso4}></input>
-        <FormControlLabel control={<Checkbox name="Microfonos" onChange={() => setRecurso4(!recurso4)}value={recurso4 ? "si" : "no"} />} label="Microfonos" />
+        <FormControlLabel control={<Checkbox name="Microfonos" onChange={() => setRecurso4(!recurso4)}value={recurso4 ? "si" : "no"} />} label={t('Microfonos')} />
       </FormGroup>
 
-      <h4>¿Qué grados estarían interesados en que visitemos? </h4>
+      <h4>{t('Grados')}</h4>
       <TextField 
         id="grades"
-        label="Grados"
+        label={t('GradosOption')}
         name="user_grades" 
         variant="outlined"
         fullWidth
@@ -129,7 +130,7 @@ const Form = () => {
       <TextField 
         type='date'
         id="date"
-        label="Fecha"
+        label={t('Fecha')}
         name="user_date" 
         variant="outlined"
         size='medium'
@@ -142,10 +143,10 @@ const Form = () => {
           setDate(e.target.value)}}
         />
 
-      <h4>¿Por qué quieren que realicemos la visita? </h4>
+      <h4>{t('Por_que')}</h4>
       <TextField 
         id="mensaje"
-        label="Mensaje"
+        label={t('Message')}
         variant="outlined"
         name="message"
         fullWidth

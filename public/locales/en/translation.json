@@ -1,4 +1,30 @@
 {
   "Hola_Mundo": "Hello World",
-  "Me_gusta_bailar": "I like to dance"
+  "Me_gusta_bailar": "I like to dance",
+  "Eventos_Proximos": "Upcoming Events",
+  "Seguir": "Follow",
+
+  "Contactenos": "Contact Us",
+  "Solicite": "Plan a meeting",
+  "Areas": "Wich of these do you have",
+  "Recursos": "Select resources",
+  "Grados": "Wich grades do you want us to visit?",
+  "Por_que": "Why do you want a meeting",
+
+  "Nombre": "Name",
+  "Tel": "Telephone",
+  "Email": "Email",
+  "Ubicacion": "Location",
+  "GradosOption": "Grades",
+  "Fecha": "Date",
+  "Mensaje": "Message",
+
+  "Salon": "Activities room",
+  "Bajotecho": "Indoor Meetings",
+  "Labs": "Laboratories",
+
+  "Proyector": "Proyector",
+  "Pantallas": "Screens",
+  "Bocinas": "Speakers",
+  "Microfonos": "Microphones"
 }

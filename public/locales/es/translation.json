@@ -1,4 +1,31 @@
 {
   "Hola_Mundo": "Hola mundo",
-  "Me_gusta_bailar": "Me gusta bailar"
+  "Me_gusta_bailar": "Me gusta bailar",
+  "Eventos_Proximos": "Eventos Próximos",
+  "Seguir": "Seguir",
+
+  "Contactenos": "Contáctenos",
+  "Solicite": "Solicite una visita a su institucion",
+  "Areas": "Con cuales de estas areas cuenta su institucion",
+  "Recursos": "Indique los recursos tecnologicos disponibles en su institucions",
+  "Grados": "¿Qué grados estarían interesados en que visitemos?",
+  "Por_que": "¿Por qué quieren que realicemos la visita?",
+
+  "Nombre": "Nombre",
+  "Tel": "Telefono",
+  "Email": "Email",
+  "Ubicacion": "Ubicacion",
+  "GradosOption": "Grados",
+  "Fecha": "Fecha",
+  "Mensaje": "Mensaje",
+
+  "Salon": "Salón para actividades",
+  "Bajotecho": "Reuniones bajo techo",
+  "Labs": "Laboratorios",
+
+  "Proyector": "Proyector",
+  "Pantallas": "Pantallas",
+  "Bocinas": "Bocinas",
+  "Microfonos": "Microfonos"
+
 }
