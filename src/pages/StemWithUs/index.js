@@ -34,7 +34,7 @@ const StemWithUs = (props) => {
   }, []);
 
   return(
-    <div style={{textAlign: "center"}}>
+    <div className='stem-with-us' style={{textAlign: "center"}}>
       <h1>STEM WITH US</h1>
       <div className="calendario">
         <Calendar localizer={localizer} events={events} 
