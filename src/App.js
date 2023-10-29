@@ -15,6 +15,7 @@ function App() {
   return (
     <div>
       <Header />
+      <Container>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/About-Us' element={<AboutUs />}/>
@@ -23,6 +24,7 @@ function App() {
           <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
           <Route path='/Rover-Simulation' element={<RoverSimulation />}/>
         </Routes>
+        </Container>
     </div>
   );
 }

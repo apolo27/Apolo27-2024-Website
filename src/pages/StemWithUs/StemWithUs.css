@@ -3,6 +3,7 @@
 
 .eventos{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .section-formulario{

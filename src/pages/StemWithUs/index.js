@@ -30,7 +30,7 @@ const StemWithUs = (props) => {
   var today = new Date()
 
   useEffect(() => {
-    //getEvents(setEvents)
+    getEvents(setEvents)
   }, []);
 
   return(
