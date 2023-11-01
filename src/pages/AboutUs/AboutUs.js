@@ -1,5 +1,6 @@
 import './AboutUs.css';
 import Card from 'react-bootstrap/Card';
+import { Chrono } from "react-chrono";
 
 function AboutUs(){
   const members = [
@@ -53,25 +54,123 @@ function AboutUs(){
     }
   ]
 
+  const items = [
+    {
+      title: "2019",
+      cardTitle: "MAKING HISTORY",
+      cardSubtitle: "REPRESENTING DR IN NASA HERC",
+      cardDetailedText:"In 2019, we started with just a few members, and it was a challenging time for us. But we were determined to represent our country for the first time ever in the NASA Human Exploration Rover Challenge, and we did just that.",
+      media: {
+        type: "IMAGE",
+        source: {
+          url: "https://apolo27.com/img/about-us/2019.jpg"
+        }
+      }    
+    },
+    {
+      title: "2020",
+      cardTitle: "LEARNING FROM CHALLENGES",
+      cardSubtitle: "FIRST AWARD AMID GLOBAL PANDEMIC",
+      cardDetailedText:"In 2020, despite the challenges posed by the pandemic, we persevered and learned valuable lessons that helped us grow, which led to win our first award: \"System Safety Award\".",
+      media: {
+        type: "IMAGE",
+        source: {
+          url: "https://apolo27.com/img/about-us/2020.jpg"
+        }
+      }
+    },
+    {
+      title: "2021",
+      cardTitle: "PUSHING OURSELVES TO NEW HEIGHTS",
+      cardSubtitle: "ADAPTATION",
+      cardDetailedText:"In 2021, we continued to promote STEM in our country. Also, we focused in making the Rover's design even better. We also successfully raised awareness for STEM in our country.",
+      media: {
+        type: "IMAGE",
+        source: {
+          url: "https://apolo27.com/img/about-us/2021.jpg"
+        }
+      }
+    },
+    {
+      title: "2022",
+      cardTitle: "INSPIRING THE NEXT GENERATION",
+      cardSutitle: "WINNING STEM ENGAGEMENT AWARD",
+      cardDetailedText:"In 2022, we focused on even more aspects of STEM. This led us to create the STEM Tour, an event where we showcased interactive STEM projects. This year, we won \"STEM Engagement Award\".",
+      media: {
+        type: "IMAGE",
+        source: {
+          url: "https://apolo27.com/img/about-us/2022.jpg"
+        }
+      }
+    },
+    {
+      title: "2023",
+      cardTitle: "PUSHING THE BOUNDARIES",
+      cardSubtitle: "PRESENT",
+      cardDetailedText:"In 2023, we're still in the process, but our focus remains on making our rover the best one yet. We also believe that STEM can change the world, that's why we are committed to push it even more in our country.",
+      media: {
+        type: "IMAGE",
+        source: {
+          url: "https://apolo27.com/img/about-us/2023.jpg"
+        }
+      }
+    },
+    {
+      title: "2024",
+      cardTitle: "Dunkirk",
+      cardSubtitle:"Men of the British Expeditionary Force (BEF) wade out to..",
+      cardDetailedText: "Men of the British Expeditionary Force (BEF) wade out to..",
+      media: {
+        type: "IMAGE",
+        source: {
+          url: "http://someurl/image.jpg"
+        }
+      }
+    },
+  ];
+
   return(
     <div style={{textAlign: "center"}}>
       <h1>ABOUT US</h1>
-      <div className='members'>
-      {
-        members.map((member) => {
-          return(
-            <Card key={member.nombre} style={{ width: '18rem', margin: '15px'}}>
-            <Card.Img variant="top" src={member.img} />
-            <Card.Body>
-              <Card.Title className="mb-3">{member.nombre}</Card.Title>
-              <Card.Subtitle className="text-muted">{member.titulo}</Card.Subtitle>
-              <Card.Title>{member.equipo}</Card.Title>
-            </Card.Body>
-          </Card>
-          )
-        })
-      }
-      </div>
+      <section className='section-cronologia'>
+        <h1>Our Story</h1>
+        <h2>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h2>
+        <Chrono className='cronologia' 
+          items={items} 
+          mode="VERTICAL_ALTERNATING" 
+          allowDynamicUpdate
+          hideControls
+          enableOutline
+          enableBreakPoint verticalBreakPoint={900}
+          borderLessCards
+          fontSizes={{
+            cardSubtitle: '1.75rem',
+            cardText: '1rem',
+            cardTitle: '1.25rem',
+            title: '2rem',
+          }}
+          />
+      </section>
+
+      <section>
+        <h1>Our Members</h1>
+        <div className='members'>
+          {
+            members.map((member) => {
+              return(
+                <Card key={member.nombre} style={{ width: '18rem', margin: '15px'}}>
+                <Card.Img variant="top" src={member.img} />
+                <Card.Body>
+                  <Card.Title className="mb-3">{member.nombre}</Card.Title>
+                  <Card.Subtitle className="text-muted">{member.titulo}</Card.Subtitle>
+                  <Card.Title>{member.equipo}</Card.Title>
+                </Card.Body>
+              </Card>
+              )
+            })
+          }
+        </div>
+      </section>
     </div>
   )
 }
