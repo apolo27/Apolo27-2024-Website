@@ -4,6 +4,7 @@ import i18next from "i18next";
 import { getEvents } from "../../FetchCalendarEvents";
 import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import Container from 'react-bootstrap/Container';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import { Card, Button } from "react-bootstrap";
@@ -36,6 +37,7 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <h1>STEM WITH US</h1>
+      <Container>
       <div className="calendario">
         <Calendar localizer={localizer} events={events} 
         startAccessor="start" 
@@ -62,6 +64,7 @@ const StemWithUs = (props) => {
         })
         }
       </section>
+      </Container>
         <h1>{t('Contactenos')}</h1>
       <section className="section-formulario">
         <Form t={t}/>

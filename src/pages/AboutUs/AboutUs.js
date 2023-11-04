@@ -1,6 +1,11 @@
 import './AboutUs.css';
-import Card from 'react-bootstrap/Card';
+import {Container, Card, Carousel} from 'react-bootstrap';
 import { Chrono } from "react-chrono";
+import first from '../../imgs/carousel/first.jpg'
+import second from '../../imgs/carousel/second.jpeg'
+import third from '../../imgs/carousel/third.jpg'
+import fourth from '../../imgs/carousel/fourth.jpg'
+
 
 function AboutUs(){
   const members = [
@@ -132,45 +137,79 @@ function AboutUs(){
   return(
     <div style={{textAlign: "center"}}>
       <h1>ABOUT US</h1>
-      <section className='section-cronologia'>
-        <h1>Our Story</h1>
-        <h2>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h2>
-        <Chrono className='cronologia' 
-          items={items} 
-          mode="VERTICAL_ALTERNATING" 
-          allowDynamicUpdate
-          hideControls
-          enableOutline
-          enableBreakPoint verticalBreakPoint={900}
-          borderLessCards
-          fontSizes={{
-            cardSubtitle: '1.75rem',
-            cardText: '1rem',
-            cardTitle: '1.25rem',
-            title: '2rem',
-          }}
-          />
-      </section>
+      <Carousel>
+        <Carousel.Item className='carousel-item'>
+          <img className='d-block w-100' src={first} alt='first'></img>
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
 
-      <section>
-        <h1>Our Members</h1>
-        <div className='members'>
-          {
-            members.map((member) => {
-              return(
-                <Card key={member.nombre} style={{ width: '18rem', margin: '15px'}}>
-                <Card.Img variant="top" src={member.img} />
-                <Card.Body>
-                  <Card.Title className="mb-3">{member.nombre}</Card.Title>
-                  <Card.Subtitle className="text-muted">{member.titulo}</Card.Subtitle>
-                  <Card.Title>{member.equipo}</Card.Title>
-                </Card.Body>
-              </Card>
-              )
-            })
-          }
-        </div>
-      </section>
+        <Carousel.Item>
+        <img className='d-block w-100' src={second} alt='second'></img>
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+        <img className='d-block w-100' src={third} alt='third'></img>
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+        <img className='d-block w-100' src={fourth} alt='fourth'></img>
+          <Carousel.Caption>
+            <h3>Fourth slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+      
+      <Container>
+        <section className='section-cronologia'>
+          <h1>Our Story</h1>
+          <h2>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h2>
+          <Chrono className='cronologia' 
+            items={items} 
+            mode="VERTICAL_ALTERNATING" 
+            allowDynamicUpdate
+            hideControls
+            enableBreakPoint verticalBreakPoint={900}
+            fontSizes={{
+              cardSubtitle: '1.75rem',
+              cardText: '1rem',
+              cardTitle: '1.25rem',
+              title: '2rem',
+            }}
+            />
+        </section>
+
+        <section>
+          <h1>Our Members</h1>
+          <div className='members'>
+            {
+              members.map((member) => {
+                return(
+                  <Card key={member.nombre} style={{ width: '18rem', margin: '15px'}}>
+                  <Card.Img variant="top" src={member.img} />
+                  <Card.Body>
+                    <Card.Title className="mb-3">{member.nombre}</Card.Title>
+                    <Card.Subtitle className="text-muted">{member.titulo}</Card.Subtitle>
+                    <Card.Title>{member.equipo}</Card.Title>
+                  </Card.Body>
+                </Card>
+                )
+              })
+            }
+          </div>
+        </section>
+      </Container>
     </div>
   )
 }

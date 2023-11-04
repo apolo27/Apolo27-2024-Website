@@ -5,8 +5,13 @@
 
 .section-cronologia{
   margin-top: 100px;
+
 }
 
 .cronologia{
   margin-top: 100px;
+}
+
+.carousel-item{
+  height: 720px;
 }

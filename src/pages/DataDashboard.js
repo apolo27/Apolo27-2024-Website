@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import database from '../config/firebase'; 
-import Table from 'react-bootstrap/Table';
+import {Container, Table} from 'react-bootstrap';
 
 
 const DataDashboard = () => {
@@ -66,7 +66,7 @@ const DataDashboard = () => {
     }, [data]);
 
   return(
-    <div >
+    <Container >
       <h1>DATA DASHBOARD</h1>
 
       <Table striped bordered hover>
@@ -89,7 +89,7 @@ const DataDashboard = () => {
         }
       </tbody>
     </Table>
-    </div>
+    </Container>
   )
 }
 
