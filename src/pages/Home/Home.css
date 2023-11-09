@@ -1,0 +1,57 @@
+.hero{
+    border: 0;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    border-radius: 24px 0px 24px 24px;
+    background: linear-gradient(200deg, #40D1FF 13.17%, rgba(47, 79, 89, 0.02) 85%);
+    margin-bottom: 30px;
+}
+
+.windows{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.grafico{
+    color: #FFF;
+    width: 380px;
+    height: 260px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 24px;
+    border: 1px solid #3E4879;
+    background: #161A2C;
+
+}
+
+.mapa{
+    border: 0;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 24px;
+    height: 260px;
+    width: 246px;
+    background-image: url('../../imgs/Home/mapa.png');
+}
+
+.stem-with-us-home{
+    border: 0;
+    height: 260px;
+    width: 246px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 24px;
+background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
+}
+
+.sponsor-us{
+    width: 370px;
+    height: 260px;
+    border: 0;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 24px;
+background: linear-gradient(180deg, #78A3E3 0%, #182E4F 100%);
+}
