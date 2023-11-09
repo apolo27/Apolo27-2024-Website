@@ -135,10 +135,9 @@ function AboutUs(){
   ];
 
   return(
-    <div style={{textAlign: "center"}}>
-      <h1>ABOUT US</h1>
+    <div>
       <Carousel>
-        <Carousel.Item className='carousel-item'>
+        <Carousel.Item>
           <img className='d-block w-100' src={first} alt='first'></img>
           <Carousel.Caption>
             <h3>First slide label</h3>
@@ -185,7 +184,7 @@ function AboutUs(){
               cardSubtitle: '1.75rem',
               cardText: '1rem',
               cardTitle: '1.25rem',
-              title: '2rem',
+              title: '1rem',
             }}
             />
         </section>

@@ -15,3 +15,30 @@
 .carousel-item{
   height: 720px;
 }
+@media screen and (max-width: 1200px){
+  .carousel-item{
+    height: 420px;
+  }
+}
+@media screen and (max-width: 900px){
+  .carousel-item{
+    height: 320px;
+  }
+}
+@media screen and (max-width: 450px){
+  .carousel-item{
+    height: 220px;
+  }
+  .carousel-caption{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 300px){
+  .carousel-item{
+    height: 120px;
+  }
+  .carousel-caption{
+    font-size: 15px;
+  }
+}
