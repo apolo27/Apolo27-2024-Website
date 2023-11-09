@@ -2,7 +2,6 @@ import './Home.css'
 import {Container, Row, Col, Card, Button} from 'react-bootstrap';
 import astronaut from '../../imgs/Home/astronaut.png'
 import grafico from '../../imgs/Home/chart-graphic.png'
-import mapa from '../../imgs/Home/mapa.png'
 import arrow from '../../imgs/Home/arrow.png'
 import stem1 from '../../imgs/Home/stem1.png'
 import stem2 from '../../imgs/Home/stem2.png'
@@ -18,9 +17,9 @@ function Home(){
           <Card className='hero'>
               <Card.Body style={{textAlign: 'left', height: 350}}>
                 <Card.Subtitle style={{fontWeight: 700, fontSize: 15}}>4 TIMES CATEGORY WINNERS AT HERC</Card.Subtitle>
-                <Card.Title className="mb-3" style={{fontWeight: 800, fontSize: 48, width: 1000}}>The First Dominican Republic University Division Winners at 
+                <Card.Title className="hero-title">The First Dominican Republic University Division Winners at 
                 NASA’s Human Exploration Rover Challenge</Card.Title>
-                <Card.Img src={astronaut} style={{width: 360, height: 415, position: 'absolute', right: 0, top: 15}}/>
+                <Card.Img src={astronaut} className='astronaut' style={{width: 360, height: 415, position: 'absolute', right: 0, top: 15}}/>
               </Card.Body>
             </Card>
           </Col>
