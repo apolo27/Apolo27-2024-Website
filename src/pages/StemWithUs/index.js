@@ -44,7 +44,7 @@ const StemWithUs = (props) => {
         endAccessor="end"
         defaultView="month"
         //toolbar={false}
-        style={{height: 500, margin: "50px"}}/>
+        style={{height: 500, margin: "50px", backgroundColor: 'white', color: 'black', padding: '25px', borderRadius: '25px'}}/>
       </div>
       
       <h2>{t('Eventos_Proximos')}</h2>

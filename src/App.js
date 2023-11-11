@@ -4,7 +4,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs/AboutUs.js'
 import DataDashboard from './pages/DataDashboard'
-import Sponsors from './pages/Sponsors.js'
+import Sponsors from './pages/Sponsors'
 import StemWithUs from './pages/StemWithUs';
 import RoverSimulation from './pages/RoverSimulation'
 import { useTranslation } from 'react-i18next'

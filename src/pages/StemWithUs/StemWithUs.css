@@ -1,3 +1,9 @@
+.stem-with-us{
+  background-image: url('../../imgs/StemWithUs/space.png');
+  background-size: contain;
+  background-repeat:space;
+}
+
 .calendario{
 }
 
