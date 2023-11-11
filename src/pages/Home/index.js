@@ -59,11 +59,13 @@ function Home(){
           <div className='card-home'>
             <Card className='sponsor-us'>
               <Card.Body>
-                <Card.Subtitle >Get to know us. Make the difference.</Card.Subtitle>
-                <Card.Title className="mb-3" style={{fontWeight: 600, fontSize: 40}}>Sponsor Us.</Card.Title>
-                <Card.Img src={arrow} style={{width: 83, position: 'absolute', right: 0, top: 0}}/>
-                <Card.Subtitle>Your support will help us get our country
-                the recognition it deserves.</Card.Subtitle>
+                <a href='Sponsors'>
+                  <Card.Subtitle >Get to know us. Make the difference.</Card.Subtitle>
+                  <Card.Title className="mb-3" style={{fontWeight: 600, fontSize: 40}}>Sponsor Us.</Card.Title>
+                  <Card.Img src={arrow} style={{width: 83, position: 'absolute', right: 0, top: 0}}/>
+                  <Card.Subtitle>Your support will help us get our country
+                  the recognition it deserves.</Card.Subtitle>
+                </a>
               </Card.Body>
             </Card>
           </div>

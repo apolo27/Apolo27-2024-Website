@@ -1,0 +1,24 @@
+.data-dashboard-body{
+    margin-bottom: 50PX;
+}
+
+.participants{
+    border-radius: 25px;
+    background-color: rgb(235, 235, 235);
+    color: black;
+    height: 325px;
+}
+
+.Task-List{
+    border-radius: 25px;
+    background-color: rgb(235, 235, 235);
+    color: black;
+    width: 360px;
+    height: 350px;
+    padding-left: 25px;
+    padding-top: 15px;
+}
+
+.row1{
+    margin-bottom: 20px;
+}

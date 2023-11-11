@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;700;800&family=Prata&family=Raleway&display=swap');
 
 :root{
-  --body_background: rgb(235, 235, 235);
-  --body_color: rgb(39, 39, 39);
+  --body_background: #101321;
+  --body_color: aliceblue;
 }
 
 [data-theme="dark"]{
-  --body_background: #101321;
-  --body_color: aliceblue;
+  --body_background: rgb(235, 235, 235);
+  --body_color: rgb(39, 39, 39);
 }
 
 body {

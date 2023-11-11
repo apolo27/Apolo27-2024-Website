@@ -3,7 +3,7 @@ import { Routes, Route} from 'react-router-dom';
 import Header from './components/Header'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs/AboutUs.js'
-import DataDashboard from './pages/DataDashboard.js'
+import DataDashboard from './pages/DataDashboard'
 import Sponsors from './pages/Sponsors.js'
 import StemWithUs from './pages/StemWithUs';
 import RoverSimulation from './pages/RoverSimulation'
