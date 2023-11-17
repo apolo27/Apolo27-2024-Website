@@ -3,7 +3,6 @@ import {Container, Card, Button} from 'react-bootstrap';
 import Grid from '@mui/material/Grid';
 
 import astronaut from '../../imgs/Home/astronaut.png'
-import grafico from '../../imgs/Home/chart-graphic.png'
 import arrow from '../../imgs/Home/arrow.png'
 import stem1 from '../../imgs/Home/stem1.png'
 import stem2 from '../../imgs/Home/stem2.png'

@@ -7,7 +7,7 @@
 
 [data-theme="dark"]{
   --body_background: rgb(235, 235, 235);
-  --body_color: rgb(39, 39, 39);
+  --body_color: #101321;
 }
 
 body {

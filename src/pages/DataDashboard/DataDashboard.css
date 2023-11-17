@@ -1,19 +1,29 @@
 .data-dashboard-body{
-    margin-bottom: 50PX;
+    margin-top: 50PX;
+}
+
+.tab{
+    color: rgba(250, 250, 250, 0.98);
+    font-family: 'poppins', 'sans-serif';
+    border-radius: 12px;
+    border: 1px solid #373F69;
+    background: #101321;
 }
 
 .participants{
-    border-radius: 25px;
-    background-color: rgb(235, 235, 235);
-    color: black;
+    border-radius: 16px;
+    border: 1px solid #3E4879;
+    background-color:#161A2C;
+    color: rgba(250, 250, 250, 0.98);
     height: 325px;
 }
 
 .Task-List{
-    border-radius: 25px;
-    background-color: rgb(235, 235, 235);
-    color: black;
-    width: 360px;
+    border-radius: 16px;
+    border: 1px solid #3E4879;
+    background-color:#161A2C;
+    color: rgba(250, 250, 250, 0.98);
+    width: 300px;
     height: 350px;
     padding-left: 25px;
     padding-top: 15px;
