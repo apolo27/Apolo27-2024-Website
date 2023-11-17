@@ -14,6 +14,9 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+
 const DataDashboard = () => {
   const [data, setData] = useState(null);
   const [processedData, setProcessedData] = useState([]);
@@ -80,12 +83,34 @@ const DataDashboard = () => {
     <Container >
       <h1>DATA DASHBOARD</h1>
       <div className='data-dashboard-body'>
-        <Row className='row1'>
-          <Col sm={8}>
-            <img src={roveracceleration} alt='rovers acceleration' height={325}  ></img>
+      <Tabs defaultActiveKey="dashboard" id="uncontrolled-tab-example" className="mb-3">
+      <Tab eventKey="dashboard" title="Dashboard">
+        Tab content for Home
+        <Col className='Task-List' sm>
+            <h2 style={{fontWeight: '700'}}>Tasks</h2>
+            <FormGroup >
+                <FormControlLabel control={<Checkbox />} label="Find ARV-30" />
+                <FormControlLabel control={<Checkbox />} label="Regolith Removal" />
+                <FormControlLabel control={<Checkbox />} label="Moon Maintenance" />
+                <FormControlLabel control={<Checkbox />} label="Power it up" />
+                <FormControlLabel control={<Checkbox />} label="Rover Redundancy" />
+            </FormGroup>
+        </Col>
+        <Col sm>
+            <iframe src="https://www.google.com/maps/d/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&hl=en&ehbc=2E312F" 
+            width="1000" height="350" 
+            title='Nasa Herc map'></iframe>
           </Col>
+      </Tab>
 
-          <Col className='participants' sm>
+      <Tab eventKey="rover" title="Rover">
+        Tab content for Profile
+        <img src={roveracceleration} alt='rovers acceleration' height={325}  ></img>
+      </Tab>
+
+      <Tab eventKey="pilots" title="Pilots">
+        Tab content for Contact
+        <Col className='participants' sm>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <h2 style={{fontWeight: '700'}}>Crewmembers</h2> 
                 <a href='About-Us' style={{color: 'blue',paddingTop: 10}}>See all</a>
@@ -139,28 +164,16 @@ const DataDashboard = () => {
                     </ListItemButton>
                 </ListItem>
             </List>
-          </Col>
-        </Row>
+        </Col>
+      </Tab>
 
-        <Row className='row2'>
-          <Col className='Task-List' sm>
-            <h2 style={{fontWeight: '700'}}>Tasks</h2>
-            <FormGroup >
-                <FormControlLabel control={<Checkbox />} label="Find ARV-30" />
-                <FormControlLabel control={<Checkbox />} label="Regolith Removal" />
-                <FormControlLabel control={<Checkbox />} label="Moon Maintenance" />
-                <FormControlLabel control={<Checkbox />} label="Power it up" />
-                <FormControlLabel control={<Checkbox />} label="Rover Redundancy" />
-            </FormGroup>
-          </Col>
+      <Tab eventKey="ambient" title="Ambient">
+        Tab content for Contact
+      </Tab>
 
-          <Col sm>
-            <iframe src="https://www.google.com/maps/d/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&hl=en&ehbc=2E312F" 
-            width="1000" height="350" 
-            title='Nasa Herc map'></iframe>
-          </Col>
-        </Row>
+    </Tabs>
       </div>
+
 
       <Table striped bordered hover>
       <thead>
