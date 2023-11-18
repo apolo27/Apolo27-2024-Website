@@ -23,13 +23,13 @@ function Header(){
                   //<Nav.Link href="/Rover-Simulation">Rover Simulation</Nav.Link>
                 }
               </Nav>
-              </Navbar.Collapse>
+            </Navbar.Collapse>
           </div>
-          <Themes />
-          <SelectLanguage />
           <Nav fill variant='tabs'>
             <Button href='/About-Us'>ABOUT THE TEAM</Button>
           </Nav>
+          <Themes />
+          <SelectLanguage />
         </Container>
         </Navbar>
     </div>
