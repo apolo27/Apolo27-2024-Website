@@ -2,7 +2,6 @@ import './Form.css'
 import React, { useState, useRef } from 'react';
 import {TextField, Checkbox, FormGroup, FormControlLabel, Button} from '@mui/material/';
 import emailjs from '@emailjs/browser';
-import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png'
 
 const Form = (props) => {
   const t = props.t;
@@ -27,17 +26,31 @@ const Form = (props) => {
   const HandleSubmit = (e) => {
     e.preventDefault();
 
-      emailjs.sendForm('service_prx1qkr', 'template_x8zmeal', form.current, '6HMNKbrBqDfm-dMBG')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
+    emailjs.sendForm('service_prx1qkr', 'template_x8zmeal', form.current, '6HMNKbrBqDfm-dMBG')
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
   }
+  const inputProps = {
+    style: {
+      backgroundColor: "lightblue",
+      borderRadius: "20px",
+      fontWeight: "600"
+    },
+  };
+
+  const inputLabelProps = {
+    style: {
+      fontWeight: "400",
+      fontSize: "16px"
+    },
+  };
 
   return(
+    
     <section className='section-formulario'>
-      <img src={Fastronaut} alt='Female Astronaut'></img>
       <form ref={form} onSubmit={HandleSubmit} className='formulario'>
         <h4>{t('Solicite')}</h4>
         <TextField 
@@ -48,6 +61,8 @@ const Form = (props) => {
           fullWidth
           margin='normal'
           value={name}
+          inputProps={inputProps}
+          InputLabelProps={inputLabelProps}
           onChange={(e) => {
             setName(e.target.value)}}
             />
@@ -61,6 +76,8 @@ const Form = (props) => {
           fullWidth
           margin='normal'
           value={tel}
+          inputProps={inputProps}
+          InputLabelProps={inputLabelProps}
           onChange={(e) => {
             setTel(e.target.value)}}
             />
@@ -74,6 +91,8 @@ const Form = (props) => {
           fullWidth
           margin='normal'
           value={email}
+          inputProps={inputProps}
+          InputLabelProps={inputLabelProps}
           onChange={(e) => {
             setEmail(e.target.value)}}
           />
@@ -86,35 +105,37 @@ const Form = (props) => {
           fullWidth
           margin='normal'
           value={location}
+          inputProps={inputProps}
+          InputLabelProps={inputLabelProps}
           onChange={(e) => {
             setLocation(e.target.value)}}
           />
         <h4>{t('Areas')}</h4>
         <FormGroup>
           <input type='hidden' value='no' name='salonactividades' disabled={salonActividadesChecked}></input>
-          <FormControlLabel control={<Checkbox name="salonactividades" onChange={() => setSalonActividadesChecked(!salonActividadesChecked)} value={salonActividadesChecked ? "si" : "no"}/>}  label={t('Salon')} />
+          <FormControlLabel control={<Checkbox name="salonactividades" sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}} onChange={() => setSalonActividadesChecked(!salonActividadesChecked)} value={salonActividadesChecked ? "si" : "no"}/>}  label={t('Salon')} />
           
           <input type='hidden' value='no' name='reunionesbajotecho' disabled={bajoTechoChecked}></input>
-          <FormControlLabel control={<Checkbox name="reunionesbajotecho" onChange={() => setBajoTechoChecked(!bajoTechoChecked)} value={bajoTechoChecked ? "si" : "no"} />}  label={t('Bajotecho')}/>
+          <FormControlLabel control={<Checkbox name="reunionesbajotecho" sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}} onChange={() => setBajoTechoChecked(!bajoTechoChecked)} value={bajoTechoChecked ? "si" : "no"} />}  label={t('Bajotecho')}/>
           
           <input type='hidden' value='no' name='laboratorios' disabled={labsChecked}></input>
-          <FormControlLabel control={<Checkbox name="laboratorios" onChange={() => setLabsChecked(!labsChecked)}value={labsChecked ? "si" : "no"} />} label={t('Labs')} />
+          <FormControlLabel control={<Checkbox name="laboratorios" sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}} onChange={() => setLabsChecked(!labsChecked)}value={labsChecked ? "si" : "no"} />} label={t('Labs')} />
         </FormGroup>
 
         <h4>{t('Recursos')}</h4>
 
         <FormGroup>
           <input type='hidden' value='no' name='Proyector' disabled={recurso1}></input>
-          <FormControlLabel control={<Checkbox name="Proyector" onChange={() => setRecurso1(!recurso1)} value={recurso1 ? "si" : "no"}/>}  label={t('Proyector')} />
+          <FormControlLabel control={<Checkbox name="Proyector" sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso1(!recurso1)} value={recurso1 ? "si" : "no"}/>}  label={t('Proyector')} />
           
           <input type='hidden' value='no' name='Pantallas' disabled={recurso2}></input>
-          <FormControlLabel control={<Checkbox name="Pantallas" onChange={() => setRecurso2(!recurso2)} value={recurso2 ? "si" : "no"} />}  label={t('Pantallas')} />
+          <FormControlLabel control={<Checkbox name="Pantallas" sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso2(!recurso2)} value={recurso2 ? "si" : "no"} />}  label={t('Pantallas')} />
           
           <input type='hidden' value='no' name='Bocinas' disabled={recurso3}></input>
-          <FormControlLabel control={<Checkbox name="Bocinas" onChange={() => setRecurso3(!recurso3)}value={recurso3 ? "si" : "no"} />} label={t('Bocinas')} />
+          <FormControlLabel control={<Checkbox name="Bocinas" sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso3(!recurso3)}value={recurso3 ? "si" : "no"} />} label={t('Bocinas')} />
 
           <input type='hidden' value='no' name='Microfonos' disabled={recurso4}></input>
-          <FormControlLabel control={<Checkbox name="Microfonos" onChange={() => setRecurso4(!recurso4)}value={recurso4 ? "si" : "no"} />} label={t('Microfonos')} />
+          <FormControlLabel control={<Checkbox name="Microfonos" sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso4(!recurso4)}value={recurso4 ? "si" : "no"} />} label={t('Microfonos')} />
         </FormGroup>
 
         <h4>{t('Grados')}</h4>
@@ -126,6 +147,8 @@ const Form = (props) => {
           fullWidth
           margin='normal'
           value={grades}
+          inputProps={inputProps}
+          InputLabelProps={inputLabelProps}
           onChange={(e) => {
             setGrades(e.target.value)}}
           />
@@ -142,6 +165,8 @@ const Form = (props) => {
             shrink: true,
           }}
           value={date}
+          inputProps={inputProps}
+          InputLabelProps={inputLabelProps}
           onChange={(e) => {
             setDate(e.target.value)}}
           />
@@ -155,6 +180,8 @@ const Form = (props) => {
           fullWidth
           margin='normal'
           value={message}
+          inputProps={inputProps}
+          InputLabelProps={inputLabelProps}
           onChange={(e) => {
             setMessage(e.target.value)}}
           />

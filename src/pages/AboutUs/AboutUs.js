@@ -1,4 +1,5 @@
 import './AboutUs.css';
+import { useTheme, useMediaQuery } from '@mui/material';
 import {Container, Card, Carousel} from 'react-bootstrap';
 import { Chrono } from "react-chrono";
 import first from '../../imgs/carousel/first.jpg'
@@ -6,8 +7,12 @@ import second from '../../imgs/carousel/second.jpeg'
 import third from '../../imgs/carousel/third.jpg'
 import fourth from '../../imgs/carousel/fourth.jpg'
 
+import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab/';
 
 function AboutUs(){
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+  
   const members = [
     {
       img: 'https://apolo27.com/img/about-us/team-members/ezequiel.png',
@@ -135,7 +140,7 @@ function AboutUs(){
   ];
 
   return(
-    <div>
+    <div style={{textAlign: "center"}}>
       <Carousel>
         <Carousel.Item>
           <img className='d-block w-100' src={first} alt='first'></img>
@@ -171,25 +176,170 @@ function AboutUs(){
       </Carousel>
       
       <Container>
-        <section className='section-cronologia'>
-          <h1>Our Story</h1>
-          <h2>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h2>
-          <Chrono className='cronologia' 
-            items={items} 
-            mode="VERTICAL_ALTERNATING" 
-            allowDynamicUpdate
-            hideControls
-            enableBreakPoint verticalBreakPoint={900}
-            fontSizes={{
-              cardSubtitle: '1.75rem',
-              cardText: '1rem',
-              cardTitle: '1.25rem',
-              title: '1rem',
-            }}
-            />
-        </section>
+        {/*
+          <section className='section-cronologia'>
+            <h1>Our Story</h1>
+            <h2>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h2>
+            <Chrono className='cronologia' 
+              items={items} 
+              mode="VERTICAL_ALTERNATING"
+              scrollable={{ scrollbar: false }}
+              allowDynamicUpdate
+              hideControls
+              enableBreakPoint verticalBreakPoint={900}
+              fontSizes={{
+                cardSubtitle: '1.75rem',
+                cardText: '1rem',
+                cardTitle: '1.25rem',
+                title: '1rem',
+              }}
+              />
+          </section>*/
+        }
+      <h1 style={{marginTop: "25px"}}>Our Story</h1>
+      <h3>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h3>
+      <Timeline position={matches?'alternate':'right'} style={{marginTop: "50px"}}>
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+              <div class="demo-card demo-card--step1">
+                <div class="head">
+                  <div class="number-box">
+                    <span>2019</span>
+                  </div>
+                  <h2><span class="small">Making History</span>Representing DR in NASA HERC</h2>
+                </div>
+                <div class="body">
+                  <p>In 2019, we started with just a few members, and it was a challenging time for us.
+                    But we were determined to represent our country for the first time ever in the NASA
+                    Human Exploration Rover Challenge, and we did just that.</p>
+                  <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2019.jpg" alt="2019" />
+                </div>
+              </div>
+          </TimelineContent>
+        </TimelineItem>
 
-        <section>
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+          <div class="demo-card demo-card--step2">
+              <div class="head">
+                <div class="number-box">
+                  <span>2020</span>
+                </div>
+                <h2><span class="small">Learning from Challenges</span>First Award Amid Global Pandemic</h2>
+              </div>
+              <div class="body">
+                <p>In 2020, despite the challenges posed by the pandemic, we persevered
+                   and learned valuable lessons that helped us grow, which led to win our first award:
+                   "System Safety Award". </p>
+                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2020.jpg" alt="2020" />
+              </div>
+            </div>
+          </TimelineContent>
+        </TimelineItem>
+
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+          <div class="demo-card demo-card--step3">
+              <div class="head">
+                <div class="number-box">
+                  <span>2021</span>
+                </div>
+                <h2><span class="small">Pushing Ourselves to New Heights</span> Adaptation</h2>
+              </div>
+              <div class="body">
+                <p>In 2021, we continued to promote STEM
+                  in our country. Also, we focused in making the Rover's design even better.
+                  We also successfully raised awareness for STEM in 
+                  our country.</p>
+                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2021.jpg" alt="2021" />
+              </div>
+            </div>
+          </TimelineContent>
+        </TimelineItem>
+
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+          <div class="demo-card demo-card--step4">
+              <div class="head">
+                <div class="number-box">
+                  <span>2022</span>
+                </div>
+                <h2><span class="small">Inspiring the Next Generation</span> Winning STEM Engagement Award</h2>
+              </div>
+              <div class="body">
+                <p>In 2022, we focused on even more aspects of STEM. This led us to create the STEM Tour, an event
+                  where we showcased interactive STEM projects.
+                  This year, we won "STEM Engagement Award".</p>
+                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2022.jpg" alt="2022" />
+              </div>
+            </div>
+          </TimelineContent>
+        </TimelineItem>
+        
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            <div class="demo-card demo-card--step5">
+              <div class="head">
+                <div class="number-box">
+                  <span>2023</span>
+                </div>
+                <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
+              </div>
+              <div class="body">
+                <p>In 2023, we're still in the process, but our focus remains on making our rover the best one
+                  yet. We also believe that STEM can change the world, that's why we are committed to push it even more
+                  in our country.</p>
+                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
+              </div>
+            </div>
+          </TimelineContent>
+        </TimelineItem>
+
+        <TimelineItem>
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent>
+            <div class="demo-card demo-card--step5">
+              <div class="head">
+                <div class="number-box">
+                  <span>2024</span>
+                </div>
+                <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
+              </div>
+              <div class="body">
+                <p>In 2024, we're still in the process, but our focus remains on making our rover the best one
+                  yet. We also believe that STEM can change the world, that's why we are committed to push it even more
+                  in our country.</p>
+                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
+              </div>
+            </div>
+          </TimelineContent>
+        </TimelineItem>
+
+      </Timeline>
+        <section style={{marginTop: "50px"}}>
           <h1>Our Members</h1>
           <div className='members'>
             {

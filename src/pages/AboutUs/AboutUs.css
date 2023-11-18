@@ -3,18 +3,119 @@
   flex-wrap: wrap;
 }
 
-.section-cronologia{
-  margin-top: 100px;
-
-}
-
-.cronologia{
-  margin-top: 100px;
-}
-
 .carousel-item{
   height: 720px;
 }
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: 'Poppins';
+  color: 'black';
+}
+
+.head{
+  padding: 5px;
+}
+
+.head h2 span {
+  display: block;
+  font-size: 0.6rem;
+  margin: 0;
+  font-family: 'Poppins';
+}
+
+.equipoPorAnho{
+  display: block;
+  width: 100%;
+}
+
+.body {
+  background: #fff;
+  border: 1px solid rgba(191, 191, 191, 0.4);
+  border-top: 0;
+  padding: 15px;
+  font-family: 'Poppins';
+}
+.demo-card {
+  position: relative;
+  display: block;
+  margin: 10px auto 80px;
+  max-width: 94%;
+  z-index: 2;
+}
+
+.demo-card .head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 400;
+  font-family: 'Poppins';
+} 
+
+.demo-card .head .number-box {
+  display: inline;
+  float: left;
+  margin: 15px;
+  padding: 10px;
+  font-size: 35px;
+  line-height: 35px;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.17);
+  font-family: 'Poppins';
+}
+
+.demo-card .head h2 {
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: inherit;
+  letter-spacing: 2px;
+  margin: 0;
+  padding-bottom: 6px;
+  line-height: 1rem;
+  font-family: 'Poppins';
+}
+.demo-card .body img {
+  display: block;
+  width: 100%;
+}
+.demo-card--step1 {
+  background-color: #46b8e9;
+}
+.demo-card--step1 .head::after {
+  border-color: #46b8e9;
+}
+.demo-card--step2 {
+  background-color: #e9583e;
+}
+.demo-card--step2 .head::after {
+  border-color: #e93e3e;
+}
+.demo-card--step3 {
+  background-color: #eb4343;
+}
+.demo-card--step3 .head::after {
+  border-color: #eb4343;
+}
+.demo-card--step4 {
+  background-color: #4d92eb;
+}
+.demo-card--step4 .head::after {
+  border-color: #4d92eb;
+}
+.demo-card--step5 {
+  background-color: #466fe9;
+}
+.demo-card--step5 .head::after {
+  border-color: #4667e9;
+}
+
+.body p{
+  color: black;
+}
+
 @media screen and (max-width: 1200px){
   .carousel-item{
     height: 420px;
@@ -24,13 +125,43 @@
   .carousel-item{
     height: 320px;
   }
+  .demo-card{
+    width: 400px;
+  }
 }
-@media screen and (max-width: 450px){
+
+
+@media screen and (max-width: 500px){
   .carousel-item{
     height: 220px;
   }
   .carousel-caption{
     font-size: 15px;
+  }
+}
+@media (min-width: 480px) {
+  .demo-card .head h2 span {
+    font-size: 0.8rem;
+    font-family: 'Poppins';
+  }
+}
+@media screen and (max-width: 480px) {
+  .demo-card{
+    width: 305px;
+  }
+  .MuiTimelineItem-positionRight{
+    position: absolute;
+    left: -50px;
+  }
+}
+
+@media screen and (max-width: 360) {
+  .demo-card{
+    width: 200px;
+  }
+  .MuiTimelineItem-positionRight{
+    position: absolute;
+    left: -45px;
   }
 }
 

@@ -37,44 +37,44 @@ const DataDashboard = () => {
     fetchData();
   }, []);
 
-    useEffect(() => {
-      if (data) {
-        const sensorId = Object.keys(data);
-    
-        if (sensorId.length > 0) {
-          const sensorData = data[sensorId]; // Get the data for that sensor
-          const dataToBeProcessed = [
-            {key: "ns", value: sensorData.Ns},
-            {key: "Latitude", value: sensorData.latitude},
-            {key: "Ew", value: sensorData.ew},
-            {key: "Speed", value: sensorData.speed},
-            {key: "Temp", value: sensorData.temp},
-            {key: "Pressure", value: sensorData.pressure},
-            {key: "Elevation", value: sensorData.elevation},
-            {key: "Humidity", value: sensorData.humidity},
-            {key: "accX", value: sensorData.accx},
-            {key: "accY", value: sensorData.accy},
-            {key: "accZ", value: sensorData.accz},
-            {key: "GyroX", value: sensorData.gyrox},
-            {key: "GyroY", value: sensorData.gyroy},
-            {key: "GyroZ", value: sensorData.gyroz},
-            {key: "QuatW", value: sensorData.quatw},
-            {key: "QuatX", value: sensorData.quatx},
-            {key: "QuatY", value: sensorData.quaty},
-            {key: "QuatZ", value: sensorData.quatz},
-            {key: "Counter", value: sensorData.counter},
-          ]
-          
-          setProcessedData(dataToBeProcessed)
-          
+  useEffect(() => {
+    if (data) {
+      const sensorId = Object.keys(data);
+  
+      if (sensorId.length > 0) {
+        const sensorData = data[sensorId]; // Get the data for that sensor
+        const dataToBeProcessed = [
+          {key: "ns", value: sensorData.Ns},
+          {key: "Latitude", value: sensorData.latitude},
+          {key: "Ew", value: sensorData.ew},
+          {key: "Speed", value: sensorData.speed},
+          {key: "Temp", value: sensorData.temp},
+          {key: "Pressure", value: sensorData.pressure},
+          {key: "Elevation", value: sensorData.elevation},
+          {key: "Humidity", value: sensorData.humidity},
+          {key: "accX", value: sensorData.accx},
+          {key: "accY", value: sensorData.accy},
+          {key: "accZ", value: sensorData.accz},
+          {key: "GyroX", value: sensorData.gyrox},
+          {key: "GyroY", value: sensorData.gyroy},
+          {key: "GyroZ", value: sensorData.gyroz},
+          {key: "QuatW", value: sensorData.quatw},
+          {key: "QuatX", value: sensorData.quatx},
+          {key: "QuatY", value: sensorData.quaty},
+          {key: "QuatZ", value: sensorData.quatz},
+          {key: "Counter", value: sensorData.counter},
+        ]
         
-        } else {
-          console.error("Data object is empty.");
-        }
+        setProcessedData(dataToBeProcessed)
+        
+      
       } else {
-        console.error("Data object is undefined or null.");
+        console.error("Data object is empty.");
       }
-    }, [data]);
+    } else {
+      console.error("Data object is undefined or null.");
+    }
+  }, [data]);
 
   return(
     <Container >
@@ -82,8 +82,8 @@ const DataDashboard = () => {
       <Tabs defaultActiveKey="overview" justify={true} variant='pills' className='mb-3'>
 
         <Tab eventKey="overview" title="OVERVIEW" tabClassName='tab'>
-          <Grid container={true} wrap='wrap' justifyContent="space-evenly">
-            <Grid item xs="auto">
+          <Grid container={true} wrap='wrap' justifyContent="space-evenly" rowSpacing={4}>
+            <Grid item xs="auto" order={{xs: 2,  md: 2, lg: 1 }}>
             <div className='Task-List'>
               <h2 style={{fontWeight: '700'}}>Tasks</h2>
               <FormGroup >
@@ -96,19 +96,19 @@ const DataDashboard = () => {
             </div>
             </Grid>
 
-            <Grid item xs="auto">
+            <Grid item xs="auto" order={{xs: 1, md: 1, lg: 2 }}>
               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1" 
-                width="625" height="500" 
+                className='herc-map'
                 title='Nasa Herc map'></iframe>
             </Grid>
 
-            <Grid item xs="auto">
+            <Grid item xs="auto" order={{xs: 3, md: 3, lg: 3 }}>
               <div className='participants'>
               <div style={{display: 'flex', justifyContent: 'space-evenly', paddingTop: "5px"}}>
                   <h2 style={{fontWeight: '700'}}>Crewmembers</h2> 
                   <Button href='About-Us' style={{paddingTop: 10}}>See all</Button>
               </div>
-              <List dense sx={{ width: '100%', maxWidth: 400, bgcolor: '#161A2C' }}>
+              <List dense className='crewmembers'>
                   <ListItem disablePadding>
                       <ListItemButton>
                       <ListItemAvatar>
@@ -117,7 +117,7 @@ const DataDashboard = () => {
                           src="https://apolo27.com/img/about-us/team-members/miguela.png"
                           />
                       </ListItemAvatar>
-                      <ListItemText id={1} primary={"Miguel Arredondo"}  secondary={"Miguel@gmail.com"}/>
+                      <ListItemText id={1} primary={"Miguel Arredondo"} secondary={"Miguel@gmail.com"}/>
                       </ListItemButton>
                   </ListItem>
 

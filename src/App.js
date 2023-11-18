@@ -14,14 +14,14 @@ function App() {
   return (
     <div>
       <Header />
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/About-Us' element={<AboutUs />}/>
-          <Route path='/Data-Dashboard' element={<DataDashboard />}/>
-          <Route path='/Sponsors' element={<Sponsors />}/>
-          <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
-          <Route path='/Rover-Simulation' element={<RoverSimulation />}/>
-        </Routes>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/About-Us' element={<AboutUs />}/>
+        <Route path='/Data-Dashboard' element={<DataDashboard />}/>
+        <Route path='/Sponsors' element={<Sponsors />}/>
+        <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
+        <Route path='/Rover-Simulation' element={<RoverSimulation />}/>
+      </Routes>
     </div>
   );
 }

@@ -1,16 +1,15 @@
 import './StemWithUs.css'
 import React, { useState, useEffect } from "react";
 import i18next from "i18next";
-import { getEvents } from "../../FetchCalendarEvents";
 import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import Container from 'react-bootstrap/Container';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
-import { Card, Button } from "react-bootstrap";
+import { getEvents } from "../../FetchCalendarEvents";
+import {Container, Card, Button } from "react-bootstrap";
 import Form from "../../components/Form";
-
 import pin from "../../imgs/pin.png"
+import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png'
 
 const locales = {
   "en-US": require("date-fns/locale/en-US")
@@ -31,7 +30,7 @@ const StemWithUs = (props) => {
   var today = new Date()
 
   useEffect(() => {
-  //getEvents(setEvents)
+  getEvents(setEvents)
   }, []);
 
   return(
@@ -43,8 +42,8 @@ const StemWithUs = (props) => {
         startAccessor="start" 
         endAccessor="end"
         defaultView="month"
-        //toolbar={false}
-        style={{height: 500, margin: "50px", backgroundColor: 'white', color: 'black', padding: '25px', borderRadius: '25px'}}/>
+        toolbar={false}
+        style={{height: 500, backgroundColor: '#161A2C', color: 'white', padding: '25px', borderRadius: '25px'}}/>
       </div>
       
       <h2>{t('Eventos_Proximos')}</h2>
@@ -64,11 +63,12 @@ const StemWithUs = (props) => {
         })
         }
       </section>
-      </Container>
-        <h1>{t('Contactenos')}</h1>
+      <h1>{t('Contactenos')}</h1>
       <section className="section-formulario">
+        <img src={Fastronaut} className='astronaut' alt='Female Astronaut'></img>
         <Form t={t}/>
       </section>
+      </Container>
     </div>
   )
 }
