@@ -1,4 +1,4 @@
-.btn{
+.buttons .btn{
   border-radius: 16px;
   border: 1px solid #3E4879;
   background-color:#161A2C;
@@ -11,7 +11,9 @@
   justify-content: space-evenly;
   margin-left: 5px;
   margin-right: 5px;
-
+}
+.buttons  .selectedTeam{
+  background-color:#35406b;
 }
 
 .members{

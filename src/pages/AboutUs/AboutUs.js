@@ -2,7 +2,10 @@ import './AboutUs.css';
 import { useState } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
 import {Container, Card, Carousel, Button} from 'react-bootstrap';
+
 import { Chrono } from "react-chrono";
+
+import blankPic from '../../imgs/blank-profile.png'
 import first from '../../imgs/carousel/first.jpg'
 import second from '../../imgs/carousel/second.jpeg'
 import third from '../../imgs/carousel/third.jpg'
@@ -16,7 +19,12 @@ function AboutUs(){
   const [equipoSeleccionado, setEquipoSeleccionado] = useState("All");
   
   function CheckIfAll(){
-    return equipoSeleccionado === "All" ? members : members.filter((member) => member.equipo === equipoSeleccionado)
+    return equipoSeleccionado === "All" ? members : members.filter((member) => member.equipo[0] === equipoSeleccionado || member.equipo[1] === equipoSeleccionado )
+  }
+
+  function handleTeamSelection(team){
+
+    setEquipoSeleccionado(team);
   }
 
   const members = [
@@ -24,49 +32,73 @@ function AboutUs(){
       img: 'https://apolo27.com/img/about-us/team-members/ezequiel.png',
       nombre: "Ezequiel Díaz",
       titulo: "Mechanical Engineering",
-      equipo: "Team Advisor"
+      equipo: ["Team Advisor"]
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/ingrid.png',
       nombre: "miembro 2",
-      titulo: "titulo 2",
-      equipo: "Team Leader"
+      titulo: "Mechatronics Engineering",
+      equipo: ["Team Leader", "Woman"]
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/miguela.png',
       nombre: "miembro 3",
-      titulo: "titulo 3",
-      equipo: "Manufacturing"
+      titulo: "Mechatronics Engineering",
+      equipo: ["Manufacturing"]
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/rosanna.png',
-      nombre: "miembro 4",
-      titulo: "titulo 4",
-      equipo: "Telemetry"
+      nombre: "Rosanna Bautista",
+      titulo: "Software Engineering",
+      equipo: ["Telemetry", "Woman"]
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/faisy.png',
-      nombre: "miembro 5",
-      titulo: "titulo 5",
-      equipo: "STEM"
+      nombre: "Faisy Alcántara",
+      titulo: "Biomedical Engineering",
+      equipo: ["STEM", "Woman"]
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/franmil.png',
-      nombre: "miembro 6",
-      titulo: "titulo 6",
-      equipo: "3D Printing"
+      nombre: "Franmil Estrella",
+      titulo: "Mechatronics Engineering",
+      equipo: ["3D Printing"]
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/raymond.png',
-      nombre: "miembro 7",
-      titulo: "titulo 7",
-      equipo: "Mentor"
+      nombre: "Raymond Ruiz",
+      titulo: "Mechatronics Engineering",
+      equipo: ["Mentor"]
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/guadalupe.png',
-      nombre: "miembro 8",
-      titulo: "titulo 8",
-      equipo: "Manufacturing"
+      nombre: "Guadalupe Bonilla",
+      titulo: "Mechanical Engineering",
+      equipo: ["Manufacturing", "Woman"]
+    },
+    {
+      img: blankPic,
+      nombre: "Vantroi Morillo",
+      titulo: "Electronics & Comunications Engineering",
+      equipo: ["Telemetry"]
+    },
+    {
+      img: blankPic,
+      nombre: "Manuel Guerrero",
+      titulo: "Telemetry Assistant",
+      equipo: ["Telemetry"]
+    },
+    {
+      img: blankPic,
+      nombre: "miembro 9",
+      titulo: "titulo 9",
+      equipo: ["Manufacturing"]
+    },
+    {
+      img: blankPic,
+      nombre: "miembro 10",
+      titulo: "titulo 10",
+      equipo: ["Manufacturing"]
     }
   ]
 
@@ -351,12 +383,13 @@ function AboutUs(){
         <section style={{marginTop: "50px"}}>
           <h1>Our Members</h1>
           <div className='buttons'>
-            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("All")}>All</Button>
-            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("Manufacturing")}>Manufacturing</Button>
-            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("Telemetry")}>Telemetry</Button>
-            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("Mentor")}>Mentors</Button>
-            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("STEM")}>Women in STEM</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "All" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("All")}>All</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Manufacturing" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Manufacturing")}>Manufacturing</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Telemetry" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Telemetry")}>Telemetry</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Mentor" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Mentor")}>Mentors</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Woman" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Woman")}>Women in STEM</Button>
           </div>
+
           <div className='members'>
             {
               CheckIfAll()
@@ -367,7 +400,7 @@ function AboutUs(){
                   <Card.Body>
                     <Card.Title className="mb-3">{member.nombre}</Card.Title>
                     <Card.Subtitle>{member.titulo}</Card.Subtitle>
-                    <Card.Title>{member.equipo}</Card.Title>
+                    <Card.Title>{member.equipo[0]}</Card.Title>
                   </Card.Body>
                 </Card>
                 )
