@@ -1,6 +1,7 @@
 import './AboutUs.css';
+import { useState } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
-import {Container, Card, Carousel} from 'react-bootstrap';
+import {Container, Card, Carousel, Button} from 'react-bootstrap';
 import { Chrono } from "react-chrono";
 import first from '../../imgs/carousel/first.jpg'
 import second from '../../imgs/carousel/second.jpeg'
@@ -12,7 +13,12 @@ import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineCo
 function AboutUs(){
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const [equipoSeleccionado, setEquipoSeleccionado] = useState("All");
   
+  function CheckIfAll(){
+    return equipoSeleccionado === "All" ? members : members.filter((member) => member.equipo === equipoSeleccionado)
+  }
+
   const members = [
     {
       img: 'https://apolo27.com/img/about-us/team-members/ezequiel.png',
@@ -24,43 +30,43 @@ function AboutUs(){
       img: 'https://apolo27.com/img/about-us/team-members/ingrid.png',
       nombre: "miembro 2",
       titulo: "titulo 2",
-      equipo: "equipo 2"
+      equipo: "Team Leader"
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/miguela.png',
       nombre: "miembro 3",
       titulo: "titulo 3",
-      equipo: "equipo 3"
+      equipo: "Manufacturing"
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/rosanna.png',
       nombre: "miembro 4",
       titulo: "titulo 4",
-      equipo: "equipo 4"
+      equipo: "Telemetry"
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/faisy.png',
       nombre: "miembro 5",
       titulo: "titulo 5",
-      equipo: "equipo 5"
+      equipo: "STEM"
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/franmil.png',
       nombre: "miembro 6",
       titulo: "titulo 6",
-      equipo: "equipo 6"
+      equipo: "3D Printing"
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/raymond.png',
       nombre: "miembro 7",
       titulo: "titulo 7",
-      equipo: "equipo 7"
+      equipo: "Mentor"
     },
     {
       img: 'https://apolo27.com/img/about-us/team-members/guadalupe.png',
       nombre: "miembro 8",
       titulo: "titulo 8",
-      equipo: "equipo 8"
+      equipo: "Manufacturing"
     }
   ]
 
@@ -196,160 +202,171 @@ function AboutUs(){
               />
           </section>*/
         }
-      <h1 style={{marginTop: "25px"}}>Our Story</h1>
-      <h3>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h3>
-      <Timeline position={matches?'alternate':'right'} style={{marginTop: "50px"}}>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-              <div class="demo-card demo-card--step1">
+
+        <h1 style={{marginTop: "25px"}}>Our Story</h1>
+        <h3>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h3>
+
+        <Timeline position={matches?'alternate':'right'} style={{marginTop: "50px"}}>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+                <div class="demo-card demo-card--step1">
+                  <div class="head">
+                    <div class="number-box">
+                      <span>2019</span>
+                    </div>
+                    <h2><span class="small">Making History</span>Representing DR in NASA HERC</h2>
+                  </div>
+                  <div class="body">
+                    <p>In 2019, we started with just a few members, and it was a challenging time for us.
+                      But we were determined to represent our country for the first time ever in the NASA
+                      Human Exploration Rover Challenge, and we did just that.</p>
+                    <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2019.jpg" alt="2019" />
+                  </div>
+                </div>
+            </TimelineContent>
+          </TimelineItem>
+
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+            <div class="demo-card demo-card--step2">
                 <div class="head">
                   <div class="number-box">
-                    <span>2019</span>
+                    <span>2020</span>
                   </div>
-                  <h2><span class="small">Making History</span>Representing DR in NASA HERC</h2>
+                  <h2><span class="small">Learning from Challenges</span>First Award Amid Global Pandemic</h2>
                 </div>
                 <div class="body">
-                  <p>In 2019, we started with just a few members, and it was a challenging time for us.
-                    But we were determined to represent our country for the first time ever in the NASA
-                    Human Exploration Rover Challenge, and we did just that.</p>
-                  <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2019.jpg" alt="2019" />
+                  <p>In 2020, despite the challenges posed by the pandemic, we persevered
+                    and learned valuable lessons that helped us grow, which led to win our first award:
+                    "System Safety Award". </p>
+                  <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2020.jpg" alt="2020" />
                 </div>
               </div>
-          </TimelineContent>
-        </TimelineItem>
+            </TimelineContent>
+          </TimelineItem>
 
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-          <div class="demo-card demo-card--step2">
-              <div class="head">
-                <div class="number-box">
-                  <span>2020</span>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+            <div class="demo-card demo-card--step3">
+                <div class="head">
+                  <div class="number-box">
+                    <span>2021</span>
+                  </div>
+                  <h2><span class="small">Pushing Ourselves to New Heights</span> Adaptation</h2>
                 </div>
-                <h2><span class="small">Learning from Challenges</span>First Award Amid Global Pandemic</h2>
+                <div class="body">
+                  <p>In 2021, we continued to promote STEM
+                    in our country. Also, we focused in making the Rover's design even better.
+                    We also successfully raised awareness for STEM in 
+                    our country.</p>
+                  <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2021.jpg" alt="2021" />
+                </div>
               </div>
-              <div class="body">
-                <p>In 2020, despite the challenges posed by the pandemic, we persevered
-                   and learned valuable lessons that helped us grow, which led to win our first award:
-                   "System Safety Award". </p>
-                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2020.jpg" alt="2020" />
-              </div>
-            </div>
-          </TimelineContent>
-        </TimelineItem>
+            </TimelineContent>
+          </TimelineItem>
 
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-          <div class="demo-card demo-card--step3">
-              <div class="head">
-                <div class="number-box">
-                  <span>2021</span>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+            <div class="demo-card demo-card--step4">
+                <div class="head">
+                  <div class="number-box">
+                    <span>2022</span>
+                  </div>
+                  <h2><span class="small">Inspiring the Next Generation</span> Winning STEM Engagement Award</h2>
                 </div>
-                <h2><span class="small">Pushing Ourselves to New Heights</span> Adaptation</h2>
+                <div class="body">
+                  <p>In 2022, we focused on even more aspects of STEM. This led us to create the STEM Tour, an event
+                    where we showcased interactive STEM projects.
+                    This year, we won "STEM Engagement Award".</p>
+                  <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2022.jpg" alt="2022" />
+                </div>
               </div>
-              <div class="body">
-                <p>In 2021, we continued to promote STEM
-                  in our country. Also, we focused in making the Rover's design even better.
-                  We also successfully raised awareness for STEM in 
-                  our country.</p>
-                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2021.jpg" alt="2021" />
+            </TimelineContent>
+          </TimelineItem>
+          
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+              <div class="demo-card demo-card--step5">
+                <div class="head">
+                  <div class="number-box">
+                    <span>2023</span>
+                  </div>
+                  <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
+                </div>
+                <div class="body">
+                  <p>In 2023, we're still in the process, but our focus remains on making our rover the best one
+                    yet. We also believe that STEM can change the world, that's why we are committed to push it even more
+                    in our country.</p>
+                  <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
+                </div>
               </div>
-            </div>
-          </TimelineContent>
-        </TimelineItem>
+            </TimelineContent>
+          </TimelineItem>
 
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-          <div class="demo-card demo-card--step4">
-              <div class="head">
-                <div class="number-box">
-                  <span>2022</span>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+              <div class="demo-card demo-card--step5">
+                <div class="head">
+                  <div class="number-box">
+                    <span>2024</span>
+                  </div>
+                  <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
                 </div>
-                <h2><span class="small">Inspiring the Next Generation</span> Winning STEM Engagement Award</h2>
-              </div>
-              <div class="body">
-                <p>In 2022, we focused on even more aspects of STEM. This led us to create the STEM Tour, an event
-                  where we showcased interactive STEM projects.
-                  This year, we won "STEM Engagement Award".</p>
-                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2022.jpg" alt="2022" />
-              </div>
-            </div>
-          </TimelineContent>
-        </TimelineItem>
-        
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <div class="demo-card demo-card--step5">
-              <div class="head">
-                <div class="number-box">
-                  <span>2023</span>
+                <div class="body">
+                  <p>In 2024, we're still in the process, but our focus remains on making our rover the best one
+                    yet. We also believe that STEM can change the world, that's why we are committed to push it even more
+                    in our country.</p>
+                  <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
                 </div>
-                <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
               </div>
-              <div class="body">
-                <p>In 2023, we're still in the process, but our focus remains on making our rover the best one
-                  yet. We also believe that STEM can change the world, that's why we are committed to push it even more
-                  in our country.</p>
-                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
-              </div>
-            </div>
-          </TimelineContent>
-        </TimelineItem>
+            </TimelineContent>
+          </TimelineItem>
 
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <div class="demo-card demo-card--step5">
-              <div class="head">
-                <div class="number-box">
-                  <span>2024</span>
-                </div>
-                <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
-              </div>
-              <div class="body">
-                <p>In 2024, we're still in the process, but our focus remains on making our rover the best one
-                  yet. We also believe that STEM can change the world, that's why we are committed to push it even more
-                  in our country.</p>
-                <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
-              </div>
-            </div>
-          </TimelineContent>
-        </TimelineItem>
+        </Timeline>
 
-      </Timeline>
         <section style={{marginTop: "50px"}}>
           <h1>Our Members</h1>
+          <div className='buttons'>
+            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("All")}>All</Button>
+            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("Manufacturing")}>Manufacturing</Button>
+            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("Telemetry")}>Telemetry</Button>
+            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("Mentor")}>Mentors</Button>
+            <Button className='selectionButton' onClick={() => setEquipoSeleccionado("STEM")}>Women in STEM</Button>
+          </div>
           <div className='members'>
             {
-              members.map((member) => {
+              CheckIfAll()
+              .map((member) =>{
                 return(
                   <Card key={member.nombre} style={{ width: '18rem', margin: '15px'}}>
                   <Card.Img variant="top" src={member.img} />
                   <Card.Body>
                     <Card.Title className="mb-3">{member.nombre}</Card.Title>
-                    <Card.Subtitle className="text-muted">{member.titulo}</Card.Subtitle>
+                    <Card.Subtitle>{member.titulo}</Card.Subtitle>
                     <Card.Title>{member.equipo}</Card.Title>
                   </Card.Body>
                 </Card>
