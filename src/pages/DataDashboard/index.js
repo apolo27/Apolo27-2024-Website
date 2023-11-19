@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './DataDashboard.css'
 import database from '../../config/firebase'; 
 import {Container, Table, Tab, Tabs, Button} from 'react-bootstrap';
+
 import Grid from '@mui/material/Grid';
+
 import {FormGroup, FormControlLabel, Checkbox} from '@mui/material';
+
 import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar} from '@mui/material';
 
 import {Canvas} from '@react-three/fiber'
@@ -83,83 +86,92 @@ const DataDashboard = () => {
 
         <Tab eventKey="overview" title="OVERVIEW" tabClassName='tab'>
           <Grid container={true} wrap='wrap' justifyContent="space-evenly" rowSpacing={4}>
-            <Grid item xs="auto" order={{xs: 2,  md: 2, lg: 1 }}>
-            <div className='Task-List'>
-              <h2 style={{fontWeight: '700'}}>Tasks</h2>
-              <FormGroup >
-                  <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Find ARV-30" />
-                  <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Regolith Removal" />
-                  <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Moon Maintenance" />
-                  <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Power it up" />
-                  <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Rover Redundancy" />
-              </FormGroup>
-            </div>
+
+            <Grid item xs="auto" order={{xs: 2,  md: 2, lg: 1 }} style={{marginBottom: 0}}>
+              <div className='Task-List'>
+                <h2 style={{fontWeight: '700'}}>Tasks</h2>
+                <FormGroup >
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Find ARV-30" />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Regolith Removal" />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Moon Maintenance" />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Power it up" />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Rover Redundancy" />
+                </FormGroup>
+              </div>
             </Grid>
 
             <Grid item xs="auto" order={{xs: 1, md: 1, lg: 2 }}>
               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1" 
                 className='herc-map'
-                title='Nasa Herc map'></iframe>
+                title='Nasa Herc map'>
+              </iframe>
             </Grid>
 
             <Grid item xs="auto" order={{xs: 3, md: 3, lg: 3 }}>
               <div className='participants'>
-              <div style={{display: 'flex', justifyContent: 'space-evenly', paddingTop: "5px"}}>
-                  <h2 style={{fontWeight: '700'}}>Crewmembers</h2> 
-                  <Button href='About-Us' style={{paddingTop: 10}}>See all</Button>
+                <h2 style={{fontWeight: '700'}}>Crewmembers</h2>
+                <List dense className='crewmembers'>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                        <ListItemAvatar>
+                            <Avatar
+                            alt="Miguel Arredondo"
+                            src="https://apolo27.com/img/about-us/team-members/miguela.png"
+                            />
+                        </ListItemAvatar>
+                        <ListItemText id={1} primary={"Miguel Arredondo"}/>
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                        <ListItemAvatar>
+                            <Avatar
+                            alt="Rosanna Bautista"
+                            src="https://apolo27.com/img/about-us/team-members/rosanna.png"
+                            />
+                        </ListItemAvatar>
+                        <ListItemText id={1} primary={"Rosanna Bautista"}/>
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                        <ListItemAvatar>
+                            <Avatar
+                            alt="Raymond Ruiz"
+                            src="https://apolo27.com/img/about-us/team-members/raymond.png"
+                            />
+                        </ListItemAvatar>
+                        <ListItemText id={1} primary={"Raymond Ruiz"}/>
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                        <ListItemAvatar>
+                            <Avatar
+                            alt="Ingrid Lopez"
+                            src="https://apolo27.com/img/about-us/team-members/ingrid.png"
+                            />
+                        </ListItemAvatar>
+                        <ListItemText id={1} primary={"Ingrid Lopez"} />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
               </div>
-              <List dense className='crewmembers'>
-                  <ListItem disablePadding>
-                      <ListItemButton>
-                      <ListItemAvatar>
-                          <Avatar
-                          alt="Miguel Arredondo"
-                          src="https://apolo27.com/img/about-us/team-members/miguela.png"
-                          />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Miguel Arredondo"} secondary={"Miguel@gmail.com"}/>
-                      </ListItemButton>
-                  </ListItem>
+            </Grid>
 
-                  <ListItem disablePadding>
-                      <ListItemButton>
-                      <ListItemAvatar>
-                          <Avatar
-                          alt="Rosanna Bautista"
-                          src="https://apolo27.com/img/about-us/team-members/rosanna.png"
-                          />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Rosanna Bautista"} secondary={"Rosanna@gmail.com"}/>
-                      </ListItemButton>
-                  </ListItem>
-
-                  <ListItem disablePadding>
-                      <ListItemButton>
-                      <ListItemAvatar>
-                          <Avatar
-                          alt="Raymond Ruiz"
-                          src="https://apolo27.com/img/about-us/team-members/raymond.png"
-                          />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Raymond Ruiz"} secondary={"Raymond@gmail.com"} />
-                      </ListItemButton>
-                  </ListItem>
-
-                  <ListItem disablePadding>
-                      <ListItemButton>
-                      <ListItemAvatar>
-                          <Avatar
-                          alt="Ingrid Lopez"
-                          src="https://apolo27.com/img/about-us/team-members/ingrid.png"
-                          />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Ingrid Lopez"}  secondary={"Ingrid@gmail.com"}/>
-                      </ListItemButton>
-                  </ListItem>
-              </List>
+            <Grid item xs={6} lg={6} order={{xs: 4, md: 4, lg: 4 }}>
+              <div className='graph'>
+              </div>
+            </Grid>
+            <Grid item xs={6} lg={6} order={{xs: 4, md: 4, lg: 4 }}>
+              <div className='graph'>
               </div>
             </Grid>
           </Grid>
+
         </Tab>
 
         <Tab eventKey="rover" title="ROVER" tabClassName='tab'>
