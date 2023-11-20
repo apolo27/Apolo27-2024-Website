@@ -98,6 +98,9 @@ const DataDashboard = () => {
                     <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Rover Redundancy" />
                 </FormGroup>
               </div>
+              <div className='graph'>
+              </div>
+            
             </Grid>
 
             <Grid item xs="auto" order={{xs: 1, md: 1, lg: 2 }}>
@@ -160,13 +163,6 @@ const DataDashboard = () => {
                     </ListItem>
                 </List>
               </div>
-            </Grid>
-
-            <Grid item xs={6} lg={6} order={{xs: 4, md: 4, lg: 4 }}>
-              <div className='graph'>
-              </div>
-            </Grid>
-            <Grid item xs={6} lg={6} order={{xs: 4, md: 4, lg: 4 }}>
               <div className='graph'>
               </div>
             </Grid>
