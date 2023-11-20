@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
 import './DataDashboard.css'
+import React, { useEffect, useState } from 'react';
 import database from '../../config/firebase'; 
 import {Container, Table, Tab, Tabs, Button} from 'react-bootstrap';
 
-import Grid from '@mui/material/Grid';
-
-import {FormGroup, FormControlLabel, Checkbox} from '@mui/material';
-
+import {Grid, FormGroup, FormControlLabel, Checkbox} from '@mui/material';
 import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar} from '@mui/material';
 
 import {Canvas} from '@react-three/fiber'
 import {useGLTF, Stage, PresentationControls} from '@react-three/drei'
+
+import tempIcon from '../../imgs/DataDashboard/tempIcon.png'
 
 function Model(props){
   const {scene} = useGLTF("/rover.glb")
@@ -20,6 +19,7 @@ function Model(props){
 const DataDashboard = () => {
   const [data, setData] = useState(null);
   const [processedData, setProcessedData] = useState([]);
+  const [surroundingTemp, setSurroundingTemp] = useState("61");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,7 +87,7 @@ const DataDashboard = () => {
         <Tab eventKey="overview" title="OVERVIEW" tabClassName='tab'>
           <Grid container={true} wrap='wrap' justifyContent="space-evenly" rowSpacing={4}>
 
-            <Grid item xs="auto" order={{xs: 2,  md: 2, lg: 1 }} style={{marginBottom: 0}}>
+            <Grid item xs="auto" order={{xs: 2,  md: 2, lg: 1 }}>
               <div className='Task-List'>
                 <h2 style={{fontWeight: '700'}}>Tasks</h2>
                 <FormGroup >
@@ -163,7 +163,15 @@ const DataDashboard = () => {
                     </ListItem>
                 </List>
               </div>
-              <div className='graph'>
+              <div className='environment-sneakpeek'>
+                <h2 style={{fontWeight: '700'}}>Surrounding Temp.</h2>
+                <div className='temperatura'>
+                  <div className='icono-temperatura'>
+                    <img alt='termometer' src={tempIcon}></img>
+                  </div>
+                  <h2 style={{fontWeight: '500', fontSize: '48px'}}>{surroundingTemp}<span style={{fontSize: '14px', paddingBottom: "15px"}}>°F</span></h2>
+                  
+                </div>
               </div>
             </Grid>
           </Grid>
