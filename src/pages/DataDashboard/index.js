@@ -99,6 +99,7 @@ const DataDashboard = () => {
                 </FormGroup>
               </div>
               <div className='graph'>
+                <h2 style={{fontWeight: '700'}}>Rover's Acceleration</h2>
               </div>
             
             </Grid>

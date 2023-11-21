@@ -103,8 +103,13 @@
         height: 500px;
     }
 
-    .Task-List, .participants, .graph{
+    .Task-List, .participants, .graph, .environment-sneakpeek{
         width: 350px;
+    }
+
+    .graph{
+        padding: 10px;
+        height: 250px;
     }
 
 }
