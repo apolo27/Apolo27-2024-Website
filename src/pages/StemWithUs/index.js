@@ -35,39 +35,38 @@ const StemWithUs = (props) => {
 
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
-      <h1>STEM WITH US</h1>
       <Container>
-      <div className="calendario">
+        
         <Calendar localizer={localizer} events={events} 
-        startAccessor="start" 
-        endAccessor="end"
-        defaultView="month"
-        toolbar={false}
-        style={{height: 500, backgroundColor: '#161A2C', color: 'white', padding: '25px', borderRadius: '25px'}}/>
-      </div>
-      
-      <h2>{t('Eventos_Proximos')}</h2>
-      <section className="eventos">
-      {
-        events.map((event) => {
-          return(
-            <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
-              <Card.Body style={{backgroundColor: '#F1AEAE'}}>
-                <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
-                <Card.Title>{event.title}</Card.Title>
-                <Card.Text> <img src={pin} alt='pin' width={20}></img> {event.location}</Card.Text>
-                <Button href={event.htmlLink}>{t('Seguir')}</Button>
-              </Card.Body>
-            </Card>
-            )
-        })
-        }
-      </section>
-      <h1>{t('Contactenos')}</h1>
-      <section className="section-formulario">
-        <img src={Fastronaut} className='astronaut' alt='Female Astronaut'></img>
-        <Form t={t}/>
-      </section>
+          className="calendario"
+          startAccessor="start" 
+          endAccessor="end"
+          defaultView="month"
+          toolbar={false}
+          style={{height: 500, backgroundColor: '#161A2C', color: 'white', padding: '25px', borderRadius: '25px'}}/>
+        
+        <h2>{t('Eventos_Proximos')}</h2>
+        <section className="eventos">
+        {
+          events.map((event) => {
+            return(
+              <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
+                <Card.Body style={{backgroundColor: '#F1AEAE'}}>
+                  <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
+                  <Card.Title>{event.title}</Card.Title>
+                  <Card.Text> <img src={pin} alt='pin' width={20}></img> {event.location}</Card.Text>
+                  <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                </Card.Body>
+              </Card>
+              )
+          })
+          }
+        </section>
+        <h1>{t('Contactenos')}</h1>
+        <section className="section-formulario">
+          <img src={Fastronaut} className='astronaut' alt='Female Astronaut'></img>
+          <Form t={t}/>
+        </section>
       </Container>
     </div>
   )

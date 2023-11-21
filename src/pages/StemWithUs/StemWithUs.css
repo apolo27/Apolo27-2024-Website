@@ -3,6 +3,7 @@
   background-size: contain;
   background-repeat:space;
 }
+
 .eventos{
   display: flex;
   flex-wrap: wrap;
@@ -22,5 +23,8 @@
 @media screen and (max-width: 900px) {
   .astronaut{
     display: none;
+  }
+  .calendario{
+    height: 350px;
   }
 }
