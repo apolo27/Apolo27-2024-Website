@@ -48,9 +48,9 @@ function Home(){
                   <a href='Stem-With-Us'>
                       <Card.Title className="stem-Title">Stem 101</Card.Title>
                       <Card.Subtitle className='stem-SubTitle'>Learn fun DIY Projects with Apolo 27!</Card.Subtitle>
-                      <Card.Img src={stem1} style={{width: 190, position: 'absolute', top: 115, right: -50}}/>
-                      <Card.Img src={stem2} style={{width: 189, position: 'absolute', left: -50}}/>
-                      <Card.Img src={stem3} style={{width: 83, position: 'absolute', left: 75, top: 75}}/>
+                      <Card.Img src={stem1} className='stemChar1' />
+                      <Card.Img src={stem2} className='stemChar2' />
+                      <Card.Img src={stem3} className='stemChar3' />
                   </a>
                 </Card.Body>
               </Card>

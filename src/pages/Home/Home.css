@@ -56,6 +56,26 @@
 background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
 }
 
+.stemChar1{
+    width: 250px;
+    position: 'absolute';
+    top: 115px;
+    right: -50px;
+}
+
+.stemChar2{
+    width: 189px;
+    position: 'absolute';
+    left: -50px;
+}
+
+.stemChar3{
+    width: 83px;
+    position: 'absolute';
+    left: 75px;
+    top: 75px;
+}
+
 .sponsor-us{
     width: 370px;
     height: 260px;
@@ -79,6 +99,29 @@ background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
     .hero-subtitle{
         font-size: 1vw;
         font-weight: 700;
+    }
+
+    .mapa, .grafico, .stem-with-us-home, .sponsor-us{
+        width: 400px;
+    }
+
+    .stemChar1{
+        top: 115px;
+        position: absolute;
+        right: -50px;
+    }
+    
+    .stemChar2{
+        left: -50px;
+        position: absolute;
+        width: 275px;
+    }
+    
+    .stemChar3{
+        left: 150px;
+        position: absolute;
+        top: 75px;
+        width: 100px;
     }
 }
 
@@ -112,11 +155,6 @@ background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
         font-size: 3vw;
         font-weight: 700;
     }
-
-    .astronaut{
-        visibility: hidden;
-    }
-
     .grafico{
         width: 515px;
         height: 275px;
@@ -140,5 +178,30 @@ background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
     .card{
         max-width: 300px;
         width: 300px;
+    }
+
+    .stem-Title{
+        font-weight: 800;
+        font-size: 8vw;
+    }
+
+    .stemChar1{
+        top: 115px;
+        position: absolute;
+        right: -45px;
+        width: 185px;
+    }
+    
+    .stemChar2{
+        left: -50px;
+        position: absolute;
+        width: 200px;
+    }
+    
+    .stemChar3{
+        left: 100px;
+        position: absolute;
+        top: 75px;
+        width: 100px;
     }
 }
