@@ -99,7 +99,7 @@ const DataDashboard = () => {
                 </FormGroup>
               </div>
               <div className='graph'>
-                <h2 style={{fontWeight: '700'}}>Rover's Acceleration</h2>
+                <h4 style={{fontWeight: '700'}}>Rover's Acceleration</h4>
               </div>
             
             </Grid>
@@ -165,13 +165,12 @@ const DataDashboard = () => {
                 </List>
               </div>
               <div className='environment-sneakpeek'>
-                <h2 style={{fontWeight: '700'}}>Surrounding Temp.</h2>
+                <h4 style={{fontWeight: '700'}}>Surrounding Temp.</h4>
                 <div className='temperatura'>
                   <div className='icono-temperatura'>
                     <img alt='termometer' src={tempIcon}></img>
                   </div>
                   <h2 style={{fontWeight: '500', fontSize: '48px'}}>{surroundingTemp}<span style={{fontSize: '14px', paddingBottom: "15px"}}>°F</span></h2>
-                  
                 </div>
               </div>
             </Grid>
