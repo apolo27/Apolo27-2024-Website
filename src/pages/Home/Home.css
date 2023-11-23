@@ -53,25 +53,25 @@
     width: 246px;
     font-family: 'Poppins', sans-serif;
     border-radius: 24px;
-background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
+    background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
 }
 
 .stemChar1{
-    width: 250px;
     position: 'absolute';
+    width: 175px;
     top: 115px;
-    right: -50px;
+    right: -35px;
 }
 
 .stemChar2{
-    width: 189px;
     position: 'absolute';
+    width: 190px;
     left: -50px;
 }
 
 .stemChar3{
-    width: 83px;
     position: 'absolute';
+    width: 83px;
     left: 75px;
     top: 75px;
 }
@@ -106,15 +106,18 @@ background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
     }
 
     .stemChar1{
-        top: 115px;
+        width: 225px;
+        top: 15px;
         position: absolute;
-        right: -50px;
+        top: 100px;
+        right: -25px;
     }
     
     .stemChar2{
-        left: -50px;
-        position: absolute;
         width: 275px;
+        top: 35px;
+        left: -75px;
+        position: absolute;
     }
     
     .stemChar3{
@@ -138,6 +141,33 @@ background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
         font-weight: 700;
     }
 
+    .stem-Title{
+        font-weight: 800;
+        font-size: 4vw;
+    }
+
+    .stemChar1{
+        width: 225px;
+        top: 15px;
+        position: absolute;
+        top: 100px;
+        right: -25px;
+    }
+    
+    .stemChar2{
+        width: 275px;
+        top: 35px;
+        left: -75px;
+        position: absolute;
+    }
+    
+    .stemChar3{
+        left: 150px;
+        position: absolute;
+        top: 75px;
+        width: 100px;
+    }
+
     .astronaut{
         visibility: hidden;
     }
@@ -155,6 +185,34 @@ background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
         font-size: 3vw;
         font-weight: 700;
     }
+
+    .stem-Title{
+        font-weight: 800;
+        font-size: 6vw;
+    }
+
+    .stemChar1{
+        width: 225px;
+        top: 15px;
+        position: absolute;
+        top: 100px;
+        right: -25px;
+    }
+    
+    .stemChar2{
+        width: 275px;
+        top: 35px;
+        left: -75px;
+        position: absolute;
+    }
+    
+    .stemChar3{
+        left: 150px;
+        position: absolute;
+        top: 75px;
+        width: 100px;
+    }
+
     .grafico{
         width: 515px;
         height: 275px;
@@ -193,9 +251,10 @@ background: linear-gradient(180deg, #55E9C5 0%, #255247 100%);
     }
     
     .stemChar2{
+        width: 200px;
+        top: 75px;
         left: -50px;
         position: absolute;
-        width: 200px;
     }
     
     .stemChar3{

@@ -5,7 +5,7 @@ import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
-import { getEvents } from "../../FetchCalendarEvents";
+import { getEvents } from "../../services/FetchCalendarEvents";
 import {Container, Card, Button } from "react-bootstrap";
 import Form from "../../components/Form";
 import pin from "../../imgs/pin.png"
@@ -64,7 +64,7 @@ const StemWithUs = (props) => {
         </section>
         <h1>{t('Contactenos')}</h1>
         <section className="section-formulario">
-          <img src={Fastronaut} className='astronaut' alt='Female Astronaut'></img>
+          <img src={Fastronaut} className='astronautStem' alt='Female Astronaut'></img>
           <Form t={t}/>
         </section>
       </Container>

@@ -5,7 +5,7 @@ import App from './App';
 import './fonts/nasalization-rg.otf';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css'
-import './i18n'
+import './services/i18n'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

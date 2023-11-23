@@ -1,6 +1,6 @@
 import './DataDashboard.css'
 import React, { useEffect, useState } from 'react';
-import database from '../../config/firebase'; 
+import database from '../../services/firebase'; 
 import {Container, Table, Tab, Tabs, Button} from 'react-bootstrap';
 
 import {Grid, FormGroup, FormControlLabel, Checkbox} from '@mui/material';
@@ -87,7 +87,7 @@ const DataDashboard = () => {
         <Tab eventKey="overview" title="OVERVIEW" tabClassName='tab'>
           <Grid container={true} wrap='wrap' justifyContent="space-evenly" rowSpacing={4}>
 
-            <Grid item xs="auto" order={{xs: 2,  md: 2, lg: 1 }}>
+            <Grid item xs="auto" order={{xs: 2,  md: 3, lg: 2, xl: 1 }}>
               <div className='Task-List'>
                 <h2 style={{fontWeight: '700'}}>Tasks</h2>
                 <FormGroup >
@@ -104,14 +104,14 @@ const DataDashboard = () => {
             
             </Grid>
 
-            <Grid item xs="auto" order={{xs: 1, md: 1, lg: 2 }}>
+            <Grid item xs="auto" order={{xs: 1, md: 1, lg: 1, xl: 2 }}>
               <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1" 
                 className='herc-map'
                 title='Nasa Herc map'>
               </iframe>
             </Grid>
 
-            <Grid item xs="auto" order={{xs: 3, md: 3, lg: 3 }}>
+            <Grid item xs="auto" order={{xs: 3, md: 3, lg: 3, xl: 3 }}>
               <div className='participants'>
                 <h2 style={{fontWeight: '700'}}>Crewmembers</h2>
                 <List dense className='crewmembers'>

@@ -19,7 +19,9 @@ function Header(){
                 <Nav.Link href="/Data-Dashboard">DATA DASHBOARD</Nav.Link>
                 <Nav.Link href="/Stem-With-Us">STEM WITH US</Nav.Link>
                 <Nav.Link href="/Sponsors">BECOME A SPONSOR</Nav.Link>
-                  <Nav.Link href="/Rover-Simulation">Rover Simulation</Nav.Link>
+                {
+                  window.screen.width >= 1280 ? <Nav.Link href="/Rover-Simulation">ROVER SIMULATION</Nav.Link> : <></>
+                }
               </Nav>
             </Navbar.Collapse>
           </div>

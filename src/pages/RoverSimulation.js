@@ -1,5 +1,5 @@
-import React from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
+import {isMobile} from 'react-device-detect';
 
 function RoverSimulation(){
   const { unityProvider } = useUnityContext({
@@ -9,13 +9,19 @@ function RoverSimulation(){
     codeUrl: "Build/Build.wasm",
   });
 
-
-  return(
-    <div style={{textAlign: "center"}}>
-      <h1>Rover Simulation</h1>
-      <Unity unityProvider={unityProvider} style={{width: 1080}}/>
-    </div>
-  )
+  if(window.screen.width < 1280) {
+    return (
+        <div style={{textAlign: 'center', fontWeight: 700, fontSize: '48px'}}>Try the simulation on a Laptop or Desktop Computer</div>
+    )
+    }
+    else{
+      return (
+        <div style={{textAlign: 'center'}}>
+          <h1>Rover Simulation</h1>
+          <Unity unityProvider={unityProvider} style={{width: 1080}}/>
+        </div>
+      )
+    }
 }
 
 export default RoverSimulation;

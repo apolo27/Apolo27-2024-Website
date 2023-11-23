@@ -96,15 +96,24 @@
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1366px){
+@media screen and (max-width: 1400px){
+    .herc-map{
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .herc-map{
+        width: 800px;
+    }
     .environment-sneakpeek, .participants{
-        display: none;
+        display: block;
     }
 }
 
 @media screen and (max-width: 720px){
     .herc-map{
-        width: 100%;
+        width: 350px;
         height: 500px;
     }
 
@@ -119,8 +128,3 @@
 
 }
 
-@media screen and (max-width: 600px){
-    .environment-sneakpeek, .participants{
-        display: block;
-    }
-}
