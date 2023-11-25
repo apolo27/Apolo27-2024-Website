@@ -1,6 +1,33 @@
 {
-  "Hola_Mundo": "Hello World",
-  "Me_gusta_bailar": "I like to dance",
+  "DATA-DASHBOARD": "DATA DASHBOARD",
+  "STEM-WITH-US": "STEM WITH US",
+  "ABOUT-THE-TEAM": "ABOUT THE TEAM",
+  "ROVER-SIMULATION": "ROVER SIMULATION",
+  "BECOME-A-SPONSOR": "BECOME A SPONSOR",
+  "Hero-Title": "The First Dominican Republic University Division Winners at NASA’s Human Exploration Rover Challenge",
+  "Hero-Sub":"4 times category winners",
+  "Live-location":"Live location",
+  "Rovers-data":"Rover's data",
+  "Learn-projects":"Learn fun DIY projects with Apolo 27!",
+  "GetToKnowUs":"Get to know us. Make the difference.",
+  "Sponsor-us": "Sponsor Us",
+  "Sponsor-us-Sub": "Your support will help us get our country the recognition it deserves.",
+  
+  "Tasks": "Tasks",
+  "Fin-ARV": "Fin ARV-30",
+  "Regolith-removal": "Regolith Removal",
+  "Moon-maintenance": "Moon Maintenance",
+  "Power-it-up": "Power it up",
+  "Rover-Redundancy": "Rover Redundancy",
+
+  "Herc-map": "Nasa HERC Contests map. Huntsville Alabama",
+  
+  "Pilots": "Pilots",
+
+  "Surrounding-temp": "Surrounding Temp.",
+
+  "Rovers-Accel": "Rover's Acceleration",
+
   "Eventos_Proximos": "Upcoming Events",
   "Seguir": "Follow",
 

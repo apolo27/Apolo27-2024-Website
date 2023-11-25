@@ -27,8 +27,6 @@ const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
   const t = props.t;
 
-  var today = new Date()
-
   useEffect(() => {
   //getEvents(setEvents)
   }, []);

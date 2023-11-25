@@ -1,6 +1,33 @@
 {
-  "Hola_Mundo": "Hola mundo",
-  "Me_gusta_bailar": "Me gusta bailar",
+  "DATA-DASHBOARD": "PANEL DE DATOS",
+  "STEM-WITH-US": "STEM CON NOSOTROS",
+  "ABOUT-THE-TEAM": "ACERCA DEL EQUIPO",
+  "ROVER-SIMULATION": "SIMULACIÓN DE ROVER",
+  "BECOME-A-SPONSOR": "PATROCINADORES",
+  "Hero-Title": "Los primeros ganadores de la División Universitaria de República Dominicana en el Nasa HERC",
+  "Hero-Sub":"4 veces ganadores de categoría",
+  "Live-location":"Ubicación en tiempo real",
+  "Rovers-data":"Datos del Rover",
+  "learn-projects":"Construye proyectos divertidos con Apolo 27!",
+  "GetToKnowUs":"Conócenos, haz la diferencia",
+  "Sponsor-us": "Patrocinanos",
+  "Sponsor-us-Sub": "Su apoyo nos ayudará a darle al país el reconocimiento que se merece.",
+
+  "Tasks": "Tareas",
+  "Fin-ARV": "Encuentre ARV-30",
+  "Regolith-removal": "Eliminación de regolita",
+  "Moon-maintenance": "Mantenimiento lunar",
+  "Power-it-up": "Enciendelo",
+  "Rover-Redundancy": "Redundancia del rover",
+
+  "Herc-map": "Mapa de la competencia   Nasa HERC. Huntsville Alabama",
+
+  "Pilots": "Pilotos",
+
+  "Surrounding-temp": "Temperatura del entorno",
+
+  "Rovers-Accel": "Aceleración del Rover",
+
   "Eventos_Proximos": "Eventos Próximos",
   "Seguir": "Seguir",
 

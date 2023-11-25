@@ -8,8 +8,9 @@ import stem1 from '../../imgs/Home/stem1.png'
 import stem2 from '../../imgs/Home/stem2.png'
 import stem3 from '../../imgs/Home/stem3.png'
 
-function Home(){
-  
+function Home(props){
+  const t = props.t;
+
   return(
     <div>
       <Container>
@@ -18,9 +19,8 @@ function Home(){
           <Grid item xs="auto ">
             <Card className='hero'>
               <Card.Body style={{textAlign: 'left', height: 350, zIndex: 0}}>
-                <Card.Subtitle className='hero-subtitle'>4 TIMES CATEGORY WINNERS AT HERC</Card.Subtitle>
-                <Card.Title className="hero-title">The First Dominican Republic University Division Winners at 
-                NASA’s Human Exploration Rover Challenge</Card.Title>
+                <Card.Subtitle className='hero-subtitle'>{t('Hero-Sub')}</Card.Subtitle>
+                <Card.Title className="hero-title">{t('Hero-Title')}</Card.Title>
                 <Card.Img src={astronaut} className='astronaut' style={{width: 360, height: 415, position: 'absolute', right: 0, top: 15, zIndex: -1}}/>
               </Card.Body>
             </Card>
@@ -28,7 +28,7 @@ function Home(){
             <Grid item xs= "auto">
               <Card className='grafico'>
                 <Card.Body>
-                  <Button href='/Data-Dashboard' style={{position: 'absolute'}}>Rover's data</Button>
+                  <Button href='/Data-Dashboard' style={{position: 'absolute'}}>{t('Rovers-data')}</Button>
                   
                 </Card.Body>
               </Card>
@@ -37,7 +37,7 @@ function Home(){
             <Grid item xs="auto">
               <Card className='mapa'>
                 <Card.Body>
-                  <Button href='Data-Dashboard' style={{position: 'absolute'}}>Live location</Button>
+                  <Button href='Data-Dashboard' style={{position: 'absolute'}}>{t('Live-location')}</Button>
                 </Card.Body>
               </Card>
             </Grid>
@@ -47,7 +47,7 @@ function Home(){
                 <Card.Body>
                   <a href='Stem-With-Us'>
                       <Card.Title className="stem-Title">Stem 101</Card.Title>
-                      <Card.Subtitle className='stem-SubTitle'>Learn fun DIY Projects with Apolo 27!</Card.Subtitle>
+                      <Card.Subtitle className='stem-SubTitle'>{t('learn-projects')}</Card.Subtitle>
                       <Card.Img src={stem1} className='stemChar1' style={{position: 'absolute'}}/>
                       <Card.Img src={stem2} className='stemChar2' style={{position: 'absolute'}}/>
                       <Card.Img src={stem3} className='stemChar3' style={{position: 'absolute'}}/>
@@ -60,11 +60,10 @@ function Home(){
               <Card className='sponsor-us'>
                 <Card.Body>
                   <a href='Sponsors'>
-                    <Card.Subtitle >Get to know us. Make the difference.</Card.Subtitle>
-                    <Card.Title className="mb-3" style={{fontWeight: 600, fontSize: 40}}>Sponsor Us.</Card.Title>
+                    <Card.Subtitle >{t('GetToKnowUs')}</Card.Subtitle>
+                    <Card.Title className="mb-3" style={{fontWeight: 600, fontSize: 40}}>{t('Sponsor-us')}</Card.Title>
                     <Card.Img src={arrow} style={{width: 83, position: 'absolute', right: 0, top: 0}}/>
-                    <Card.Subtitle>Your support will help us get our country
-                    the recognition it deserves.</Card.Subtitle>
+                    <Card.Subtitle>{t('Sponsor-us-Sub')}</Card.Subtitle>
                   </a>
                 </Card.Body>
               </Card>

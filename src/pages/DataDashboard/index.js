@@ -16,7 +16,8 @@ function Model(props){
   return <primitive object={scene} {...props} />
 }
 
-const DataDashboard = () => {
+const DataDashboard = (props) => {
+  const t = props.t;
   const [data, setData] = useState(null);
   const [processedData, setProcessedData] = useState([]);
   const [surroundingTemp, setSurroundingTemp] = useState("61");
@@ -89,17 +90,17 @@ const DataDashboard = () => {
 
             <Grid item xs="auto" order={{xs: 2,  md: 3, lg: 2, xl: 1 }}>
               <div className='Task-List'>
-                <h2 style={{fontWeight: '700'}}>Tasks</h2>
+                <h2 style={{fontWeight: '700'}}>{t('Tasks')}</h2>
                 <FormGroup >
-                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Find ARV-30" />
-                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Regolith Removal" />
-                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Moon Maintenance" />
-                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Power it up" />
-                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label="Rover Redundancy" />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Find-ARV')} />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Regolith-removal')} />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Moon-maintenance')} />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Power-it-up')} />
+                    <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Rover-redundancy')}/>
                 </FormGroup>
               </div>
               <div className='graph'>
-                <h4 style={{fontWeight: '700'}}>Rover's Acceleration</h4>
+                <h4 style={{fontWeight: '700'}}>{t('Rovers-Accel')}</h4>
               </div>
             
             </Grid>
@@ -113,7 +114,7 @@ const DataDashboard = () => {
 
             <Grid item xs="auto" order={{xs: 3, md: 3, lg: 3, xl: 3 }}>
               <div className='participants'>
-                <h2 style={{fontWeight: '700'}}>Crewmembers</h2>
+                <h2 style={{fontWeight: '700'}}>{t('Pilots')}</h2>
                 <List dense className='crewmembers'>
                     <ListItem disablePadding>
                         <ListItemButton>
@@ -165,12 +166,12 @@ const DataDashboard = () => {
                 </List>
               </div>
               <div className='environment-sneakpeek'>
-                <h4 style={{fontWeight: '700'}}>Surrounding Temp.</h4>
+                <h4 style={{fontWeight: '700'}}>{t('Surrounding-temp')}</h4>
                 <div className='temperatura'>
                   <div className='icono-temperatura'>
                     <img alt='termometer' src={tempIcon}></img>
                   </div>
-                  <h2 style={{fontWeight: '500', fontSize: '48px'}}>{surroundingTemp}<span style={{fontSize: '14px', paddingBottom: "15px"}}>°F</span></h2>
+                  <h2 >{surroundingTemp}<span style={{fontSize: '14px', paddingBottom: "15px"}}>°F</span></h2>
                 </div>
               </div>
             </Grid>

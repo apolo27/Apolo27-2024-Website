@@ -8,3 +8,22 @@
     url("../../fonts/nasalization-rg.otf") format("truetype");
   font-weight: bold;
 }
+
+@media screen and (max-width: 1366px){
+  .nav-link{
+    font-size: 14px;
+    font-weight: 700;
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .nav-link{
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .btnAboutUs{
+    font-size: 12px;
+  }
+}

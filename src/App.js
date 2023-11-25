@@ -13,14 +13,14 @@ function App() {
   const {t} = useTranslation();
   return (
     <div>
-      <Header />
+      <Header t={t}/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/About-Us' element={<AboutUs />}/>
-        <Route path='/Data-Dashboard' element={<DataDashboard />}/>
-        <Route path='/Sponsors' element={<Sponsors />}/>
+        <Route path='/' element={<Home t={t}/>}/>
+        <Route path='/About-Us' element={<AboutUs t={t}/>}/>
+        <Route path='/Data-Dashboard' element={<DataDashboard t={t}/>}/>
+        <Route path='/Sponsors' element={<Sponsors t={t}/>}/>
         <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
-        <Route path='/Rover-Simulation' element={<RoverSimulation />}/>
+        <Route path='/Rover-Simulation' element={<RoverSimulation t={t}/>}/>
       </Routes>
     </div>
   );
