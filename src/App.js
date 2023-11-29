@@ -21,7 +21,7 @@ function App() {
         <Route path='/Data-Dashboard' element={<DataDashboard t={t}/>}/>
         <Route path='/Sponsors' element={<Sponsors t={t}/>}/>
         <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
-        <Route path='/Rover-Simulation' element={<RoverSimulation t={t}/>}/>
+        <Route path='/Games' element={<RoverSimulation t={t}/>}/>
       </Routes>
       <Footer t={t}/>
     </div>

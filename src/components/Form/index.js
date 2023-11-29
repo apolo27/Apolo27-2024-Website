@@ -156,7 +156,6 @@ const Form = (props) => {
         <TextField 
           type='date'
           id="date"
-          label={t('Fecha')}
           name="user_date" 
           variant="outlined"
           size='medium'

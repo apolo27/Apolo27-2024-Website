@@ -22,7 +22,7 @@ function Header(props){
                 <Nav.Link href="/Stem-With-Us">{t('STEM-WITH-US')}</Nav.Link>
                 <Nav.Link href="/Sponsors">{t('BECOME-A-SPONSOR')}</Nav.Link>
                 {
-                  window.screen.width >= 1280 ? <Nav.Link href="/Rover-Simulation">{t('ROVER-SIMULATION')}</Nav.Link> : <></>
+                  window.screen.width >= 1280 ? <Nav.Link href="/Games">{t('GAMES')}</Nav.Link> : <></>
                 }
               </Nav>
             </Navbar.Collapse>

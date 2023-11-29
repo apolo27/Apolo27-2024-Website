@@ -2,7 +2,7 @@
   "DATA-DASHBOARD": "DATA DASHBOARD",
   "STEM-WITH-US": "STEM WITH US",
   "ABOUT-THE-TEAM": "ABOUT THE TEAM",
-  "ROVER-SIMULATION": "ROVER SIMULATION",
+  "GAMES": "GAMES",
   "BECOME-A-SPONSOR": "BECOME A SPONSOR",
   "Hero-Title": "The First Dominican Republic University Division Winners at NASA’s Human Exploration Rover Challenge",
   "Hero-Sub":"4 times category winners",
@@ -53,5 +53,22 @@
   "Proyector": "Proyector",
   "Pantallas": "Screens",
   "Bocinas": "Speakers",
-  "Microfonos": "Microphones"
+  "Microfonos": "Microphones",
+
+  
+  "FooterText": "Amet minim mollit Amet minim mollitAmet minim mollitAmet minim mollitAmet minim mollitAmet minim mollit.",
+  "Pages": "Pages",
+  "Home": "Home",
+  "AboutUsFooter": "About US",
+  "DataDashboardFooter": "Data Dashboard",
+  "StemWithUsFooter": "Stem with us",
+  "BecomeASponsorFooter": "Become a sponsor",
+  "Games": "Games",
+
+  "OurStoryFooter": "Our Timeline",
+  "NasaHERCFooter": "Nasa HERC",
+  "TeamMembersFooter": "Team members",
+  "OurAwardsFooter": "Our Awards"
+  
+
 }

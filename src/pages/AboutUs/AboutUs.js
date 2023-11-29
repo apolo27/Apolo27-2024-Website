@@ -235,7 +235,7 @@ function AboutUs(){
           </section>*/
         }
 
-        <h1 style={{marginTop: "25px"}}>Our Story</h1>
+        <h1 style={{marginTop: "25px"}} id='OurStory'>Our Story</h1>
         <h3>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h3>
 
         <Timeline position={matches?'alternate':'right'} style={{marginTop: "50px"}}>
@@ -380,7 +380,7 @@ function AboutUs(){
 
         </Timeline>
 
-        <section style={{marginTop: "50px"}}>
+        <section style={{marginTop: "50px"}} id='TeamMembers'>
           <h1>Our Members</h1>
           <div className='buttons'>
             <Button className={`selectionButton ${equipoSeleccionado === "All" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("All")}>All</Button>
@@ -408,6 +408,12 @@ function AboutUs(){
             }
           </div>
         </section>
+
+        <section id='OurAwards'>
+          <h1>Our Awards</h1>
+        </section>
+
+        
       </Container>
     </div>
   )

@@ -1,8 +1,9 @@
 import './Sponsors.css'
 import blankProfile from '../../imgs/blank-profile.png'
-import Container from 'react-bootstrap/Container';
+import {Container, Button} from 'react-bootstrap/';
 
-function Sponsors(){
+function Sponsors(props){
+    const t = props.t;
   return(
     <Container>
         <div className='titleArea'>
@@ -51,6 +52,7 @@ function Sponsors(){
                 <img src={blankProfile}alt="patrocinador" width={200}/>
             </div>
         </div>
+        <Button>{t('Sponsor-us')}</Button>
     </Container>
   )
 }

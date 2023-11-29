@@ -7,8 +7,10 @@ import NightsStayIcon from '@mui/icons-material/NightsStay';
 const Themes = () => {
   const setDarkMode = () => {
     document.querySelector("body").setAttribute("data-theme", "dark")
+    document.querySelector("footer").setAttribute("data-theme", "dark")
   }
   const setLightMode = () => {
+    document.querySelector("footer").setAttribute("data-theme", "light")
     document.querySelector("body").setAttribute("data-theme", "light")
   }
   

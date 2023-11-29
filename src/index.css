@@ -3,9 +3,11 @@
 :root{
   --body_background: #161A2C;
   --body_color: aliceblue;
+  --footer_background: #060919;
 }
 
 [data-theme="dark"]{
+  --footer_background:  rgb(235, 235, 235);
   --body_background: rgb(235, 235, 235);
   --body_color: #161A2C;
 }
@@ -13,6 +15,11 @@
 body {
   color: var(--body_color);
   background-color: var(--body_background);
+}
+
+footer{
+  color: var(--body_color);
+  background-color: var(--footer_background);
 }
 
 a,

@@ -12,8 +12,14 @@
   margin-right: 15px;
 }
 
+@media screen and (max-width: 1000px) {
+  .formulario{
+    width: 600px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .formulario{
-    width: 100%;
+    width: 350px;
   }
 }

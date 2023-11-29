@@ -2,11 +2,11 @@
   "DATA-DASHBOARD": "PANEL DE DATOS",
   "STEM-WITH-US": "STEM CON NOSOTROS",
   "ABOUT-THE-TEAM": "ACERCA DEL EQUIPO",
-  "ROVER-SIMULATION": "SIMULACIÓN DE ROVER",
+  "GAMES": "JUEGOS",
   "BECOME-A-SPONSOR": "PATROCINADORES",
   "Hero-Title": "Los primeros ganadores de la División Universitaria de República Dominicana en el Nasa HERC",
   "Hero-Sub":"4 veces ganadores de categoría",
-  "Live-location":"Ubicación en tiempo real",
+  "Live-location":"Ubicación",
   "Rovers-data":"Datos del Rover",
   "learn-projects":"Construye proyectos divertidos con Apolo 27!",
   "GetToKnowUs":"Conócenos, haz la diferencia",
@@ -53,6 +53,19 @@
   "Proyector": "Proyector",
   "Pantallas": "Pantallas",
   "Bocinas": "Bocinas",
-  "Microfonos": "Microfonos"
+  "Microfonos": "Microfonos",
 
+  "FooterText": "Amet minim mollit Amet minim mollitAmet minim mollitAmet minim mollitAmet minim mollitAmet minim mollit.",
+  "Pages": "Páginas",
+  "Home": "Inicio",
+  "AboutUsFooter": "Sobre nosotros",
+  "DataDashboardFooter": "Panel de datos",
+  "StemWithUsFooter": "Stem con nosotros",
+  "BecomeASponsorFooter": "Hazte patrocinador",
+  "Games": "Juegos y simulaciones",
+
+  "OurStoryFooter": "Nuestra historia",
+  "NasaHERCFooter": "Nasa HERC",
+  "TeamMembersFooter": "Miembros del equipo",
+  "OurAwardsFooter": "Nuestros premios"
 }

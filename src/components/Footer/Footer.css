@@ -1,15 +1,35 @@
 .footer{
-    border-top: 1px solid #F00;
-    background: var(--general-color-2, #060919);
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-top: 100px;
+    border-top: 1px solid rgb(60, 127, 182);
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 5%; 
-    box-sizing: border-box; 
+    box-sizing: border-box;
     background-size: cover; 
     background-position: center; 
     justify-content: space-between; 
-    color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
+}
+
+.footer h4{
+    font-family: 'Nazalization';
+}
+
+.footer-col{
+    list-style: none;
+}
+.footer-col{
+    padding-left: 2px;
+}
+.footer-col li{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.footer-col a:hover{
+    color: rgb(204, 24, 24);
+    padding-left: 20px;
 }
