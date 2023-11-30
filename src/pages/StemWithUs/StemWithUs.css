@@ -9,6 +9,12 @@
   flex-wrap: wrap;
 }
 
+section{
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+
 .section-formulario{
   display: flex;
   justify-content: center;
@@ -18,6 +24,25 @@
 .astronautStem{
   width: 300px;
   height: 350px;
+}
+
+section .tutorialsLine-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+section .tutorialsLine-top p{
+  text-decoration: none;
+  color: #2A7AE4;
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+section .tutorialsLine{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 @media screen and (max-width: 900px) {

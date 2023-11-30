@@ -9,6 +9,10 @@
   font-weight: bold;
 }
 
+.nav-link:hover{
+  transform: scale(1.05);
+}
+
 @media screen and (max-width: 1366px){
   .nav-link{
     font-size: 14px;

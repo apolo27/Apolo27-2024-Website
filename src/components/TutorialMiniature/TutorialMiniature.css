@@ -1,0 +1,14 @@
+
+  
+.tutorial h3{
+    font-family: Raleway;
+    font-size: 14px;
+    font-weight: 500;
+}
+  
+.tutorial h4{
+    color: var(--preto-100, #464646);
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 700;
+}
