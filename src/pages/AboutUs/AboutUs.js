@@ -11,6 +11,8 @@ import second from '../../imgs/carousel/second.jpeg'
 import third from '../../imgs/carousel/third.jpg'
 import fourth from '../../imgs/carousel/fourth.jpg'
 
+import photochards from '../../imgs/AboutUs/photocards.png'
+
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab/';
 
 function AboutUs(){
@@ -180,35 +182,40 @@ function AboutUs(){
   return(
     <div style={{textAlign: "center"}}>
       <Carousel>
-        <Carousel.Item>
-          <img className='d-block w-100' src={first} alt='first'></img>
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
 
         <Carousel.Item>
         <img className='d-block w-100' src={second} alt='second'></img>
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h1>Our Story</h1>
+            <p>GET TO KNOW ALL ABOUT US</p>
+            <Button>Learn More</Button>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <img className='d-block w-100' src={first} alt='first'></img>
+          <Carousel.Caption>
+            <h1>Apolo 27</h1>
+            <p>Meet Members of our team</p>
+            <Button>Our Members</Button>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
         <img className='d-block w-100' src={third} alt='third'></img>
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h1>2 Times Category Winners</h1>
+            <p>DISCOVER THE AWARDS WE HAVE WON</p>
+            <Button>Our Awards</Button>
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
         <img className='d-block w-100' src={fourth} alt='fourth'></img>
           <Carousel.Caption>
-            <h3>Fourth slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h1>STEM Is For Everyone</h1>
+            <p>MAKING STEM ACCESIBLE FOR EVERYONE IS ONE OF OUR PRINCIPAL OBJECTIVES</p>
+            <Button>Apolo27 + STEM</Button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -234,7 +241,18 @@ function AboutUs(){
               />
           </section>*/
         }
-
+        <div class="blockquote-wrapper">
+          <div class="blockquote">
+            <h1>
+              It <span>always</span> seems to be <span
+                >impossible </span><span>until it is done.</span>
+            </h1>
+            <h4>&mdash;Nelson Mandela<br/><em></em></h4>
+          </div>
+        </div>
+          <div class="polaroid-img">
+            <img src={photochards} class="image-polaroid" alt='pictures ofapolo 27 team members'/>
+          </div>
         <h1 style={{marginTop: "25px"}} id='OurStory'>Our Story</h1>
         <h3>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h3>
 
@@ -409,10 +427,73 @@ function AboutUs(){
           </div>
         </section>
 
-        <section id='OurAwards'>
+        <section id="awards-section">
           <h1>Our Awards</h1>
+          <div class="ag-format-container">
+              <div class="ag-courses_box">
+                <div class="ag-courses_item">
+                  <a class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+            
+                    <div class="ag-courses-item_title">
+                      System Safety Award
+                    </div>
+            
+                    <div class="ag-courses-item_date-box">
+                      Winning this award, the first for any Dominican team,
+                      demonstrated our unwavering commitment to safety and innovation in engineering.
+                      Our rover exceeded safety standards, showcasing our expertise and dedication
+                      to creating reliable and secure technology, setting a high standard for future
+                      teams and highlighting the potential of Dominican talent.
+                      <span class="ag-courses-item_date">
+                        2020
+                      </span>
+                    </div>
+                  </a>
+                </div>
+            
+                <div class="ag-courses_item">
+                  <a class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+            
+                    <div class="ag-courses-item_title">
+                      STEM Engagement Award
+                    </div>
+            
+                    <div class="ag-courses-item_date-box">
+                      The introduction of the STEM Tour and its hands-on activities was
+                      a significant achievement, and it enabled the team to win the award.
+                      This recognition highlights the team's efforts to promote STEM education
+                      and its impact on the Dominican Republic's society.
+                      <span class="ag-courses-item_date">
+                        2022
+                      </span>
+                    </div>
+                  </a>
+                </div>
+            
+                <div class="ag-courses_item">
+                  <a class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+            
+                    <div class="ag-courses-item_title">
+                      Coming Soon
+                    </div>
+            
+                    <div class="ag-courses-item_date-box">
+                      This year, we are raising the bar even higher and striving to improve
+                      in every category. Our team is determined to continue making strides
+                      in the field of engineering and technology, and we are excited to see
+                      where our dedication and hard work will take us.
+                      <span class="ag-courses-item_date">
+                        2023
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
         </section>
-
         
       </Container>
     </div>

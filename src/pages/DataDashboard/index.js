@@ -5,6 +5,7 @@ import {Container, Table, Tab, Tabs, Button} from 'react-bootstrap';
 
 import {Grid, FormGroup, FormControlLabel, Checkbox} from '@mui/material';
 import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar} from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress'
 
 import {Canvas} from '@react-three/fiber'
 import {useGLTF, Stage, PresentationControls} from '@react-three/drei'
@@ -22,6 +23,7 @@ const DataDashboard = (props) => {
   const [processedData, setProcessedData] = useState([]);
   const [surroundingTemp, setSurroundingTemp] = useState("61");
 
+  var isMapLoaded = false;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -84,7 +86,6 @@ const DataDashboard = (props) => {
     <Container >
       <div className='data-dashboard-body'>
       <Tabs defaultActiveKey="overview" justify={true} variant='pills' className='mb-3'>
-
         <Tab eventKey="overview" title="OVERVIEW" tabClassName='tab'>
           <Grid container={true} wrap='wrap' justifyContent="space-evenly" rowSpacing={4}>
 
@@ -106,9 +107,12 @@ const DataDashboard = (props) => {
             </Grid>
 
             <Grid item xs="auto" order={{xs: 1, md: 1, lg: 1, xl: 2 }}>
-              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1" 
+              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
+                style={{background: <CircularProgress />}}
                 className='herc-map'
-                title='Nasa Herc map'>
+                title='Nasa Herc map'
+                id='herc-map'>
+                
               </iframe>
             </Grid>
 
@@ -176,7 +180,6 @@ const DataDashboard = (props) => {
               </div>
             </Grid>
           </Grid>
-
         </Tab>
 
         <Tab eventKey="rover" title="ROVER" tabClassName='tab'>
