@@ -13,9 +13,14 @@ import fourth from '../../imgs/carousel/fourth.jpg'
 
 import photochards from '../../imgs/AboutUs/photocards.png'
 
+import stem1 from '../../imgs/AboutUs/stem-1.jpg'
+import stem2 from '../../imgs/AboutUs/stem-2.jpg'
+import stem3 from '../../imgs/AboutUs/stem-3.jpg'
+
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab/';
 
-function AboutUs(){
+const AboutUs = (props) =>{
+  const t = props.t;
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   const [equipoSeleccionado, setEquipoSeleccionado] = useState("All");
@@ -182,7 +187,6 @@ function AboutUs(){
   return(
     <div style={{textAlign: "center"}}>
       <Carousel>
-
         <Carousel.Item>
         <img className='d-block w-100' src={second} alt='second'></img>
           <Carousel.Caption>
@@ -250,9 +254,11 @@ function AboutUs(){
             <h4>&mdash;Nelson Mandela<br/><em></em></h4>
           </div>
         </div>
-          <div class="polaroid-img">
-            <img src={photochards} class="image-polaroid" alt='pictures ofapolo 27 team members'/>
-          </div>
+        <div class="polaroid-img">
+          <img src={photochards} class="image-polaroid" alt='pictures ofapolo 27 team members'/>
+        </div>
+
+
         <h1 style={{marginTop: "25px"}} id='OurStory'>Our Story</h1>
         <h3>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h3>
 
@@ -271,9 +277,7 @@ function AboutUs(){
                     <h2><span class="small">Making History</span>Representing DR in NASA HERC</h2>
                   </div>
                   <div class="body">
-                    <p>In 2019, we started with just a few members, and it was a challenging time for us.
-                      But we were determined to represent our country for the first time ever in the NASA
-                      Human Exploration Rover Challenge, and we did just that.</p>
+                    <p>{t('Equipo-2019')}</p>
                     <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2019.jpg" alt="2019" />
                   </div>
                 </div>
@@ -294,9 +298,7 @@ function AboutUs(){
                   <h2><span class="small">Learning from Challenges</span>First Award Amid Global Pandemic</h2>
                 </div>
                 <div class="body">
-                  <p>In 2020, despite the challenges posed by the pandemic, we persevered
-                    and learned valuable lessons that helped us grow, which led to win our first award:
-                    "System Safety Award". </p>
+                  <p>{t('Equipo-2020')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2020.jpg" alt="2020" />
                 </div>
               </div>
@@ -317,10 +319,7 @@ function AboutUs(){
                   <h2><span class="small">Pushing Ourselves to New Heights</span> Adaptation</h2>
                 </div>
                 <div class="body">
-                  <p>In 2021, we continued to promote STEM
-                    in our country. Also, we focused in making the Rover's design even better.
-                    We also successfully raised awareness for STEM in 
-                    our country.</p>
+                  <p>{t('Equipo-2021')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2021.jpg" alt="2021" />
                 </div>
               </div>
@@ -341,9 +340,7 @@ function AboutUs(){
                   <h2><span class="small">Inspiring the Next Generation</span> Winning STEM Engagement Award</h2>
                 </div>
                 <div class="body">
-                  <p>In 2022, we focused on even more aspects of STEM. This led us to create the STEM Tour, an event
-                    where we showcased interactive STEM projects.
-                    This year, we won "STEM Engagement Award".</p>
+                  <p>{t('Equipo-2022')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2022.jpg" alt="2022" />
                 </div>
               </div>
@@ -364,9 +361,7 @@ function AboutUs(){
                   <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
                 </div>
                 <div class="body">
-                  <p>In 2023, we're still in the process, but our focus remains on making our rover the best one
-                    yet. We also believe that STEM can change the world, that's why we are committed to push it even more
-                    in our country.</p>
+                  <p>{t('Equipo-2023')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
                 </div>
               </div>
@@ -387,9 +382,7 @@ function AboutUs(){
                   <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
                 </div>
                 <div class="body">
-                  <p>In 2024, we're still in the process, but our focus remains on making our rover the best one
-                    yet. We also believe that STEM can change the world, that's why we are committed to push it even more
-                    in our country.</p>
+                  <p>{t('Equipo-2024')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
                 </div>
               </div>
@@ -492,9 +485,60 @@ function AboutUs(){
                   </a>
                 </div>
               </div>
-            </div>
+          </div>
         </section>
         
+        <section id="stem">
+            <div class="title">
+              <h1>Apolo 27 + STEM</h1>
+            </div>
+            <header class="header">
+              <h1 class="header-title masthead">STEM for All to Change the World</h1>
+            </header>
+            <main class="main">
+              <article class="entry entry-lede">
+                <img class="entry-img" src={stem1} alt="stem-img1"/>
+                <div class="entry-content">
+                  <h1 class="entry-headline primary-headline">The Importance of STEM for our team</h1>
+                  <time class="entry-date meta">The Vital Importance of STEM Education in Today's World</time>
+                  <p class="entry-summary">STEM, which stands for Science, Technology, Engineering 
+                    and Mathematics, plays a crucial role in the success of Team Apolo 27. In fact,
+                    it is impossible to overstate the importance of STEM in the work that this team does.</p>
+                </div>
+              </article>
+              <article class="entry">
+                <img class="entry-img" src={stem2} alt="The profile view of three majestic brown horses" />
+                <h1 class="entry-headline primary-headline">Girls are the future</h1>
+                <time class="entry-date meta">March 8, 2023</time>
+                <span class="entry-byline meta">Women In STEM Panel</span>
+                <p class="entry-summary">Furthermore, including girls in STEM fields can bring unique perspectives
+                  and creativity to these industries. Women have made significant contributions to the fields
+                  of science and technology throughout history, and it is essential to continue this trend by
+                  encouraging girls to participate. By providing opportunities and support for girls interested
+                  in STEM, we can create a more equitable and innovative future.</p>
+              </article>
+              <article class="entry">
+                <img class="entry-img" src={stem3} alt="The profile view of three majestic brown horses" />
+                <h1 class="entry-headline primary-headline">We believe in Dominican youth</h1>
+                <time class="entry-date meta">March 29, 2023</time>
+                <span class="entry-byline meta">School Visits</span>
+                <p class="entry-summary">Raising awareness about the importance of STEM education in
+                  Dominican society is crucial, and our team has been visiting schools to promote this
+                  message. Through these visits, we strive to inspire young students to pursue careers
+                  in science, technology, engineering, and math. We highlight the benefits of STEM education
+                  and showcase its relevance to everyday life. </p>
+              </article>
+              <section class="trending">
+                <article class="trending-entry">
+                  <h1 class="trending-entry-headline primary-headline">Our events inspire individuals to pursue their passions.</h1>
+                </article>
+                <article class="trending-entry">
+                  <h1 class="trending-entry-headline primary-headline"><br/>We showcase the power of hard work to achieve success.</h1>
+                </article>
+              </section>              
+            </main>  
+          </section>
+
       </Container>
     </div>
   )

@@ -128,7 +128,7 @@ const StemWithUs = (props) => {
           </div>
           </div>
           </section>
-
+          
         <section>
           <h1>{t('Contactenos')}</h1>
           <div className="section-formulario">

@@ -1,3 +1,7 @@
+#stem img {
+  width: 100%;
+}
+
 .buttons .btn{
   border-radius: 16px;
   border: 1px solid #3E4879;
@@ -248,6 +252,9 @@ h1 {
 
 
 @media screen and (max-width: 500px){
+  .image-polaroid{
+    width: 75%;
+  }
   .carousel-item{
     height: 220px;
   }
@@ -332,7 +339,7 @@ body {
 .ag-courses-item_link {
   display: block;
   padding: 30px 20px;
-  background-color: var(--lightTwo);
+  background-color: #e7e3e3;
 
   overflow: hidden;
 
@@ -341,7 +348,7 @@ body {
 .ag-courses-item_link:hover,
 .ag-courses-item_link:hover .ag-courses-item_date {
   text-decoration: none;
-  color: #FFF;
+  color: #141313;
 }
 .ag-courses-item_link:hover .ag-courses-item_bg {
   -webkit-transform: scale(10);
@@ -354,14 +361,14 @@ body {
   overflow: hidden;
   font-weight: bold;
   font-size: 40px;
-  color: var(--backgroundColor);
+  color: #141313;
   font-family: "Poppins", sans-serif;
   z-index: 2;
   position: relative;
 }
 .ag-courses-item_date-box {
   font-size: 18px;
-  color: var(--backgroundColor);
+  color: #141313;
   font-family: "Poppins", sans-serif;
   z-index: 2;
   position: relative;
@@ -428,4 +435,290 @@ body {
   .ag-courses-item_date-box {
     font-size: 16px;
   }
+}
+
+html {
+	font-family: "Poppins", sans-serif;
+	font-size: 115%;
+	line-height: 1.35;
+	font-weight: 340;
+
+	/* Typetura */
+	--tt-key: html;
+	--tt-max: 900;
+	--tt-ease: cubic-bezier(0, 0.78, 0.53, 1);
+
+	/* Grid */
+	--max-width: 1200px;
+	--columns: 6;
+	--gutter: 1.5rem;
+}
+@keyframes html {
+	0% {
+		font-size: 0%;
+    font-family: "Poppins", sans-serif;
+	}
+
+	100% {
+		font-size: 125%;
+    font-family: "Poppins", sans-serif;
+	}
+}
+* {
+	--grid: minmax(var(--gutter), 1fr)
+		repeat(
+			var(--columns),
+			minmax(
+				0,
+				calc(
+					(var(--max-width) - (var(--gutter) * (var(--columns) - 1))) /
+						var(--columns)
+				)
+			)
+		)
+		minmax(var(--gutter), 1fr);
+}
+
+/* Element styles */
+
+body {
+	margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+header {
+  position: relative;
+  z-index: 70;
+  color: var(--darkOne);
+  font-family: "Poppins", sans-serif;
+}
+/* Typography */
+
+.masthead {
+	color: #f4663a;
+	text-align: center;
+	--tt-key: masthead;
+	--tt-max: 1200;
+  font-size: 2.4rem;
+	--tt-ease: ease-in-out;
+	margin: 0.5em 0 -0.5em;
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+}
+@keyframes masthead {
+	0% {
+		font-size: 1rem;
+		margin-bottom: -0.45em;
+		font-weight: 600;
+    font-family: "Poppins", sans-serif;
+	}
+	100% {
+		font-size: 6.5rem;
+		margin-bottom: -0.375em;
+		font-weight: 500;
+    font-family: "Poppins", sans-serif;
+	}
+}
+
+.primary-headline {
+	--tt-key: primary-headline;
+	--tt-ease: cubic-bezier(1, 0, 1, 1);
+	--tt-max: 585;
+	line-height: 1;
+	font-family: "Poppins", sans-serif;
+	margin: 0.5rem 0;
+}
+@keyframes primary-headline {
+	0% {
+		font-size: 1rem;
+		font-weight: 500;
+    font-family: "Poppins", sans-serif;
+	}
+	100% {
+		font-size: 5rem;
+		font-weight: 300;
+    font-family: "Poppins", sans-serif;
+	}
+}
+
+.meta {
+	font-style: italic;
+	margin: 0.25rem 0;
+	font-size: 0.75rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.entry-summary {
+	margin: 0.25rem 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.main {
+	column-gap: var(--gutter);
+	grid-template-columns: var(--grid);
+	padding: var(--gutter);
+  font-family: "Poppins", sans-serif;
+}
+
+.entry {
+	margin-bottom: var(--gutter);
+  font-family: "Poppins", sans-serif;
+}
+
+.entry,
+.entry-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.entry-img {
+	aspect-ratio: 5 / 3;
+	object-fit: cover;
+  border-radius: 3%;
+}
+
+.entry-date {
+	order: -1;
+}
+
+/* Module overrides */
+
+.entry-lede time {
+	margin-bottom: 1rem;
+}
+
+.entry-lede time::after {
+	content: "";
+	display: block;
+	width: calc(100% + (var(--gutter) * 2));
+	height: 1px;
+	margin-left: calc(var(--gutter) * -2);
+	background: #f4663a;
+	mix-blend-mode: multiply;
+	margin-top: 0.67rem;
+}
+
+/* Breakpoints */
+
+@media (min-width: 30em) {
+	html {
+		--columns: 12;
+	}
+	.main,
+	.entry-lede {
+		padding: 0;
+		display: grid;
+	}
+
+	.entry,
+	.trending {
+		grid-column-start: 3;
+		grid-column-end: span 10;
+	}
+
+	.entry-lede {
+		column-gap: var(--gutter);
+		grid-template-columns: var(--grid);
+		grid-column-start: 1;
+		grid-column-end: span 14;
+		margin-bottom: 4rem;
+	}
+
+	.entry-lede > .entry-img {
+		aspect-ratio: auto;
+		grid-column-start: 1;
+		grid-column-end: span 10;
+	}
+
+	.entry-lede .entry-content {
+		grid-column-start: 3;
+		grid-column-end: span 11;
+		margin: -2.5rem calc(var(--gutter) * -1) 0;
+		background: var(--background-alt);
+		padding: 0.5rem var(--gutter) 1rem;
+	}
+}
+@media (min-width: 50em) {
+	html {
+		--columns: 24;
+	}
+
+	.main::before,
+	.main::after {
+		content: "";
+		display: block;
+		grid-column-start: 8;
+		grid-column-end: 26;
+		grid-row-start: 2;
+		grid-row-end: 3;
+
+		margin: 0 calc(var(--gutter) * -1);
+		z-index: -1;
+	}
+	.main::after {
+		grid-column-start: 2;
+		background-color: #f4663a;;
+		height: 1px;
+		mix-blend-mode: multiply;
+	}
+
+	.entry {
+		grid-column-end: span 9;
+		margin-bottom: var(--gutter);
+	}
+	.entry:nth-child(n + 2) {
+		margin-top: -2rem;
+		grid-row-start: 2;
+	}
+	.entry:nth-child(2) {
+		grid-column-start: 8;
+	}
+	.entry:nth-child(3) {
+		grid-column-start: 17;
+	}
+
+	.entry-lede {
+		column-gap: var(--gutter);
+		grid-template-columns: var(--grid);
+		grid-column-start: 1;
+		grid-column-end: span 26;
+		margin-bottom: 4rem;
+	}
+
+	.entry-lede > .entry-img {
+		aspect-ratio: auto;
+		grid-column-start: 1;
+		grid-column-end: span 13;
+	}
+
+	.entry-lede .entry-content {
+		grid-column-start: 14;
+		grid-column-end: span 12;
+		margin: 0.5rem 0;
+		padding: 4rem 0 0;
+		background: none;
+	}
+
+	.trending {
+		grid-row-start: 2;
+		grid-column-start: 2;
+		grid-column-end: span 6;
+		margin-top: var(--gutter);
+		transform: translatex(calc(var(--gutter) * -1));
+	}
+}
+
+.responsive-iframe-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 30px;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.responsive-iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

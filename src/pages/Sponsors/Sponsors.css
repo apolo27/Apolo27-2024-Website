@@ -1,7 +1,7 @@
 h1, h3{
   margin-top: 25px;
     font-family: 'poppins', 'sans-serif';
-    font-weight: 700;
+    font-weight: 500;
 }
 
 @keyframes slide {
@@ -56,6 +56,10 @@ animation: 80s slide infinite linear;
 height: 150px;
 width: auto;
 margin: 0 40px;
+}
+
+.logo{
+  
 }
 
 .titleArea {
