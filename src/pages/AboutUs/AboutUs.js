@@ -91,6 +91,12 @@ const AboutUs = (props) =>{
     },
     {
       img: blankPic,
+      nombre: "Luis Adames",
+      titulo: "Software Engineering",
+      equipo: ["Telemetry"]
+    },
+    {
+      img: blankPic,
       nombre: "Manuel Guerrero",
       titulo: "Telemetry Assistant",
       equipo: ["Telemetry"]
