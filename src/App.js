@@ -7,6 +7,7 @@ import DataDashboard from './pages/DataDashboard'
 import Sponsors from './pages/Sponsors'
 import StemWithUs from './pages/StemWithUs';
 import RoverSimulation from './pages/RoverSimulation'
+import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer'
 import { useTranslation } from 'react-i18next'
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Sponsors' element={<Sponsors t={t}/>}/>
         <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
         <Route path='/Games' element={<RoverSimulation t={t}/>}/>
+        <Route path='/Contact-Us' element={<ContactUs t={t}/>}/>
       </Routes>
       <Footer t={t}/>
     </div>

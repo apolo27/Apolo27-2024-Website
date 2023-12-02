@@ -310,10 +310,6 @@ h1 {
   text-decoration: none;
 }
 
-body {
-  background-color: #000;
-  font-family: "Poppins", sans-serif;
-}
 .ag-courses_box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -438,11 +434,6 @@ body {
 }
 
 html {
-	font-family: "Poppins", sans-serif;
-	font-size: 115%;
-	line-height: 1.35;
-	font-weight: 340;
-
 	/* Typetura */
 	--tt-key: html;
 	--tt-max: 900;
@@ -481,10 +472,7 @@ html {
 
 /* Element styles */
 
-body {
-	margin: 0;
-  font-family: "Poppins", sans-serif;
-}
+
 header {
   position: relative;
   z-index: 70;

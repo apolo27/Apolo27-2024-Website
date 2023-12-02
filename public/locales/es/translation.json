@@ -1,4 +1,5 @@
 {
+  "Go-Back": "Ir atrás",
   "DATA-DASHBOARD": "PANEL DE DATOS",
   "STEM-WITH-US": "STEM CON NOSOTROS",
   "ABOUT-THE-TEAM": "ACERCA DEL EQUIPO",
@@ -54,6 +55,11 @@
   "Pantallas": "Pantallas",
   "Bocinas": "Bocinas",
   "Microfonos": "Microfonos",
+
+  "ShowMore": "Ver más",
+  "WatchVideo": "Ver vídeo",
+
+  "Plan-a-meeting": "¿Desea planear una visita a su institución?",
 
   "Sponsor-Us-Title": "Apoyando nuestro trabajo: una mirada a nuestros patrocinadores",
   "Sponsor-Us-SubTitle": "Descubre la importancia de los patrocinadores en ayudar a alcanzar nuestra misión y aprende sobre los individuos y compañías que lo hacen todo posible",

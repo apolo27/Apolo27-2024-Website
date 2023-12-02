@@ -1,4 +1,5 @@
 {
+  "Go-Back": "Go Back",
   "DATA-DASHBOARD": "DATA DASHBOARD",
   "STEM-WITH-US": "STEM WITH US",
   "ABOUT-THE-TEAM": "ABOUT THE TEAM",
@@ -54,6 +55,11 @@
   "Pantallas": "Screens",
   "Bocinas": "Speakers",
   "Microfonos": "Microphones",
+  
+  "ShowMore": "Show more",
+  "WatchVideo": "Watch",
+  
+  "Plan-a-meeting": "Want to plan a visit to your institution?",
 
   "Sponsor-Us-Title": "Supporting Our Work: A Look at Our Dedicated Sponsors",
   "Sponsor-Us-SubTitle": "Discover the valuable role of sponsors in helping us achieve our mission and learn more about the individuals and companies who make it all possible.",

@@ -1,4 +1,12 @@
-
+.tutorial:hover{
+    transform: scale(1.25);
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.tutorial{
+    transition: transform 0.3s ease-in-out;
+}
   
 .tutorial h3{
     font-family: Raleway;
