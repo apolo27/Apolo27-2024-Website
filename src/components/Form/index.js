@@ -24,15 +24,21 @@ const Form = (props) => {
   const [recurso3, setRecurso3] = useState(false)
   const [recurso4, setRecurso4] = useState(false)
 
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   const HandleSubmit = (e) => {
     e.preventDefault();
-
-    emailjs.sendForm('service_prx1qkr', 'template_x8zmeal', form.current, '6HMNKbrBqDfm-dMBG')
-    .then((result) => {
-        console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
+    if (!formSubmitted) {
+      emailjs.sendForm('service_prx1qkr', 'template_x8zmeal', form.current, '6HMNKbrBqDfm-dMBG')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      setFormSubmitted(true)
+    } else{
+      alert("Ya ha sido enviado un formulario")
+    }
   }
   const inputProps = {
     style: {
@@ -54,6 +60,7 @@ const Form = (props) => {
         <h1>{t('Contactenos')}</h1>
         <h4>{t('Solicite')}</h4>
         <TextField 
+          required
           id="nombre"
           label={t('Nombre')}
           name="user_name"
@@ -68,6 +75,7 @@ const Form = (props) => {
             />
 
         <TextField 
+          required
           type="tel"
           id="telefono"
           label={t('Tel')}
@@ -83,6 +91,7 @@ const Form = (props) => {
             />
 
         <TextField 
+          required
           type='email'
           id="email"
           label={t('Email')}
@@ -154,6 +163,7 @@ const Form = (props) => {
           />
 
         <TextField 
+          required
           type='date'
           id="date"
           name="user_date" 

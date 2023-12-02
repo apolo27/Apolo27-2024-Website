@@ -48,9 +48,10 @@ const StemWithUs = (props) => {
       //getEvents(setEvents)
       //getTutorials()
       //setTutorials(JSON.parse(localStorage.getItem("tutorials")))
-      setLastAPIFetchDay(new Date())
+      //setLastAPIFetchDay(new Date())
     }
-  }, []);
+  });
+  
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
@@ -83,7 +84,7 @@ const StemWithUs = (props) => {
 
         <section className='tutorials'>
           {
-            tutorials.length > 0 ?  
+            (tutorials.length > 0) ?  
               <div className='tutorialsLine-top'>
               <h2>STEM TUTORIALS</h2>
               <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow}></img></p></Link>
