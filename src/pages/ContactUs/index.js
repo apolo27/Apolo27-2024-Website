@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ContactUs = (props) =>{
     const navigate = useNavigate();
-    const t = props.t
+    let t = props.t
     return(
         <Container style={{textAlign: 'center'}}>
             <Button style={{marginTop: '25px', width: '350px'}} onClick={() => navigate(-1)}>{t('Go-Back')}</Button>

@@ -3,7 +3,7 @@ import moment from 'moment';
 
 let GOOGLE_CALENDAR_URL = `https://www.googleapis.com/calendar/v3/calendars/${process.env.REACT_APP_CALENDAR_ID}/events?key=${process.env.REACT_APP_API_KEY}`
 
-export function getEvents(callback) {
+export function getEvents() {
   request.get(GOOGLE_CALENDAR_URL).end((err, resp) => {
     if (!err) {
       const events = [];
@@ -16,7 +16,7 @@ export function getEvents(callback) {
           location: event.location
         });
       });
-      callback(events);
+      localStorage.setItem("events", JSON.stringify(events))
     }
   });
 }

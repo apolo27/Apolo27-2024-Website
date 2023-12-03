@@ -6,11 +6,10 @@ import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { getEvents } from "../../services/FetchCalendarEvents";
-import { getRecentVideos, getTutorials } from "../../services/FetchYTVideos";
+import { getTutorials } from "../../services/FetchYTVideos";
 import {Container, Carousel, Card, Button } from "react-bootstrap";
 import { InstagramEmbed } from 'react-social-media-embed';
 
-import Form from "../../components/Form";
 import TutorialMiniature from '../../components/TutorialMiniature';
 
 import pin from "../../imgs/pin.png"
@@ -39,18 +38,23 @@ const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
   const [tutorials, setTutorials] = useState([])
   const [lastAPIFetchDay, setLastAPIFetchDay] = useState(Date)
-  const t = props.t;
+  let t = props.t;
 
-  let todayDate = new Date();
+  const todayDate = new Date();
 
   useEffect(() => {
-    if(todayDate !== lastAPIFetchDay){
-      //getEvents(setEvents)
-      //getTutorials()
-      //setTutorials(JSON.parse(localStorage.getItem("tutorials")))
-      //setLastAPIFetchDay(new Date())
+    if(todayDate > lastAPIFetchDay){
+      getEvents()
+      getTutorials()
+      setTutorials(JSON.parse(localStorage.getItem("tutorials")))
+      setEvents(JSON.parse(localStorage.getItem("events")))
+      setLastAPIFetchDay(new Date())
+      console.log("se hicieron las api calls")
+    } else {
+      setTutorials(JSON.parse(localStorage.getItem("tutorials")))
+      setEvents(JSON.parse(localStorage.getItem("events")))
     }
-  });
+  }, []);
   
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
@@ -61,13 +65,15 @@ const StemWithUs = (props) => {
           startAccessor="start" 
           endAccessor="end"
           defaultView="month"
-          toolbar={false}
-          style={{height: 500, backgroundColor: '#161A2C', color: 'white', padding: '25px', borderRadius: '25px'}}/>
+          toolbar={true}
+          style={{height: 500, marginTop: '50px'}}/>
         
           <h2>{t('Eventos_Proximos')}</h2>
           <section className="eventos">
           {
-            events.map((event) => {
+            events
+            .filter((event) => event.start > todayDate)
+            .map((event) => {
               return(
                 <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
                   <Card.Body style={{backgroundColor: '#161A2C', boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
@@ -87,7 +93,7 @@ const StemWithUs = (props) => {
             (tutorials.length > 0) ?  
               <div className='tutorialsLine-top'>
               <h2>STEM TUTORIALS</h2>
-              <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow}></img></p></Link>
+              <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
             </div>
             : <></>
           }
@@ -130,7 +136,7 @@ const StemWithUs = (props) => {
           <section className='tutorials'>
             <div className='tutorialsLine-top'>
               <h2>Reels</h2>
-              <Link to="https://www.instagram.com/apolo27_rd/" className='ver-mas'><p>{t('ShowMore')}<img src={arrow}></img></p></Link>
+              <Link to="https://www.instagram.com/apolo27_rd/" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
             </div>
             <div className='tutorialsLine'>
                 <InstagramEmbed url="https://www.instagram.com/reel/CzcgK0xLmp6/" width={375} />

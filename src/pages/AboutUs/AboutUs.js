@@ -20,7 +20,7 @@ import stem3 from '../../imgs/AboutUs/stem-3.jpg'
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab/';
 
 const AboutUs = (props) =>{
-  const t = props.t;
+  let t = props.t;
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   const [equipoSeleccionado, setEquipoSeleccionado] = useState("All");
@@ -251,8 +251,8 @@ const AboutUs = (props) =>{
               />
           </section>*/
         }
-        <div class="blockquote-wrapper">
-          <div class="blockquote">
+        <div className="blockquote-wrapper">
+          <div className="blockquote">
             <h1>
               It <span>always</span> seems to be <span
                 >impossible </span><span>until it is done.</span>
@@ -260,8 +260,8 @@ const AboutUs = (props) =>{
             <h4>&mdash;Nelson Mandela<br/><em></em></h4>
           </div>
         </div>
-        <div class="polaroid-img">
-          <img src={photochards} class="image-polaroid" alt='pictures ofapolo 27 team members'/>
+        <div className="polaroid-img">
+          <img src={photochards} className="image-polaroid" alt='pictures ofapolo 27 team members'/>
         </div>
 
 
@@ -275,14 +275,14 @@ const AboutUs = (props) =>{
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-                <div class="demo-card demo-card--step1">
-                  <div class="head">
-                    <div class="number-box">
+                <div className="demo-card demo-card--step1">
+                  <div className="head">
+                    <div className="number-box">
                       <span>2019</span>
                     </div>
-                    <h2><span class="small">Making History</span>Representing DR in NASA HERC</h2>
+                    <h2><span className="small">Making History</span>Representing DR in NASA HERC</h2>
                   </div>
-                  <div class="body">
+                  <div className="body">
                     <p>{t('Equipo-2019')}</p>
                     <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2019.jpg" alt="2019" />
                   </div>
@@ -296,14 +296,14 @@ const AboutUs = (props) =>{
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-            <div class="demo-card demo-card--step2">
-                <div class="head">
-                  <div class="number-box">
+            <div className="demo-card demo-card--step2">
+                <div className="head">
+                  <div className="number-box">
                     <span>2020</span>
                   </div>
-                  <h2><span class="small">Learning from Challenges</span>First Award Amid Global Pandemic</h2>
+                  <h2><span className="small">Learning from Challenges</span>First Award Amid Global Pandemic</h2>
                 </div>
-                <div class="body">
+                <div className="body">
                   <p>{t('Equipo-2020')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2020.jpg" alt="2020" />
                 </div>
@@ -317,14 +317,14 @@ const AboutUs = (props) =>{
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-            <div class="demo-card demo-card--step3">
-                <div class="head">
-                  <div class="number-box">
+            <div className="demo-card demo-card--step3">
+                <div className="head">
+                  <div className="number-box">
                     <span>2021</span>
                   </div>
-                  <h2><span class="small">Pushing Ourselves to New Heights</span> Adaptation</h2>
+                  <h2><span className="small">Pushing Ourselves to New Heights</span> Adaptation</h2>
                 </div>
-                <div class="body">
+                <div className="body">
                   <p>{t('Equipo-2021')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2021.jpg" alt="2021" />
                 </div>
@@ -338,14 +338,14 @@ const AboutUs = (props) =>{
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-            <div class="demo-card demo-card--step4">
-                <div class="head">
-                  <div class="number-box">
+            <div className="demo-card demo-card--step4">
+                <div className="head">
+                  <div className="number-box">
                     <span>2022</span>
                   </div>
-                  <h2><span class="small">Inspiring the Next Generation</span> Winning STEM Engagement Award</h2>
+                  <h2><span className="small">Inspiring the Next Generation</span> Winning STEM Engagement Award</h2>
                 </div>
-                <div class="body">
+                <div className="body">
                   <p>{t('Equipo-2022')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2022.jpg" alt="2022" />
                 </div>
@@ -359,14 +359,14 @@ const AboutUs = (props) =>{
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <div class="demo-card demo-card--step5">
-                <div class="head">
-                  <div class="number-box">
+              <div className="demo-card demo-card--step5">
+                <div className="head">
+                  <div className="number-box">
                     <span>2023</span>
                   </div>
-                  <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
+                  <h2><span className="small">Pushing the Boundaries</span>PRESENT</h2>
                 </div>
-                <div class="body">
+                <div className="body">
                   <p>{t('Equipo-2023')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
                 </div>
@@ -380,14 +380,14 @@ const AboutUs = (props) =>{
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <div class="demo-card demo-card--step5">
-                <div class="head">
-                  <div class="number-box">
+              <div className="demo-card demo-card--step5">
+                <div className="head">
+                  <div className="number-box">
                     <span>2024</span>
                   </div>
-                  <h2><span class="small">Pushing the Boundaries</span>PRESENT</h2>
+                  <h2><span className="small">Pushing the Boundaries</span>PRESENT</h2>
                 </div>
-                <div class="body">
+                <div className="body">
                   <p>{t('Equipo-2024')}</p>
                   <img className='equipoPorAnho' src="https://apolo27.com/img/about-us/2023.jpg" alt="2023" />
                 </div>
@@ -428,63 +428,63 @@ const AboutUs = (props) =>{
 
         <section id="awards-section">
           <h1>Our Awards</h1>
-          <div class="ag-format-container">
-              <div class="ag-courses_box">
-                <div class="ag-courses_item">
-                  <a class="ag-courses-item_link">
-                    <div class="ag-courses-item_bg"></div>
+          <div className="ag-format-container">
+              <div className="ag-courses_box">
+                <div className="ag-courses_item">
+                  <a className="ag-courses-item_link" href="/About-Us">
+                    <div className="ag-courses-item_bg"></div>
             
-                    <div class="ag-courses-item_title">
+                    <div className="ag-courses-item_title">
                       System Safety Award
                     </div>
             
-                    <div class="ag-courses-item_date-box">
+                    <div className="ag-courses-item_date-box">
                       Winning this award, the first for any Dominican team,
                       demonstrated our unwavering commitment to safety and innovation in engineering.
                       Our rover exceeded safety standards, showcasing our expertise and dedication
                       to creating reliable and secure technology, setting a high standard for future
                       teams and highlighting the potential of Dominican talent.
-                      <span class="ag-courses-item_date">
+                      <span className="ag-courses-item_date">
                         2020
                       </span>
                     </div>
                   </a>
                 </div>
             
-                <div class="ag-courses_item">
-                  <a class="ag-courses-item_link">
-                    <div class="ag-courses-item_bg"></div>
+                <div className="ag-courses_item">
+                  <a className="ag-courses-item_link" href="/About-Us">
+                    <div className="ag-courses-item_bg"></div>
             
-                    <div class="ag-courses-item_title">
+                    <div className="ag-courses-item_title">
                       STEM Engagement Award
                     </div>
             
-                    <div class="ag-courses-item_date-box">
+                    <div className="ag-courses-item_date-box">
                       The introduction of the STEM Tour and its hands-on activities was
                       a significant achievement, and it enabled the team to win the award.
                       This recognition highlights the team's efforts to promote STEM education
                       and its impact on the Dominican Republic's society.
-                      <span class="ag-courses-item_date">
+                      <span className="ag-courses-item_date">
                         2022
                       </span>
                     </div>
                   </a>
                 </div>
             
-                <div class="ag-courses_item">
-                  <a class="ag-courses-item_link">
-                    <div class="ag-courses-item_bg"></div>
+                <div className="ag-courses_item">
+                  <a className="ag-courses-item_link" href="/About-Us">
+                    <div className="ag-courses-item_bg"></div>
             
-                    <div class="ag-courses-item_title">
+                    <div className="ag-courses-item_title">
                       Coming Soon
                     </div>
             
-                    <div class="ag-courses-item_date-box">
+                    <div className="ag-courses-item_date-box">
                       This year, we are raising the bar even higher and striving to improve
                       in every category. Our team is determined to continue making strides
                       in the field of engineering and technology, and we are excited to see
                       where our dedication and hard work will take us.
-                      <span class="ag-courses-item_date">
+                      <span className="ag-courses-item_date">
                         2023
                       </span>
                     </div>
@@ -495,55 +495,55 @@ const AboutUs = (props) =>{
         </section>
         
         <section id="stem">
-            <div class="title">
+            <div className="title">
               <h1>Apolo 27 + STEM</h1>
             </div>
-            <header class="header">
-              <h1 class="header-title masthead">STEM for All to Change the World</h1>
+            <header className="header">
+              <h1 className="header-title masthead">STEM for All to Change the World</h1>
             </header>
-            <main class="main">
-              <article class="entry entry-lede">
-                <img class="entry-img" src={stem1} alt="stem-img1"/>
-                <div class="entry-content">
-                  <h1 class="entry-headline primary-headline">The Importance of STEM for our team</h1>
-                  <time class="entry-date meta">The Vital Importance of STEM Education in Today's World</time>
-                  <p class="entry-summary">STEM, which stands for Science, Technology, Engineering 
+            <main className="main">
+              <article className="entry entry-lede">
+                <img className="entry-img" src={stem1} alt="stem-img1"/>
+                <div className="entry-content">
+                  <h1 className="entry-headline primary-headline">The Importance of STEM for our team</h1>
+                  <time className="entry-date meta">The Vital Importance of STEM Education in Today's World</time>
+                  <p className="entry-summary">STEM, which stands for Science, Technology, Engineering 
                     and Mathematics, plays a crucial role in the success of Team Apolo 27. In fact,
                     it is impossible to overstate the importance of STEM in the work that this team does.</p>
                 </div>
               </article>
-              <article class="entry">
-                <img class="entry-img" src={stem2} alt="The profile view of three majestic brown horses" />
-                <h1 class="entry-headline primary-headline">Girls are the future</h1>
-                <time class="entry-date meta">March 8, 2023</time>
-                <span class="entry-byline meta">Women In STEM Panel</span>
-                <p class="entry-summary">Furthermore, including girls in STEM fields can bring unique perspectives
+              <article className="entry">
+                <img className="entry-img" src={stem2} alt="The profile view of three majestic brown horses" />
+                <h1 className="entry-headline primary-headline">Girls are the future</h1>
+                <time className="entry-date meta">March 8, 2023</time>
+                <span className="entry-byline meta">Women In STEM Panel</span>
+                <p className="entry-summary">Furthermore, including girls in STEM fields can bring unique perspectives
                   and creativity to these industries. Women have made significant contributions to the fields
                   of science and technology throughout history, and it is essential to continue this trend by
                   encouraging girls to participate. By providing opportunities and support for girls interested
                   in STEM, we can create a more equitable and innovative future.</p>
               </article>
-              <article class="entry">
-                <img class="entry-img" src={stem3} alt="The profile view of three majestic brown horses" />
-                <h1 class="entry-headline primary-headline">We believe in Dominican youth</h1>
-                <time class="entry-date meta">March 29, 2023</time>
-                <span class="entry-byline meta">School Visits</span>
-                <p class="entry-summary">Raising awareness about the importance of STEM education in
+              <article className="entry">
+                <img className="entry-img" src={stem3} alt="The profile view of three majestic brown horses" />
+                <h1 className="entry-headline primary-headline">We believe in Dominican youth</h1>
+                <time className="entry-date meta">March 29, 2023</time>
+                <span className="entry-byline meta">School Visits</span>
+                <p className="entry-summary">Raising awareness about the importance of STEM education in
                   Dominican society is crucial, and our team has been visiting schools to promote this
                   message. Through these visits, we strive to inspire young students to pursue careers
                   in science, technology, engineering, and math. We highlight the benefits of STEM education
                   and showcase its relevance to everyday life. </p>
               </article>
-              <section class="trending">
-                <article class="trending-entry">
-                  <h1 class="trending-entry-headline primary-headline">Our events inspire individuals to pursue their passions.</h1>
+              <section className="trending">
+                <article className="trending-entry">
+                  <h1 className="trending-entry-headline primary-headline">Our events inspire individuals to pursue their passions.</h1>
                 </article>
-                <article class="trending-entry">
-                  <h1 class="trending-entry-headline primary-headline"><br/>We showcase the power of hard work to achieve success.</h1>
+                <article className="trending-entry">
+                  <h1 className="trending-entry-headline primary-headline"><br/>We showcase the power of hard work to achieve success.</h1>
                 </article>
               </section>              
             </main>  
-          </section>
+        </section>
 
       </Container>
     </div>

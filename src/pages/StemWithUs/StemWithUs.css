@@ -1,8 +1,8 @@
 .stem-with-us{
-  background-image: url('../../imgs/StemWithUs/space.png');
   background-size: contain;
   background-repeat:space;
 }
+
 
 .eventos{
   display: flex;
@@ -59,7 +59,7 @@ section .tutorialsLine-top p{
 section .tutorialsLine{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 @media screen and (max-width: 1200px) {

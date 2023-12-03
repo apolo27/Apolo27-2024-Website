@@ -18,12 +18,11 @@ function Model(props){
 }
 
 const DataDashboard = (props) => {
-  const t = props.t;
+  let t = props.t;
   const [data, setData] = useState(null);
   const [processedData, setProcessedData] = useState([]);
-  const [surroundingTemp, setSurroundingTemp] = useState("61");
+  const [surroundingTemp, setSurroundingTemp] = useState(61);
 
-  var isMapLoaded = false;
   useEffect(() => {
     const fetchData = async () => {
       try {

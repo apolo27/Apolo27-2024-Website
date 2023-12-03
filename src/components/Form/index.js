@@ -5,7 +5,7 @@ import {Stepper, Step, StepLabel} from '@mui/material';
 import emailjs from '@emailjs/browser';
 
 const Form = (props) => {
-  const t = props.t;
+  let t = props.t;
   const form = useRef();
   const [name, setName] = useState("")
   const [tel, setTel] = useState("")
@@ -37,7 +37,7 @@ const Form = (props) => {
       });
       setFormSubmitted(true)
     } else{
-      alert("Ya ha sido enviado un formulario")
+      alert("Ya ha sido enviado un formulario. Contactanos a: Apolo27rd@outlook.com")
     }
   }
   const inputProps = {

@@ -1,6 +1,6 @@
 import request from "superagent";
 
-const keywords = ['tutorial', 'diy'];
+const keywords = ['comunicamos', 'conoce'];
 const keywordQuery = keywords.join('|');
  
 export function getTutorials() {
@@ -16,7 +16,7 @@ export function getTutorials() {
             });
           });
           localStorage.setItem("tutorials", JSON.stringify(videos))
-          .then(console.log("tutoriales guardados en el localStorage: " + localStorage.tutorials));
+          
           
         }
       });

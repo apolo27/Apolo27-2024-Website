@@ -9,6 +9,11 @@
   font-weight: bold;
 }
 
+
+.nav-link{
+  margin-left: 5px;
+}
+
 .nav-link:hover{
   transform: scale(1.05);
 }
@@ -25,9 +30,5 @@
   .nav-link{
     font-size: 12px;
     font-weight: 700;
-  }
-
-  .btnAboutUs{
-    font-size: 12px;
   }
 }

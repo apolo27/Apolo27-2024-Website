@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import footerLogo from '../../imgs/FooterLogo.png'
 
 const Footer = (props) => {
-    const t = props.t;
+    let t = props.t;
     return(
         <footer className="footer">
             <Container>

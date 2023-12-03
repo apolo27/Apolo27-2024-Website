@@ -1,5 +1,4 @@
 import './Sponsors.css'
-import blankProfile from '../../imgs/blank-profile.png'
 import {Container} from 'react-bootstrap/';
 import bmCargo from '../../imgs/Sponsors/BMCargo.jpeg'
 import coopreservas from '../../imgs/Sponsors/coopreservas.jpeg'
@@ -13,7 +12,7 @@ import cardnet from '../../imgs/Sponsors/cardnet.png'
 import cmi from '../../imgs/Sponsors/cmi.png'
 
 function Sponsors(props){
-    const t = props.t;
+    let t = props.t;
   return(
     <Container style={{textAlign: "center"}}>
         <div className='titleArea'>
@@ -21,8 +20,8 @@ function Sponsors(props){
             <h3 className='sponsorsPage-text'>{t('Sponsor-Us-SubTitle')}</h3>
         </div>
 
-        <div class="logos">
-            <div class="logos-slide">
+        <div className="logos">
+            <div className="logos-slide">
                 <img className='logo' src={bmCargo} alt="patrocinador" width={100}/>
                 <img className='logo' src={coopreservas} alt="patrocinador" width={100}/>
                 <img className='logo' src={ole} alt="patrocinador" width={100}/>
@@ -35,7 +34,7 @@ function Sponsors(props){
                 <img className='logo' src={cmi}alt="patrocinador" width={100}/>
             </div>
         
-            <div class="logos-slide">
+            <div className="logos-slide">
                 <img className='logo' src={bmCargo} alt="patrocinador" width={100}/>
                 <img className='logo' src={coopreservas} alt="patrocinador" width={100}/>
                 <img className='logo' src={ole} alt="patrocinador" width={100}/>
@@ -48,10 +47,10 @@ function Sponsors(props){
                 <img className='logo' src={cmi}alt="patrocinador" width={100}/>
             </div>
         </div>
-        <button class="button-82-pushable">
-            <span class="button-82-shadow"></span>
-            <span class="button-82-edge"></span>
-            <span class="button-82-front text">
+        <button className="button-82-pushable">
+            <span className="button-82-shadow"></span>
+            <span className="button-82-edge"></span>
+            <span className="button-82-front text">
                 {t('Sponsor-us')}
             </span>
         </button>
