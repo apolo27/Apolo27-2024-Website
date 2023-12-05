@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import i18next from "i18next";
 import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { getEvents } from "../../services/FetchCalendarEvents";
 import { getTutorials } from "../../services/FetchYTVideos";
@@ -11,6 +12,7 @@ import {Container, Carousel, Card, Button } from "react-bootstrap";
 import { InstagramEmbed } from 'react-social-media-embed';
 
 import TutorialMiniature from '../../components/TutorialMiniature';
+import LittleCalendar from '../../components/LittleCalendar';
 
 import pin from "../../imgs/pin.png"
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
@@ -44,15 +46,15 @@ const StemWithUs = (props) => {
 
   useEffect(() => {
     if(todayDate > lastAPIFetchDay){
-      getEvents()
-      getTutorials()
-      setTutorials(JSON.parse(localStorage.getItem("tutorials")))
-      setEvents(JSON.parse(localStorage.getItem("events")))
-      setLastAPIFetchDay(new Date())
-      console.log("se hicieron las api calls")
+      //getEvents()
+      //getTutorials()
+      //setTutorials(JSON.parse(localStorage.getItem("tutorials")))
+      //setEvents(JSON.parse(localStorage.getItem("events")))
+      //setLastAPIFetchDay(new Date())
+      //console.log("se hicieron las api calls")
     } else {
-      setTutorials(JSON.parse(localStorage.getItem("tutorials")))
-      setEvents(JSON.parse(localStorage.getItem("events")))
+      //setTutorials(JSON.parse(localStorage.getItem("tutorials")))
+      //setEvents(JSON.parse(localStorage.getItem("events")))
     }
   }, []);
   
@@ -60,6 +62,8 @@ const StemWithUs = (props) => {
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
         
+        <LittleCalendar />
+
         <Calendar localizer={localizer} events={events} 
           className="calendario"
           startAccessor="start" 
@@ -71,6 +75,7 @@ const StemWithUs = (props) => {
           <h2>{t('Eventos_Proximos')}</h2>
           <section className="eventos">
           {
+            events !== null ?
             events
             .filter((event) => event.start > todayDate)
             .map((event) => {
@@ -85,12 +90,13 @@ const StemWithUs = (props) => {
                 </Card>
                 )
             })
+            : <></>
             }
           </section>
 
         <section className='tutorials'>
           {
-            (tutorials.length > 0) ?  
+            (tutorials !== null) ?  
               <div className='tutorialsLine-top'>
               <h2>STEM TUTORIALS</h2>
               <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
@@ -100,11 +106,13 @@ const StemWithUs = (props) => {
          
           <div className='tutorialsLine'>
             {
+              tutorials !== null ?
               tutorials.map((video) => {
                 return(
                   <TutorialMiniature key={video.url} img={video.thumbnail} name={video.title}/>
                   )
               })
+              : <></>
             } 
           </div>
         </section>
