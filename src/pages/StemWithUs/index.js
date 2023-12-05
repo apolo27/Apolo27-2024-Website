@@ -40,6 +40,7 @@ const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
   const [tutorials, setTutorials] = useState([])
   const [lastAPIFetchDay, setLastAPIFetchDay] = useState(Date)
+  const [date, setDate] = useState(new Date());
   let t = props.t;
 
   const todayDate = new Date();
@@ -62,7 +63,7 @@ const StemWithUs = (props) => {
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
         
-        <LittleCalendar />
+        <LittleCalendar setDate={setDate} value={date}/>
 
         <Calendar localizer={localizer} events={events} 
           className="calendario"

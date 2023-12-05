@@ -3,11 +3,11 @@ import {useState} from 'react'
 import Calendar from 'react-calendar';
 
 
-function LittleCalendar(){
-    const [date, setDate] = useState(new Date());
+function LittleCalendar(props){
+
     return(
         <div>
-            <Calendar onChange={setDate} value={date}/>
+            <Calendar onChange={props.setDate} value={props.value}/>
         </div>
     )
 }
