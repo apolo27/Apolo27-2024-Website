@@ -3,7 +3,7 @@ import request from "superagent";
 const keywords = ['comunicamos', 'conoce'];
 const keywordQuery = keywords.join('|');
  
-export function getTutorials() {
+export function getTutorials(callback) {
 
     request.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCzfVpVDOvqLXVKLMDPczp5BUcs2jzU7Dg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q=${keywordQuery}&part=snippet,id&order=date&maxResults=3&type=video`).end((err, resp) => {
         if (!err) {
@@ -16,8 +16,9 @@ export function getTutorials() {
             });
           });
           localStorage.setItem("tutorials", JSON.stringify(videos))
-          
-          
+          const storedTutorialsString = localStorage.getItem('tutorials');
+          const storedTutorialsArray = JSON.parse(storedTutorialsString);
+          callback(storedTutorialsArray)
         }
       });
 }

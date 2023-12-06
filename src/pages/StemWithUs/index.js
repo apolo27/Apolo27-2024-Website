@@ -1,4 +1,5 @@
 import './StemWithUs.css'
+import './BigCalendar.css'
 import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import i18next from "i18next";
@@ -46,52 +47,50 @@ const StemWithUs = (props) => {
   const todayDate = new Date();
 
   useEffect(() => {
-    if(todayDate > lastAPIFetchDay){
-      //getEvents()
-      //getTutorials()
-      //setTutorials(JSON.parse(localStorage.getItem("tutorials")))
-      //setEvents(JSON.parse(localStorage.getItem("events")))
-      //setLastAPIFetchDay(new Date())
-      //console.log("se hicieron las api calls")
-    } else {
-      //setTutorials(JSON.parse(localStorage.getItem("tutorials")))
-      //setEvents(JSON.parse(localStorage.getItem("events")))
+    if(localStorage.getItem("events") === null){
+      getEvents(setEvents)
+      console.log("se hizo la api call de los eventos")
+      console.log("events es null?: ", events ===null)
+    } else{
+      setEvents(JSON.parse(localStorage.getItem('events')))
+    }
+    if(localStorage.getItem("tutorials") === null){
+      getTutorials(setTutorials)
+      console.log("se hizo la api call de los tutoriales")
+      console.log("tutorials es null?: ", tutorials ===null)
+    }else{
+      setTutorials(JSON.parse(localStorage.getItem('tutorials')))
     }
   }, []);
   
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        
-        <LittleCalendar setDate={setDate} value={date}/>
+
 
         <Calendar localizer={localizer} events={events} 
           className="calendario"
           startAccessor="start" 
           endAccessor="end"
-          defaultView="month"
           toolbar={true}
           style={{height: 500, marginTop: '50px'}}/>
         
           <h2>{t('Eventos_Proximos')}</h2>
           <section className="eventos">
           {
-            events !== null ?
             events
-            .filter((event) => event.start > todayDate)
             .map((event) => {
               return(
                 <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
-                  <Card.Body style={{backgroundColor: '#161A2C', boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
+                  <Card.Body style={{boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
                     <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
                     <Card.Title>{event.title}</Card.Title>
-                    <Card.Text> <img src={pin} alt='pin' width={20}></img> {event.location}</Card.Text>
+                    <Card.Text> {event.location}</Card.Text>
                     <Button href={event.htmlLink}>{t('Seguir')}</Button>
                   </Card.Body>
                 </Card>
                 )
             })
-            : <></>
             }
           </section>
 
