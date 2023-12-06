@@ -11,9 +11,7 @@ import {Container, Carousel, Card, Button } from "react-bootstrap";
 import { InstagramEmbed } from 'react-social-media-embed';
 
 import TutorialMiniature from '../../components/TutorialMiniature';
-import LittleCalendar from '../../components/LittleCalendar';
 
-import pin from "../../imgs/pin.png"
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
 
 import miniatura1 from '../../imgs/StemWithUs/MiniaturaDeVideos/miniatura1.png'
@@ -38,8 +36,6 @@ const localizer = dateFnsLocalizer({
 const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
   const [tutorials, setTutorials] = useState([])
-  const [lastAPIFetchDay, setLastAPIFetchDay] = useState(Date)
-  const [dates, setDates] = useState([new Date('2023-12-01'), new Date('2023-12-05'), new Date('2023-12-12')]);
   let t = props.t;
 
   const todayDate = new Date();
@@ -64,13 +60,13 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        <LittleCalendar value={dates} />
         <Calendar localizer={localizer} events={events} 
           className="calendario"
           startAccessor="start" 
           endAccessor="end"
-          toolbar={false}
-          style={{width: 400, height: 400, marginTop: '50px'}}
+          toolbar={true}
+          views={['month']}
+          style={{width: 500, height: 400, marginTop: '50px'}}
         />
         
           <h2>{t('Eventos_Proximos')}</h2>
