@@ -5,8 +5,6 @@ import {Link} from 'react-router-dom';
 import i18next from "i18next";
 import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import { getEvents } from "../../services/FetchCalendarEvents";
 import { getTutorials } from "../../services/FetchYTVideos";
 import {Container, Carousel, Card, Button } from "react-bootstrap";
@@ -41,7 +39,7 @@ const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
   const [tutorials, setTutorials] = useState([])
   const [lastAPIFetchDay, setLastAPIFetchDay] = useState(Date)
-  const [date, setDate] = useState(new Date());
+  const [dates, setDates] = useState([new Date('2023-12-01'), new Date('2023-12-05'), new Date('2023-12-12')]);
   let t = props.t;
 
   const todayDate = new Date();
@@ -66,14 +64,14 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-
-
+        <LittleCalendar value={dates} />
         <Calendar localizer={localizer} events={events} 
           className="calendario"
           startAccessor="start" 
           endAccessor="end"
-          toolbar={true}
-          style={{height: 500, marginTop: '50px'}}/>
+          toolbar={false}
+          style={{width: 400, height: 400, marginTop: '50px'}}
+        />
         
           <h2>{t('Eventos_Proximos')}</h2>
           <section className="eventos">
