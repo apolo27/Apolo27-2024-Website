@@ -198,12 +198,83 @@ margin-bottom: 20px;
   outline: none;
 }
 
-@media (max-width: 768px) {
-.sponsorsPage-title {
-    font-size: 2em;
+
+
+.fondo-cohete{
+  border-style: solid;
+  border-left-color: #402565;
+  border-top-color: #0c4635;
+  border-bottom-color: #402565;
+  border-right-color: #0c4635;
+  border-radius: 100%;
+  background: linear-gradient(45deg, #402565, #0c4635);
 }
 
-.sponsorsPage-text {
-    font-size: 1em;
+.cohete-entero{
+  transform: scale(0.9);
 }
+
+.cohete-cabeza{
+  margin: 0 auto;
+  width: 200px;
+  height: 100px;
+  background-color: aliceblue;
+  position: relative;
+  border-radius: 50%;
+  border-bottom: #0c4635;
+  border-style: solid;
 }
+
+.cohete-cuerpo{
+  margin: 0 auto;
+  background-color: aliceblue;
+  width: 300px;
+  border-radius: 20% / 50%
+}
+
+.sponsor{
+  transition: transform 0.2s ease-in-out;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sponsor-img{
+  border-radius: 50%;
+}
+
+.sponsor:hover{
+  transform: scale(1.09);
+}
+
+.cohete-pies {
+  margin: 0 auto;
+  position: relative;
+}
+
+.leg-left{
+  margin: 0 auto;
+  background-color: aliceblue;
+  width: 200px;
+  border-radius: 0px 0px 30% 30%;
+}
+.leg-right{
+  margin: 0 auto;
+  background-color: aliceblue;
+  width: 200px;
+  border-radius: 0px 0px 30% 30%;
+}
+
+
+@media (max-width: 768px) {
+  .sponsorsPage-title {
+      font-size: 2em;
+  }
+  
+  .sponsorsPage-text {
+      font-size: 1em;
+  }
+
+  .fondo-cohete{
+    border-radius: 5px;
+  }
+  }

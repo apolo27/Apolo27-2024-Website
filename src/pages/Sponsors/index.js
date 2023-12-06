@@ -1,4 +1,5 @@
 import './Sponsors.css'
+import { useState } from 'react';
 import {Container} from 'react-bootstrap/';
 import bmCargo from '../../imgs/Sponsors/BMCargo.jpeg'
 import coopreservas from '../../imgs/Sponsors/coopreservas.jpeg'
@@ -12,9 +13,51 @@ import cardnet from '../../imgs/Sponsors/cardnet.png'
 import cmi from '../../imgs/Sponsors/cmi.png'
 
 function Sponsors(props){
+    const sponsors =[
+        {
+            name: 'bmCargo', 
+            img: bmCargo
+        },
+        {
+            name: 'Coopreservas',
+            img: coopreservas
+        },
+        {
+            name: 'Olé',
+            img: ole
+        },
+        {
+            name: 'Pedidos Ya', 
+            img: pedidosYa
+        },
+        {
+            name: 'Pizzarelli',
+            img: pizzarelli
+        },
+        {
+            name: 'AES',
+            img: aes
+        },
+        {
+            name: 'Banreservas',
+            img: banreservas
+        },
+        {
+            name: 'Belkoro',
+            img: Belkoro
+        },
+        {
+            name: 'Cardnet',
+            img: cardnet
+        },
+        {
+            name: 'Cmi',
+            img: cmi
+        },
+    ]
     let t = props.t;
   return(
-    <Container style={{textAlign: "center"}}>
+    <Container style={{textAlign: "center", marginBottom: 100}}>
         <div className='titleArea'>
             <h1 className='sponsorsPage-title'>{t('Sponsor-Us-Title')}</h1>
             <h3 className='sponsorsPage-text'>{t('Sponsor-Us-SubTitle')}</h3>
@@ -45,6 +88,32 @@ function Sponsors(props){
                 <img className='logo' src={Belkoro} alt="patrocinador" width={100}/>
                 <img className='logo' src={cardnet}alt="patrocinador" width={100}/>
                 <img className='logo' src={cmi}alt="patrocinador" width={100}/>
+            </div>
+        </div>
+
+        <div className='fondo-cohete'>
+            <div className='cohete-entero'>
+                <div className='cohete-cabeza'>
+
+                </div>
+                <div className='cohete-cuerpo'>
+                    {  
+                        sponsors
+                        .map((sponsor) => {
+                        return(
+                                <div className='sponsor'>
+                                    <img className='sponsor-img' width={100} src={sponsor.img} alt='sponsor'></img>
+                                    
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className='cohete-pies'>
+                    <div className="leg-left"></div>
+                    <div className="leg-right"></div>
+                </div>
+
             </div>
         </div>
         <button className="button-82-pushable">

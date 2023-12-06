@@ -14,7 +14,7 @@ function Home(props){
   return(
     <div>
       <Container>
-        <Grid container={true} spacing={0} rowSpacing={3} wrap='wrap'>
+        <Grid style={{marginBottom: 100}} container={true} spacing={0} rowSpacing={3} wrap='wrap'>
           <Grid item>
             <Card className='hero'>
               <Card.Body style={{textAlign: 'left', height: 350, zIndex: 0}}>
