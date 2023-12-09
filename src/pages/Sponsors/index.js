@@ -1,6 +1,6 @@
 import './Sponsors.css'
 import { useState } from 'react';
-import {Container} from 'react-bootstrap/';
+import {Container, Carousel} from 'react-bootstrap/';
 import bmCargo from '../../imgs/Sponsors/BMCargo.jpeg'
 import coopreservas from '../../imgs/Sponsors/coopreservas.jpeg'
 import ole from '../../imgs/Sponsors/ole.jpg'
@@ -88,25 +88,6 @@ function Sponsors(props){
                 <img className='logo' src={Belkoro} alt="patrocinador" width={100}/>
                 <img className='logo' src={cardnet}alt="patrocinador" width={100}/>
                 <img className='logo' src={cmi}alt="patrocinador" width={100}/>
-            </div>
-        </div>
-
-        <div className='fondo-cohete'>
-
-            <div className='cohete-entero'>
-                <div className='cohete-cabeza'>
-
-                </div>
-                <div className='cohete-cuerpo'>
-                    {  
-                    }
-                </div>
-                <div className='cohete-pies'>
-                    <div className="leg-left"></div>
-                    <div className="leg-right"></div>
-                    <div className='fire'></div>
-                </div>
-
             </div>
         </div>
 
