@@ -7,7 +7,7 @@ import {format, getDay, parse, startOfWeek} from "date-fns";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import { getEvents } from "../../services/FetchCalendarEvents";
 import { getTutorials } from "../../services/FetchYTVideos";
-import {Container, Carousel, Card, Button } from "react-bootstrap";
+import {Container, Carousel, Accordion, Card, Button } from "react-bootstrap";
 import { InstagramEmbed } from 'react-social-media-embed';
 
 import TutorialMiniature from '../../components/TutorialMiniature';
@@ -60,15 +60,51 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        <Calendar localizer={localizer} events={events} 
-          className="calendario"
-          startAccessor="start" 
-          endAccessor="end"
-          toolbar={true}
-          views={['month']}
-          style={{width: 500, height: 400, marginTop: '50px'}}
-        />
-        
+        <section>
+          <Calendar localizer={localizer} events={events} 
+            className="calendario"
+            startAccessor="start" 
+            endAccessor="end"
+            toolbar={true}
+            views={['month']}
+            style={{width: 500, height: 400, marginTop: '50px'}}
+          />
+          {
+            events
+            .map((event) => {
+              return(
+                <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
+                  <Card.Body style={{boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
+                    <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
+                    <Card.Title>{event.title}</Card.Title>
+                    <Card.Text> {event.location}</Card.Text>
+                    <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                  </Card.Body>
+                </Card>
+                )
+            })
+          /*
+          <Accordion defaultActiveKey="0" style={{width: 500}}>
+            {
+              events.map((event, i) => {
+                return(
+                  <Accordion.Item eventKey={i} key={event.title}>
+                    <Accordion.Header>{event.title}</Accordion.Header>
+                    <Accordion.Body>
+                      Inicio: {event.start} <br></br>
+                      Ubicacion: {event.location} <br></br>
+                      <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                )
+              })
+            }
+          </Accordion>
+          */
+          }
+
+        </section>
+
           <h2>{t('Eventos_Proximos')}</h2>
           <section className="eventos">
           {
