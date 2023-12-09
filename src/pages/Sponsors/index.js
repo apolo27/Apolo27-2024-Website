@@ -92,30 +92,24 @@ function Sponsors(props){
         </div>
 
         <div className='fondo-cohete'>
+
             <div className='cohete-entero'>
                 <div className='cohete-cabeza'>
 
                 </div>
                 <div className='cohete-cuerpo'>
                     {  
-                        sponsors
-                        .map((sponsor) => {
-                        return(
-                                <div className='sponsor'>
-                                    <img className='sponsor-img' width={100} src={sponsor.img} alt='sponsor'></img>
-                                    
-                                </div>
-                            )
-                        })
                     }
                 </div>
                 <div className='cohete-pies'>
                     <div className="leg-left"></div>
                     <div className="leg-right"></div>
+                    <div className='fire'></div>
                 </div>
 
             </div>
         </div>
+
         <button className="button-82-pushable">
             <span className="button-82-shadow"></span>
             <span className="button-82-edge"></span>
