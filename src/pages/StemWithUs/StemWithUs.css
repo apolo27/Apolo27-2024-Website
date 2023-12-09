@@ -1,12 +1,24 @@
+
 .stem-with-us{
   background-size: contain;
   background-repeat:space;
 }
 
+.seccion-calendario{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 50px;
+}
 
 .eventos{
   display: flex;
   flex-wrap: wrap;
+}
+
+.eventos-alt {
+  width: 350px;
+  
 }
 
 section{

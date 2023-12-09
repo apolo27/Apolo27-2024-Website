@@ -60,8 +60,8 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        <section>
-          <Calendar localizer={localizer} events={events} 
+        <section className='seccion-calendario'>
+         <Calendar localizer={localizer} events={events} 
             className="calendario"
             startAccessor="start" 
             endAccessor="end"
@@ -69,60 +69,47 @@ const StemWithUs = (props) => {
             views={['month']}
             style={{width: 500, height: 400, marginTop: '50px'}}
           />
+          
+          <section className="eventos-alt">
           {
-            events
-            .map((event) => {
-              return(
-                <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
-                  <Card.Body style={{boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
-                    <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
-                    <Card.Title>{event.title}</Card.Title>
-                    <Card.Text> {event.location}</Card.Text>
-                    <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                  </Card.Body>
-                </Card>
-                )
-            })
-          /*
-          <Accordion defaultActiveKey="0" style={{width: 500}}>
-            {
-              events.map((event, i) => {
-                return(
-                  <Accordion.Item eventKey={i} key={event.title}>
-                    <Accordion.Header>{event.title}</Accordion.Header>
-                    <Accordion.Body>
-                      Inicio: {event.start} <br></br>
-                      Ubicacion: {event.location} <br></br>
-                      <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                )
-              })
-            }
-          </Accordion>
-          */
+            <Accordion defaultActiveKey="1" style={{width: 500}}>
+              {
+                events.map((event, i) => {
+                  return(
+                    <Accordion.Item eventKey={i} key={event.title}>
+                      <Accordion.Header>{event.title}</Accordion.Header>
+                      <Accordion.Body>
+                        Inicio: {new Date(event.start).toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})} <br></br>
+                        Ubicacion: {event.location} <br></br>
+                        <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  )
+                })
+              }
+            </Accordion>
           }
-
+          </section>
         </section>
 
-          <h2>{t('Eventos_Proximos')}</h2>
-          <section className="eventos">
-          {
-            events
-            .map((event) => {
-              return(
-                <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
-                  <Card.Body style={{boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
-                    <Card.Title>{event.start.toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}</Card.Title>
-                    <Card.Title>{event.title}</Card.Title>
-                    <Card.Text> {event.location}</Card.Text>
-                    <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                  </Card.Body>
-                </Card>
-                )
-            })
-            }
-          </section>
+        <h2>{t('Eventos_Proximos')}</h2>
+        <section className="eventos">
+        {
+          events
+          .map((event) => {
+            return(
+              <Card style={{ width: '18rem', margin: '15px'}} key={event.title}>
+                <Card.Body style={{boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
+                  <Card.Title>{new Date(event.start).toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}  </Card.Title>
+                  <Card.Title>{event.title}</Card.Title>
+                  <Card.Text> {event.location}</Card.Text>
+                  <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                </Card.Body>
+              </Card>
+              )
+          })
+          }
+        </section>
 
         <section className='tutorials'>
           {
@@ -149,20 +136,20 @@ const StemWithUs = (props) => {
 
           <section className='recent-videos'>
             <h1>Recent Videos</h1>
-            <Carousel touch>
-              <Carousel.Item>
+            <Carousel touch controls={false}>
+              <Carousel.Item interval={2000}>
               <img className='d-block w-100' src={miniatura1} alt='miniatura de video'></img>
                 <Carousel.Caption>
                   <Button>{t('WatchVideo')}</Button>
                 </Carousel.Caption>
               </Carousel.Item>
-              <Carousel.Item>
+              <Carousel.Item interval={2000}>
               <img className='d-block w-100' src={miniatura2} alt='miniatura de video'></img>
                 <Carousel.Caption>
                   <Button>{t('WatchVideo')}</Button>
                 </Carousel.Caption>
               </Carousel.Item>
-              <Carousel.Item>
+              <Carousel.Item interval={2000}>
               <img className='d-block w-100' src={miniatura3} alt='miniatura de video'></img>
                 <Carousel.Caption>
                   <Button>{t('WatchVideo')}</Button>
