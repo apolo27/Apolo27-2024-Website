@@ -4,11 +4,8 @@
   background-repeat:space;
 }
 
-.seccion-calendario{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  column-gap: 50px;
+.calendario{
+  margin: 0 auto;
 }
 
 .eventos{
@@ -16,10 +13,6 @@
   flex-wrap: wrap;
 }
 
-.eventos-alt {
-  width: 350px;
-  
-}
 
 section{
   margin-top: 50px;

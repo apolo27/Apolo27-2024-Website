@@ -57,7 +57,7 @@ function Sponsors(props){
     ]
     let t = props.t;
   return(
-    <Container style={{textAlign: "center", marginBottom: 100}}>
+    <Container style={{textAlign: "center"}}>
         <div className='titleArea'>
             <h1 className='sponsorsPage-title'>{t('Sponsor-Us-Title')}</h1>
             <h3 className='sponsorsPage-text'>{t('Sponsor-Us-SubTitle')}</h3>

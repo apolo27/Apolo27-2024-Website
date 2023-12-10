@@ -60,37 +60,16 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        <section className='seccion-calendario'>
-         <Calendar localizer={localizer} events={events} 
-            className="calendario"
-            startAccessor="start" 
-            endAccessor="end"
-            toolbar={true}
-            views={['month']}
-            style={{width: 500, height: 400, marginTop: '50px'}}
-          />
-          
-          <section className="eventos-alt">
-          {
-            <Accordion defaultActiveKey="1" style={{width: 500}}>
-              {
-                events.map((event, i) => {
-                  return(
-                    <Accordion.Item eventKey={i} key={event.title}>
-                      <Accordion.Header>{event.title}</Accordion.Header>
-                      <Accordion.Body>
-                        Inicio: {new Date(event.start).toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})} <br></br>
-                        Ubicacion: {event.location} <br></br>
-                        <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  )
-                })
-              }
-            </Accordion>
-          }
-          </section>
-        </section>
+      <iframe src="https://embed.styledcalendar.com/#SYehxKPEb9fxwLmaOV6x" title="Styled Calendar" class="styled-calendar-container" style={{width:  720, border: "none"}} data-cy="calendar-embed-iframe"></iframe>
+<script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
+        <Calendar localizer={localizer} events={events} 
+          className="calendario"
+          startAccessor="start" 
+          endAccessor="end"
+          toolbar={true}
+          views={['month']}
+          style={{width: 720, height: 580, marginTop: '50px'}}
+        />
 
         <h2>{t('Eventos_Proximos')}</h2>
         <section className="eventos">
