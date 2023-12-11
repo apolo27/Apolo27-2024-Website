@@ -1,19 +1,26 @@
 import './StemWithUs.css'
 import './BigCalendar.css'
+
 import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
+
 import i18next from "i18next";
-import {format, getDay, parse, startOfWeek} from "date-fns";
-import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import { Calendar, momentLocalizer  } from "react-big-calendar";
+
+import moment from 'moment';
+import 'moment/locale/en-gb';
+import 'moment/locale/es';
+
+
+import {Container, Carousel, Card, Button } from "react-bootstrap";
+import { InstagramEmbed } from 'react-social-media-embed';
+
 import { getEvents } from "../../services/FetchCalendarEvents";
 import { getTutorials } from "../../services/FetchYTVideos";
-import {Container, Carousel, Accordion, Card, Button } from "react-bootstrap";
-import { InstagramEmbed } from 'react-social-media-embed';
 
 import TutorialMiniature from '../../components/TutorialMiniature';
 
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
-
 import miniatura1 from '../../imgs/StemWithUs/MiniaturaDeVideos/miniatura1.png'
 import miniatura2 from '../../imgs/StemWithUs/MiniaturaDeVideos/miniatura2.png'
 import miniatura3 from '../../imgs/StemWithUs/MiniaturaDeVideos/miniatura3.png'
@@ -21,17 +28,7 @@ import arrow from '../../imgs/StemWithUs/arrow.png'
 
 
 
-const locales = {
-  "en-US": require("date-fns/locale/en-US")
-}
-
-const localizer = dateFnsLocalizer({
-  format,
-  parse,
-  startOfWeek,
-  getDay,
-  locales
-})
+const localizer = momentLocalizer(moment);
 
 const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
@@ -60,15 +57,16 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-      <iframe src="https://embed.styledcalendar.com/#SYehxKPEb9fxwLmaOV6x" title="Styled Calendar" class="styled-calendar-container" style={{width:  720, border: "none"}} data-cy="calendar-embed-iframe"></iframe>
-<script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
-        <Calendar localizer={localizer} events={events} 
+        <Calendar 
           className="calendario"
+          culture={localStorage.getItem("i18nextLng")}
+          localizer={localizer} 
+          events={events} 
           startAccessor="start" 
           endAccessor="end"
           toolbar={true}
-          views={['month']}
-          style={{width: 720, height: 580, marginTop: '50px'}}
+          views={['month', 'agenda']}
+          style={{marginTop: '50px'}}
         />
 
         <h2>{t('Eventos_Proximos')}</h2>

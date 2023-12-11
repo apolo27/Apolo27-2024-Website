@@ -5,7 +5,7 @@ const keywordQuery = keywords.join('|');
  
 export function getTutorials(callback) {
 
-    request.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCzfVpVDOvqLXVKLMDPczp5BUcs2jzU7Dg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q=${keywordQuery}&part=snippet,id&order=date&maxResults=3&type=video`).end((err, resp) => {
+    request.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCzfVpVDOvqLXVKLMDPczp5BUcs2jzU7Dg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q=${keywordQuery}&part=snippet,id&order=date&maxResults=4&type=video`).end((err, resp) => {
         if (!err) {
           const videos = [];
           JSON.parse(resp.text).items.map(video => {
