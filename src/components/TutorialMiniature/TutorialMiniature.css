@@ -7,10 +7,17 @@
 .tutorial{
     transition: transform 0.3s ease-in-out;
 }
-  
+
+.tutorial img{
+    width: 275px;
+}
+
 .tutorial h3{
+    margin: 0;
+    width: 275px;
+    overflow: hidden;
     font-family: Raleway;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
 }
   

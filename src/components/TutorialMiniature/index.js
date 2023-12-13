@@ -6,7 +6,7 @@ const TutorialMiniature = (props) =>{
     return(
       <div className='tutorial'>
         <img src={img} alt='Tutorial Miniature'></img>
-        <h3 style={{margin: 0, width: '300px',overflow: 'hidden'}}>{name}</h3>
+        <h3>{name}</h3>
       </div>
     )
 }
