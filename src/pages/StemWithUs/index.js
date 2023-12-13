@@ -77,7 +77,9 @@ const StemWithUs = (props) => {
             return(
               <Card style={{ width: '16rem', margin: '15px'}} key={event.title}>
                 <Card.Body style={{boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
-                  <Card.Title>{new Date(event.start).toLocaleString(i18next.language,{year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'numeric'})}  </Card.Title>
+                  <Card.Title>{new Date(event.start).getDate()}</Card.Title>
+                  <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {month: 'long'})}</Card.Title>
+                  <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {hour:'numeric', minute:'numeric'})}</Card.Title>
                   <Card.Title>{event.title}</Card.Title>
                   <Card.Text> {event.location}</Card.Text>
                   <Button href={event.htmlLink}>{t('Seguir')}</Button>
