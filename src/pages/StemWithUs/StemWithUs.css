@@ -8,10 +8,18 @@
   margin: 0 auto;
 }
 
+iframe{
+  width: 75%;
+}
+
 .eventos{
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+}
+
+.eventos .card{
+
 }
 
 
@@ -68,6 +76,12 @@ section .tutorialsLine{
   justify-content: space-evenly;
 }
 
+section .reelsLine{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 1200px) {
   .contact-us{
     margin-bottom: 35px;
@@ -84,7 +98,9 @@ section .tutorialsLine{
 }
 
 @media screen and (max-width: 900px) {
-
+  iframe{
+    width: 100%;
+  }
   .calendario{
     height: 350px;
   }

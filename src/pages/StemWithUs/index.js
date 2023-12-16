@@ -57,44 +57,49 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        <Calendar 
-          className="calendario"
-          culture={localStorage.getItem("i18nextLng")}
-          localizer={localizer} 
-          events={events} 
-          startAccessor="start" 
-          endAccessor="end"
-          toolbar={true}
-          views={['month', 'agenda']}
-          style={{marginTop: '50px'}}
-        />
-
-        <h2>{t('Eventos_Proximos')}</h2>
-        <section className="eventos">
+        <h1>{t('Eventos_Proximos')}</h1>
+        <iframe src="https://embed.styledcalendar.com/#SYehxKPEb9fxwLmaOV6x" title="Styled Calendar" className="styled-calendar-container" 
+          style={{border: 'none', height: 720}}></iframe>
+        <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
         {
-          events
-          .map((event) => {
-            return(
-              <Card style={{ width: '16rem', margin: '15px'}} key={event.title}>
-                <Card.Body style={{boxShadow: '0px 2px 35px px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25)'}}>
-                  <Card.Title>{new Date(event.start).getDate()}</Card.Title>
-                  <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {month: 'long'})}</Card.Title>
-                  <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {hour:'numeric', minute:'numeric'})}</Card.Title>
-                  <Card.Title>{event.title}</Card.Title>
-                  <Card.Text> {event.location}</Card.Text>
-                  <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                </Card.Body>
-              </Card>
-              )
-          })
-          }
-        </section>
+        /*
+          <Calendar 
+            className="calendario"
+            culture={localStorage.getItem("i18nextLng")}
+            localizer={localizer} 
+            events={events} 
+            startAccessor="start" 
+            endAccessor="end"
+            toolbar={true}
+            views={['month', 'agenda']}
+            style={{marginTop: '50px'}}
+          />
 
+          */
+        }
+
+       <section className="eventos">
+       {
+         events
+         .map((event) => {
+           return(
+             <Card style={{ width: '16rem', margin: '15px'}} key={event.title}>
+               <Card.Body>
+                <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                 <Card.Title>{event.title}</Card.Title>
+                 <Card.Text> {event.location}</Card.Text>
+                 <Button href={event.htmlLink}>{t('Seguir')}</Button>
+               </Card.Body>
+             </Card>
+             )
+         })
+         }
+       </section>
         <section className='tutorials'>
           {
             (tutorials !== null) ?  
               <div className='tutorialsLine-top'>
-              <h2>STEM TUTORIALS</h2>
+              <h2>{t('Stem-Tutorials')}</h2>
               <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
             </div>
             : <></>
@@ -114,24 +119,24 @@ const StemWithUs = (props) => {
         </section>
 
           <section className='recent-videos'>
-            <h1>Recent Videos</h1>
-            <Carousel touch controls={false}>
+            <h1>{t('Recent-Videos')}</h1>
+            <Carousel touch>
               <Carousel.Item interval={2000}>
               <img className='d-block w-100' src={miniatura1} alt='miniatura de video'></img>
                 <Carousel.Caption>
-                  <Button>{t('WatchVideo')}</Button>
+                  <Button href='https://www.youtube.com/watch?v=PJAnAb7hfrU&t=6s'>{t('WatchVideo')}</Button>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item interval={2000}>
               <img className='d-block w-100' src={miniatura2} alt='miniatura de video'></img>
                 <Carousel.Caption>
-                  <Button>{t('WatchVideo')}</Button>
+                  <Button href='https://youtu.be/PvG-7RNjtOU?si=tebiFn4ekwad5arv'>{t('WatchVideo')}</Button>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item interval={2000}>
               <img className='d-block w-100' src={miniatura3} alt='miniatura de video'></img>
                 <Carousel.Caption>
-                  <Button>{t('WatchVideo')}</Button>
+                  <Button href='https://youtu.be/kdeYjX8Reoo?si=3m2gQ2Jw9l0f5Itq'>{t('WatchVideo')}</Button>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
@@ -140,9 +145,9 @@ const StemWithUs = (props) => {
           <section className='tutorials'>
             <div className='tutorialsLine-top'>
               <h2>Reels</h2>
-              <Link to="https://www.instagram.com/apolo27_rd/" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
+              <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
             </div>
-            <div className='tutorialsLine'>
+            <div className='reelsLine'>
                 <InstagramEmbed url="https://www.instagram.com/reel/CzcgK0xLmp6/" width={375} />
                 <InstagramEmbed url="https://www.instagram.com/reel/Cwpoeu5r42a/" width={375} />
                 <InstagramEmbed url="https://www.instagram.com/reel/C0PKP1ALnEL/" width={375} />

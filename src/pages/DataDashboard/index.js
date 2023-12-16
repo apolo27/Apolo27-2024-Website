@@ -191,10 +191,6 @@ const DataDashboard = (props) => {
               </PresentationControls>
             </Canvas>
           </Tab>
-
-          <Tab eventKey="environment" title="ENVIRONMENT" tabClassName='tab'>
-            Tab content for Contact
-          </Tab>
         </Tabs>
       </div>
 
