@@ -2,7 +2,7 @@
   "Hello-World": "Hola mundo",
   "Go-Back": "Ir atrás",
   "DATA-DASHBOARD": "PANEL DE DATOS",
-  "STEM-WITH-US": "STEM",
+  "STEM-WITH-US": "STEM CON NOSOTROS",
   "ABOUT-THE-TEAM": "ACERCA DEL EQUIPO",
   "GAMES": "JUEGOS",
   "BECOME-A-SPONSOR": "PATROCINADORES",
@@ -15,8 +15,12 @@
   "Sponsor-us": "Patrocínanos",
   "Sponsor-us-Sub": "Su apoyo nos ayudará a darle al país el reconocimiento que se merece.",
 
+  "System-Safety-Award-Description": "Ganar este premio, el primero para un equipo dominicano, demostró nuestro compromiso inquebrantable con la seguridad y la innovación en ingeniería. Nuestro rover superó los estándares de seguridad, mostrando nuestra experiencia y dedicación a la creación de tecnología confiable y segura, estableciendo un alto estándar para los futuros equipos y destacando el potencial del talento dominicano.",
+  "Stem-Engament-Award-Description": "La introducción del STEM Tour y sus actividades prácticas fue un logro significativo y permitió que el equipo ganara el premio. Este reconocimiento destaca los esfuerzos del equipo para promover la educación STEM y su impacto en la sociedad de la República Dominicana.",
+  "Coming-Soon-Description": "Este año, subimos el listón aún más alto y nos esforzamos por mejorar en todas las categorías. Nuestro equipo está decidido a seguir avanzando en el campo de la ingeniería y la tecnología, y estamos emocionados de ver a dónde nos llevará nuestra dedicación y arduo trabajo.",
+
   "Tasks": "Tareas",
-  "Fin-ARV": "Encuentre ARV-30",
+  "Find-ARV": "Encuentre ARV-30",
   "Regolith-removal": "Eliminación de regolita",
   "Moon-maintenance": "Mantenimiento lunar",
   "Power-it-up": "Enciendelo",

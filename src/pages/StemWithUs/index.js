@@ -57,6 +57,11 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
+      <section className='data-dashboard-intro'>
+        <h4>
+          Las STEM son:
+        </h4>
+      </section>
         <h1>{t('Eventos_Proximos')}</h1>
         <iframe src="https://embed.styledcalendar.com/#SYehxKPEb9fxwLmaOV6x" title="Styled Calendar" className="styled-calendar-container" 
           style={{border: 'none', height: 720}}></iframe>

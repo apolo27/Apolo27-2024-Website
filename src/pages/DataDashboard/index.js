@@ -83,6 +83,12 @@ const DataDashboard = (props) => {
 
   return(
     <Container >
+      <section className='data-dashboard-intro'>
+        <h4>
+          Cada año blablablabla
+          Este es nuestro tablero para el Nasa Herc 2024
+        </h4>
+      </section>
       <div className='data-dashboard-body'>
         <Tabs defaultActiveKey="overview" justify={true} variant='pills' className='mb-3'>
           <Tab eventKey="overview" title="OVERVIEW" tabClassName='tab'>
@@ -96,7 +102,7 @@ const DataDashboard = (props) => {
                       <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Regolith-removal')} />
                       <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Moon-maintenance')} />
                       <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Power-it-up')} />
-                      <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Rover-redundancy')}/>
+                      <FormControlLabel control={<Checkbox sx={{color: "aliceblue", '&.Mui-checked': {color: "green"}}}/>} label={t('Rover-Redundancy')}/>
                   </FormGroup>
                 </div>
                 <div className='graph'>

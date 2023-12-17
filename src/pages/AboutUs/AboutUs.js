@@ -231,26 +231,6 @@ const AboutUs = (props) =>{
       </Carousel>
       
       <Container>
-        {/*
-          <section className='section-cronologia'>
-            <h1>Our Story</h1>
-            <h2>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h2>
-            <Chrono className='cronologia' 
-              items={items} 
-              mode="VERTICAL_ALTERNATING"
-              scrollable={{ scrollbar: false }}
-              allowDynamicUpdate
-              hideControls
-              enableBreakPoint verticalBreakPoint={900}
-              fontSizes={{
-                cardSubtitle: '1.75rem',
-                cardText: '1rem',
-                cardTitle: '1.25rem',
-                title: '1rem',
-              }}
-              />
-          </section>*/
-        }
         <div className="blockquote-wrapper">
           <div className="blockquote">
             <h1>
@@ -439,11 +419,7 @@ const AboutUs = (props) =>{
                     </div>
             
                     <div className="ag-courses-item_date-box">
-                      Winning this award, the first for any Dominican team,
-                      demonstrated our unwavering commitment to safety and innovation in engineering.
-                      Our rover exceeded safety standards, showcasing our expertise and dedication
-                      to creating reliable and secure technology, setting a high standard for future
-                      teams and highlighting the potential of Dominican talent.
+                      <p>{t('System-Safety-Award-Description')}</p>
                       <span className="ag-courses-item_date">
                         2020
                       </span>
@@ -460,10 +436,7 @@ const AboutUs = (props) =>{
                     </div>
             
                     <div className="ag-courses-item_date-box">
-                      The introduction of the STEM Tour and its hands-on activities was
-                      a significant achievement, and it enabled the team to win the award.
-                      This recognition highlights the team's efforts to promote STEM education
-                      and its impact on the Dominican Republic's society.
+                      {t('Stem-Engament-Award-Description')}
                       <span className="ag-courses-item_date">
                         2022
                       </span>
@@ -480,10 +453,7 @@ const AboutUs = (props) =>{
                     </div>
             
                     <div className="ag-courses-item_date-box">
-                      This year, we are raising the bar even higher and striving to improve
-                      in every category. Our team is determined to continue making strides
-                      in the field of engineering and technology, and we are excited to see
-                      where our dedication and hard work will take us.
+                      {t('Stem-Engament-Award-Description')}
                       <span className="ag-courses-item_date">
                         2023
                       </span>
