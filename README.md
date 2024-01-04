@@ -9,9 +9,12 @@ About us dinamico, solo con agregar miembros en el array de objetoso "members" s
 ## Data Dashboard
 Llamada a la base de datos para obtener los datos de la antigua competencia (cambiará cuando designmeos la nueva base de datos)
 
-
-## Calendario de actividades
+## STEM with us 
+### Calendario de actividades
 Calendario sincronizado con google calendar para STEM
+
+### Videos recientes de instagram y youtube
+
 
 ## Formulario para visitas
 Formulario para que instituciones puedan 
@@ -21,6 +24,11 @@ Checkbox a estilizar para legir entre modo oscuro y claro para la pagina
 
 ## Idiomas
 Idioma ingles y español para la página, debemos ir traduciendo los textos que pondremos
+
+## Simulacion interactiva
+Simulacion del Nasa HERC hecho en unity para la pagina
+
+
 
 
 # Getting Started with Create React App
