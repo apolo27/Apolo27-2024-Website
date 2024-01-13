@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
 import {Container, Card, Carousel, Button} from 'react-bootstrap';
 
-import { Chrono } from "react-chrono";
-
 import blankPic from '../../imgs/blank-profile.png'
 import first from '../../imgs/carousel/first.jpg'
 import second from '../../imgs/carousel/second.jpeg'
@@ -234,8 +232,7 @@ const AboutUs = (props) =>{
         <div className="blockquote-wrapper">
           <div className="blockquote">
             <h1>
-              It <span>always</span> seems to be <span
-                >impossible </span><span>until it is done.</span>
+              {t('NelsonMandela')}
             </h1>
             <h4>&mdash;Nelson Mandela<br/><em></em></h4>
           </div>
@@ -245,8 +242,8 @@ const AboutUs = (props) =>{
         </div>
 
 
-        <h1 style={{marginTop: "25px"}} id='OurStory'>Our Story</h1>
-        <h3>Get to know us: The Birth of Apolo 27. From Dreaming to Reality</h3>
+        <h1 style={{marginTop: "25px"}} id='OurStory'>{t('OurStory')}</h1>
+        <h3>{t('GetToKnowUs2')}</h3>
 
         <Timeline position={matches?'alternate':'right'} style={{marginTop: "50px"}}>
           <TimelineItem>
@@ -469,47 +466,37 @@ const AboutUs = (props) =>{
               <h1>Apolo 27 + STEM</h1>
             </div>
             <header className="header">
-              <h1 className="header-title masthead">STEM for All to Change the World</h1>
+              <h1 className="header-title masthead">{t('StemForAll')}</h1>
             </header>
             <main className="main">
               <article className="entry entry-lede">
                 <img className="entry-img" src={stem1} alt="stem-img1"/>
                 <div className="entry-content">
-                  <h1 className="entry-headline primary-headline">The Importance of STEM for our team</h1>
-                  <time className="entry-date meta">The Vital Importance of STEM Education in Today's World</time>
-                  <p className="entry-summary">STEM, which stands for Science, Technology, Engineering 
-                    and Mathematics, plays a crucial role in the success of Team Apolo 27. In fact,
-                    it is impossible to overstate the importance of STEM in the work that this team does.</p>
+                  <h1 className="entry-headline primary-headline">{t('ImportanceOfStem')}</h1>
+                  <time className="entry-date meta">{t('ImportanceOfStemSub')}</time>
+                  <p className="entry-summary">{t('ImportanceOfStemBody')}</p>
                 </div>
               </article>
               <article className="entry">
                 <img className="entry-img" src={stem2} alt="The profile view of three majestic brown horses" />
-                <h1 className="entry-headline primary-headline">Girls are the future</h1>
-                <time className="entry-date meta">March 8, 2023</time>
-                <span className="entry-byline meta">Women In STEM Panel</span>
-                <p className="entry-summary">Furthermore, including girls in STEM fields can bring unique perspectives
-                  and creativity to these industries. Women have made significant contributions to the fields
-                  of science and technology throughout history, and it is essential to continue this trend by
-                  encouraging girls to participate. By providing opportunities and support for girls interested
-                  in STEM, we can create a more equitable and innovative future.</p>
+                <h1 className="entry-headline primary-headline">{t('GirlsAreTheFuture')}</h1>
+                <time className="entry-date meta">{t('March 8, 2023')}</time>
+                <span className="entry-byline meta">{t('WomenInSTEM')}</span>
+                <p className="entry-summary">{t('WomenInSTEMBody')}</p>
               </article>
               <article className="entry">
                 <img className="entry-img" src={stem3} alt="The profile view of three majestic brown horses" />
-                <h1 className="entry-headline primary-headline">We believe in Dominican youth</h1>
-                <time className="entry-date meta">March 29, 2023</time>
-                <span className="entry-byline meta">School Visits</span>
-                <p className="entry-summary">Raising awareness about the importance of STEM education in
-                  Dominican society is crucial, and our team has been visiting schools to promote this
-                  message. Through these visits, we strive to inspire young students to pursue careers
-                  in science, technology, engineering, and math. We highlight the benefits of STEM education
-                  and showcase its relevance to everyday life. </p>
+                <h1 className="entry-headline primary-headline">{t('WeBelieveInDominicanYouth')}</h1>
+                <time className="entry-date meta">{t('March 29, 2023')}</time>
+                <span className="entry-byline meta">{t('School Visits')}</span>
+                <p className="entry-summary">{t('School VisitsBody')}</p>
               </article>
               <section className="trending">
                 <article className="trending-entry">
-                  <h1 className="trending-entry-headline primary-headline">Our events inspire individuals to pursue their passions.</h1>
+                  <h1 className="trending-entry-headline primary-headline">{t('School VisitsFooter')}</h1>
                 </article>
                 <article className="trending-entry">
-                  <h1 className="trending-entry-headline primary-headline"><br/>We showcase the power of hard work to achieve success.</h1>
+                  <h1 className="trending-entry-headline primary-headline"><br/>{t('School VisitsFooter2')}</h1>
                 </article>
               </section>              
             </main>  

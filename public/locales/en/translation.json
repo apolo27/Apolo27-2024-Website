@@ -11,10 +11,9 @@
   "Live-location":"Live location",
   "Rovers-data":"Rover's data",
   "Learn-projects":"Learn fun DIY projects with Apolo 27!",
-  "GetToKnowUs":"Get to know us. Make the difference.",
   "Sponsor-us": "Sponsor Us",
   "Sponsor-us-Sub": "Your support will help us get our country the recognition it deserves.",
-  
+
   "System-Safety-Award-Description": "Winning this award, the first for any Dominican team, demonstrated our unwavering commitment to safety and innovation in engineering. Our rover exceeded safety standards, showcasing our expertise and dedication to creating reliable and secure technology, setting a high standard for future teams and highlighting the potential of Dominican talent.",
   "Stem-Engament-Award-Description": "The introduction of the STEM Tour and its hands-on activities was a significant achievement, and it enabled the team to win the award. This recognition highlights the team's efforts to promote STEM education and its impact on the Dominican Republic's society.",
   "Coming-Soon-Description": "This year, we are raising the bar even higher and striving to improve in every category. Our team is determined to continue making strides in the field of engineering and technology, and we are excited to see where our dedication and hard work will take us.",
@@ -70,6 +69,13 @@
 
   "Sponsor-Us-Title": "Supporting Our Work: A Look at Our Dedicated Sponsors",
   "Sponsor-Us-SubTitle": "Discover the valuable role of sponsors in helping us achieve our mission and learn more about the individuals and companies who make it all possible.",
+ 
+  
+  "NelsonMandela": "It always seems to be impossible until it is done.",
+  "OurStory": "Our Story",
+  "GetToKnowUs":"Get to know us. Make the difference.",
+  "GetToKnowUs2":"Get to know us: The Birth of Apolo 27. From Dreaming to Reality",
+
 
   "Equipo-2019": "In 2019, we started with just a few members, and it was a challenging time for us. But we were determined to represent our country for the first time ever in the NASA Human Exploration Rover Challenge, and we did just that.",
   "Equipo-2020": "In 2020, despite the challenges posed by the pandemic, we persevered and learned valuable lessons that helped us grow, which led to win our first award: \"System Safety Award\".",
@@ -78,7 +84,23 @@
   "Equipo-2023": "In 2023, we're still in the process, but our focus remains on making our rover the best one yet. We also believe that STEM can change the world, that's why we are committed to push it even more in our country.",
   "Equipo-2024": "In 2024, we're still in the process, but our focus remains on making our rover the best one yet. We also believe that STEM can change the world, that's why we are committed to push it even more in our country.",
 
-  "FooterText": "Amet minim mollit Amet minim mollitAmet minim mollitAmet minim mollitAmet minim mollitAmet minim mollit.",
+  "StemForAll": "STEM for All to Change the World",
+  "ImportanceOfStem": "The Importance of STEM for our team",
+  "ImportanceOfStemSub": "The Vital Importance of STEM Education in Today's World",
+  "ImportanceOfStemBody": "STEM, which stands for Science, Technology, Engineering and Mathematics, plays a crucial role in the success of Team Apolo 27. In fact, it is impossible to overstate the importance of STEM in the work that this team does.",
+  
+  "GirlsAreTheFuture": "Girls are the future",
+  "March 8, 2023": "March 8, 2023",
+  "WomenInSTEM": "Women In STEM Panel",
+  "WomenInSTEMBody": "Furthermore, including girls in STEM fields can bring unique perspectives and creativity to these industries. Women have made significant contributions to the fields of science and technology throughout history, and it is essential to continue this trend by encouraging girls to participate. By providing opportunities and support for girls interested in STEM, we can create a more equitable and innovative future.",
+  
+  "WeBelieveInDominicanYouth": "We believe in Dominican youth",
+  "March 29, 2023": "March 29, 2023",
+  "School Visits": "School Visits",
+  "School VisitsBody": "Raising awareness about the importance of STEM education in Dominican society is crucial, and our team has been visiting schools to promote this message. Through these visits, we strive to inspire young students to pursue careers in science, technology, engineering, and math. We highlight the benefits of STEM education and showcase its relevance to everyday life.",
+  "School VisitsFooter": "Our events inspire individuals to pursue their passions.",
+  "School VisitsFooter2": "We showcase the power of hard work to achieve success.",
+
   "Pages": "Pages",
   "Home": "Home",
   "AboutUsFooter": "About US",
