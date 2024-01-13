@@ -15,6 +15,35 @@ import stem1 from '../../imgs/AboutUs/stem-1.jpg'
 import stem2 from '../../imgs/AboutUs/stem-2.jpg'
 import stem3 from '../../imgs/AboutUs/stem-3.jpg'
 
+import Ezequiel from '../../imgs/AboutUs/TeamMembers/Ezequiel.jpg'
+import Angello from '../../imgs/AboutUs/TeamMembers/Angello.jpg'
+import Anne from '../../imgs/AboutUs/TeamMembers/Anne.jpg'
+import Avril from '../../imgs/AboutUs/TeamMembers/Avril.jpg'
+import Camila from '../../imgs/AboutUs/TeamMembers/Camila.jpg'
+import Chaljub from '../../imgs/AboutUs/TeamMembers/Chaljub.jpg'
+import Colmenares from '../../imgs/AboutUs/TeamMembers/Colmenares.jpg'
+import Coral from '../../imgs/AboutUs/TeamMembers/Coral.jpg'
+import Eridania from '../../imgs/AboutUs/TeamMembers/Eridania.jpg'
+import Erika from '../../imgs/AboutUs/TeamMembers/Erika.jpg'
+import Estarlyn from '../../imgs/AboutUs/TeamMembers/Estarlyn.jpg'
+import Faisy from '../../imgs/AboutUs/TeamMembers/Faisy.jpg'
+import Franmil from '../../imgs/AboutUs/TeamMembers/Franmil.jpg'
+import Hanlet from '../../imgs/AboutUs/TeamMembers/Hanlet.jpg'
+import Humberto from '../../imgs/AboutUs/TeamMembers/Humberto.jpg'
+import Ingrid from '../../imgs/AboutUs/TeamMembers/Ingrid.jpg'
+import Iselle from '../../imgs/AboutUs/TeamMembers/Iselle.jpg'
+import Ismael from '../../imgs/AboutUs/TeamMembers/Ismael.jpg'
+import Jacob from '../../imgs/AboutUs/TeamMembers/Jacob.jpg'
+import Jorge from '../../imgs/AboutUs/TeamMembers/Jorge.jpg'
+import Luis from '../../imgs/AboutUs/TeamMembers/Luis.jpg'
+import Manuel from '../../imgs/AboutUs/TeamMembers/Manuel.jpg'
+import Marko from '../../imgs/AboutUs/TeamMembers/Marko.jpg'
+import Miguel from '../../imgs/AboutUs/TeamMembers/Miguel.jpg'
+import Randy from '../../imgs/AboutUs/TeamMembers/Randy.jpg'
+import Raymond from '../../imgs/AboutUs/TeamMembers/Raymond.jpg'
+import Rossana from '../../imgs/AboutUs/TeamMembers/Rossana.jpg'
+import Vantroi from '../../imgs/AboutUs/TeamMembers/Vantroi.jpg'
+
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab/';
 
 const AboutUs = (props) =>{
@@ -34,83 +63,174 @@ const AboutUs = (props) =>{
 
   const members = [
     {
-      img: 'https://apolo27.com/img/about-us/team-members/ezequiel.png',
+      img: Ezequiel,
       nombre: "Ezequiel Díaz",
       titulo: "Mechanical Engineering",
       equipo: ["Team Advisor"]
     },
     {
-      img: 'https://apolo27.com/img/about-us/team-members/ingrid.png',
-      nombre: "miembro 2",
+      img: Chaljub,
+      nombre: "Carlos Chaljub",
       titulo: "Mechatronics Engineering",
-      equipo: ["Team Leader", "Woman"]
+      equipo: ["Mentor"]
     },
     {
-      img: 'https://apolo27.com/img/about-us/team-members/miguela.png',
-      nombre: "miembro 3",
-      titulo: "Mechatronics Engineering",
-      equipo: ["Manufacturing"]
+      img: Colmenares,
+      nombre: "Colmenares",
+      titulo: "titulo 10",
+      equipo: ["Mentor"]
     },
     {
-      img: 'https://apolo27.com/img/about-us/team-members/rosanna.png',
-      nombre: "Rosanna Bautista",
-      titulo: "Software Engineering",
-      equipo: ["Telemetry", "Woman"]
-    },
-    {
-      img: 'https://apolo27.com/img/about-us/team-members/faisy.png',
-      nombre: "Faisy Alcántara",
-      titulo: "Biomedical Engineering",
-      equipo: ["STEM", "Woman"]
-    },
-    {
-      img: 'https://apolo27.com/img/about-us/team-members/franmil.png',
-      nombre: "Franmil Estrella",
-      titulo: "Mechatronics Engineering",
-      equipo: ["3D Printing"]
-    },
-    {
-      img: 'https://apolo27.com/img/about-us/team-members/raymond.png',
+      img: Raymond,
       nombre: "Raymond Ruiz",
       titulo: "Mechatronics Engineering",
       equipo: ["Mentor"]
     },
     {
-      img: 'https://apolo27.com/img/about-us/team-members/guadalupe.png',
-      nombre: "Guadalupe Bonilla",
-      titulo: "Mechanical Engineering",
-      equipo: ["Manufacturing", "Woman"]
+      img: Jacob,
+      nombre: "Jacob",
+      titulo: "Mechatronics Engineering",
+      equipo: ["Mentor"]
     },
     {
-      img: blankPic,
+      img: Ingrid,
+      nombre: "Ingrid Lopez",
+      titulo: "Mechatronics Engineering",
+      equipo: ["Team Leader", "Woman"]
+    },
+    {
+      img: Anne,
+      nombre: "Anne Marie",
+      titulo: "Mechatronics Engineering",
+      equipo: ["Manufacturing Team", "Woman"]
+    },
+    {
+      img: Miguel,
+      nombre: "Miguel Arredondo",
+      titulo: "Mechatronics Engineering",
+      equipo: ["Manufacturing Team"]
+    },
+    {
+      img: Marko,
+      nombre: "Marko De Los Santos",
+      titulo: "Mechanical Engineering",
+      equipo: ["Manufacturing Team"]
+    },
+    {
+      img: Randy,
+      nombre: "Randy Capellán",
+      titulo: "titulo 10",
+      equipo: ["Manufacturing Team"]
+    },
+    {
+      img: Eridania,
+      nombre: "Eridania Pérez",
+      titulo: "titulo 10",
+      equipo: ["Manufacturing Team", "Woman"]
+    },
+    {
+      img: Estarlyn,
+      nombre: "Estarlyn Marrero",
+      titulo: "titulo 10",
+      equipo: ["Manufacturing Team"]
+    },
+    {
+      img: Humberto,
+      nombre: "José Humberto",
+      titulo: "Mechatronics Engineering",
+      equipo: ["Manufacturing Team"]
+    },
+    {
+      img: Franmil,
+      nombre: "Franmil Estrella",
+      titulo: "Mechatronics Engineering",
+      equipo: ["3D Printing"]
+    },
+    {
+      img: Rossana,
+      nombre: "Rossana Bautista",
+      titulo: "Software Engineering",
+      equipo: ["Telemetry Team", "Woman"]
+    },
+    {
+      img: Vantroi,
       nombre: "Vantroi Morillo",
       titulo: "Electronics & Comunications Engineering",
-      equipo: ["Telemetry"]
+      equipo: ["Telemetry Team"]
     },
     {
-      img: blankPic,
+      img: Luis,
       nombre: "Luis Adames",
       titulo: "Software Engineering",
-      equipo: ["Telemetry"]
+      equipo: ["Telemetry Team"]
     },
     {
-      img: blankPic,
+      img: Manuel,
       nombre: "Manuel Guerrero",
-      titulo: "Telemetry Assistant",
-      equipo: ["Telemetry"]
+      titulo: "Systems Engineering",
+      equipo: ["Telemetry Team"]
     },
     {
-      img: blankPic,
-      nombre: "miembro 9",
-      titulo: "titulo 9",
-      equipo: ["Manufacturing"]
+      img: Faisy,
+      nombre: "Faisy Alcántara",
+      titulo: "Biomedical Engineering",
+      equipo: ["STEM Team", "Woman"]
     },
     {
-      img: blankPic,
-      nombre: "miembro 10",
+      img: Angello,
+      nombre: "Angello Lora Rodriguez",
+      titulo: "Mechanical Engineering",
+      equipo: ["STEM Team"]
+    },
+    {
+      img: Coral,
+      nombre: "Coral Rodríguez",
       titulo: "titulo 10",
-      equipo: ["Manufacturing"]
-    }
+      equipo: ["STEM Team", "Woman"]
+    },
+    {
+      img: Hanlet,
+      nombre: "Hanlet Leonardo",
+      titulo: "Energy Engineer",
+      equipo: ["STEM Team"]
+    },
+
+    {
+      img: Iselle,
+      nombre: "Iselle",
+      titulo: "Doctor in Medicine",
+      equipo: ["STEM Team", "Woman"]
+    },
+    {
+      img: Ismael,
+      nombre: "Ismael Martínez",
+      titulo: "Software Engineering",
+      equipo: ["Social Media Team"]
+    },
+    {
+      img: Avril,
+      nombre: "Avril Leder",
+      titulo: "Aerospacial Engineering",
+      equipo: ["Social Media Team", "Woman"]
+    },
+    {
+      img: Jorge,
+      nombre: "Jorge Martínez",
+      titulo: "Industrial Design",
+      equipo: ["Funding & Project Management"]
+    },
+    {
+      img: Camila,
+      nombre: "Camila",
+      titulo: "International Businessess",
+      equipo: ["Funding & Project Management", "Woman"]
+    },
+    {
+      img: Erika,
+      nombre: "Erika Portoreal",
+      titulo: "Industrial Engineering",
+      equipo: ["Funding & Project Management", "Woman"]
+    },
   ]
 
 
@@ -304,10 +424,13 @@ const AboutUs = (props) =>{
           <h1>Our Members</h1>
           <div className='buttons'>
             <Button className={`selectionButton ${equipoSeleccionado === "All" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("All")}>All</Button>
-            <Button className={`selectionButton ${equipoSeleccionado === "Manufacturing" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Manufacturing")}>Manufacturing</Button>
-            <Button className={`selectionButton ${equipoSeleccionado === "Telemetry" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Telemetry")}>Telemetry</Button>
-            <Button className={`selectionButton ${equipoSeleccionado === "Mentor" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Mentor")}>Mentors</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Mentors" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Mentor")}>Mentors</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Manufacturing" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Manufacturing Team")}>Manufacturing</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "STEM" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("STEM Team")}>STEM</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Telemetry" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Telemetry  Team")}>Telemetry</Button>
             <Button className={`selectionButton ${equipoSeleccionado === "Woman" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Woman")}>Women in STEM</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "FundingPM" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Funding & Project Management")}>Funding</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Social Media" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Social Media")}>Social Media</Button>
           </div>
 
           <div className='members'>
