@@ -48,6 +48,7 @@ const DataDashboard = (props) => {
   
       if (sensorId.length > 0) {
         const sensorData = data[sensorId]; // Get the data for that sensor
+        setSurroundingTemp(sensorData.temp)
         const dataToBeProcessed = [
           {key: "ns", value: sensorData.Ns},
           {key: "Latitude", value: sensorData.latitude},
