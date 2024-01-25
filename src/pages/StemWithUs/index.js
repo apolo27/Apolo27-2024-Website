@@ -45,7 +45,7 @@ const StemWithUs = (props) => {
     } else{
       setEvents(JSON.parse(localStorage.getItem('events')))
     }
-    if(localStorage.getItem("tutorials") === null){
+    if(localStorage.getItem("tutorials") === null || localStorage.getItem("tutorials") === '[]' ){
       getTutorials(setTutorials)
       console.log("se hizo la api call de los tutoriales")
       console.log("tutorials es null?: ", tutorials ===null)
@@ -106,7 +106,7 @@ const StemWithUs = (props) => {
        </section>
         <section className='tutorials'>
           {
-            (tutorials !== null) ?  
+            (tutorials.length !== 0) ?  
               <div className='tutorialsLine-top'>
               <h2>{t('Stem-Tutorials')}</h2>
               <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
@@ -116,7 +116,7 @@ const StemWithUs = (props) => {
          
           <div className='tutorialsLine'>
             {
-              tutorials !== null ?
+              tutorials.length !== 0 ?
               tutorials.map((video) => {
                 return(
                   <TutorialMiniature key={video.url} img={video.thumbnail} name={video.title}/>
