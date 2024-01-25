@@ -57,21 +57,8 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        {
-          /*
-            <section className='data-dashboard-intro'>
-              <h4>
-                Las STEM son:
-              </h4>
-            </section>
-          */ 
-        }
         <h1>{t('Eventos_Proximos')}</h1>
-        <iframe src="https://embed.styledcalendar.com/#SYehxKPEb9fxwLmaOV6x" title="Styled Calendar" className="styled-calendar-container" 
-          style={{border: 'none', height: 720}}></iframe>
-        <script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
-        {
-        /*
+        {          
           <Calendar 
             className="calendario"
             culture={localStorage.getItem("i18nextLng")}
@@ -83,8 +70,7 @@ const StemWithUs = (props) => {
             views={['month', 'agenda']}
             style={{marginTop: '50px'}}
           />
-
-          */
+          
         }
 
        <section className="eventos">
