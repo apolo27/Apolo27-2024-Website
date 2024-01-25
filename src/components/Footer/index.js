@@ -13,6 +13,10 @@ const Footer = (props) => {
                     <Grid item xs={0} sm={4} md={4} >
                         <img src={footerLogo} alt="apolo27 logo"/><h4  style={{display: "inline-block"}}>Apolo 27</h4>
                         <p>{t('Hero-Title')}</p>
+                        <i>i</i>
+                        <i>t</i>
+                        <i>x</i>
+                        <i>Li</i>
                     </Grid>
 
                     
