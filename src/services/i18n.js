@@ -4,9 +4,9 @@ import LanguageDetector from "i18next-browser-languagedetector"
 import HttpApi from "i18next-http-backend"
 
 i18next
-  .use(initReactI18next)
   .use(LanguageDetector)
   .use(HttpApi)
+  .use(initReactI18next)
   .init({
     supportedLngs: ['es', 'en'],
     fallbackLng: "es",
@@ -15,7 +15,7 @@ i18next
     },
     react: {useSuspense: false},
     detection:{
-      order: ['htmlTag', 'cookie',  'localStorage', 'path', 'subdomain'],
+      order: [ 'localStorage', 'htmlTag', 'cookie', 'path', 'subdomain'],
       caches: ['cookie'],
     },
     interpolation: {

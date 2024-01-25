@@ -1,28 +1,106 @@
+
 .stem-with-us{
-  background-image: url('../../imgs/StemWithUs/space.png');
   background-size: contain;
   background-repeat:space;
 }
 
+.calendario{
+  margin: 0 auto;
+}
+
+iframe{
+  width: 75%;
+}
+
 .eventos{
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.section-formulario{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+.eventos .card{
+
 }
 
-.astronautStem{
+
+section{
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+
+.contact-us{
+  margin-top: 50px;
+}
+
+.astronautStemIZQ{
   width: 300px;
   height: 350px;
 }
 
-@media screen and (max-width: 900px) {
-  .astronautStem{
+.astronautStemDER{
+  display: none;
+}
+
+section .tutorialsLine-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.ver-mas{
+  width: 130px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ver-mas:hover{
+  transform: scale(1.15);
+
+}
+
+section .tutorialsLine-top p{
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 20px;
+  background: rgba(0, 101, 252, 0.75);
+  box-shadow: 0px 2px 30.7px 0px rgba(0, 100, 250, 0.25), 0px 4px 30.7px 0px rgba(0, 100, 250, 0.25);
+
+}
+
+section .tutorialsLine{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+section .reelsLine{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1200px) {
+  .contact-us{
+    margin-bottom: 35px;
+  }
+  
+  .astronautStemIZQ{
     display: none;
+  }
+  .astronautStemDER{
+    display: block;
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  iframe{
+    width: 100%;
   }
   .calendario{
     height: 350px;

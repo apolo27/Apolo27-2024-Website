@@ -1,6 +1,8 @@
 .hero-title{
-    font-size: 3vw;
+    font-size: 48px;
     font-weight: 800;
+    height: 100%;
+    width: 100%;
 }
 
 .hero-subtitle{
@@ -13,8 +15,7 @@
     color: #FFF;
     font-family: 'Poppins', sans-serif;
     border-radius: 24px 0px 24px 24px;
-    background: linear-gradient(200deg, #40D1FF 13.17%, rgba(47, 79, 89, 0.02) 85%);
-    margin-bottom: 30px;
+    background: linear-gradient(200deg, #608de0a4 13.17%, rgb(62, 123, 141) 85%);    margin-bottom: 30px;
     margin-top: 30px;
 }
 
@@ -44,7 +45,7 @@
 
 .stem-Title{
     font-weight: 800;
-    font-size: 2vw;
+    font-size: 36px;
 }
 
 .stem-with-us-home{

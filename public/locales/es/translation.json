@@ -1,20 +1,30 @@
 {
+  "Hello-World": "Hola mundo",
+  "Go-Back": "Ir atrás",
   "DATA-DASHBOARD": "PANEL DE DATOS",
   "STEM-WITH-US": "STEM CON NOSOTROS",
   "ABOUT-THE-TEAM": "ACERCA DEL EQUIPO",
-  "ROVER-SIMULATION": "SIMULACIÓN DE ROVER",
+  "GAMES": "JUEGOS",
   "BECOME-A-SPONSOR": "PATROCINADORES",
   "Hero-Title": "Los primeros ganadores de la División Universitaria de República Dominicana en el Nasa HERC",
   "Hero-Sub":"4 veces ganadores de categoría",
-  "Live-location":"Ubicación en tiempo real",
+  "Live-location":"Ubicación",
   "Rovers-data":"Datos del Rover",
   "learn-projects":"Construye proyectos divertidos con Apolo 27!",
-  "GetToKnowUs":"Conócenos, haz la diferencia",
-  "Sponsor-us": "Patrocinanos",
+  "Sponsor-us": "Patrocínanos",
   "Sponsor-us-Sub": "Su apoyo nos ayudará a darle al país el reconocimiento que se merece.",
+  
+  "NelsonMandela": "Siempre parece imposible hasta que se hace.",
+  "OurStory": "Nuestra Historia",
+  "GetToKnowUs":"Conócenos, haz la diferencia",
+  "GetToKnowUs2":"Conócenos: El nacimiento de Apolo 27. De Sueño a la                                     Realidad",
+
+  "System-Safety-Award-Description": "Ganar este premio, el primero para un equipo dominicano, demostró nuestro compromiso inquebrantable con la seguridad y la innovación en ingeniería. Nuestro rover superó los estándares de seguridad, mostrando nuestra experiencia y dedicación a la creación de tecnología confiable y segura, estableciendo un alto estándar para los futuros equipos y destacando el potencial del talento dominicano.",
+  "Stem-Engament-Award-Description": "La introducción del STEM Tour y sus actividades prácticas fue un logro significativo y permitió que el equipo ganara el premio. Este reconocimiento destaca los esfuerzos del equipo para promover la educación STEM y su impacto en la sociedad de la República Dominicana.",
+  "Coming-Soon-Description": "Este año, subimos el listón aún más alto y nos esforzamos por mejorar en todas las categorías. Nuestro equipo está decidido a seguir avanzando en el campo de la ingeniería y la tecnología, y estamos emocionados de ver a dónde nos llevará nuestra dedicación y arduo trabajo.",
 
   "Tasks": "Tareas",
-  "Fin-ARV": "Encuentre ARV-30",
+  "Find-ARV": "Encuentre ARV-30",
   "Regolith-removal": "Eliminación de regolita",
   "Moon-maintenance": "Mantenimiento lunar",
   "Power-it-up": "Enciendelo",
@@ -29,6 +39,8 @@
   "Rovers-Accel": "Aceleración del Rover",
 
   "Eventos_Proximos": "Eventos Próximos",
+  "Stem-Tutorials": "Tutoriales de STEM: ",
+  "Recent-Videos": "Videos Recientes: ",
   "Seguir": "Seguir",
 
   "Contactenos": "Contáctenos",
@@ -53,6 +65,51 @@
   "Proyector": "Proyector",
   "Pantallas": "Pantallas",
   "Bocinas": "Bocinas",
-  "Microfonos": "Microfonos"
+  "Microfonos": "Microfonos",
 
+  "ShowMore": "Ver más",
+  "WatchVideo": "Ver vídeo",
+
+  "Plan-a-meeting": "¿Desea planear una visita a su institución?",
+
+  "Sponsor-Us-Title": "Apoyando nuestro trabajo: una mirada a nuestros patrocinadores",
+  "Sponsor-Us-SubTitle": "Descubre la importancia de los patrocinadores en ayudar a alcanzar nuestra misión y aprende sobre los individuos y compañías que lo hacen todo posible",
+
+  "Equipo-2019": "In 2019, comenzamos con pocos miembros, y fue un momento desafiante para nosotros. Pero estábamos decididos a representar a nuestro país por primera vez en el Desafío de Rover de Exploración Humana de la NASA, y lo hicimos.",
+  "Equipo-2020": "In 2020, a pesar de los desafíos planteados por la pandemia, perseveramos y aprendimos valiosas lecciones que nos ayudaron a crecer, lo que nos llevó a ganar nuestro primer premio: \"System Safety Award\".",
+  "Equipo-2021": "In 2021, seguimos impulsando las STEM en nuestro país. Además, nos centramos en mejorar aún más el diseño del Rover. También logramos crear conciencia sobre STEM en nuestro país.",
+  "Equipo-2022": "In 2022, nos enfocamos en aún más aspectos de STEM. Esto nos llevó a crear el STEM Tour, un evento en el que mostramos proyectos STEM interactivos. Este año, ganamos el \"Premio al Compromiso STEM\".",
+  "Equipo-2023": "In 2023, Todavía estamos en el proceso, pero nuestro enfoque sigue siendo hacer que nuestro rover sea el mejor hasta ahora. También creemos que STEM puede cambiar el mundo, por eso nos comprometemos a impulsarlo aún más en nuestro país.",
+  "Equipo-2024": "In 2024, Todavía estamos en el proceso, pero nuestro enfoque sigue siendo hacer que nuestro rover sea el mejor hasta ahora. También creemos que STEM puede cambiar el mundo, por eso nos comprometemos a impulsarlo aún más en nuestro país.",
+
+  "StemForAll": "STEM para TODOS para cambiar el mundo",
+  "ImportanceOfStem": "La importancia de las STEM para nuestro equipo",
+  "ImportanceOfStemSub": "La vital importancia de la educación STEM hoy en día",
+  "ImportanceOfStemBody": "STEM, que significa Ciencia, Tecnología, Ingeniería y Matemáticas, juega un papel crucial en el éxito del Equipo Apolo 27. De hecho, es imposible exagerar la importancia de STEM en el trabajo que realiza este equipo.",
+  
+  "GirlsAreTheFuture": "Las chicas son el futuro",
+  "March 8, 2023": "Marzo 8, 2023",
+  "WomenInSTEM": "Panel: Mujeres en STEM",
+  "WomenInSTEMBody": "Además, incluir a las niñas en los campos STEM puede aportar perspectivas únicas y creatividad a estas industrias. A lo largo de la historia, las mujeres han hecho contribuciones significativas a los campos de la ciencia y la tecnología, y es esencial continuar esta tendencia alentando a las niñas a participar. Al brindar oportunidades y apoyo a las niñas interesadas en STEM, podemos crear un futuro más equitativo e innovador.",
+  
+  "WeBelieveInDominicanYouth": "Creemos en la juventud dominicana",
+  "March 29, 2023": "Marzo 29, 2023",
+  "School Visits": "Visitas escolares",
+  "School VisitsBody": "Crear conciencia sobre la importancia de la educación STEM en la sociedad dominicana es crucial, y nuestro equipo ha estado visitando escuelas para promover este mensaje. A través de estas visitas, nos esforzamos por inspirar a los jóvenes estudiantes a seguir carreras en ciencia, tecnología, ingeniería y matemáticas. Destacamos los beneficios de la educación STEM y mostramos su relevancia para la vida cotidiana.",
+  "School VisitsFooter": "Nuestros eventos inspiran a las personas a perseguir sus sueños.",
+  "School VisitsFooter2": "Demostramos el poder del trabajo duro para alcanzar el éxito.",
+
+
+  "Pages": "Páginas",
+  "Home": "Inicio",
+  "AboutUsFooter": "Sobre nosotros",
+  "DataDashboardFooter": "Panel de datos",
+  "StemWithUsFooter": "Stem con nosotros",
+  "BecomeASponsorFooter": "Hazte patrocinador",
+  "Games": "Juegos y simulaciones",
+
+  "OurStoryFooter": "Nuestra historia",
+  "NasaHERCFooter": "Nasa HERC",
+  "TeamMembersFooter": "Miembros del equipo",
+  "OurAwardsFooter": "Nuestros premios"
 }

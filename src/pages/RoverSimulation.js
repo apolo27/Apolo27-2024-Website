@@ -1,5 +1,4 @@
 import { Unity, useUnityContext } from "react-unity-webgl";
-import {isMobile} from 'react-device-detect';
 
 function RoverSimulation(){
   const { unityProvider } = useUnityContext({
