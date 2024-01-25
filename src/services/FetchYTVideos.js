@@ -1,6 +1,6 @@
 import request from "superagent";
 
-const keywords = ['comunicamos', 'conoce'];
+const keywords = ['tutorial', 'diy', 'DIY'];
 const keywordQuery = keywords.join('|');
  
 export function getTutorials(callback) {

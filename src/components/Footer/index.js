@@ -2,6 +2,9 @@ import "./Footer.css"
 import {Container} from 'react-bootstrap/';
 import Grid from '@mui/material/Grid';
 import footerLogo from '../../imgs/FooterLogo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram, faTiktok, faFacebook, faSquareXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
 
 const Footer = (props) => {
     let t = props.t;
@@ -13,6 +16,13 @@ const Footer = (props) => {
                     <Grid item xs={0} sm={4} md={4} >
                         <img src={footerLogo} alt="apolo27 logo"/><h4  style={{display: "inline-block"}}>Apolo 27</h4>
                         <p>{t('Hero-Title')}</p>
+                        <section className="socials">
+                            <a style={{marginLeft: 25}} href="https://www.instagram.com/apolo27_rd/"> <FontAwesomeIcon icon={faInstagram} size="xl" /></a>
+                            <a style={{marginLeft: 25}} href="https://www.tiktok.com/@apolo27rd"> <FontAwesomeIcon icon={faTiktok} size="xl" /></a>
+                            <a style={{marginLeft: 25}} href="https://www.facebook.com/Apolo27.rd"> <FontAwesomeIcon icon={faFacebook} size="xl" /></a>
+                            <a style={{marginLeft: 25}} href="https://twitter.com/apolo27_rd"> <FontAwesomeIcon icon={faSquareXTwitter} size="xl" /></a>
+                            <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faLinkedin} size="xl" /></a>
+                        </section>
                     </Grid>
 
                     
@@ -40,6 +50,7 @@ const Footer = (props) => {
                     </Grid>
 
                 </Grid>
+                <hr></hr>
             </Container>
         </footer>
     )
