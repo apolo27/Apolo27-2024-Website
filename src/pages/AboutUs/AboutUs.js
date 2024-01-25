@@ -62,12 +62,7 @@ const AboutUs = (props) =>{
   }
 
   const members = [
-    {
-      img: Ezequiel,
-      nombre: "Ezequiel Díaz",
-      titulo: "Mechanical Engineering",
-      equipo: ["Team Advisor"]
-    },
+    
     {
       img: Chaljub,
       nombre: "Carlos Chaljub",
@@ -93,16 +88,22 @@ const AboutUs = (props) =>{
       equipo: ["Mentor"]
     },
     {
+      img: Ezequiel,
+      nombre: "Ezequiel Díaz",
+      titulo: "Mechanical Engineering",
+      equipo: ["Team Advisor", "Team Leader Team"]
+    },
+    {
       img: Ingrid,
       nombre: "Ingrid Lopez",
       titulo: "Mechatronics Engineering",
-      equipo: ["Team Leader", "Woman"]
+      equipo: ["Team Leader", "Team Leader Team", "Woman"]
     },
     {
       img: Anne,
       nombre: "Anne Marie",
       titulo: "Mechatronics Engineering",
-      equipo: ["Manufacturing Team", "Woman"]
+      equipo: ["Team Leader Assistant", "Team Leader Team", "Woman"]
     },
     {
       img: Miguel,
@@ -425,12 +426,13 @@ const AboutUs = (props) =>{
           <div className='buttons'>
             <Button className={`selectionButton ${equipoSeleccionado === "All" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("All")}>All</Button>
             <Button className={`selectionButton ${equipoSeleccionado === "Mentors" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Mentor")}>Mentors</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Team Leaders" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Team Leader Team")}>Team Leaders</Button>
             <Button className={`selectionButton ${equipoSeleccionado === "Manufacturing" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Manufacturing Team")}>Manufacturing</Button>
             <Button className={`selectionButton ${equipoSeleccionado === "STEM" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("STEM Team")}>STEM</Button>
-            <Button className={`selectionButton ${equipoSeleccionado === "Telemetry" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Telemetry  Team")}>Telemetry</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Telemetry" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Telemetry Team")}>Telemetry</Button>
             <Button className={`selectionButton ${equipoSeleccionado === "Woman" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Woman")}>Women in STEM</Button>
             <Button className={`selectionButton ${equipoSeleccionado === "FundingPM" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Funding & Project Management")}>Funding</Button>
-            <Button className={`selectionButton ${equipoSeleccionado === "Social Media" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Social Media")}>Social Media</Button>
+            <Button className={`selectionButton ${equipoSeleccionado === "Social Media" ? "selectedTeam" : ""}`} onClick={() => handleTeamSelection("Social Media Team")}>Social Media</Button>
           </div>
 
           <div className='members'>
