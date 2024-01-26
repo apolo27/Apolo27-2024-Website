@@ -3,7 +3,7 @@ import {Container} from 'react-bootstrap/';
 import Grid from '@mui/material/Grid';
 import footerLogo from '../../imgs/FooterLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram, faTiktok, faFacebook, faSquareXTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram, faTiktok, faFacebook, faSquareXTwitter, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 //Hola como vas
 const Footer = (props) => {
@@ -22,6 +22,7 @@ const Footer = (props) => {
                             <a style={{marginLeft: 25}} href="https://www.facebook.com/Apolo27.rd"> <FontAwesomeIcon icon={faFacebook} size="xl" /></a>
                             <a style={{marginLeft: 25}} href="https://twitter.com/apolo27_rd"> <FontAwesomeIcon icon={faSquareXTwitter} size="xl" /></a>
                             <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faLinkedin} size="xl" /></a>
+                            <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faYoutube} size="xl" /></a>
                         </section>
                     </Grid>
 
