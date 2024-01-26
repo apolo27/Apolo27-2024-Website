@@ -5,7 +5,7 @@ import footerLogo from '../../imgs/FooterLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faTiktok, faFacebook, faSquareXTwitter, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
-
+//Hola como vas
 const Footer = (props) => {
     let t = props.t;
     return(
@@ -25,6 +25,7 @@ const Footer = (props) => {
                             <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faYoutube} size="xl" /></a>
                         </section>
                     </Grid>
+
 
                     
                     <Grid item xs={0} sm={3} md={3} >
