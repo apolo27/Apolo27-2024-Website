@@ -111,5 +111,11 @@
   "OurStoryFooter": "Nuestra historia",
   "NasaHERCFooter": "Nasa HERC",
   "TeamMembersFooter": "Miembros del equipo",
-  "OurAwardsFooter": "Nuestros premios"
+  "OurAwardsFooter": "Nuestros premios",
+
+    
+  "404Title": "Parece que estás perdido en el espacio",
+  "404GoBack": "VUELVE AL INICIO",
+  
+  "SimulationWarning": "No disponible para dispositivos moviles"
 }

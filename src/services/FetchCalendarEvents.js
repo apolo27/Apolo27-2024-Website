@@ -17,8 +17,8 @@ export function getEvents(callback) {
           location: event.location
         });
       });
-      localStorage.setItem("events", JSON.stringify(events))
-      const storedEventsString = localStorage.getItem('events');
+      sessionStorage.setItem("events", JSON.stringify(events))
+      const storedEventsString = sessionStorage.getItem('events');
       const storedEventsArray = JSON.parse(storedEventsString);
       callback(storedEventsArray)
     }

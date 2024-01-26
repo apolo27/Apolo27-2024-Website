@@ -112,7 +112,11 @@
   "OurStoryFooter": "Our Timeline",
   "NasaHERCFooter": "Nasa HERC",
   "TeamMembersFooter": "Team members",
-  "OurAwardsFooter": "Our Awards"
+  "OurAwardsFooter": "Our Awards",
   
+  "404Title": "Looks like you are lost in space",
+  "404GoBack": "GO BACK HOME",
+
+  "SimulationWarning": "Not available for mobile devices"
 
 }

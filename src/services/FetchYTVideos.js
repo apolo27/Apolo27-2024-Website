@@ -15,8 +15,8 @@ export function getTutorials(callback) {
               url: "https://www.youtube.com/watch?v=" + video.id.videoId
             });
           });
-          localStorage.setItem("tutorials", JSON.stringify(videos))
-          const storedTutorialsString = localStorage.getItem('tutorials');
+          sessionStorage.setItem("tutorials", JSON.stringify(videos))
+          const storedTutorialsString = sessionStorage.getItem('tutorials');
           const storedTutorialsArray = JSON.parse(storedTutorialsString);
           callback(storedTutorialsArray)
         }
