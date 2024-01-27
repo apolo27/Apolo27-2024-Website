@@ -44,12 +44,11 @@ section{
 }
 
 .carousel{
-
+  height: 500px;
 }
 
 .miniatura{
-  max-width: 100%;
-  height: auto;
+  
 }
 
 section .tutorialsLine-top{

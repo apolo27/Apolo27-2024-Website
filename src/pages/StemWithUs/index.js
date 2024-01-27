@@ -14,15 +14,11 @@ import 'moment/locale/es';
 
 import {Container, Carousel, Card, Button } from "react-bootstrap";
 import { getEvents } from "../../services/FetchCalendarEvents";
-import { getTutorials } from "../../services/FetchYTVideos";
+import { getTutorials, getRecentVideos } from "../../services/FetchYTVideos";
 
 import TutorialMiniature from '../../components/TutorialMiniature';
 
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
-import miniatura1 from '../../imgs/StemWithUs/MiniaturaDeVideos/miniatura1.png'
-import miniatura2 from '../../imgs/StemWithUs/MiniaturaDeVideos/miniatura2.png'
-import miniatura3 from '../../imgs/StemWithUs/MiniaturaDeVideos/miniatura3.png'
-
 import arrow from '../../imgs/StemWithUs/arrow.png'
 
 
@@ -32,6 +28,7 @@ const localizer = momentLocalizer(moment);
 const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
   const [tutorials, setTutorials] = useState([])
+  const [recentVideos, setRecentVideos] = useState([])
   let t = props.t;
 
   useEffect(() => {
@@ -47,7 +44,12 @@ const StemWithUs = (props) => {
     }else{
       setTutorials(JSON.parse(localStorage.getItem('tutorials')))
     }
-    
+
+    if(localStorage.getItem("recentVideos") === null){
+      getRecentVideos(setRecentVideos)
+    }else{
+      setRecentVideos(JSON.parse(localStorage.getItem('recentVideos')))
+    }
   }, []);
   
   return(
@@ -109,25 +111,19 @@ const StemWithUs = (props) => {
 
         <section>
           <h2>{t('Recent-Videos')}</h2>
-          <Carousel touch className='carousel'>
-            <Carousel.Item interval={2000}>
-            <img style={{borderRadius: 25}} className='miniatura' src={miniatura1} alt='miniatura de video'></img>
-              <Carousel.Caption>
-                <Button href='https://www.youtube.com/watch?v=PJAnAb7hfrU&t=6s'>{t('WatchVideo')}</Button>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item interval={2000}>
-            <img style={{borderRadius: 25}} className='miniatura' src={miniatura2} alt='miniatura de video'></img>
-              <Carousel.Caption>
-                <Button href='https://youtu.be/PvG-7RNjtOU?si=tebiFn4ekwad5arv'>{t('WatchVideo')}</Button>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item interval={2000}>
-            <img style={{borderRadius: 25}} className='miniatura' src={miniatura3} alt='miniatura de video'></img>
-              <Carousel.Caption>
-                <Button href='https://youtu.be/kdeYjX8Reoo?si=3m2gQ2Jw9l0f5Itq'>{t('WatchVideo')}</Button>
-              </Carousel.Caption>
-            </Carousel.Item>
+          <Carousel touch>
+            {
+              recentVideos.map((vid, i) => {
+                return(
+                  <Carousel.Item key={i}>
+                    <img style={{borderRadius: 25}} src={vid.thumbnail} alt='miniatura de video'></img>
+                    
+                      <h2>{vid.title}</h2>
+                      <Button href={vid.url}>Ver video</Button>
+                  </Carousel.Item>
+                )
+              })
+            }
           </Carousel>
         </section>
           
