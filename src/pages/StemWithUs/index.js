@@ -109,21 +109,21 @@ const StemWithUs = (props) => {
 
         <section>
           <h2>{t('Recent-Videos')}</h2>
-          <Carousel touch>
+          <Carousel touch className='carousel'>
             <Carousel.Item interval={2000}>
-            <img className='w-75 justify-content-center' src={miniatura1} alt='miniatura de video'></img>
+            <img style={{borderRadius: 25}} className='miniatura' src={miniatura1} alt='miniatura de video'></img>
               <Carousel.Caption>
                 <Button href='https://www.youtube.com/watch?v=PJAnAb7hfrU&t=6s'>{t('WatchVideo')}</Button>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={2000}>
-            <img className='w-75 justify-content-center' src={miniatura2} alt='miniatura de video'></img>
+            <img style={{borderRadius: 25}} className='miniatura' src={miniatura2} alt='miniatura de video'></img>
               <Carousel.Caption>
                 <Button href='https://youtu.be/PvG-7RNjtOU?si=tebiFn4ekwad5arv'>{t('WatchVideo')}</Button>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item interval={2000}>
-            <img className='w-75 justify-content-center' src={miniatura3} alt='miniatura de video'></img>
+            <img style={{borderRadius: 25}} className='miniatura' src={miniatura3} alt='miniatura de video'></img>
               <Carousel.Caption>
                 <Button href='https://youtu.be/kdeYjX8Reoo?si=3m2gQ2Jw9l0f5Itq'>{t('WatchVideo')}</Button>
               </Carousel.Caption>
@@ -142,9 +142,18 @@ const StemWithUs = (props) => {
             </Link>
           </div>
           <div className='reelsLine'>
-              <div className='reel' alt='reel'></div>
-              <div className='reel' alt='reel'></div>
-              <div className='reel' alt='reel'></div>
+              <div className='reel' alt='reel'>
+                <h2 className='reel_title'>Visitas Escolares</h2>
+                <h5 className='reel_subtitle'>Marcando la diferencia</h5>
+              </div>
+              <div className='reel' alt='reel'>
+                <h2 className='reel_title'>Actividades con Apolo 27</h2>
+                <h5 className='reel_subtitle'>Sorteos y más</h5>
+              </div>
+              <div className='reel' alt='reel'>
+                <h2 className='reel_title'>Manufactura y diseño</h2>
+                <h5 className='reel_subtitle'>Demostración de nuestro empeño</h5>
+              </div>
               {
                 // <InstagramEmbed url="https://www.instagram.com/reel/CzcgK0xLmp6/" />
                 // <InstagramEmbed url="https://www.instagram.com/reel/Cwpoeu5r42a/" />

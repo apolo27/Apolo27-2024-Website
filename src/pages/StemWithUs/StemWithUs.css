@@ -43,9 +43,21 @@ section{
   display: none;
 }
 
+.carousel{
+
+}
+
+.miniatura{
+  max-width: 100%;
+  height: auto;
+}
+
 section .tutorialsLine-top{
+  width: 85%;
+  margin-left: 8%;
   display: flex;
   justify-content: space-between;
+
 }
 
 .ver-mas{
@@ -78,12 +90,15 @@ section .tutorialsLine{
 }
 
 section .reelsLine{
+  margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .reel{
+  position: relative;
+  text-align: center;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
   border-radius: 25px;
@@ -98,6 +113,12 @@ section .reelsLine{
   transform: scale(1.15);
 
 }
+
+.reel_title{
+  font-weight: 700;
+  padding-top: 100%;
+}
+
 
 @media screen and (max-width: 1200px) {
   .contact-us{
@@ -120,5 +141,8 @@ section .reelsLine{
   }
   .calendario{
     height: 350px;
+  }
+  .reel{
+    margin-top: 20px;
   }
 }
