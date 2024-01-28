@@ -18,9 +18,13 @@ import { getTutorials, getRecentVideos } from "../../services/FetchYTVideos";
 
 import TutorialMiniature from '../../components/TutorialMiniature';
 
-import background from '../../imgs/StemWithUs/background.png'
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
 import arrow from '../../imgs/StemWithUs/arrow.png'
+
+import stem1 from '../../imgs/AboutUs/stem-1.jpg'
+import stem2 from '../../imgs/AboutUs/stem-2.jpg'
+import stem3 from '../../imgs/AboutUs/stem-3.jpg'
+
 
 
 
@@ -34,58 +38,103 @@ const StemWithUs = (props) => {
 
   useEffect(() => {
 
-    if(localStorage.getItem("events") === null){
+    if(sessionStorage.getItem("events") === null){
       getEvents(setEvents)
+      console.log("api call events");
     } else{
-      setEvents(JSON.parse(localStorage.getItem('events')))
+      setEvents(JSON.parse(sessionStorage.getItem('events')))
     }
-
-    if(localStorage.getItem("tutorials") === null){
+    
+    if(sessionStorage.getItem("tutorials") === null){
       getTutorials(setTutorials)
+      console.log("api call tutorials");
     }else{
-      setTutorials(JSON.parse(localStorage.getItem('tutorials')))
+      setTutorials(JSON.parse(sessionStorage.getItem('tutorials')))
     }
-
-    if(localStorage.getItem("recentVideos") === null){
+    
+    if(sessionStorage.getItem("recentVideos") === null){
       getRecentVideos(setRecentVideos)
+      console.log("api call recent videos");
     }else{
-      setRecentVideos(JSON.parse(localStorage.getItem('recentVideos')))
+      setRecentVideos(JSON.parse(sessionStorage.getItem('recentVideos')))
     }
   }, []);
   
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        <h1 style={{paddingTop: 25}}>{t('Eventos_Proximos')}</h1>
-          <Calendar 
-            className="calendario"
-            culture={localStorage.getItem("i18nextLng")}
-            localizer={localizer} 
-            events={events} 
-            startAccessor="start" 
-            endAccessor="end"
-            toolbar={true}
-            views={['month', 'agenda']}
-            style={{marginTop: '50px'}}
-          />
+        <section id="stem">
+            <div className="title">
+              <h1>Apolo 27 + STEM</h1>
+            </div>
+            <header className="header">
+              <h1 className="header-title masthead">{t('StemForAll')}</h1>
+            </header>
+            <main className="main">
+              <article className="entry entry-lede">
+                <img className="entry-img" src={stem1} alt="stem-img1"/>
+                <div className="entry-content">
+                  <h1 className="entry-headline primary-headline">{t('ImportanceOfStem')}</h1>
+                  <time className="entry-date meta">{t('ImportanceOfStemSub')}</time>
+                  <p className="entry-summary">{t('ImportanceOfStemBody')}</p>
+                </div>
+              </article>
+              <article className="entry">
+                <img className="entry-img" src={stem2} alt="The profile view of three majestic brown horses" />
+                <h1 className="entry-headline primary-headline">{t('GirlsAreTheFuture')}</h1>
+                <time className="entry-date meta">{t('March 8, 2023')}</time>
+                <span className="entry-byline meta">{t('WomenInSTEM')}</span>
+              </article>
+              <article className="entry">
+                <img className="entry-img" src={stem3} alt="The profile view of three majestic brown horses" />
+                <h1 className="entry-headline primary-headline">{t('WeBelieveInDominicanYouth')}</h1>
+                <time className="entry-date meta">{t('March 29, 2023')}</time>
+                <span className="entry-byline meta">{t('School Visits')}</span>
+              </article>
+              <section className="trending">
+                <article className="trending-entry">
+                  <h2>{t('School VisitsFooter')}</h2>
+                </article>
+                <br></br>
+                <article className="trending-entry">
+                  <h2>{t('School VisitsFooter2')}</h2>
+                </article>
+              </section>              
+            </main>  
+        </section>
 
-       <section className="eventos">
-       {
-         events
-         .map((event) => {
-           return(
-             <Card style={{ width: '300px', margin: '15px'}} key={event.title}>
-               <Card.Body>
-                <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
-                 <Card.Title>{event.title}</Card.Title>
-                 <Card.Text> {event.location}</Card.Text>
-                 <Button href={event.htmlLink}>{t('Seguir')}</Button>
-               </Card.Body>
-             </Card>
-             )
-         })
-         }
-       </section>
+        <hr></hr>
+
+
+        <h1 style={{paddingTop: 25}}>{t('Eventos_Proximos')}</h1>
+        <div className='calendar_container'>
+            <Calendar className="calendario"
+              culture={localStorage.getItem("i18nextLng")}
+              localizer={localizer} 
+              events={events} 
+              startAccessor="start" 
+              endAccessor="end"
+              toolbar={true}
+              views={['month', 'agenda']}
+            />
+          <section className="eventos">
+          {
+            events
+            .map((event) => {
+              return(
+                <Card key={event.title}>
+                  <Card.Body>
+                    <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                    <Card.Title>{event.title}</Card.Title>
+                    <Card.Text> {event.location}</Card.Text>
+                    <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                  </Card.Body>
+                </Card>
+                )
+            })
+          }
+          </section>
+        </div>
 
         <section className='tutorials'>
           {
@@ -100,9 +149,9 @@ const StemWithUs = (props) => {
           <div className='tutorialsLine'>
             {
               tutorials.length !== 0 ?
-              tutorials.map((video) => {
+              tutorials.map((video, i) => {
                 return(
-                  <TutorialMiniature key={video.url} img={video.thumbnail} name={video.title}/>
+                  <TutorialMiniature key={i} img={video.thumbnail} name={video.title}/>
                   )
               })
               : <></>
@@ -110,47 +159,50 @@ const StemWithUs = (props) => {
           </div>
         </section>
 
-        <section>
-          <h2>{t('Recent-Videos')}</h2>
+        <section className='recent_videos'>
+          <h2 className='tutorialsLine-top'>{t('Recent-Videos')}</h2>
           <Carousel touch>
             {
               recentVideos.map((vid, i) => {
                 return(
                   <Carousel.Item key={i}>
-                    <img style={{borderRadius: 25}} src={vid.thumbnail} alt='miniatura de video'></img>
-                    
-                      <h2>{vid.title}</h2>
-                      <Button href={vid.url}>Ver video</Button>
+                    <div style={{position: 'relative'}}>
+                      <a href={vid.url} >
+                        <img className='miniatura' src={vid.thumbnail} alt='miniatura de video'></img>
+                        <h4 className='miniatura_overlay'>{vid.title}</h4>
+                      </a>
+
+                    </div>
                   </Carousel.Item>
                 )
               })
             }
           </Carousel>
         </section>
-          
-        <section>
+
+
+        <section className='reels' >
           <div className='tutorialsLine-top'>
             <h2>Reels</h2>
-            <Link to="https://www.instagram.com/apolo27_rd/reels/" className='ver-mas'>
+            <a href="https://www.instagram.com/apolo27_rd/reels/" className='ver-mas'>
               <p>{t('ShowMore')}
-                <img src={arrow} alt='arrow'>
-                </img>
+                <img src={arrow} alt='arrow'></img>
               </p>
-            </Link>
+            </a>
           </div>
           <div className='reelsLine'>
-              <div className='reel' alt='reel'>
+              <a className='reel reel1' alt='reel' href='https://www.instagram.com/p/C0mF1IvrihZ/'>
                 <h2 className='reel_title'>Visitas Escolares</h2>
                 <h5 className='reel_subtitle'>Marcando la diferencia</h5>
-              </div>
-              <div className='reel' alt='reel'>
+              </a>
+              <a className='reel reel2' alt='reel' href='https://www.instagram.com/p/C2aZn8Frew6/'>
                 <h2 className='reel_title'>Actividades con Apolo 27</h2>
                 <h5 className='reel_subtitle'>Sorteos y más</h5>
-              </div>
-              <div className='reel' alt='reel'>
+              </a>
+              <a className='reel reel3' alt='reel' href='https://www.instagram.com/reel/CzcgK0xLmp6/'>
                 <h2 className='reel_title'>Manufactura y diseño</h2>
                 <h5 className='reel_subtitle'>Demostración de nuestro empeño</h5>
-              </div>
+              </a>
               {
                 // <InstagramEmbed url="https://www.instagram.com/reel/CzcgK0xLmp6/" />
                 // <InstagramEmbed url="https://www.instagram.com/reel/Cwpoeu5r42a/" />

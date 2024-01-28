@@ -28,7 +28,6 @@ export function getRecentVideos(callback) {
     if (!err) {
       const videos = [];
       JSON.parse(resp.text).items.map(video => {
-        console.log(video);
         return videos.push({
           title: video.snippet.title,
           thumbnail: video.snippet.thumbnails.high.url,

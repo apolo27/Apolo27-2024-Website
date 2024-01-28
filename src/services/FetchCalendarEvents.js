@@ -7,7 +7,6 @@ export function getEvents(callback) {
   request.get(GOOGLE_CALENDAR_URL).end((err, resp) => {
     if (!err) {
       const events = [];
-      console.log(resp.body.items);
       JSON.parse(resp.text).items.map(event => {
         return events.push({
           title: event.summary,

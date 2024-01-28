@@ -165,6 +165,7 @@ button.rbc-input::-moz-focus-inner {
   font-size: 16px;
 }
 .rbc-toolbar .rbc-toolbar-label {
+  text-transform: capitalize;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -340,7 +341,7 @@ button.rbc-input::-moz-focus-inner {
   height: 100%;
   position: relative;
   color: rgb(44, 39, 39);
-  background-color: #fff;
+  background-color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
