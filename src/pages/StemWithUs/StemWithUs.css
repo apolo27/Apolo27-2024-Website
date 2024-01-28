@@ -1,7 +1,6 @@
 
 .stem-with-us{
-  background-size: contain;
-  background-repeat:space;
+  
 }
 
 .calendario{
@@ -20,18 +19,18 @@ iframe{
 }
 
 .eventos .card{
-
+  
 }
 
 
 section{
   margin-top: 50px;
-  margin-bottom: 50px;
 
 }
 
 .contact-us{
   margin-top: 50px;
+  position: relative;
 }
 
 .astronautStemIZQ{
@@ -116,6 +115,188 @@ section .reelsLine{
 .reel_title{
   font-weight: 700;
   padding-top: 100%;
+}
+
+
+@-moz-keyframes glow-star {
+  40% { -moz-opacity: 0.3;}
+  90%,100% { -moz-opacity: 1; -moz-transform: scale(1.2);}
+}
+@-webkit-keyframes glow-star {
+  40% { -webkit-opacity: 0.3;}
+  90%,100% { -webkit-opacity: 1; -webkit-transform: scale(1.2);}
+}
+@keyframes glow-star{
+  40% { -webkit-opacity: 0.3; opacity: 0.3;  }
+  90%,100% { -webkit-opacity: 1; opacity: 1; -webkit-transform: scale(1.2); transform: scale(1.2); border-radius: 999999px;}
+}
+
+
+.contact-us .glowing_stars .star{
+  position: absolute;
+  border-radius: 100%;
+  background-color: #fff;
+  width: 4px;
+  height: 4px;
+  opacity: 0.3;
+  will-change: opacity;
+}
+
+.contact-us .glowing_stars .star:nth-child(1){
+  top: 80%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(2){
+  top: -20%;
+  left: 40%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(3){
+  top: -25%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(4){
+  top: 75%;
+  left: 80%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(5){
+  top: 90%;
+  left: 50%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+.contact-us .glowing_stars .star:nth-child(6){
+  top: 80%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(7){
+  top: 20%;
+  left: 40%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(8){
+  top: 25%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(9){
+  top: 25%;
+  left: 82%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(10){
+  top: 46%;
+  left: 37%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+.contact-us .glowing_stars .star:nth-child(11){
+  top: 94%;
+  left: 17%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(12){
+  top: 26%;
+  left: 48%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(13){
+  top: 25%;
+  left: 65%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(14){
+  top: 76%;
+  left: 55%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(15){
+  top: 100%;
+  left: 60%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+.contact-us .glowing_stars .star:nth-child(16){
+  top: 42%;
+  left: 70%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(17){
+  top: 72%;
+  left: 40%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(18){
+  top: 35%;
+  left: 15%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(19){
+  top: 75%;
+  left: 20%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(20){
+  top: 10%;
+  left: 30%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+
+.contact-us .glowing_stars .star:nth-child(21){
+  top: 90%;
+  left: 805%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(22){
+  top: 47%;
+  left: 70%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(23){
+  top: 62%;
+  left: 27%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(24){
+  top: 65%;
+  left: 70%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(25){
+  top: 90%;
+  left: 450%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+.contact-us .glowing_stars .star:nth-child(26){
+  top: 35%;
+  left: 5%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(27){
+  top: 10%;
+  left: 45%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(28){
+  top: 24%;
+  left: 95%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(29){
+  top: -22%;
+  left: 85%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(30){
+  top: 82%;
+  left: 37%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
 }
 
 

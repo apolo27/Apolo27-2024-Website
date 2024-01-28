@@ -18,6 +18,7 @@ import { getTutorials, getRecentVideos } from "../../services/FetchYTVideos";
 
 import TutorialMiniature from '../../components/TutorialMiniature';
 
+import background from '../../imgs/StemWithUs/background.png'
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
 import arrow from '../../imgs/StemWithUs/arrow.png'
 
@@ -55,7 +56,7 @@ const StemWithUs = (props) => {
   return(
     <div className='stem-with-us' style={{textAlign: "center"}}>
       <Container>
-        <h1>{t('Eventos_Proximos')}</h1>
+        <h1 style={{paddingTop: 25}}>{t('Eventos_Proximos')}</h1>
           <Calendar 
             className="calendario"
             culture={localStorage.getItem("i18nextLng")}
@@ -159,9 +160,42 @@ const StemWithUs = (props) => {
           </div>
         </section>
 
-        <section style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: 150}}>
+        <section className='contact-us' style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: 150, paddingBottom: 125}}>
+            <div className="glowing_stars">
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+                <div className="star"></div>
+            </div>
           <img src={Fastronaut} className='astronautStemIZQ' alt='Female Astronaut'></img>
-          <div className='contact-us'>
+          <div style={{marginTop: 100}}>
             <h2>{t('Plan-a-meeting')}</h2>
             <Button href='/Contact-Us' style={{width: '275px', height: '75px', fontSize: '36px', fontWeight: 700}}>{t('Contactenos')}!</Button>
           </div>

@@ -83,7 +83,7 @@ const DataDashboard = (props) => {
   }, [data]);
 
   return(
-    <Container >
+    <Container>
       <section className='data-dashboard-intro'>
         <h4>
           Cada año blablablabla
