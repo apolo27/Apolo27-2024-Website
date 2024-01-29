@@ -17,12 +17,12 @@ const Footer = (props) => {
                         <img src={footerLogo} alt="apolo27 logo"/><h4  style={{display: "inline-block"}}>Apolo 27</h4>
                         <p>{t('Hero-Title')}</p>
                         <section className="socials">
-                            <a style={{marginLeft: 25}} href="https://www.instagram.com/apolo27_rd/"> <FontAwesomeIcon icon={faInstagram} size="xl" /></a>
-                            <a style={{marginLeft: 25}} href="https://www.tiktok.com/@apolo27rd"> <FontAwesomeIcon icon={faTiktok} size="xl" /></a>
-                            <a style={{marginLeft: 25}} href="https://www.facebook.com/Apolo27.rd"> <FontAwesomeIcon icon={faFacebook} size="xl" /></a>
-                            <a style={{marginLeft: 25}} href="https://twitter.com/apolo27_rd"> <FontAwesomeIcon icon={faSquareXTwitter} size="xl" /></a>
-                            <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faLinkedin} size="xl" /></a>
-                            <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faYoutube} size="xl" /></a>
+                            <a style={{marginLeft: 25}} href="https://www.instagram.com/apolo27_rd/"> <FontAwesomeIcon icon={faInstagram} size="xl" className="fa-ig"/></a>
+                            <a style={{marginLeft: 25}} href="https://www.tiktok.com/@apolo27rd"> <FontAwesomeIcon icon={faTiktok} size="xl" className="fa-tk"/></a>
+                            <a style={{marginLeft: 25}} href="https://www.facebook.com/Apolo27.rd"> <FontAwesomeIcon icon={faFacebook} size="xl" className="fa-fb"/></a>
+                            <a style={{marginLeft: 25}} href="https://twitter.com/apolo27_rd"> <FontAwesomeIcon icon={faSquareXTwitter} size="xl" className="fa-x"/></a>
+                            <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faLinkedin} size="xl" className="fa-lin"/></a>
+                            <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faYoutube} size="xl" className="fa-yt"/></a>
                         </section>
                     </Grid>
 
