@@ -9,6 +9,7 @@ const ContactUs = (props) =>{
     return(
         <Container style={{textAlign: 'center', marginBottom: 125}}>
             <Button style={{marginTop: '25px', width: '350px'}} onClick={() => navigate(-1)}>{t('Go-Back')}</Button>
+            <hr></hr>
             <Form t={t}/>
         </Container>
     )

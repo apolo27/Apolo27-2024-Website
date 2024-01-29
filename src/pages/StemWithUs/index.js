@@ -161,11 +161,11 @@ const StemWithUs = (props) => {
 
         <section className='recent_videos'>
           <h2 className='tutorialsLine-top'>{t('Recent-Videos')}</h2>
-          <Carousel touch>
+          <Carousel touch controls={false}>
             {
               recentVideos.map((vid, i) => {
                 return(
-                  <Carousel.Item key={i}>
+                  <Carousel.Item key={i} interval={2000}>
                     <div style={{position: 'relative'}}>
                       <a href={vid.url} >
                         <img className='miniatura' src={vid.thumbnail} alt='miniatura de video'></img>

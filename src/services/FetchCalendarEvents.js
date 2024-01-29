@@ -7,7 +7,7 @@ export function getEvents(callback) {
   request.get(GOOGLE_CALENDAR_URL).end((err, resp) => {
     if (!err) {
       const events = [];
-      JSON.parse(resp.text).items.map(event => {
+      JSON.parse(resp.text).items.filter(events => new Date(events.start.dateTime) >= new Date()).map(event => {
         return events.push({
           title: event.summary,
           htmlLink: event.htmlLink,
