@@ -1,7 +1,7 @@
 .footer{
     padding-top: 40px;
     padding-bottom: 20px;
-    border-top: 2px solid rgb(60, 127, 182);
+    border-top: 2px solid rgb(255, 0, 0);
     width: 100%;
     display: flex;
     justify-content: space-between; 
@@ -29,4 +29,9 @@
 .footer-col a:hover{
     color: rgb(204, 24, 24);
     padding-left: 20px;
+}
+
+.socials{
+    margin-top: 15px;
+    margin-bottom: 25px;
 }
