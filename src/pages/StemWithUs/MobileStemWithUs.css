@@ -13,10 +13,16 @@
 }
 
 @media screen and (max-width: 900px) {
-.recent_videos .carousel{
-    height: 275px;
-  }
-  
+
+    .eventos{
+        margin-top: 25px;
+        border: none;
+    }
+    
+    .recent_videos .carousel{
+        height: 275px;
+    }
+    
   .tutorialsLine-top{
     text-align: center;
   }

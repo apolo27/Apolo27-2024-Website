@@ -71,8 +71,6 @@ const StemWithUs = (props) => {
     }else{
       setBlogs(JSON.parse(sessionStorage.getItem('blogs')))
     }
-    
-    console.log(blogs);
 
   }, []);
 
