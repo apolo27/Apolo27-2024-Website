@@ -1,0 +1,32 @@
+.mobile-stem-with-us{
+    background-image: url('../../imgs/StemWithUs/background2.jpeg');
+    padding-top: 25px;
+    padding-bottom: 125px;
+}
+
+.mobile-stem-with-us .tab{
+    padding-left: 0;
+}
+
+.mobile-stem-with-us .tabs{
+    margin-top: 125px;
+}
+
+@media screen and (max-width: 900px) {
+.recent_videos .carousel{
+    height: 275px;
+  }
+  
+  .tutorialsLine-top{
+    text-align: center;
+  }
+  
+  .miniatura{
+    width: 350px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    filter:brightness(0.7);
+  }
+
+}

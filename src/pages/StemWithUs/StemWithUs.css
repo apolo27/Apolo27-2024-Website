@@ -1,3 +1,9 @@
+
+
+.stem-with-us section{
+  padding-top: 50px;
+}
+
 .calendar_container{
   display: flex;
   text-align: center;
@@ -28,9 +34,6 @@
   margin-bottom: 15px;
 }
 
-.stem-with-us section{
-  margin-top: 50px;
-}
 
 .contact-us{
   margin-top: 50px;
@@ -80,10 +83,6 @@ section .tutorialsLine-top{
   display: flex;
   justify-content: space-between;
 
-}
-
-.reels{
-  margin-top: 1000px;
 }
 
 .ver-mas{
