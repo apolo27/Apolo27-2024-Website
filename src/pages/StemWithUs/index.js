@@ -77,6 +77,7 @@ const StemWithUs = (props) => {
   if(window.screen.width < 1280){
     return(
       <div className='mobile-stem-with-us'>
+        <h2 className='title'>Stem With US</h2>
         <Container>
           <Tabs defaultActiveKey="articles" justify={true} variant='pills' className='mb-3'>
             <Tab eventKey="articles" title={<span><FontAwesomeIcon icon={faEnvelopeOpenText} /> ARTICLES</span>} tabClassName='tab'>
@@ -111,7 +112,9 @@ const StemWithUs = (props) => {
               />
             <section className="eventos">
             {
-              events
+              events.length === 0 ? 
+              <h2>No hay eventos proximos</h2>
+              : events
               .map((event) => {
                 return(
                   <Card key={event.title}>

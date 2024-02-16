@@ -1,8 +1,19 @@
 .mobile-stem-with-us{
-    background-image: url('../../imgs/StemWithUs/background2.jpeg');
-    padding-top: 25px;
-    padding-bottom: 125px;
+  
 }
+
+.mobile-stem-with-us{
+    background-image: url('../../imgs/StemWithUs/background2.jpeg');
+
+}
+
+.mobile-stem-with-us .container{
+  padding-top: 25px;
+  background-color: #161A2C;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
 
 .mobile-stem-with-us .tab{
     padding-left: 0;
