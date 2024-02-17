@@ -77,137 +77,144 @@ const StemWithUs = (props) => {
   if(window.screen.width < 1280){
     return(
       <div className='mobile-stem-with-us'>
-        <h2 className='title'>Stem With US</h2>
+        <h1 style={{paddingTop: 150, marginBottom: 15, fontWeight: 600}}>STEM WITH US</h1>
         <Container>
-          <Tabs defaultActiveKey="articles" justify={true} variant='pills' className='mb-3'>
+          <Tabs defaultActiveKey="articles" fill={false} justify={true} variant='pills' className='mb-3' transition={true}>
             <Tab eventKey="articles" title={<span><FontAwesomeIcon icon={faEnvelopeOpenText} /> ARTICLES</span>} tabClassName='tab'>
-            {
-              blogs
-              .map((blog) => {
-                return(
-                  <Card key={blog.title}  style={{marginBottom: 25}}>
-                    <Card.Img variant="top" src={blog.imgURL} />
-                    <Card.Body>
-                      <Card.Title>{new Date(blog.date).toLocaleString(i18next.language, {year: 'numeric', day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
-                      <Card.Title>{blog.title}</Card.Title>
-                      <Card.Text> {blog.content[2]}</Card.Text>
-                      <Button href={blog.blogURL}>{t('Seguir')}</Button>
-                    </Card.Body>
-                  </Card>
-                  )
-              })
-            }
+              <div className='tab_content'>
+                {
+                  blogs
+                  .map((blog) => {
+                    return(
+                      <Card key={blog.title}  style={{marginBottom: 25}}>
+                        <Card.Img variant="top" src={blog.imgURL} />
+                        <Card.Body>
+                          <Card.Title>{new Date(blog.date).toLocaleString(i18next.language, {year: 'numeric', day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                          <Card.Title>{blog.title}</Card.Title>
+                          <Card.Text> {blog.content[2]}</Card.Text>
+                          <Button href={blog.blogURL}>{t('Seguir')}</Button>
+                        </Card.Body>
+                      </Card>
+                      )
+                  })
+                }
+
+              </div>
             </Tab>
 
             <Tab eventKey="calendar" title={<span><FontAwesomeIcon icon={faCalendarDays} /> CALENDAR</span>} tabClassName='tab'>
-            <div className='calendar_container'>
-              <Calendar className="calendario"
-                culture={localStorage.getItem("i18nextLng")}
-                localizer={localizer} 
-                events={events} 
-                startAccessor="start" 
-                endAccessor="end"
-                toolbar={true}
-                views={['month', 'agenda']}
-              />
-            <section className="eventos">
-            {
-              events.length === 0 ? 
-              <h2>No hay eventos proximos</h2>
-              : events
-              .map((event) => {
-                return(
-                  <Card key={event.title}>
-                    <Card.Body>
-                      <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
-                      <Card.Title>{event.title}</Card.Title>
-                      <Card.Text> {event.location}</Card.Text>
-                      <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                    </Card.Body>
-                  </Card>
-                  )
-              })
-            }
-            </section>
-          </div>
+            <div className='tab_content'> 
+              <div className='calendar_container'>
+                <Calendar className="calendario"
+                  culture={localStorage.getItem("i18nextLng")}
+                  localizer={localizer} 
+                  events={events} 
+                  startAccessor="start" 
+                  endAccessor="end"
+                  toolbar={true}
+                  views={['month', 'agenda']}
+                />
+              <section className="eventos">
+              {
+                events.length === 0 ? 
+                <h2>No hay eventos proximos</h2>
+                : events
+                .map((event) => {
+                  return(
+                    <Card key={event.title}>
+                      <Card.Body>
+                        <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                        <Card.Title>{event.title}</Card.Title>
+                        <Card.Text> {event.location}</Card.Text>
+                        <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                      </Card.Body>
+                    </Card>
+                    )
+                })
+              }
+              </section>
+              </div>
+            </div>
             </Tab>
 
             <Tab eventKey="videos" title={<span><FontAwesomeIcon icon={faVideo} /> VIDEOS</span>}  tabClassName='tab'>
-            <section className='tutorials'>
-            {
-              (tutorials.length !== 0) ?  
-                <div className='tutorialsLine-top'>
-                <h2>{t('Stem-Tutorials')}</h2>
-                <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
-              </div>
-              : <></>
-            }
-           
-            <div className='tutorialsLine'>
-              {
-                tutorials.length !== 0 ?
-                tutorials.map((video, i) => {
-                  return(
-                    <TutorialMiniature key={i} img={video.thumbnail} name={video.title}/>
-                    )
-                })
-                : <></>
-              } 
-            </div>
-          </section>
-  
-          <section className='recent_videos'>
-            <h2 className='tutorialsLine-top'>{t('Recent-Videos')}</h2>
-            <Carousel touch controls={false}>
-              {
-                recentVideos.map((vid, i) => {
-                  return(
-                    <Carousel.Item key={i} interval={2000}>
-                      <div style={{position: 'relative'}}>
-                        <a href={vid.url} >
-                          <img className='miniatura' src={vid.thumbnail} alt='miniatura de video'></img>
-                          <h4 className='miniatura_overlay'>{vid.title}</h4>
-                        </a>
-  
-                      </div>
-                    </Carousel.Item>
-                  )
-                })
-              }
-            </Carousel>
-          </section>
-  
-  
-          <section className='reels' >
-            <div className='tutorialsLine-top'>
-              <h2>Reels</h2>
-              <a href="https://www.instagram.com/apolo27_rd/reels/" className='ver-mas'>
-                <p>{t('ShowMore')}
-                  <img src={arrow} alt='arrow'></img>
-                </p>
-              </a>
-            </div>
-            <div className='reelsLine'>
-                <a className='reel reel1' alt='reel' href='https://www.instagram.com/p/C0mF1IvrihZ/'>
-                  <h2 className='reel_title'>Visitas Escolares</h2>
-                  <h5 className='reel_subtitle'>Marcando la diferencia</h5>
-                </a>
-                <a className='reel reel2' alt='reel' href='https://www.instagram.com/p/C2aZn8Frew6/'>
-                  <h2 className='reel_title'>Actividades con Apolo 27</h2>
-                  <h5 className='reel_subtitle'>Sorteos y más</h5>
-                </a>
-                <a className='reel reel3' alt='reel' href='https://www.instagram.com/reel/CzcgK0xLmp6/'>
-                  <h2 className='reel_title'>Manufactura y diseño</h2>
-                  <h5 className='reel_subtitle'>Demostración de nuestro empeño</h5>
-                </a>
+              <div className='tab_content'>
+                <section className='tutorials'>
                 {
-                  // <InstagramEmbed url="https://www.instagram.com/reel/CzcgK0xLmp6/" />
-                  // <InstagramEmbed url="https://www.instagram.com/reel/Cwpoeu5r42a/" />
-                  // <InstagramEmbed url="https://www.instagram.com/reel/C0PKP1ALnEL/" />
-  
+                  (tutorials.length !== 0) ?  
+                    <div className='tutorialsLine-top'>
+                    <h2>{t('Stem-Tutorials')}</h2>
+                    <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
+                  </div>
+                  : <></>
                 }
-            </div>
-          </section>
+              
+                <div className='tutorialsLine'>
+                  {
+                    tutorials.length !== 0 ?
+                    tutorials.map((video, i) => {
+                      return(
+                        <TutorialMiniature key={i} img={video.thumbnail} name={video.title}/>
+                        )
+                    })
+                    : <></>
+                  } 
+                </div>
+                </section>
+        
+                <section className='recent_videos'>
+                  <h2 className='tutorialsLine-top'>{t('Recent-Videos')}</h2>
+                  <Carousel touch controls={false}>
+                    {
+                      recentVideos.map((vid, i) => {
+                        return(
+                          <Carousel.Item key={i} interval={2000}>
+                            <div style={{position: 'relative'}}>
+                              <a href={vid.url} >
+                                <img className='miniatura' src={vid.thumbnail} alt='miniatura de video'></img>
+                                <h4 className='miniatura_overlay'>{vid.title}</h4>
+                              </a>
+        
+                            </div>
+                          </Carousel.Item>
+                        )
+                      })
+                    }
+                  </Carousel>
+                </section>
+        
+        
+                <section className='reels' >
+                  <div className='tutorialsLine-top'>
+                    <h2>Reels</h2>
+                    <a href="https://www.instagram.com/apolo27_rd/reels/" className='ver-mas'>
+                      <p>{t('ShowMore')}
+                        <img src={arrow} alt='arrow'></img>
+                      </p>
+                    </a>
+                  </div>
+                  <div className='reelsLine'>
+                      <a className='reel reel1' alt='reel' href='https://www.instagram.com/p/C0mF1IvrihZ/'>
+                        <h2 className='reel_title'>Visitas Escolares</h2>
+                        <h5 className='reel_subtitle'>Marcando la diferencia</h5>
+                      </a>
+                      <a className='reel reel2' alt='reel' href='https://www.instagram.com/p/C2aZn8Frew6/'>
+                        <h2 className='reel_title'>Actividades con Apolo 27</h2>
+                        <h5 className='reel_subtitle'>Sorteos y más</h5>
+                      </a>
+                      <a className='reel reel3' alt='reel' href='https://www.instagram.com/reel/CzcgK0xLmp6/'>
+                        <h2 className='reel_title'>Manufactura y diseño</h2>
+                        <h5 className='reel_subtitle'>Demostración de nuestro empeño</h5>
+                      </a>
+                      {
+                        // <InstagramEmbed url="https://www.instagram.com/reel/CzcgK0xLmp6/" />
+                        // <InstagramEmbed url="https://www.instagram.com/reel/Cwpoeu5r42a/" />
+                        // <InstagramEmbed url="https://www.instagram.com/reel/C0PKP1ALnEL/" />
+        
+                      }
+                  </div>
+                </section>
+              </div>
             </Tab>
         </Tabs>
 

@@ -1,26 +1,28 @@
 .mobile-stem-with-us{
-  
+    background-image: url('../../imgs/StemWithUs/background.png');
 }
 
-.mobile-stem-with-us{
-    background-image: url('../../imgs/StemWithUs/background2.jpeg');
+.mobile-stem-with-us .tabs{
+  margin-top: 50px;
+}
 
+.tab_content{
+  overflow-y: scroll;
+  height: 600px;
 }
 
 .mobile-stem-with-us .container{
+  margin-bottom: 50px;
   padding-top: 25px;
   background-color: #161A2C;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
 }
 
-
 .mobile-stem-with-us .tab{
-    padding-left: 0;
-}
-
-.mobile-stem-with-us .tabs{
-    margin-top: 125px;
+  padding-left: 0;
+  padding-right: 0;
+  
 }
 
 @media screen and (max-width: 900px) {
