@@ -43,7 +43,6 @@ const StemWithUs = (props) => {
   let t = props.t;
 
   useEffect(() => {
-
     if(sessionStorage.getItem("events") === null){
       getEvents(setEvents)
       console.log("api call events");
@@ -74,13 +73,13 @@ const StemWithUs = (props) => {
 
   }, []);
 
-  if(window.screen.width < 1280){
+  if(window.screen.width < 1000){
     return(
       <div className='mobile-stem-with-us'>
-        <h1 style={{paddingTop: 150, marginBottom: 15, fontWeight: 600}}>STEM WITH US</h1>
+        <h1 style={{paddingTop: 150, marginBottom: 15, fontWeight: 600}}>{t('STEM-WITH-US')}</h1>
         <Container>
           <Tabs defaultActiveKey="articles" fill={false} justify={true} variant='pills' className='mb-3' transition={true}>
-            <Tab eventKey="articles" title={<span><FontAwesomeIcon icon={faEnvelopeOpenText} /> ARTICLES</span>} tabClassName='tab'>
+            <Tab eventKey="articles" title={<span><FontAwesomeIcon icon={faEnvelopeOpenText} /> {t('Articles')}</span>} tabClassName='tab'>
               <div className='tab_content'>
                 {
                   blogs
@@ -102,7 +101,7 @@ const StemWithUs = (props) => {
               </div>
             </Tab>
 
-            <Tab eventKey="calendar" title={<span><FontAwesomeIcon icon={faCalendarDays} /> CALENDAR</span>} tabClassName='tab'>
+            <Tab eventKey="calendar" title={<span><FontAwesomeIcon icon={faCalendarDays} /> {t('Calendar')}</span>} tabClassName='tab'>
             <div className='tab_content'> 
               <div className='calendar_container'>
                 <Calendar className="calendario"
@@ -216,7 +215,7 @@ const StemWithUs = (props) => {
                 </section>
               </div>
             </Tab>
-        </Tabs>
+          </Tabs>
 
         </Container>
       </div>
@@ -278,10 +277,11 @@ const StemWithUs = (props) => {
                 toolbar={true}
                 views={['month', 'agenda']}
               />
-            <section className="eventos">
+            <section className="eventos" style={{marginTop: 75}}>
             {
-              events
-              .map((event) => {
+              events.length === 0 ? 
+              <h1>No hay eventos proximos</h1>
+              : events.map((event) => {
                 return(
                   <Card key={event.title}>
                     <Card.Body>
@@ -296,7 +296,29 @@ const StemWithUs = (props) => {
             }
             </section>
           </div>
-  
+          
+          <h1 style={{paddingTop: 25}}>{t('Blogs')}</h1>
+          <section className='blogs'>
+            {
+              blogs
+              .slice(0,3)
+              .map((blog) => {
+                return(
+                  <Card key={blog.title}  style={{marginBottom: 25}}>
+                    <Card.Img variant="top" src={blog.imgURL} />
+                    <Card.Body>
+                      <Card.Title>{new Date(blog.date).toLocaleString(i18next.language, {year: 'numeric', day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                      <Card.Title>{blog.title}</Card.Title>
+                      <Card.Text> {blog.content[2]}</Card.Text>
+                      <Button href={blog.blogURL}>{t('Seguir')}</Button>
+                    </Card.Body>
+                  </Card>
+                  )
+              })
+            }
+
+          </section>
+          
           <section className='tutorials'>
             {
               (tutorials.length !== 0) ?  
