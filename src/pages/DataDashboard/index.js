@@ -1,6 +1,6 @@
 import './DataDashboard.css'
 import React, { useEffect, useState } from 'react';
-import database from '../../services/firebase'; 
+import firebase from '../../services/firebase';
 import {Container,Tab, Tabs} from 'react-bootstrap';
 
 import {Grid, FormGroup, FormControlLabel, Checkbox} from '@mui/material';
@@ -27,13 +27,14 @@ const DataDashboard = (props) => {
     const fetchData = async () => {
       try {
         // Assuming we have a 'data' node in our database
-        const snapshot = await database
-          .ref('/sensors')
-          .orderByChild('dateAdded')
+        const snapshot = await firebase.database()
+          .ref('/temperatura-humedad')
+          .orderByKey()
           .limitToLast(1)
           .once('value');
         const dataFromDatabase = snapshot.val();
         setData(dataFromDatabase);
+        console.log('Data from Firebase:', dataFromDatabase);
       } catch (error) {
         console.error('Error fetching data from Firebase:', error);
       }
@@ -42,45 +43,16 @@ const DataDashboard = (props) => {
     fetchData();
   }, []);
 
+  // obtener los datos de la base de datos
   useEffect(() => {
     if (data) {
-      const sensorId = Object.keys(data);
-  
-      if (sensorId.length > 0) {
-        const sensorData = data[sensorId]; // Get the data for that sensor
-        setSurroundingTemp(sensorData.temp)
-        const dataToBeProcessed = [
-          {key: "ns", value: sensorData.Ns},
-          {key: "Latitude", value: sensorData.latitude},
-          {key: "Ew", value: sensorData.ew},
-          {key: "Speed", value: sensorData.speed},
-          {key: "Temp", value: sensorData.temp},
-          {key: "Pressure", value: sensorData.pressure},
-          {key: "Elevation", value: sensorData.elevation},
-          {key: "Humidity", value: sensorData.humidity},
-          {key: "accX", value: sensorData.accx},
-          {key: "accY", value: sensorData.accy},
-          {key: "accZ", value: sensorData.accz},
-          {key: "GyroX", value: sensorData.gyrox},
-          {key: "GyroY", value: sensorData.gyroy},
-          {key: "GyroZ", value: sensorData.gyroz},
-          {key: "QuatW", value: sensorData.quatw},
-          {key: "QuatX", value: sensorData.quatx},
-          {key: "QuatY", value: sensorData.quaty},
-          {key: "QuatZ", value: sensorData.quatz},
-          {key: "Counter", value: sensorData.counter},
-        ]
-        
-        setProcessedData(dataToBeProcessed)
-        
-      
-      } else {
-        console.error("Data object is empty.");
-      }
-    } else {
-      console.error("Data object is undefined or null.");
+      const processedData = Object.entries(data).map(([key, value]) => {
+        return { key, value };
+      });
+      setProcessedData(processedData);
     }
   }, [data]);
+  
 
   return(
     <Container>
@@ -181,7 +153,7 @@ const DataDashboard = (props) => {
                     <div className='icono-temperatura'>
                       <img alt='termometer' src={tempIcon}></img>
                     </div>
-                    <h2 >{surroundingTemp}<span style={{fontSize: '14px', paddingBottom: "15px"}}>°F</span></h2>
+                    <h3 >{surroundingTemp}<span style={{fontSize: '14px', paddingBottom: "15px"}}>°F</span></h3>
                   </div>
                 </div>
               </Grid>
