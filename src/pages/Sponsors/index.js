@@ -1,6 +1,5 @@
 import './Sponsors.css'
-import { useState } from 'react';
-import {Container, Carousel} from 'react-bootstrap/';
+import {Container} from 'react-bootstrap/';
 import bmCargo from '../../imgs/Sponsors/BMCargo.jpeg'
 import coopreservas from '../../imgs/Sponsors/coopreservas.jpeg'
 import ole from '../../imgs/Sponsors/ole.jpg'
@@ -13,6 +12,7 @@ import cardnet from '../../imgs/Sponsors/cardnet.png'
 import cmi from '../../imgs/Sponsors/cmi.png'
 
 function Sponsors(props){
+    let t = props.t;
     const sponsors =[
         {
             name: 'bmCargo', 
@@ -55,50 +55,43 @@ function Sponsors(props){
             img: cmi
         },
     ]
-    let t = props.t;
+    
   return(
-    <Container style={{textAlign: "center"}}>
-        <div className='titleArea'>
-            <h1 className='sponsorsPage-title'>{t('Sponsor-Us-Title')}</h1>
-            <h3 className='sponsorsPage-text'>{t('Sponsor-Us-SubTitle')}</h3>
-        </div>
-
-        <div className="logos">
-            <div className="logos-slide">
-                <img className='logo' src={bmCargo} alt="patrocinador" width={100}/>
-                <img className='logo' src={coopreservas} alt="patrocinador" width={100}/>
-                <img className='logo' src={ole} alt="patrocinador" width={100}/>
-                <img className='logo' src={pedidosYa} alt="patrocinador" width={100}/>
-                <img className='logo' src={pizzarelli} alt="patrocinador" width={100}/>
-                <img className='logo' src={aes} alt="patrocinador" width={100}/>
-                <img className='logo' src={banreservas} alt="patrocinador" width={100}/>
-                <img className='logo' src={Belkoro} alt="patrocinador" width={100}/>
-                <img className='logo' src={cardnet}alt="patrocinador" width={100}/>
-                <img className='logo' src={cmi}alt="patrocinador" width={100}/>
+    <div className='sponsors-page'>
+        <Container>
+            <div className='titleArea'>
+                <h1 className='sponsorsPage-title'>{t('Sponsor-Us-Title')}</h1>
+                <h3 className='sponsorsPage-text'>{t('Sponsor-Us-SubTitle')}</h3>
             </div>
-        
-            <div className="logos-slide">
-                <img className='logo' src={bmCargo} alt="patrocinador" width={100}/>
-                <img className='logo' src={coopreservas} alt="patrocinador" width={100}/>
-                <img className='logo' src={ole} alt="patrocinador" width={100}/>
-                <img className='logo' src={pedidosYa} alt="patrocinador" width={100}/>
-                <img className='logo' src={pizzarelli} alt="patrocinador" width={100}/>
-                <img className='logo' src={aes} alt="patrocinador" width={100}/>
-                <img className='logo' src={banreservas} alt="patrocinador" width={100}/>
-                <img className='logo' src={Belkoro} alt="patrocinador" width={100}/>
-                <img className='logo' src={cardnet}alt="patrocinador" width={100}/>
-                <img className='logo' src={cmi}alt="patrocinador" width={100}/>
-            </div>
-        </div>
 
-        <button className="button-82-pushable">
-            <span className="button-82-shadow"></span>
-            <span className="button-82-edge"></span>
-            <span className="button-82-front text">
-                {t('Sponsor-us')}
-            </span>
-        </button>
-    </Container>
+            <div className="logos">
+                <div className="logos-slide">
+                    {
+                        sponsors.map(sponsor => {
+                            return <img className='logo' src={sponsor.img} alt={sponsor.name} width={100}></img>
+                        })
+                    }
+                    
+                </div>
+            
+                <div className="logos-slide">
+                {
+                    sponsors.map(sponsor => {
+                        return <img className='logo' src={sponsor.img} alt={sponsor.name} width={100}></img>
+                    })
+                }
+                </div>
+            </div>
+
+            <button className="button-82-pushable">
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    {t('Sponsor-us')}
+                </span>
+            </button>
+        </Container>
+    </div>
   )
 }
 

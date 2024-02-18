@@ -1,13 +1,13 @@
 import request from "superagent";
 import moment from 'moment';
 
-let GOOGLE_CALENDAR_URL = `https://www.googleapis.com/calendar/v3/calendars/eb0b2023b62a9c7786d70d56ae5b16d70aa695d3949875514f988c9bbc57068e@group.calendar.google.com/events?key=${process.env.REACT_APP_API_KEY}`
+let GOOGLE_CALENDAR_URL = `https://www.googleapis.com/calendar/v3/calendars/${process.env.REACT_APP_CALENDAR_ID}/events?key=${process.env.REACT_APP_API_KEY}`
 
 export function getEvents(callback) {
   request.get(GOOGLE_CALENDAR_URL).end((err, resp) => {
     if (!err) {
       const events = [];
-      JSON.parse(resp.text).items.map(event => {
+      JSON.parse(resp.text).items.filter(events => new Date(events.start.dateTime) >= new Date()).map(event => {
         return events.push({
           title: event.summary,
           htmlLink: event.htmlLink,
@@ -16,8 +16,8 @@ export function getEvents(callback) {
           location: event.location
         });
       });
-      localStorage.setItem("events", JSON.stringify(events))
-      const storedEventsString = localStorage.getItem('events');
+      sessionStorage.setItem("events", JSON.stringify(events))
+      const storedEventsString = sessionStorage.getItem('events');
       const storedEventsArray = JSON.parse(storedEventsString);
       callback(storedEventsArray)
     }

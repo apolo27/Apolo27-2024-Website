@@ -1,7 +1,7 @@
 import './Header.css'
 import React from 'react'
 import logo from '../../imgs/logo.png'
-import {Container, Nav, Navbar, Button} from 'react-bootstrap/';
+import {Container, Nav, Navbar} from 'react-bootstrap/';
 import Themes from '../Themes';
 import SelectLanguage from '../SelectLanguage';
 
@@ -10,7 +10,7 @@ function Header(props){
 
   return(
     <div>
-      <Navbar className='titulo' bg="dark" data-bs-theme="dark" expand="lg">
+      <Navbar className='titulo' data-bs-theme="dark" expand="lg">
         <Container className="header">
           <Navbar.Brand href="/"><img src={logo} width={75} alt='logo' />{' '}Apolo 27</Navbar.Brand>
 
@@ -31,7 +31,7 @@ function Header(props){
             </Navbar.Collapse>
           </div>
         </Container>
-        </Navbar>
+      </Navbar>
     </div>
   )
 }

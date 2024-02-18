@@ -43,14 +43,16 @@ const Form = (props) => {
   const inputProps = {
     style: {
       borderRadius: "20px",
-      fontWeight: "600"
+      fontWeight: "600",
+      color: 'white'
     },
   };
 
   const inputLabelProps = {
     style: {
       fontWeight: "400",
-      fontSize: "16px"
+      fontSize: "16px",
+      color: 'white'
     },
   };
 
@@ -59,7 +61,11 @@ const Form = (props) => {
       <form ref={form} onSubmit={HandleSubmit} className='formulario'>
         <h1>{t('Contactenos')}</h1>
         <h4>{t('Solicite')}</h4>
-        <TextField 
+
+        <h5>apolo27rd@gmail.com</h5>
+
+        <TextField
+        focused 
           required
           id="nombre"
           label={t('Nombre')}
@@ -74,7 +80,8 @@ const Form = (props) => {
             setName(e.target.value)}}
             />
 
-        <TextField 
+        <TextField
+        focused 
           required
           type="tel"
           id="telefono"
@@ -90,7 +97,8 @@ const Form = (props) => {
             setTel(e.target.value)}}
             />
 
-        <TextField 
+        <TextField
+        focused 
           required
           type='email'
           id="email"
@@ -106,7 +114,8 @@ const Form = (props) => {
             setEmail(e.target.value)}}
           />
 
-        <TextField 
+        <TextField
+        focused 
           id="location"
           label={t('Ubicacion')}
           name="user_location" 
@@ -122,33 +131,34 @@ const Form = (props) => {
         <h4>{t('Areas')}</h4>
         <FormGroup>
           <input type='hidden' value='no' name='salonactividades' disabled={salonActividadesChecked}></input>
-          <FormControlLabel control={<Checkbox name="salonactividades" sx={{ '&.Mui-checked': {color: "green"}}} onChange={() => setSalonActividadesChecked(!salonActividadesChecked)} value={salonActividadesChecked ? "si" : "no"}/>}  label={t('Salon')} />
+          <FormControlLabel control={<Checkbox name="salonactividades" sx={{color: 'white', '&.Mui-checked': {color: "green"}}} onChange={() => setSalonActividadesChecked(!salonActividadesChecked)} value={salonActividadesChecked ? "si" : "no"}/>}  label={t('Salon')} />
           
           <input type='hidden' value='no' name='reunionesbajotecho' disabled={bajoTechoChecked}></input>
-          <FormControlLabel control={<Checkbox name="reunionesbajotecho" sx={{ '&.Mui-checked': {color: "green"}}} onChange={() => setBajoTechoChecked(!bajoTechoChecked)} value={bajoTechoChecked ? "si" : "no"} />}  label={t('Bajotecho')}/>
+          <FormControlLabel control={<Checkbox name="reunionesbajotecho" sx={{color: 'white', '&.Mui-checked': {color: "green"}}} onChange={() => setBajoTechoChecked(!bajoTechoChecked)} value={bajoTechoChecked ? "si" : "no"} />}  label={t('Bajotecho')}/>
           
           <input type='hidden' value='no' name='laboratorios' disabled={labsChecked}></input>
-          <FormControlLabel control={<Checkbox name="laboratorios" sx={{ '&.Mui-checked': {color: "green"}}} onChange={() => setLabsChecked(!labsChecked)}value={labsChecked ? "si" : "no"} />} label={t('Labs')} />
+          <FormControlLabel control={<Checkbox name="laboratorios" sx={{color: 'white', '&.Mui-checked': {color: "green"}}} onChange={() => setLabsChecked(!labsChecked)}value={labsChecked ? "si" : "no"} />} label={t('Labs')} />
         </FormGroup>
 
         <h4>{t('Recursos')}</h4>
 
         <FormGroup>
           <input type='hidden' value='no' name='Proyector' disabled={recurso1}></input>
-          <FormControlLabel control={<Checkbox name="Proyector" sx={{ '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso1(!recurso1)} value={recurso1 ? "si" : "no"}/>}  label={t('Proyector')} />
+          <FormControlLabel control={<Checkbox name="Proyector" sx={{color: 'white', '&.Mui-checked': {color: "green"}, }} onChange={() => setRecurso1(!recurso1)} value={recurso1 ? "si" : "no"}/>}  label={t('Proyector')} />
           
           <input type='hidden' value='no' name='Pantallas' disabled={recurso2}></input>
-          <FormControlLabel control={<Checkbox name="Pantallas" sx={{ '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso2(!recurso2)} value={recurso2 ? "si" : "no"} />}  label={t('Pantallas')} />
+          <FormControlLabel control={<Checkbox name="Pantallas" sx={{color: 'white', '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso2(!recurso2)} value={recurso2 ? "si" : "no"} />}  label={t('Pantallas')} />
           
           <input type='hidden' value='no' name='Bocinas' disabled={recurso3}></input>
-          <FormControlLabel control={<Checkbox name="Bocinas" sx={{ '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso3(!recurso3)}value={recurso3 ? "si" : "no"} />} label={t('Bocinas')} />
+          <FormControlLabel control={<Checkbox name="Bocinas" sx={{color: 'white', '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso3(!recurso3)}value={recurso3 ? "si" : "no"} />} label={t('Bocinas')} />
 
           <input type='hidden' value='no' name='Microfonos' disabled={recurso4}></input>
-          <FormControlLabel control={<Checkbox name="Microfonos" sx={{ '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso4(!recurso4)}value={recurso4 ? "si" : "no"} />} label={t('Microfonos')} />
+          <FormControlLabel control={<Checkbox name="Microfonos" sx={{ color: 'white', '&.Mui-checked': {color: "green"}}} onChange={() => setRecurso4(!recurso4)}value={recurso4 ? "si" : "no"} />} label={t('Microfonos')} />
         </FormGroup>
 
         <h4>{t('Grados')}</h4>
-        <TextField 
+        <TextField
+        focused 
           id="grades"
           label={t('GradosOption')}
           name="user_grades" 
@@ -162,7 +172,8 @@ const Form = (props) => {
             setGrades(e.target.value)}}
           />
 
-        <TextField 
+        <TextField
+        focused 
           required
           type='date'
           id="date"
@@ -181,7 +192,8 @@ const Form = (props) => {
           />
 
         <h4>{t('Por_que')}</h4>
-        <TextField 
+        <TextField
+        focused 
           id="mensaje"
           label={t('Message')}
           variant="outlined"
@@ -195,7 +207,7 @@ const Form = (props) => {
             setMessage(e.target.value)}}
           />
 
-        <Button variant="contained" type='submit' value="Send">Enviar Mensaje</Button>
+        <Button style={{fontSize: 24, marginTop: 25}} variant="contained" type='submit' value="Send">Enviar</Button>
       </form>
     </section>
   )

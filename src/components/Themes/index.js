@@ -7,7 +7,7 @@ import NightsStayIcon from '@mui/icons-material/NightsStay';
 const Themes = () => {
   const [theme, setTheme] = useState(() => {
     // Retrieve theme from local storage or set default
-    return localStorage.getItem('theme') || 'light';
+    return sessionStorage.getItem('theme') || 'light';
   });
 
   const setDarkMode = () => {
@@ -21,7 +21,7 @@ const Themes = () => {
     document.querySelector("body").setAttribute("data-theme", theme);
 
     // Save theme to local storage
-    localStorage.setItem("theme", theme);
+    sessionStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = (e) =>{

@@ -39,8 +39,8 @@
   "Rovers-Accel": "Aceleración del Rover",
 
   "Eventos_Proximos": "Eventos Próximos",
-  "Stem-Tutorials": "Tutoriales de STEM: ",
-  "Recent-Videos": "Videos Recientes: ",
+  "Stem-Tutorials": "Tutoriales de STEM ",
+  "Recent-Videos": "Videos Recientes ",
   "Seguir": "Seguir",
 
   "Contactenos": "Contáctenos",
@@ -75,12 +75,12 @@
   "Sponsor-Us-Title": "Apoyando nuestro trabajo: una mirada a nuestros patrocinadores",
   "Sponsor-Us-SubTitle": "Descubre la importancia de los patrocinadores en ayudar a alcanzar nuestra misión y aprende sobre los individuos y compañías que lo hacen todo posible",
 
-  "Equipo-2019": "In 2019, comenzamos con pocos miembros, y fue un momento desafiante para nosotros. Pero estábamos decididos a representar a nuestro país por primera vez en el Desafío de Rover de Exploración Humana de la NASA, y lo hicimos.",
-  "Equipo-2020": "In 2020, a pesar de los desafíos planteados por la pandemia, perseveramos y aprendimos valiosas lecciones que nos ayudaron a crecer, lo que nos llevó a ganar nuestro primer premio: \"System Safety Award\".",
-  "Equipo-2021": "In 2021, seguimos impulsando las STEM en nuestro país. Además, nos centramos en mejorar aún más el diseño del Rover. También logramos crear conciencia sobre STEM en nuestro país.",
-  "Equipo-2022": "In 2022, nos enfocamos en aún más aspectos de STEM. Esto nos llevó a crear el STEM Tour, un evento en el que mostramos proyectos STEM interactivos. Este año, ganamos el \"Premio al Compromiso STEM\".",
-  "Equipo-2023": "In 2023, Todavía estamos en el proceso, pero nuestro enfoque sigue siendo hacer que nuestro rover sea el mejor hasta ahora. También creemos que STEM puede cambiar el mundo, por eso nos comprometemos a impulsarlo aún más en nuestro país.",
-  "Equipo-2024": "In 2024, Todavía estamos en el proceso, pero nuestro enfoque sigue siendo hacer que nuestro rover sea el mejor hasta ahora. También creemos que STEM puede cambiar el mundo, por eso nos comprometemos a impulsarlo aún más en nuestro país.",
+  "Equipo-2019": "En 2019, comenzamos con pocos miembros, y fue un momento desafiante para nosotros. Pero estábamos decididos a representar a nuestro país por primera vez en el Desafío de Rover de Exploración Humana de la NASA, y lo hicimos.",
+  "Equipo-2020": "En 2020, a pesar de los desafíos planteados por la pandemia, perseveramos y aprendimos valiosas lecciones que nos ayudaron a crecer, lo que nos llevó a ganar nuestro primer premio: \"System Safety Award\".",
+  "Equipo-2021": "En 2021, seguimos impulsando las STEM en nuestro país. Además, nos centramos en mejorar aún más el diseño del Rover. También logramos crear conciencia sobre STEM en nuestro país.",
+  "Equipo-2022": "En 2022, nos enfocamos en aún más aspectos de STEM. Esto nos llevó a crear el STEM Tour, un evento en el que mostramos proyectos STEM interactivos. Este año, ganamos el \"Premio al Compromiso STEM\".",
+  "Equipo-2023": "En 2023, Todavía estamos en el proceso, pero nuestro enfoque sigue siendo hacer que nuestro rover sea el mejor hasta ahora. También creemos que STEM puede cambiar el mundo, por eso nos comprometemos a impulsarlo aún más en nuestro país.",
+  "Equipo-2024": "En 2024, Todavía estamos en el proceso, pero nuestro enfoque sigue siendo hacer que nuestro rover sea el mejor hasta ahora. También creemos que STEM puede cambiar el mundo, por eso nos comprometemos a impulsarlo aún más en nuestro país.",
 
   "StemForAll": "STEM para TODOS para cambiar el mundo",
   "ImportanceOfStem": "La importancia de las STEM para nuestro equipo",
@@ -111,5 +111,11 @@
   "OurStoryFooter": "Nuestra historia",
   "NasaHERCFooter": "Nasa HERC",
   "TeamMembersFooter": "Miembros del equipo",
-  "OurAwardsFooter": "Nuestros premios"
+  "OurAwardsFooter": "Nuestros premios",
+
+    
+  "404Title": "Parece que estás perdido en el espacio",
+  "404GoBack": "VUELVE AL INICIO",
+  
+  "SimulationWarning": "No disponible para dispositivos moviles"
 }

@@ -1,37 +1,40 @@
-
-.stem-with-us{
-  background-size: contain;
-  background-repeat:space;
+.calendar_container{
+  display: flex;
+  text-align: center;
 }
-
 .calendario{
-  margin: 0 auto;
-}
-
-iframe{
-  width: 75%;
+  margin-top: 50px;
 }
 
 .eventos{
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid #3E4879;
+  overflow-y: scroll;
+  width: 650px;
+  height: 580px;
+  margin-left: 15px;
+}
+.eventos::-webkit-scrollbar{
+  display: none;
+}
+
+.eventos:hover::-webkit-scrollbar{
+  display: block;
 }
 
 .eventos .card{
-
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-
-section{
+.stem-with-us section{
   margin-top: 50px;
-  margin-bottom: 50px;
-
 }
 
 .contact-us{
   margin-top: 50px;
+  position: relative;
 }
 
 .astronautStemIZQ{
@@ -43,9 +46,44 @@ section{
   display: none;
 }
 
+.recent_videos .carousel{
+  height: 500px;
+}
+
+.recent_videos .carousel-item{
+  height: 500px;
+}
+
+.miniatura{
+  width: 720px;
+  height: 400px;
+  border-radius: 15px;
+  object-fit: cover;
+  filter:brightness(0.7);
+}
+
+.miniatura:hover{
+  cursor: pointer;
+  filter:brightness(1);
+}
+
+.miniatura_overlay{
+  position: absolute;
+  max-width:700px ;
+  bottom: 10px;
+  left: 23%;
+}
+
 section .tutorialsLine-top{
+  width: 85%;
+  margin-left: 8%;
   display: flex;
   justify-content: space-between;
+
+}
+
+.reels{
+  margin-top: 1000px;
 }
 
 .ver-mas{
@@ -78,10 +116,227 @@ section .tutorialsLine{
 }
 
 section .reelsLine{
+  margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
+
+.reel{
+  margin-top: 10px;
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 25px;
+  width: 300px;
+  height: 450px;
+  background-size: cover;
+  
+}
+.reel1{
+  background-image: linear-gradient(0deg, #E50202 0%, rgba(0, 0, 0, 0.00) 51.28%), url('../../imgs/StemWithUs/MiniaturasReels/visita_escolar.jpg');
+}
+
+.reel2{
+  background-image: linear-gradient(0deg, #E50202 0%, rgba(0, 0, 0, 0.00) 51.28%), url('../../imgs/StemWithUs/MiniaturasReels/actividadesConApolo.png');
+}
+
+.reel3{
+  background-image: linear-gradient(0deg, #E50202 0%, rgba(0, 0, 0, 0.00) 51.28%), url('../../imgs/StemWithUs/MiniaturasReels/manufactura.png');
+}
+
+.reel:hover{
+  transform: scale(1.15);
+}
+
+.reel_title{
+  font-weight: 700;
+  padding-top: 100%;
+}
+
+
+@-moz-keyframes glow-star {
+  40% { -moz-opacity: 0.3;}
+  90%,100% { -moz-opacity: 1; -moz-transform: scale(1.2);}
+}
+@-webkit-keyframes glow-star {
+  40% { -webkit-opacity: 0.3;}
+  90%,100% { -webkit-opacity: 1; -webkit-transform: scale(1.2);}
+}
+@keyframes glow-star{
+  40% { -webkit-opacity: 0.3; opacity: 0.3;  }
+  90%,100% { -webkit-opacity: 1; opacity: 1; -webkit-transform: scale(1.2); transform: scale(1.2); border-radius: 999999px;}
+}
+
+
+.contact-us .glowing_stars .star{
+  position: absolute;
+  border-radius: 100%;
+  background-color: #fff;
+  width: 4px;
+  height: 4px;
+  opacity: 0.3;
+  will-change: opacity;
+}
+
+.contact-us .glowing_stars .star:nth-child(1){
+  top: 80%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(2){
+  top: -20%;
+  left: 40%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(3){
+  top: -25%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(4){
+  top: 75%;
+  left: 80%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(5){
+  top: 90%;
+  left: 50%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+.contact-us .glowing_stars .star:nth-child(6){
+  top: 80%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(7){
+  top: 20%;
+  left: 40%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(8){
+  top: 25%;
+  left: 25%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(9){
+  top: 25%;
+  left: 82%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(10){
+  top: 46%;
+  left: 37%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+.contact-us .glowing_stars .star:nth-child(11){
+  top: 94%;
+  left: 17%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(12){
+  top: 26%;
+  left: 48%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(13){
+  top: 25%;
+  left: 65%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(14){
+  top: 76%;
+  left: 55%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(15){
+  top: 100%;
+  left: 60%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+.contact-us .glowing_stars .star:nth-child(16){
+  top: 42%;
+  left: 70%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(17){
+  top: 72%;
+  left: 40%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(18){
+  top: 35%;
+  left: 15%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(19){
+  top: 75%;
+  left: 20%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(20){
+  top: 10%;
+  left: 30%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+
+.contact-us .glowing_stars .star:nth-child(21){
+  top: 90%;
+  left: 80%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(22){
+  top: 47%;
+  left: 70%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(23){
+  top: 62%;
+  left: 27%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(24){
+  top: 65%;
+  left: 70%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(25){
+  top: 90%;
+  left: 45%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
+.contact-us .glowing_stars .star:nth-child(26){
+  top: 35%;
+  left: 5%;
+  animation: glow-star 2s infinite ease-in-out alternate 1s;
+}
+.contact-us .glowing_stars .star:nth-child(27){
+  top: 10%;
+  left: 45%;
+  animation: glow-star 2s infinite ease-in-out alternate 3s;
+}
+.contact-us .glowing_stars .star:nth-child(28){
+  top: 24%;
+  left: 95%;
+  animation: glow-star 2s infinite ease-in-out alternate 5s;
+}
+.contact-us .glowing_stars .star:nth-child(29){
+  top: -22%;
+  left: 85%;
+  animation: glow-star 2s infinite ease-in-out alternate 7s;
+}
+.contact-us .glowing_stars .star:nth-child(30){
+  top: 82%;
+  left: 37%;
+  animation: glow-star 2s infinite ease-in-out alternate 9s;
+}
+
 
 @media screen and (max-width: 1200px) {
   .contact-us{
@@ -96,13 +351,85 @@ section .reelsLine{
     width: 50%;
     height: 50%;
   }
+
+  .calendario{
+    height: 350px;
+    margin: 0 auto;
+  }
+  
+  .calendar_container{
+    display: block;
+  }
+
+  .eventos{
+    overflow-y:scroll;
+    width: 90%;
+    height: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .eventos .card{
+    width: 45%;
+    margin: 10px;
+  }
+
+  .reel:hover{
+    margin-top: 50px;
+    margin-bottom: 40px;
+    transform: scale(1.15);
+  }
+  .miniatura_overlay{
+    left: 12%;
+    max-width:500px;
+  }
+  
 }
 
 @media screen and (max-width: 900px) {
-  iframe{
-    width: 100%;
-  }
   .calendario{
+    height: 250px;
+  }
+  .reel{
+    margin-top: 20px;
+  }
+
+  .reel:hover{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    transform: scale(1.15);
+  }
+  
+  .recent_videos .carousel{
     height: 350px;
   }
+
+  .miniatura{
+    width: 550px;
+    height: 300px;
+  }
+
+  .miniatura_overlay{
+    position: absolute;
+    left: 12%;
+    max-width:300px;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .eventos{
+    display: block;
+    height: 500px;
+  }
+
+  .eventos .card{
+    width: 90%;
+  }
+
+  .miniatura{
+    filter:brightness(1);
+  }
+
 }
