@@ -53,8 +53,13 @@ const DataDashboard = (props) => {
       console.log("Data from Firebase:", dataFromDatabase);
 
       if (dataFromDatabase) {
-        const lastEntryKey = Object.keys(dataFromDatabase)[0];
-        const lastEntryData = dataFromDatabase[lastEntryKey];
+        let lastEntryKey;
+        let lastEntryData;
+
+        snapshot.forEach((childSnapshot) => {
+          lastEntryKey = childSnapshot.key;
+          lastEntryData = childSnapshot.val();
+        });
 
         // Procesar los datos directamente
         setProcessedData({
