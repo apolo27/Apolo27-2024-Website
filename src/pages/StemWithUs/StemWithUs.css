@@ -1,3 +1,9 @@
+
+
+.stem-with-us section{
+  padding-top: 50px;
+}
+
 .calendar_container{
   display: flex;
   text-align: center;
@@ -28,9 +34,16 @@
   margin-bottom: 15px;
 }
 
-.stem-with-us section{
-  margin-top: 50px;
+.blogs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
+
+.blogs .card{
+  width: 350px;
+}
+
 
 .contact-us{
   margin-top: 50px;
@@ -80,10 +93,6 @@ section .tutorialsLine-top{
   display: flex;
   justify-content: space-between;
 
-}
-
-.reels{
-  margin-top: 1000px;
 }
 
 .ver-mas{
@@ -368,6 +377,7 @@ section .reelsLine{
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    border: 2px solid #3E4879;
   }
 
   .eventos .card{
@@ -422,6 +432,7 @@ section .reelsLine{
   .eventos{
     display: block;
     height: 500px;
+    border: 2px solid #3E4879;
   }
 
   .eventos .card{

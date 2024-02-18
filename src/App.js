@@ -6,7 +6,7 @@ import AboutUs from './pages/AboutUs/AboutUs.js'
 import DataDashboard from './pages/DataDashboard'
 import Sponsors from './pages/Sponsors'
 import StemWithUs from './pages/StemWithUs';
-import RoverSimulation from './pages/RoverSimulation'
+import RoverSimulation from './pages/Simulation/index.js'
 import ContactUs from './pages/ContactUs';
 import PageNotFound from './pages/PageNotFound/index.js';
 import Footer from './components/Footer'
@@ -24,7 +24,8 @@ function App() {
         <Route path='/Data-Dashboard' element={<DataDashboard t={t}/>}/>
         <Route path='/Sponsors' element={<Sponsors t={t}/>}/>
         <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
-        <Route path='/Games' element={<RoverSimulation t={t}/>}/>
+        <Route path='/Simulation' element={<RoverSimulation t={t}/>}/>
+
         <Route path='/Contact-Us' element={<ContactUs t={t}/>}/>
         <Route path='/*' element={<PageNotFound t={t}/>}/>
       </Routes>
