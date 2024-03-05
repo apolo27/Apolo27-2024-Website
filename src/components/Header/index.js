@@ -1,6 +1,6 @@
 import './Header.css'
 import React from 'react'
-import logo from '../../imgs/logo.png'
+import logo from '../../imgs/logo.svg'
 import {Container, Nav, Navbar, Button} from 'react-bootstrap/';
 import Themes from '../Themes';
 import SelectLanguage from '../SelectLanguage';
@@ -12,7 +12,7 @@ function Header(props){
     <div>
       <Navbar className='titulo' bg="dark" data-bs-theme="dark" expand="lg">
         <Container className="header">
-          <Navbar.Brand href="/"><img src={logo} width={75} alt='logo' />{' '}Apolo 27</Navbar.Brand>
+        <Navbar.Brand href="/"><img src={logo} width={75} alt='logo' /></Navbar.Brand>
 
           <div className='links'>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

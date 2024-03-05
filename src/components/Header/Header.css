@@ -1,14 +1,10 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 .titulo{
-  font-family: 'Nazalization';
+  font-family: "Poppins", sans-serif;
 }
-
-@font-face {
-  font-family: "Nazalization";
-  src: local("Nazalization"),
-    url("../../fonts/nasalization-rg.otf") format("truetype");
-  font-weight: bold;
-}
-
 
 .nav-link{
   margin-left: 5px;
