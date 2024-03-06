@@ -4,7 +4,8 @@ import database from '../../services/firebase';
 import {Container,Tab, Tabs} from 'react-bootstrap';
 
 import {Grid, FormGroup, FormControlLabel, Checkbox} from '@mui/material';
-import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar} from '@mui/material';
+import {MdOutlineWbSunny, MdOutlineWaterDrop, MdOutlineCompress, MdOutlineArrowUpward} from 'react-icons/md'
+import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress'
 
 import {Canvas} from '@react-three/fiber'
@@ -22,6 +23,14 @@ const DataDashboard = (props) => {
   const [data, setData] = useState(null);
   const [processedData, setProcessedData] = useState([]);
   const [surroundingTemp, setSurroundingTemp] = useState(61);
+  const [temperatura1, setTemperatura1] = useState(0);
+  const [humedadRelativa1, setHumedadRelativa1] = useState(0);
+  const [presionAtmosferica1, setPresionAtmosferica1] = useState(0);
+  const [alturaSobreNivelDelMar1, setAlturaSobreNivelDelMar1] = useState(0);
+  const [temperatura2, setTemperatura2] = useState(0);
+  const [humedadRelativa2, setHumedadRelativa2] = useState(0);
+  const [presionAtmosferica2, setPresionAtmosferica2] = useState(0);
+  const [alturaSobreNivelDelMar2, setAlturaSobreNivelDelMar2] = useState(0);
   const [temperatura, setTemperatura] = useState(0);
   const [humedad, setHumedad] = useState(0);
 
@@ -68,12 +77,24 @@ const DataDashboard = (props) => {
         });
 
         // Acceder a los valores de temperatura y humedad y parsearlos como números
-        setTemperatura(parseFloat(lastEntryData.temperatura));
-        setHumedad(parseFloat(lastEntryData.humedad));
-
+        setTemperatura1(parseFloat(lastEntryData.temperatura1));
+        setHumedadRelativa1(parseFloat(lastEntryData.humedadRelativa1));
+        setPresionAtmosferica1(parseFloat(lastEntryData.presionAtmosferica1));
+        setAlturaSobreNivelDelMar1(parseFloat(lastEntryData.alturaSobreNivelDelMar1));
+        setTemperatura2(parseFloat(lastEntryData.temperatura2));
+        setHumedadRelativa2(parseFloat(lastEntryData.humedadRelativa2));
+        setPresionAtmosferica2(parseFloat(lastEntryData.presionAtmosferica2));
+        setAlturaSobreNivelDelMar2(parseFloat(lastEntryData.alturaSobreNivelDelMar2));
+        
         setTimeout(() => {
-          console.log('Temperatura:', temperatura.toFixed(2));
-          console.log('Humedad:', humedad.toFixed(2));
+          console.log('Temperatura1:', temperatura1.toFixed(2));
+          console.log('Humedad1:', humedadRelativa1.toFixed(2));
+          console.log('Presion1:', presionAtmosferica1.toFixed(2));
+          console.log('Altura1:', alturaSobreNivelDelMar1.toFixed(2));
+          console.log('Temperatura2:', temperatura2.toFixed(2));
+          console.log('Humedad2:', humedadRelativa2.toFixed(2));
+          console.log('Presion2:', presionAtmosferica2.toFixed(2));
+          console.log('Altura2:', alturaSobreNivelDelMar2.toFixed(2));
         }, 5);
         
       }
@@ -244,12 +265,12 @@ const DataDashboard = (props) => {
                     <div className="icono-temperatura">
                       <img alt="termometer" src={tempIcon}></img>
                     </div>
-                    <h3>
+                    {/* <h3>
                       {temperatura ? temperatura : surroundingTemp}
                       <span style={{ fontSize: "14px", paddingBottom: "15px" }}>
                         °C
                       </span>
-                    </h3>
+                    </h3> */}
                   </div>
                 </div>
               </Grid>
@@ -273,6 +294,180 @@ const DataDashboard = (props) => {
                 </Stage>
               </PresentationControls>
             </Canvas>
+          </Tab>
+          {/* Tab para colocar mediciones de 2 sujetos, quiero 1 columna con todos los sensores por persona*/}
+          <Tab
+            eventKey="sensors"
+            title="SENSORS"
+            tabClassName="tab"
+            justifyContent="center"
+          >
+            <Grid container spacing={2} alignItems="center" justify="center">
+              <Grid item xs={12} md={6}>
+                <h2>Piloto 1</h2>
+                <List dense>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid item xs={6}>
+                        <ListItemIcon >
+                          <MdOutlineWbSunny fontSize="large" style={{ color: '#FFD700' }} />
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ListItemText
+                          primary="Temperatura Relativa"
+                          secondary={
+                            <Typography variant="body2" style={{ color: '#4CAF50' }}>
+                              {temperatura1 + " °C"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid item xs={6}>
+                        <ListItemIcon>
+                          <MdOutlineWaterDrop fontSize="large" style={{ color: '#3498db' }}/>
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ListItemText
+                          primary="Humedad Relativa"
+                          secondary={
+                            <Typography variant="body2" style={{ color: '#4CAF50' }}>
+                              {humedadRelativa1 + " %"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid item xs={6}>
+                        <ListItemIcon>
+                          <MdOutlineCompress fontSize="large" style={{ color: '#FF5733' }}/>
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ListItemText
+                          primary="Presión Atmosférica"
+                          secondary={
+                            <Typography variant="body2" style={{ color: '#4CAF50' }}>
+                              {presionAtmosferica1 + " hPa"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid item xs={6}>
+                        <ListItemIcon>
+                          <MdOutlineArrowUpward fontSize="large" style={{ color: '#8E44AD' }}/>
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ListItemText
+                          primary="Nivel sobre el Mar"
+                          secondary={
+                            <Typography variant="body2" style={{ color: '#4CAF50' }}>
+                              {alturaSobreNivelDelMar1 + " m"}
+                            </Typography>
+                          }
+                
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                </List>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <h2>Piloto 2</h2>
+                <List dense>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid item xs={6}>
+                        <ListItemIcon>
+                          <MdOutlineWbSunny fontSize="large" style={{ color: '#FFD700' }}/>
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ListItemText
+                          primary="Temperatura Relativa"
+                          secondary={
+                            <Typography variant="body2" style={{ color: '#4CAF50' }}>
+                              {temperatura2 + " °C"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid item xs={6}>
+                        <ListItemIcon>
+                          <MdOutlineWaterDrop fontSize="large" style={{ color: '#3498db' }}/>
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ListItemText
+                          primary="Humedad Relativa"
+                          secondary={
+                            <Typography variant="body2" style={{ color: '#4CAF50' }}>
+                              {humedadRelativa2 + " %"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid item xs={6}>
+                        <ListItemIcon>
+                          <MdOutlineCompress fontSize="large" style={{ color: '#FF5733' }}/>
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ListItemText
+                          primary="Presión Atmosférica"
+                          secondary={
+                            <Typography variant="body2" style={{ color: '#4CAF50' }}>
+                              {presionAtmosferica2 + " hPa"}
+                            </Typography>
+                          }
+                          
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid item xs={6}>
+                        <ListItemIcon>
+                          <MdOutlineArrowUpward fontSize="large" style={{ color: '#8E44AD' }}/>
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ListItemText
+                          primary="Nivel sobre el Mar"
+                          secondary={
+                            <Typography variant="body2" style={{ color: '#4CAF50' }}>
+                              {alturaSobreNivelDelMar2 + " m"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                </List>
+              </Grid>
+            </Grid>
           </Tab>
         </Tabs>
       </div>
