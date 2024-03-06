@@ -58,13 +58,6 @@ const AboutUs = (props) =>{
   }
 
   const members = [
-    
-    {
-      img: Chaljub,
-      nombre: "Carlos Chaljub",
-      titulo: "Mechatronics Engineering",
-      equipo: ["Mentor"]
-    },
     {
       img: Colmenares,
       nombre: "Colmenares",
