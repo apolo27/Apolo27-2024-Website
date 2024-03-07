@@ -142,7 +142,9 @@ const DataDashboard = (props) => {
         onChange={handleChange}
         showLabels
         sx={{ 
-          width: '30%', 
+          width: 'auto',
+          maxWidth: '30%', 
+          minWidth: '350px',
           margin: 'auto', // Centra el menú de navegación 
           borderRadius: '30px', // Ajusta el radio de las esquinas
           border: '2px solid #3E4879', // Ajusta el borde del menú de navegación
