@@ -50,7 +50,6 @@ const Footer = (props) => {
                     </Grid>
 
                 </Grid>
-                <hr></hr>
             </Container>
         </footer>
     )

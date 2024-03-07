@@ -2,12 +2,12 @@
     margin-top: 125px;
     padding-top: 40px;
     padding-bottom: 20px;
-    border-top: 2px solid rgb(60, 127, 182);
+    /* border-top: 2px solid rgb(60, 127, 182); */
     width: 100%;
     display: flex;
     justify-content: space-between; 
-    background-color: #212529;
-    color: white;
+    background-color: rgb(13,15,24);
+    color: #fff; 
     font-family: 'Poppins';
     font-size: 15px;
 }
