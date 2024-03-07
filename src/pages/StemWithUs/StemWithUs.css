@@ -1,5 +1,8 @@
-
-
+/*.stem-with-us{
+  background-image: url('../../imgs/StemWithUs/background.png');
+  background-repeat: no-repeat;
+}
+*/
 .stem-with-us section{
   padding-top: 50px;
 }
