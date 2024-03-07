@@ -227,14 +227,14 @@
         padding-bottom: 32px;
     }
 
-    .card.MuiGrid-item{
+    .home .card.MuiGrid-item{
         width: 350px;
         height: 310px;
     }
 }
 
 @media screen and (max-width: 530px){
-    .card{
+    .home .card{
         max-width: 300px;
         width: 300px;
     }

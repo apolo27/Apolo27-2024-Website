@@ -1,4 +1,9 @@
-h1, h3{
+.sponsors-page{
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(64, 107, 250, 0.786));
+}
+
+.titleArea h1, h3{
   margin-top: 25px;
     font-family: 'poppins', 'sans-serif';
     font-weight: 500;
@@ -58,10 +63,6 @@ width: auto;
 margin: 0 40px;
 }
 
-.logo{
-  
-}
-
 .titleArea {
     display: flex;
     flex-direction: column;
@@ -83,6 +84,7 @@ margin-bottom: 20px;
 }
 
 .button-82-pushable {
+  margin-bottom: 125px;
   margin-top: 100px;
   width: 50%;
   position: relative;
