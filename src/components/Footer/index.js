@@ -1,7 +1,7 @@
 import "./Footer.css"
 import {Container} from 'react-bootstrap/';
 import Grid from '@mui/material/Grid';
-import footerLogo from '../../imgs/FooterLogo.png'
+import footerLogo from '../../imgs/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faTiktok, faFacebook, faSquareXTwitter, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
