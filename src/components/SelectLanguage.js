@@ -35,7 +35,7 @@ const SelectLanguage = () => {
         languages.map(({code, name, country_flag}) =>(
           <Dropdown.Item key={code} onClick={() => {
             i18next.changeLanguage(code)
-            localStorage.setItem("i18nextLng", code)
+            sessionStorage.setItem("i18nextLng", code)
           }}>
           <img src={country_flag} width={25} alt='country flag' style={{marginRight: 3}}></img>
           {name}

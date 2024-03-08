@@ -1,3 +1,4 @@
+
 body{
 	font-family: 'Poppins', sans-serif;
 }
@@ -7,6 +8,11 @@ body{
 }
 i {
 	margin-right: 10px;
+
+.titulo{
+  font-family: 'Nazalization';
+  background-color: #101321;
+
 }
 
 #navbarSupportedContent ul {

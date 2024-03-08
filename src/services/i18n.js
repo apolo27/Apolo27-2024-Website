@@ -15,7 +15,7 @@ i18next
     },
     react: {useSuspense: false},
     detection:{
-      order: [ 'localStorage', 'htmlTag', 'cookie', 'path', 'subdomain'],
+      order: [ 'sessionStorage', 'htmlTag', 'cookie', 'path', 'subdomain'],
       caches: ['cookie'],
     },
     interpolation: {
