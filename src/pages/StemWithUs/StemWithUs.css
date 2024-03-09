@@ -1,8 +1,10 @@
-/*.stem-with-us{
-  background-image: url('../../imgs/StemWithUs/background.png');
+.stem-with-us{
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
-*/
+
 .stem-with-us section{
   padding-top: 50px;
 }
@@ -12,6 +14,7 @@
   text-align: center;
 }
 .calendario{
+  
   margin-top: 50px;
 }
 
@@ -446,4 +449,10 @@ section .reelsLine{
     filter:brightness(1);
   }
 
+}
+
+@media screen and (max-width: 1000px) {
+  .stem-with-us{
+    display: none;
+  }
 }
