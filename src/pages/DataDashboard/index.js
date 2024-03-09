@@ -43,10 +43,13 @@ const DataDashboard = (props) => {
   const [temperatura, setTemperatura] = useState(0);
   const [humedad, setHumedad] = useState(0);
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [piloto, setPiloto] = React.useState('');
+  const [piloto, setPiloto] = React.useState('Angello Ortiz');
 
   const handleChange = (event, newIndex) => {
     setActiveIndex(newIndex);
+  };
+
+  const handleChangePiloto = (event) => {
     setPiloto(event.target.value);
   };
 
@@ -181,18 +184,18 @@ const DataDashboard = (props) => {
                     id="demo-simple-select"
                     value={piloto}
                     label="Piloto"
-                    onChange={handleChange}
+                    onChange={handleChangePiloto}
                     sx={{
                       bgcolor: "#1F264B",
                       border: "2px solid #3E4879",
                       borderRadius: "20px",
                       "& .MuiSelect-select": {
                         padding: "10px",
-                        lineHeight: "10px", // Adjust as needed
+                        lineHeight: "22px", // Adjust as needed
+                        color: '#2196f3', // Cambia el color del texto seleccionado
+                        textAlign: "center", // Centra el texto seleccionado
                       },
-                      "& .MuiMenu-paper": {
-                        bgcolor: "#1F264B",
-                      },
+                      
                     }}
                   >
                     <MenuItem value="Angello Ortiz">Angello Ortiz</MenuItem>
@@ -202,15 +205,15 @@ const DataDashboard = (props) => {
                 <div className="crewmembers-health">
                   <img src={Crewmembers} alt="crewmembers" style={{ textAlign: "left" }}/>
                   <div className="crewmember-temperatura">
-                    <label>{temperatura1}</label>
+                    <label>{piloto === "Angello Ortiz" ? temperatura1 : temperatura2}</label>
                     <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> bpm</label>
                   </div>
                   <div className="crewmember-oximetro">
-                    <label>{temperatura1}</label>
+                    <label>{piloto === "Angello Ortiz" ? temperatura1 : temperatura2}</label>
                     <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> %</label>
                   </div>
                   <div className="crewmember-radiacion">
-                    <label>{temperatura1}</label>
+                    <label>{piloto === "Angello Ortiz" ? temperatura1 : temperatura2}</label>
                     <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> mW/cm2</label>
                   </div>
                 </div>
