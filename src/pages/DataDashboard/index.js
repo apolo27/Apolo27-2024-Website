@@ -20,7 +20,7 @@ import tempIcon from '../../imgs/DataDashboard/tempIcon.png'
 
 
 function Model(props){
-  const {scene} = useGLTF("/rover.glb")
+  const {scene} = useGLTF("./rover.glb")
   return <primitive object={scene} {...props} />
 }
 
@@ -328,7 +328,7 @@ const DataDashboard = (props) => {
               polar={[-0.1, Math.PI / 4]}
             >
               <Stage environment={null}>
-                <Model scale={0.01} />
+                <Model scale={0.25} />
               </Stage>
             </PresentationControls>
           </Canvas>
