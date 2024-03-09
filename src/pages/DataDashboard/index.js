@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import database from '../../services/firebase';
 // import {Container,Tab, Tabs} from 'react-bootstrap';
 
-import {Grid, FormGroup, FormControlLabel, Checkbox, Container, BottomNavigation, BottomNavigationAction, List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography} from '@mui/material';
+import {Grid, Box, FormControl, InputLabel, MenuItem, FormGroup, FormControlLabel, Checkbox, Container, BottomNavigation, BottomNavigationAction, List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography, Select} from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import { PedalBike } from '@mui/icons-material';
 import BarChartIcon from '@mui/icons-material/BarChart';
@@ -16,11 +16,14 @@ import {Canvas} from '@react-three/fiber'
 import {useGLTF, Stage, PresentationControls} from '@react-three/drei'
 
 import tempIcon from '../../imgs/DataDashboard/tempIcon.png'
+import Crewmembers from '../../imgs/DataDashboard/Frame Crewmembers.svg'
+import { set } from 'lodash';
+import { borderRadius } from '@mui/system';
 
 
 
 function Model(props){
-  const {scene} = useGLTF("/rover.glb")
+  const {scene} = useGLTF("./rover.glb")
   return <primitive object={scene} {...props} />
 }
 
@@ -40,9 +43,11 @@ const DataDashboard = (props) => {
   const [temperatura, setTemperatura] = useState(0);
   const [humedad, setHumedad] = useState(0);
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [piloto, setPiloto] = React.useState('');
 
   const handleChange = (event, newIndex) => {
     setActiveIndex(newIndex);
+    setPiloto(event.target.value);
   };
 
   const icons = [
@@ -128,35 +133,27 @@ const DataDashboard = (props) => {
   }, []); // El segundo parámetro del useEffect es un array vacío para que se ejecute solo una vez al montar el componente
 
   return (
-    <Container 
-      maxWidth="auto"
-      style={{ marginTop: '50px' }}
-    >
-      {/* <section className="data-dashboard-intro">
-        <h4>
-          Cada año blablablabla Este es nuestro tablero para el Nasa Herc 2024
-        </h4>
-      </section> */}
-      <BottomNavigation 
-        value={activeIndex} 
+    <Container maxWidth="auto" style={{ marginTop: "50px" }}>
+      <BottomNavigation
+        value={activeIndex}
         onChange={handleChange}
         showLabels
-        sx={{ 
-          width: 'auto',
-          maxWidth: '30%', 
-          minWidth: '350px',
-          margin: 'auto', // Centra el menú de navegación 
-          borderRadius: '30px', // Ajusta el radio de las esquinas
-          border: '2px solid #3E4879', // Ajusta el borde del menú de navegación
-          backgroundColor: '#1F264B'
+        sx={{
+          width: "auto",
+          maxWidth: "30%",
+          minWidth: "350px",
+          margin: "auto", // Centra el menú de navegación
+          borderRadius: "30px", // Ajusta el radio de las esquinas
+          border: "2px solid #3E4879", // Ajusta el borde del menú de navegación
+          backgroundColor: "#1F264B",
         }}
-        >
+      >
         {icons.map((item, index) => (
           <BottomNavigationAction
             key={index}
             label={item.label}
             icon={item.icon}
-            sx={{ color: 'white' }}
+            sx={{ color: "white" }}
           />
         ))}
       </BottomNavigation>
@@ -170,65 +167,53 @@ const DataDashboard = (props) => {
             rowSpacing={4}
           >
             <Grid item xs="auto" order={{ xs: 2, md: 3, lg: 2, xl: 1 }}>
-              <div className="Task-List">
-                <h2 style={{ fontWeight: "700" }}>{t("Tasks")}</h2>
-                <FormGroup>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        sx={{
-                          color: "aliceblue",
-                          "&.Mui-checked": { color: "green" },
-                        }}
-                      />
-                    }
-                    label={t("Find-ARV")}
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        sx={{
-                          color: "aliceblue",
-                          "&.Mui-checked": { color: "green" },
-                        }}
-                      />
-                    }
-                    label={t("Regolith-removal")}
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        sx={{
-                          color: "aliceblue",
-                          "&.Mui-checked": { color: "green" },
-                        }}
-                      />
-                    }
-                    label={t("Moon-maintenance")}
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        sx={{
-                          color: "aliceblue",
-                          "&.Mui-checked": { color: "green" },
-                        }}
-                      />
-                    }
-                    label={t("Power-it-up")}
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        sx={{
-                          color: "aliceblue",
-                          "&.Mui-checked": { color: "green" },
-                        }}
-                      />
-                    }
-                    label={t("Rover-Redundancy")}
-                  />
-                </FormGroup>
+              <div className="crewmembers">
+                <h5 className="crewmembers-title">{"Crewmembers health"}</h5>
+                <FormControl sx={{ m: 1, minWidth: 160 }}>
+                  <InputLabel
+                    id="demo-simple-select-label"
+                    sx={{ color: "white", textAlign: "center" }}
+                  >
+                    <Typography align="center">Crewmember</Typography>
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={piloto}
+                    label="Piloto"
+                    onChange={handleChange}
+                    sx={{
+                      bgcolor: "#1F264B",
+                      border: "2px solid #3E4879",
+                      borderRadius: "20px",
+                      "& .MuiSelect-select": {
+                        padding: "10px",
+                        lineHeight: "10px", // Adjust as needed
+                      },
+                      "& .MuiMenu-paper": {
+                        bgcolor: "#1F264B",
+                      },
+                    }}
+                  >
+                    <MenuItem value="Angello Ortiz">Angello Ortiz</MenuItem>
+                    <MenuItem value="Eridania Pérez">Eridania Pérez</MenuItem>
+                  </Select>
+                </FormControl>
+                <div className="crewmembers-health">
+                  <img src={Crewmembers} alt="crewmembers" style={{ textAlign: "left" }}/>
+                  <div className="crewmember-temperatura">
+                    <label>{temperatura1}</label>
+                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> bpm</label>
+                  </div>
+                  <div className="crewmember-oximetro">
+                    <label>{temperatura1}</label>
+                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> %</label>
+                  </div>
+                  <div className="crewmember-radiacion">
+                    <label>{temperatura1}</label>
+                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> mW/cm2</label>
+                  </div>
+                </div>
               </div>
               <div className="graph">
                 <h4 style={{ fontWeight: "700" }}>{t("Rovers-Accel")}</h4>
@@ -328,14 +313,12 @@ const DataDashboard = (props) => {
               polar={[-0.1, Math.PI / 4]}
             >
               <Stage environment={null}>
-                <Model scale={0.01} />
+                <Model scale={0.25} />
               </Stage>
             </PresentationControls>
           </Canvas>
         )}
-        {activeIndex === 2 && (
-          <h1>Active Index 2</h1>
-        )}
+        {activeIndex === 2 && <h1>Active Index 2</h1>}
         {activeIndex === 3 && (
           <Grid container spacing={2} alignItems="center" justify="center">
             <Grid item xs={12} md={6}>
