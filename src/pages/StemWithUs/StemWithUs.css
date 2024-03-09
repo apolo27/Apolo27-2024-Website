@@ -1,8 +1,18 @@
 .stem-with-us{
+  background-image: url('../../imgs/StemWithUs/background.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.stem-with-us-body{
+  background-color: #161A2C;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .stem-with-us section{
@@ -12,6 +22,7 @@
 .calendar_container{
   display: flex;
   text-align: center;
+  padding-left: 50px;
 }
 .calendario{
   
@@ -23,7 +34,7 @@
   padding: 10px;
   border: 2px solid #3E4879;
   overflow-y: scroll;
-  width: 650px;
+  width: 400px;
   height: 580px;
   margin-left: 15px;
 }
@@ -44,6 +55,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  clipPath: 'polygon(50% 0%, 0% 80%, 0% 100%, 100% 100%, 100% 80%)',
 }
 
 .blogs .card{
