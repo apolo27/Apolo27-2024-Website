@@ -1,4 +1,3 @@
-
 body{
 	font-family: 'Poppins', sans-serif;
 }
@@ -8,13 +7,12 @@ body{
 }
 i {
 	margin-right: 10px;
+
 }
 .titulo{
   font-family: 'Nazalization';
   background-color: #101321;
-
 }
-
 #navbarSupportedContent ul {
   display: flex;
   justify-content: center;
@@ -23,8 +21,6 @@ i {
 #navbarSupportedContent ul li {
   flex: 0 0 auto;
 }
-
-
 .navbar-logo{
 	padding: 1px;
 	color: #fff;
@@ -124,8 +120,6 @@ i {
 	bottom: 0;
     left: -25px;
 }
-
-
 @media(min-width: 992px){
 	.navbar-expand-custom {
 	    -ms-flex-flow: row nowrap;
@@ -147,8 +141,6 @@ i {
 	    flex-basis: auto;
 	}
 }
-
-
 @media (max-width: 991px){
 	#navbarSupportedContent ul li a{
 		padding: 12px 30px;

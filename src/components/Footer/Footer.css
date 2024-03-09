@@ -1,12 +1,11 @@
 .footer{
     padding-top: 40px;
     padding-bottom: 20px;
-    border-top: 2px solid rgb(255, 0, 0);
     width: 100%;
     display: flex;
     justify-content: space-between; 
-    background-color: #060919;
-    color: white;
+    background-color: rgb(13,15,24);
+    color: #fff; 
     font-family: 'Poppins';
     font-size: 15px;
 }
@@ -23,8 +22,8 @@
     padding-left: 2px;
 }
 .footer-col li{
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .footer-col a:hover{
@@ -90,7 +89,7 @@
     background: rgba(34, 67, 213, 0.625);
   }
 
-.socials{
+/* .socials{
     margin-top: 15px;
     margin-bottom: 25px;
 }
@@ -109,4 +108,4 @@
 }
 .fa-yt:hover{
     color: red;
-}
+} */
