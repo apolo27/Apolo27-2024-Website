@@ -1,29 +1,57 @@
-import './DataDashboard.css'
-import React, { useEffect, useState } from 'react';
-import database from '../../services/firebase';
+import "./DataDashboard.css";
+import React, { useEffect, useState } from "react";
+import database from "../../services/firebase";
 // import {Container,Tab, Tabs} from 'react-bootstrap';
 
-import {Grid, Box, FormControl, InputLabel, MenuItem, FormGroup, FormControlLabel, Checkbox, Container, BottomNavigation, BottomNavigationAction, List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography, Select} from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
-import { PedalBike } from '@mui/icons-material';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import PersonIcon from '@mui/icons-material/Person';
-import {MdOutlineWbSunny, MdOutlineWaterDrop, MdOutlineCompress, MdOutlineArrowUpward} from 'react-icons/md'
+import {
+  Grid,
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  Container,
+  BottomNavigation,
+  BottomNavigationAction,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  ListItemIcon,
+  Typography,
+  Select,
+} from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
+import { PedalBike } from "@mui/icons-material";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import PersonIcon from "@mui/icons-material/Person";
+import {
+  MdOutlineWbSunny,
+  MdOutlineWaterDrop,
+  MdOutlineCompress,
+  MdOutlineArrowUpward,
+} from "react-icons/md";
 //import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress'
+import CircularProgress from "@mui/material/CircularProgress";
 
-import {Canvas} from '@react-three/fiber'
-import {useGLTF, Stage, PresentationControls} from '@react-three/drei'
+import { Canvas } from "@react-three/fiber";
+import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
 
-import tempIcon from '../../imgs/DataDashboard/tempIcon.png'
-import Crewmembers from '../../imgs/DataDashboard/Frame Crewmembers.svg'
-import { set } from 'lodash';
-import { borderRadius } from '@mui/system';
+import tempIcon from "../../imgs/DataDashboard/tempIcon.png";
+import Crewmembers from "../../imgs/DataDashboard/Frame Crewmembers.svg";
+import { set } from "lodash";
+import { borderRadius } from "@mui/system";
 import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
+import { getLastVideo, getRecentVideos } from "../../services/FetchYTVideos";
+import YouTube from "react-youtube";
 
-function Model(props){
-  const {scene} = useGLTF("./rover.glb")
-  return <primitive object={scene} {...props} />
+function Model(props) {
+  const { scene } = useGLTF("./rover.glb");
+  return <primitive object={scene} {...props} />;
 }
 
 const DataDashboard = (props) => {
@@ -42,7 +70,9 @@ const DataDashboard = (props) => {
   const [temperatura, setTemperatura] = useState(0);
   const [humedad, setHumedad] = useState(0);
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [piloto, setPiloto] = React.useState('Angello Ortiz');
+  const [piloto, setPiloto] = React.useState("Angello Ortiz");
+  const [lastVideo, setLastVideo] = useState([]);
+  const [resentVideos, setRecentVideos] = useState([]);
 
   const handleChange = (event, newIndex) => {
     setActiveIndex(newIndex);
@@ -53,11 +83,33 @@ const DataDashboard = (props) => {
   };
 
   const icons = [
-    {label: 'Overview', icon: <HomeIcon/>},
-    {label: 'Rover', icon: <PedalBike />},
-    {label: 'Tripulante', icon: <PersonIcon />},
-    {label: 'Sensors', icon: <BarChartIcon />},
-  ]
+    { label: "Overview", icon: <HomeIcon /> },
+    { label: "Rover", icon: <PedalBike /> },
+    { label: "Tripulante", icon: <PersonIcon /> },
+    { label: "Sensors", icon: <BarChartIcon /> },
+  ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (sessionStorage.getItem("lastVideo") === null) {
+          await getLastVideo(setLastVideo);
+          console.log("Fetching last video from YouTube");
+          console.log(lastVideo)
+        } else {
+          setLastVideo(JSON.parse(sessionStorage.getItem("lastVideo")));
+          console.log("Getting last video from session storage");
+          console.log(lastVideo)
+        }
+      } catch (error) {
+        console.error("Error in fetchData:", error.message);
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -105,23 +157,26 @@ const DataDashboard = (props) => {
         setTemperatura1(parseFloat(lastEntryData.temperatura1));
         setHumedadRelativa1(parseFloat(lastEntryData.humedadRelativa1));
         setPresionAtmosferica1(parseFloat(lastEntryData.presionAtmosferica1));
-        setAlturaSobreNivelDelMar1(parseFloat(lastEntryData.alturaSobreNivelDelMar1));
+        setAlturaSobreNivelDelMar1(
+          parseFloat(lastEntryData.alturaSobreNivelDelMar1)
+        );
         setTemperatura2(parseFloat(lastEntryData.temperatura2));
         setHumedadRelativa2(parseFloat(lastEntryData.humedadRelativa2));
         setPresionAtmosferica2(parseFloat(lastEntryData.presionAtmosferica2));
-        setAlturaSobreNivelDelMar2(parseFloat(lastEntryData.alturaSobreNivelDelMar2));
-        
+        setAlturaSobreNivelDelMar2(
+          parseFloat(lastEntryData.alturaSobreNivelDelMar2)
+        );
+
         setTimeout(() => {
-          console.log('Temperatura1:', temperatura1.toFixed(2));
-          console.log('Humedad1:', humedadRelativa1.toFixed(2));
-          console.log('Presion1:', presionAtmosferica1.toFixed(2));
-          console.log('Altura1:', alturaSobreNivelDelMar1.toFixed(2));
-          console.log('Temperatura2:', temperatura2.toFixed(2));
-          console.log('Humedad2:', humedadRelativa2.toFixed(2));
-          console.log('Presion2:', presionAtmosferica2.toFixed(2));
-          console.log('Altura2:', alturaSobreNivelDelMar2.toFixed(2));
+          console.log("Temperatura1:", temperatura1.toFixed(2));
+          console.log("Humedad1:", humedadRelativa1.toFixed(2));
+          console.log("Presion1:", presionAtmosferica1.toFixed(2));
+          console.log("Altura1:", alturaSobreNivelDelMar1.toFixed(2));
+          console.log("Temperatura2:", temperatura2.toFixed(2));
+          console.log("Humedad2:", humedadRelativa2.toFixed(2));
+          console.log("Presion2:", presionAtmosferica2.toFixed(2));
+          console.log("Altura2:", alturaSobreNivelDelMar2.toFixed(2));
         }, 5);
-        
       }
     };
 
@@ -143,25 +198,23 @@ const DataDashboard = (props) => {
 
   const dataChart = [
     {
-    name: "Habitabilidad",
-    porcentaje: 31.47,
-    pv: 2400,
-    fill: "#FF4549"
-
+      name: "Habitabilidad",
+      porcentaje: 31.47,
+      pv: 2400,
+      fill: "#FF4549",
     },
     {
-    name: "Eficiencia Energética",
-    porcentaje: 26.69,
-    pv: 4567,
-    fill: "#3BF79D"
+      name: "Eficiencia Energética",
+      porcentaje: 26.69,
+      pv: 4567,
+      fill: "#3BF79D",
     },
     {
-    name: "Fatiga del tripulante",
-    porcentaje: 15.69,
-    pv: 1398,
-    fill: "#226BD8"
+      name: "Fatiga del tripulante",
+      porcentaje: 15.69,
+      pv: 1398,
+      fill: "#226BD8",
     },
-    
   ];
 
   return (
@@ -286,7 +339,8 @@ const DataDashboard = (props) => {
               <div className="graph">
                 <h5 className="crewmembers-title">{"Ambient Reaction"}</h5>
 
-                <RadialBarChart className='crewmembers-health'
+                <RadialBarChart
+                  className="crewmembers-health"
                   width={250}
                   height={250}
                   innerRadius={40}
@@ -294,13 +348,9 @@ const DataDashboard = (props) => {
                   barSize={8}
                   data={dataChart}
                   cx={110}
-                  
                 >
-                  <RadialBar
-                    background clockWise={true}
-                    dataKey="porcentaje"
-                  />
-                  
+                  <RadialBar background clockWise={true} dataKey="porcentaje" />
+
                   <Legend
                     iconSize={10}
                     width={120}
@@ -315,13 +365,44 @@ const DataDashboard = (props) => {
             </Grid>
 
             <Grid item xs="auto" order={{ xs: 1, md: 1, lg: 1, xl: 2 }}>
-              <iframe
+              {/* <iframe
                 src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
                 style={{ background: <CircularProgress /> }}
                 className="herc-map"
                 title="Nasa Herc map"
                 id="herc-map"
-              ></iframe>
+              ></iframe> */}
+              {/* Incrustar video reciente*/}
+              {lastVideo.map((video) => {
+                return (
+                  <div className="video-container">
+                    <iframe
+                      title={video.title}
+                      src={video.url}
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                  </div>
+                ); 
+                
+              })
+              }
+              {/* {lastVideo ? (
+                <>
+                  <p>{lastVideo.url}</p>
+                  <iframe
+                    title={lastVideo.title}
+                    width="560"
+                    height="315"
+                    src={lastVideo.url}
+                    frameBorder="0"
+                    allowFullScreen
+                    
+                  />
+                </>
+              ) : (
+                <p>Cargando último video...</p>
+              )} */}
             </Grid>
 
             <Grid item xs="auto" order={{ xs: 3, md: 3, lg: 3, xl: 3 }}>
@@ -653,6 +734,6 @@ const DataDashboard = (props) => {
       */}
     </Container>
   );
-}
+};
 
 export default DataDashboard;
