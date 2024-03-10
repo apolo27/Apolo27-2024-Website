@@ -19,8 +19,7 @@ import tempIcon from '../../imgs/DataDashboard/tempIcon.png'
 import Crewmembers from '../../imgs/DataDashboard/Frame Crewmembers.svg'
 import { set } from 'lodash';
 import { borderRadius } from '@mui/system';
-
-
+import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
 
 function Model(props){
   const {scene} = useGLTF("./rover.glb")
@@ -135,6 +134,36 @@ const DataDashboard = (props) => {
     };
   }, []); // El segundo parámetro del useEffect es un array vacío para que se ejecute solo una vez al montar el componente
 
+  const style = {
+    top: 60,
+    left: 220,
+    lineHeight: "25px",
+    fontSize: "12px",
+  };
+
+  const dataChart = [
+    {
+    name: "Habitabilidad",
+    porcentaje: 31.47,
+    pv: 2400,
+    fill: "#FF4549"
+
+    },
+    {
+    name: "Eficiencia Energética",
+    porcentaje: 26.69,
+    pv: 4567,
+    fill: "#3BF79D"
+    },
+    {
+    name: "Fatiga del tripulante",
+    porcentaje: 15.69,
+    pv: 1398,
+    fill: "#226BD8"
+    },
+    
+  ];
+
   return (
     <Container maxWidth="auto" style={{ marginTop: "50px" }}>
       <BottomNavigation
@@ -192,10 +221,9 @@ const DataDashboard = (props) => {
                       "& .MuiSelect-select": {
                         padding: "10px",
                         lineHeight: "22px", // Adjust as needed
-                        color: '#2196f3', // Cambia el color del texto seleccionado
+                        color: "#2196f3", // Cambia el color del texto seleccionado
                         textAlign: "center", // Centra el texto seleccionado
                       },
-                      
                     }}
                   >
                     <MenuItem value="Angello Ortiz">Angello Ortiz</MenuItem>
@@ -203,23 +231,86 @@ const DataDashboard = (props) => {
                   </Select>
                 </FormControl>
                 <div className="crewmembers-health">
-                  <img src={Crewmembers} alt="crewmembers" style={{ textAlign: "left" }}/>
+                  <img
+                    src={Crewmembers}
+                    alt="crewmembers"
+                    style={{ textAlign: "left" }}
+                  />
                   <div className="crewmember-temperatura">
-                    <label>{piloto === "Angello Ortiz" ? temperatura1 : temperatura2}</label>
-                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> bpm</label>
+                    <label>
+                      {piloto === "Angello Ortiz" ? temperatura1 : temperatura2}
+                    </label>
+                    <label
+                      style={{
+                        fontSize: "16px",
+                        color: "#818181",
+                        marginLeft: "4px",
+                      }}
+                    >
+                      {" "}
+                      bpm
+                    </label>
                   </div>
                   <div className="crewmember-oximetro">
-                    <label>{piloto === "Angello Ortiz" ? temperatura1 : temperatura2}</label>
-                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> %</label>
+                    <label>
+                      {piloto === "Angello Ortiz" ? temperatura1 : temperatura2}
+                    </label>
+                    <label
+                      style={{
+                        fontSize: "16px",
+                        color: "#818181",
+                        marginLeft: "4px",
+                      }}
+                    >
+                      {" "}
+                      %
+                    </label>
                   </div>
                   <div className="crewmember-radiacion">
-                    <label>{piloto === "Angello Ortiz" ? temperatura1 : temperatura2}</label>
-                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> mW/cm2</label>
+                    <label>
+                      {piloto === "Angello Ortiz" ? temperatura1 : temperatura2}
+                    </label>
+                    <label
+                      style={{
+                        fontSize: "16px",
+                        color: "#818181",
+                        marginLeft: "4px",
+                      }}
+                    >
+                      {" "}
+                      mW/cm2
+                    </label>
                   </div>
                 </div>
               </div>
               <div className="graph">
-                <h4 style={{ fontWeight: "700" }}>{t("Rovers-Accel")}</h4>
+                <h5 className="crewmembers-title">{"Ambient Reaction"}</h5>
+
+                <RadialBarChart className='crewmembers-health'
+                  width={250}
+                  height={250}
+                  innerRadius={40}
+                  outerRadius={110}
+                  barSize={8}
+                  data={dataChart}
+                  cx={110}
+                  
+                >
+                  <RadialBar
+                    background clockWise={true}
+                    dataKey="porcentaje"
+                  />
+                  
+                  <Legend
+                    iconSize={10}
+                    width={120}
+                    height={140}
+                    layout="vertical"
+                    verticalAlign="middle"
+                    wrapperStyle={style}
+                  />
+                  <Tooltip />
+                </RadialBarChart>
               </div>
             </Grid>
 
