@@ -333,13 +333,15 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-month-view {
+  position: relative;
   border-radius: 10px;
+
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 15px;
   padding-right: 15px;
+
   height: 100%;
-  position: relative;
   color: #fff;
   background-color: rgba(24, 24, 45, 0.69);
   display: -webkit-box;
@@ -455,6 +457,8 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-agenda-view {
+  color: #fff;
+  background-color: rgba(24, 24, 45, 0.69);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

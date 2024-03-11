@@ -24,6 +24,7 @@ import TutorialMiniature from '../../components/TutorialMiniature';
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
 import arrow from '../../imgs/StemWithUs/arrow.png'
 import STEM from '../../imgs/StemWithUs/STEM.png'
+import waitingAstronaut from '../../imgs/StemWithUs/WaitingAstronaut.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeOpenText, faCalendarDays, faVideo } from '@fortawesome/free-solid-svg-icons'
@@ -121,7 +122,10 @@ const StemWithUs = (props) => {
                 <section className="eventos">
                 {
                   events.length === 0 ? 
-                  <h2>No hay eventos proximos</h2>
+                  <div>
+                    <img style={{height: 100}} src={waitingAstronaut} alt='astronaut waiting'></img>
+                    <h1>{t('NoEvents')}</h1>
+                  </div>
                   : events
                   .map((event) => {
                     return(
@@ -337,7 +341,10 @@ const StemWithUs = (props) => {
               <section className="eventos" style={{marginTop: 75}}>
               {
                 events.length === 0 ? 
-                <h1>No hay eventos proximos</h1>
+                <div>
+                  <img style={{height: 200}} src={waitingAstronaut} alt='astronaut waiting'></img>
+                  <h1>{t('NoEvents')}</h1>
+                </div>
                 : events.map((event) => {
                   return(
                     <Card key={event.title}>
