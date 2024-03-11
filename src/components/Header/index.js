@@ -7,12 +7,13 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../../imgs/logo.svg'
 import { Container, Nav, Navbar, Button } from 'react-bootstrap/';
+import Themes from '../Themes';
+import SelectLanguage from '../SelectLanguage';
 
 function Header(props) {
     let t = props.t;
 
     useEffect(() => {
-
         function test() {
             var tabsNewAnim = $('#navbarSupportedContent');
             var selectorNewAnim = $('#navbarSupportedContent').find('li').length;

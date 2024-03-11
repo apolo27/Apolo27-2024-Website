@@ -36,7 +36,7 @@ const Footer = (props) => {
                             <li><a href="/Data-Dashboard">{t('DataDashboardFooter')}</a></li>
                             <li><a href="/Stem-With-Us">{t('StemWithUsFooter')}</a></li>
                             <li><a href="/Sponsors">{t('BecomeASponsorFooter')}</a></li>
-                            <li><a href="/Games">{t('Games')}</a></li>
+                            <li><a href="/Simulation">{t('Games')}</a></li>
                         </ul>
                     </Grid>
 

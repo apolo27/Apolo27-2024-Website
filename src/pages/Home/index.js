@@ -1,60 +1,60 @@
-import React from 'react';
-import './Home.css';
+// import React from 'react';
+// import './Home.css';
 
-function Home() {
+// function Home() {
 
-    return (
-      <div>
-        <div className="moon">
-          <div className="crater"></div>
-        </div>
+//     return (
+//       <div>
+//         <div className="moon">
+//           <div className="crater"></div>
+//         </div>
   
-        <div className="footprints">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+//         <div className="footprints">
+//           <span></span>
+//           <span></span>
+//           <span></span>
+//         </div>
   
-        <div className="astronaut">
+//         <div className="astronaut">
   
-          <div className="backpack"></div>
+//           <div className="backpack"></div>
   
-          <div className="head">
-            <div className="helmet"></div>
-          </div>
+//           <div className="head">
+//             <div className="helmet"></div>
+//           </div>
   
-          <div className="neck"></div>
+//           <div className="neck"></div>
   
-          <div className="body"></div>
+//           <div className="body"></div>
   
-          <div className="arm right">
-            <div className="top"></div>
-            <div className="bot"></div>
-            <div className="hand"></div>
-          </div>
+//           <div className="arm right">
+//             <div className="top"></div>
+//             <div className="bot"></div>
+//             <div className="hand"></div>
+//           </div>
   
-          <div className="arm left">
-            <div className="top"></div>
-            <div className="bot"></div>
-            <div className="hand"></div>
-          </div>
+//           <div className="arm left">
+//             <div className="top"></div>
+//             <div className="bot"></div>
+//             <div className="hand"></div>
+//           </div>
   
-          <div className="leg right">
-            <div className="top"></div>
-            <div className="bot"></div>
-            <div className="foot"></div>
-          </div>
+//           <div className="leg right">
+//             <div className="top"></div>
+//             <div className="bot"></div>
+//             <div className="foot"></div>
+//           </div>
   
-          <div className="leg left">
-            <div className="top"></div>
-            <div className="bot"></div>
-            <div className="foot"></div>
-          </div>
+//           <div className="leg left">
+//             <div className="top"></div>
+//             <div className="bot"></div>
+//             <div className="foot"></div>
+//           </div>
   
-        </div>
-      </div>
-    );
-  }
+//        </div>
+//      </div>
+//    );
+//  }
   
-  export default Home;
+//  export default Home;
   

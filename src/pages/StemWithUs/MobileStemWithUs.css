@@ -1,6 +1,8 @@
 .mobile-stem-with-us{
+  display: none;
     background-image: url('../../imgs/StemWithUs/background.png');
 }
+
 
 .mobile-stem-with-us .tabs{
   margin-top: 50px;
@@ -12,8 +14,8 @@
 }
 
 .mobile-stem-with-us .container{
-  margin-bottom: 50px;
   padding-top: 25px;
+  padding-bottom: 25px;
   background-color: #161A2C;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -48,4 +50,10 @@
     filter:brightness(0.7);
   }
 
+}
+
+@media screen and (max-width: 1000px) {
+  .mobile-stem-with-us{
+    display: block;
+  }
 }
