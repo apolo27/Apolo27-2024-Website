@@ -7,7 +7,6 @@
 }
 
 .stem-with-us-body{
-  background-color: #161A2C;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   margin-top: 20px;
@@ -18,6 +17,10 @@
 
 .stem-with-us section{
   padding-top: 50px;
+}
+
+.marte-texto{
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(255, 149, 0), 0 0 5px  rgb(139, 81, 0);;
 }
 
 .calendar_container{
@@ -31,24 +34,32 @@
 }
 
 .eventos{
-  border-radius: 10px;
-  padding: 10px;
-  border: 2px solid #3E4879;
-  overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;      
   width: 400px;
   height: 580px;
+  border: 2px solid #3E4879;
+  background-color: rgba(24, 24, 45, 0.69);
+
+  overflow-y: scroll;
+  border-radius: 10px;
+  padding: 10px;
   margin-left: 15px;
+
 }
+
+.eventos h2{
+    flex: 0 0 120px;
+  
+}
+
 .eventos::-webkit-scrollbar{
   display: none;
 }
 
 .eventos:hover::-webkit-scrollbar{
   display: block;
-}
-
-.eventos h1{
-  padding-top: 50%;
 }
 
 .eventos .card{
@@ -374,10 +385,7 @@ section .reelsLine{
   .contact-us{
     margin-bottom: 35px;
   }
-  .eventos h1{
-    padding-top: 12%;
-    padding-left: 10%;
-  }
+
   .astronautStemIZQ{
     display: none;
   }
@@ -394,7 +402,9 @@ section .reelsLine{
   
   .calendar_container{
     display: block;
+    padding-left: 0px;
   }
+  
 
   .eventos{
     overflow-y:scroll;

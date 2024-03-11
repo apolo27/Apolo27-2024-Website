@@ -23,6 +23,7 @@ import TutorialMiniature from '../../components/TutorialMiniature';
 
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
 import arrow from '../../imgs/StemWithUs/arrow.png'
+import STEM from '../../imgs/StemWithUs/STEM.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeOpenText, faCalendarDays, faVideo } from '@fortawesome/free-solid-svg-icons'
@@ -226,26 +227,37 @@ const StemWithUs = (props) => {
 
         <div className='stem-with-us' style={{textAlign: "center"}}>
           <Container>
-            <Canvas
-              
-              shadows={false}
-              spr={[1, 2]}
-              camera={{ fov: 45 }}
-              style={{height: 500, paddingTop: 100}}  
-            >
-              <Environment preset='night'/>
-              <PresentationControls
-                speed={1.5}
-                zoom={0.5}
-                polar={[-0.1, Math.PI / 4]}
+            <section style={{display: 'flex'}}>
+              <div style={{position: 'absolute'}}>
+                <img style={{position: 'relative'}} src={STEM} alt='STEM'></img>
+                <h2 style={{position: 'absolute', right: 0, fontWeight: 700}}>{t('WithUS')}</h2>
+              </div>
+              <Canvas
+                shadows={false}
+                spr={[1, 2]}
+                camera={{ fov: 45 }}
+                style={{position: 'relative', height: 500, paddingTop: 100}}  
               >
-                <Stage shadows={false}>
-                  <MarsModel scale={0.15} />
-                </Stage>
-              </PresentationControls>
-            </Canvas>
+                <Environment preset='night'/>
+                <PresentationControls
+                  speed={1.5}
+                  zoom={0.5}
+                  polar={[-0.1, Math.PI / 4]}
+                >
+                  <Stage shadows={false}>
+                    <MarsModel scale={0.15} />
+                  </Stage>
+                </PresentationControls>
+                
+              </Canvas>
+              <div style={{position: 'absolute', right: '20%', top: '50%'}}>
+                <h2 className='marte-texto'>Planeta <strong>Marte</strong></h2>
+                <p className='marte-texto' style={{width: 350, fontWeight: 700}}>{t('MarsText')}</p>
+              </div>
+            </section>
 
-            {/*
+            {
+            /*
               <section id="stem">
                   <div className="title">
                     <h1>Apolo 27 + STEM</h1>
