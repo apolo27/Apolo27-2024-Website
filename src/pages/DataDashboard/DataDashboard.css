@@ -2,7 +2,7 @@
     padding: 50px;
     border: 0;
     color: #FFF;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     border-radius: 24px 0px 24px 24px;
     background: linear-gradient(200deg, #608de0a4 13.17%, rgb(62, 123, 141) 85%);
     margin-bottom: 30px;
@@ -16,15 +16,16 @@
 
 .tab{
     color: rgba(250, 250, 250, 0.98);
-    font-family: 'poppins', 'sans-serif';
+    font-family: 'Poppins';
     border-radius: 12px;
     border: 1px solid #373F69;
     background: #101321;
 }
 
 .herc-map{
-    width: 625px;
-    height: 625px;
+    width: 325px;
+    height: 260px;
+    font-family: 'Poppins';
 }
 
 .participants{
@@ -36,6 +37,7 @@
     height: 350px;
     padding-left: 25px;
     padding-top: 15px;
+    font-family: 'Poppins';
 
 }
 
@@ -44,41 +46,133 @@
     font-size: 16px;
 }
 
-.Task-List{
+.crewmembers-title{
+    font-weight: 700;
+    text-align: center;
+    padding-left: 0;
+}
+
+.crewmembers-select{
+    background-color: #1F264B;
+}
+
+
+.crewmembers{
     border-radius: 16px;
     border: 1px solid #3E4879;
     background-color:#161A2C;
     color: rgba(250, 250, 250, 0.98);
-    width: 300px;
-    height: 350px;
-    padding-left: 25px;
+    width: 350px;
+    height: 375px;
+    padding-left: 8px;
+    padding-right: 8px;
     padding-top: 15px;
+    font-family: 'Poppins';
+    text-align: left;
+    /* position: relative; */
+}
+
+.crewmembers-health{
+    position: relative;
+    text-align: center;
+}
+
+.crewmember-temperatura{
+    position: absolute;
+    top: 9%;
+    left: 60%;
+    color: #FFF;
+    font-size: 24px;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: baseline;
+}
+
+.crewmember-oximetro{
+    position: absolute;
+    top: 33%;
+    left: 60%;
+    color: #FFF;
+    font-size: 24px;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: baseline;
+}
+
+.crewmember-radiacion{
+    position: absolute;
+    top: 56%;
+    left: 60%;
+    color: #FFF;
+    font-size: 24px;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: baseline;
 }
 
 .temperatura{
     padding-top: 10px;
+    font-family: 'Poppins';
 }
 
 
 .environment-sneakpeek .temperatura h2{
     font-weight: 500;
     font-size: 48px;
+    font-family: 'Poppins';
 }
 
 
 .graph{
-    padding: 10px;
+    border-radius: 16px;
     margin-top: 25px;
-    color: #FFF;
-    width: 300px;
-    height: 200px;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 24px;
     border: 1px solid #3E4879;
-    background: #161A2C;
-    background-image: url('../../imgs/Home/chart-graphic.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color:#161A2C;
+    color: rgba(250, 250, 250, 0.98);
+    width: 350px;
+    height: 280px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 15px;
+    font-family: 'Poppins';
+    text-align: left;
+}
+
+.graph-acceleration{
+    border-radius: 16px;
+    border: 1px solid #3E4879;
+    background-color:#161A2C;
+    color: rgba(250, 250, 250, 0.98);
+    width: 350px;
+    height: 375px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 15px;
+    font-family: 'Poppins';
+    text-align: right;
+}
+
+.graph-acceleration-grafico{
+    position: relative;
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 700px;
+    height: 600px;
+    font-family: 'Poppins';
+    padding-bottom: 56.25%; /* Proporción de aspecto 16:9 (ajusta según necesites) */
+    margin-bottom: 20px;
+  }
+  
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -87,9 +181,9 @@
     padding: 15px;
     margin-top: 25px;
     color: #FFF;
-    width: 300px;
-    height: 200px;
-    font-family: 'Poppins', sans-serif;
+    width: 350px;
+    height: 280px;
+    font-family: 'Poppins';
     border-radius: 24px;
     border: 1px solid #3E4879;
     background: #161A2C;
@@ -120,17 +214,17 @@
 }
 
 @media screen and (max-width: 1400px){
-    .herc-map{
+    .herc-map, .video-container{
         width: 900px;
+        height: 500px;
+
     }
 
-    .Task-List, .graph, .participants, .environment-sneakpeek{
+    .crewmembers, .graph, .participants, .environment-sneakpeek {
         width: 415px;
     }
 
-    .crewmembers{
-        
-    }
+    
 
     .environment-sneakpeek h4{
         font-size: 32px;
@@ -155,8 +249,10 @@
 }
 
 @media screen and (max-width: 1000px){
-    .herc-map{
-        width: 800px;
+    .herc-map, .video-container{
+        width: 700px;
+        height: 400px;
+        display: block;
     }
     .environment-sneakpeek, .participants{
         display: block;
@@ -164,19 +260,33 @@
 }
 
 @media screen and (max-width: 720px){
-    .herc-map{
-        width: 350px;
-        height: 500px;
+    .herc-map, .video-container{
+        width: 500px;
+        height: 200px;
     }
 
-    .Task-List, .participants, .graph, .environment-sneakpeek{
+    .crewmembers, .participants, .graph, .environment-sneakpeek{
         width: 350px;
     }
 
     .graph{
         padding: 10px;
-        height: 250px;
+        height: 275px;
     }
+    .video-container {
+        padding-bottom: 75%; /* Proporción de aspecto 4:3 (ajusta según necesites) */
+      }
 
 }
+
+@media screen and (max-width: 520px){
+    .herc-map, .video-container{
+        width: 350px;
+        height: 200px;
+    }
+}
+
+
+
+
 

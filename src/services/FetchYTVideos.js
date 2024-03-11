@@ -41,3 +41,30 @@ export function getRecentVideos(callback) {
     }
   });
 }
+
+//Funcion para obtener el ultimo video subido o el live
+export async function getLastVideo(callback) {
+  try {
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCzfVpVDOvqLXVKLMDPczp5BUcs2jzU7Dg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q&part=snippet,id&order=date&maxResults=1&type=video`
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data from YouTube API: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const videos = data.items.map(video => ({
+      title: video.snippet.title,
+      thumbnail: video.snippet.thumbnails.high.url,
+      url: `https://www.youtube.com/embed/${video.id.videoId}`,
+    }));
+
+    sessionStorage.setItem("lastVideo", JSON.stringify(videos));
+    const storedRecentVideosString = sessionStorage.getItem("lastVideo");
+    const storedRecentVideosArray = JSON.parse(storedRecentVideosString);
+    callback(storedRecentVideosArray);
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+  }
+}
