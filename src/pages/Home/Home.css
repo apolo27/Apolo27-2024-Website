@@ -1,3 +1,4 @@
+/*
 body {
 	margin: 0;
 	padding: 0;
@@ -679,6 +680,6 @@ body::before {
 		opacity: 0.5;
 	}
 	100% {
-		opacity: 0;
+		opacity: 0;
 	}
 }

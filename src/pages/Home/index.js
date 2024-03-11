@@ -51,10 +51,10 @@
 //             <div className="foot"></div>
 //           </div>
   
-//         </div>
-//       </div>
-//     );
-//   }
+//        </div>
+//      </div>
+//    );
+//  }
   
-//   export default Home;
+//  export default Home;
   
