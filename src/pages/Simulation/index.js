@@ -37,11 +37,14 @@ function RoverSimulation(props){
     }
     else{
       return (
-        <div style={{textAlign: 'center'}}>
-          <h1>Rover Simulation</h1>
+        <div style={{textAlign: 'center', marginTop: 50}}>
+          <h1 style={{paddingBottom:50}}>Simulador del NASA Human Exploration Rover Challenge</h1>
           <Container>
-            <Unity unityProvider={unityProvider} className='simulation'/>
-            <hr></hr>
+            {/*
+              <Unity unityProvider={unityProvider} className='simulation'/>
+            */}
+            <iframe className='simulation' title='NASA HERC SIMULATION' frameborder="0" src="https://itch.io/embed-upload/9819933?color=333333" allowfullscreen="" width="100%" height="100%"><a href="https://ctrl-sebastian.itch.io/rover-simulation">Play Rover Simulation on itch.io</a></iframe>
+            <hr></hr> 
             <div className="simulation_info">
               <Carousel>
                 <Carousel.Item>
@@ -70,8 +73,7 @@ function RoverSimulation(props){
                 </Carousel.Item>
               </Carousel>
               <section className='simulation_text'>
-                <h2>Simulador del NASA Human Exploration Rover Challenge</h2>
-                <h4>Con este simulador podrás poner a prueba un rover tanto en Huntsville, Alabama (lugar donde el verdadero NASA HERC toma lugar) como en <strong>LA LUNA</strong>. También podrás cumplir tareas asignadas en la competencia real.</h4>
+                <h4>Ya sea que estés buscando una experiencia educativa emocionante o simplemente quieras desafiar tus habilidades de conducción y resolución de problemas, nuestra simulación del NASA HERC es la opción perfecta. ¡Únete a nosotros en esta emocionante aventura espacial y haz historia como un auténtico explorador del cosmos!</h4>
               </section>
             </div>
           </Container>

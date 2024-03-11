@@ -260,49 +260,6 @@ const StemWithUs = (props) => {
               </div>
             </section>
 
-            {
-            /*
-              <section id="stem">
-                  <div className="title">
-                    <h1>Apolo 27 + STEM</h1>
-                  </div>
-                  <header className="header">
-                    <h1 className="header-title masthead">{t('StemForAll')}</h1>
-                  </header>
-                  <main className="main">
-                    <article className="entry entry-lede">
-                      <img className="entry-img" src={stem1} alt="stem-img1"/>
-                      <div className="entry-content">
-                        <h1 className="entry-headline primary-headline">{t('ImportanceOfStem')}</h1>
-                        <time className="entry-date meta">{t('ImportanceOfStemSub')}</time>
-                        <p className="entry-summary">{t('ImportanceOfStemBody')}</p>
-                      </div>
-                    </article>
-                    <article className="entry">
-                      <img className="entry-img" src={stem2} alt="The profile view of three majestic brown horses" />
-                      <h1 className="entry-headline primary-headline">{t('GirlsAreTheFuture')}</h1>
-                      <time className="entry-date meta">{t('March 8, 2023')}</time>
-                      <span className="entry-byline meta">{t('WomenInSTEM')}</span>
-                    </article>
-                    <article className="entry">
-                      <img className="entry-img" src={stem3} alt="The profile view of three majestic brown horses" />
-                      <h1 className="entry-headline primary-headline">{t('WeBelieveInDominicanYouth')}</h1>
-                      <time className="entry-date meta">{t('March 29, 2023')}</time>
-                      <span className="entry-byline meta">{t('School Visits')}</span>
-                    </article>
-                    <section className="trending">
-                      <article className="trending-entry">
-                        <h2>{t('School VisitsFooter')}</h2>
-                      </article>
-                      <br></br>
-                      <article className="trending-entry">
-                        <h2>{t('School VisitsFooter2')}</h2>
-                      </article>
-                    </section>              
-                  </main>  
-              </section>
-            */}
-
             <div className='stem-with-us-body'>
             <h1 style={{paddingTop: 25}}>{t('Blogs')}</h1>
             <section className='blogs'>
