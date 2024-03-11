@@ -46,7 +46,7 @@ export function getRecentVideos(callback) {
 export async function getLastVideo(callback) {
   try {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCzfVpVDOvqLXVKLMDPczp5BUcs2jazU7Dg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q&part=snippet,id&order=date&maxResults=1&type=video`
+      `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCzfVpVDOvqLXVKLMDPczp5BUcs2jzU7Dg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q&part=snippet,id&order=date&maxResults=1&type=video`
     );
 
     if (!response.ok) {

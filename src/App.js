@@ -19,7 +19,7 @@ function App() {
     <div>
       <Header t={t}/>
       <Routes>
-        {/* <Route path='/' element={<Home t={t}/>}/> */}
+        <Route path='/' element={<Home t={t}/>}/>
         <Route path='/About-Us' element={<AboutUs t={t}/>}/>
         <Route path='/Data-Dashboard' element={<DataDashboard t={t}/>}/>
         <Route path='/Sponsors' element={<Sponsors t={t}/>}/>

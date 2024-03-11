@@ -24,7 +24,10 @@ import {
   ListItemIcon,
   Typography,
   Select,
+  Button,
+  colors,
 } from "@mui/material";
+import {LineChart} from "@mui/x-charts/LineChart"
 import HomeIcon from "@mui/icons-material/Home";
 import { PedalBike } from "@mui/icons-material";
 import BarChartIcon from "@mui/icons-material/BarChart";
@@ -48,6 +51,8 @@ import { borderRadius } from "@mui/system";
 import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
 import { getLastVideo, getRecentVideos } from "../../services/FetchYTVideos";
 import YouTube from "react-youtube";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { axisClasses } from "@mui/x-charts";
 
 function Model(props) {
   const { scene } = useGLTF("./rover.glb");
@@ -376,6 +381,7 @@ const DataDashboard = (props) => {
               {lastVideo.map((video) => {
                 return (
                   <div className="video-container">
+                    <p>{video.url}</p>
                     <iframe
                       title={video.title}
                       src={video.url}
@@ -386,91 +392,90 @@ const DataDashboard = (props) => {
                 ); 
                 
               })
+
               }
-              {/* {lastVideo ? (
-                <>
-                  <p>{lastVideo.url}</p>
-                  <iframe
-                    title={lastVideo.title}
-                    width="560"
-                    height="315"
-                    src={lastVideo.url}
-                    frameBorder="0"
-                    allowFullScreen
-                    
-                  />
-                </>
-              ) : (
-                <p>Cargando último video...</p>
-              )} */}
             </Grid>
 
             <Grid item xs="auto" order={{ xs: 3, md: 3, lg: 3, xl: 3 }}>
-              <div className="participants">
-                <h2 style={{ fontWeight: "700" }}>{t("Pilots")}</h2>
-                <List dense className="crewmembers">
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Miguel Arredondo"
-                          src="https://apolo27.com/img/about-us/team-members/miguela.png"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Miguel Arredondo"} />
-                    </ListItemButton>
-                  </ListItem>
+              <div className="graph-acceleration">
+                <h5 className="crewmembers-title" style={{marginBottom:"20px"}}>{t("Acceleration")}</h5>
+                <Button 
+                  variant="contained" 
+                  endIcon={<NavigateNextIcon/>}
+                  style={{
+                    backgroundColor: '#1F264B',
+                    textTransform: 'none', // Esto evita que el texto se muestre en mayúsculas
+                    border: "2px solid #3E4879",
+                    borderRadius: "20px",
+                    color: '#2196f3'
+                    
+                  }}
+                >
+                  Show more
+                </Button>
+                <div className="graph-acceleration-grafico">
+                <LineChart
+                  sx={{
+                    //change left yAxis label styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel":{
+                      strokeWidth:"0.4",
+                      fill:"white"
+                    },
+                   // change all labels fontFamily shown on both xAxis and yAxis
+                   "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":{
+                      fontFamily: "poppins",
+                    },
+                    // change bottom label styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel":{
+                      strokeWidth:"0.5",
+                      fill:"white"
+                    },
+                      // bottomAxis Line Styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line":{
+                      stroke:"white",
+                      strokeWidth:3
 
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Rosanna Bautista"
-                          src="https://apolo27.com/img/about-us/team-members/rosanna.png"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Rosanna Bautista"} />
-                    </ListItemButton>
-                  </ListItem>
-
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Raymond Ruiz"
-                          src="https://apolo27.com/img/about-us/team-members/raymond.png"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Raymond Ruiz"} />
-                    </ListItemButton>
-                  </ListItem>
-
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Ingrid Lopez"
-                          src="https://apolo27.com/img/about-us/team-members/ingrid.png"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Ingrid Lopez"} />
-                    </ListItemButton>
-                  </ListItem>
-                </List>
+                    },
+                     // leftAxis Line Styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-line":{
+                      stroke:"white",
+                      strokeWidth:3
+                    },
+                    "& .MuiAreaElement-root":{
+                      display:"none",
+                    },
+                    position:"absolute",
+                    zIndex:1,
+                    top:-30,
+                  
+                  }}
+                  xAxis={
+                    [
+                      { data: [1, 2, 3, 5, 8, 10]}
+                    ]
+                  }
+                  series={[
+                    {
+                      data: [2, 5.5, 2, 8.5, 1.5, 5],
+                      color:'#0096C7'
+                    },
+                  ]}
+                  width={350}
+                  height={300}
+                
+                >
+                </LineChart>
+                
+                </div>
               </div>
               <div className="environment-sneakpeek">
-                <h4 style={{ fontWeight: "700" }}>{t("Surrounding-temp")}</h4>
-                <div className="temperatura">
-                  <div className="icono-temperatura">
-                    <img alt="termometer" src={tempIcon}></img>
-                  </div>
-                  {/* <h3>
-                              {temperatura ? temperatura : surroundingTemp}
-                              <span style={{ fontSize: "14px", paddingBottom: "15px" }}>
-                                °C
-                              </span>
-                            </h3> */}
-                </div>
+                <iframe
+                src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
+                style={{ background: <CircularProgress /> }}
+                className="herc-map"
+                title="Nasa Herc map"
+                id="herc-map"
+              ></iframe>
               </div>
             </Grid>
           </Grid>
