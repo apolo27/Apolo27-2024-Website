@@ -1,13 +1,10 @@
 .simulation{
-    width: 100%;
-    margin-bottom: 100px;
-    height: 740px;
-    padding: 5px;
+    height: 720px;
     border: 5px solid #3E4879;
 }
 
 .simulation_info{
-    background-color: #3E4879;
+    background-color: #1d233fcb;
     padding: 25px;
     margin-bottom: 125px;
 
