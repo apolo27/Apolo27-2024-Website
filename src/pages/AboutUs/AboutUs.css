@@ -237,12 +237,12 @@ h1 {
 }
 
 @media screen and (max-width: 1200px){
-  .carousel-item{
+  .about_us_carousel .carousel-item{
     height: 420px;
   }
 }
 @media screen and (max-width: 900px){
-  .carousel-item{
+  .about_us_carousel .carousel-item{
     height: 320px;
   }
   .demo-card{
@@ -255,10 +255,10 @@ h1 {
   .image-polaroid{
     width: 75%;
   }
-  .carousel-item{
+  .about_us_carousel .carousel-item{
     height: 220px;
   }
-  .carousel-caption{
+  .about_us_carousel .carousel-caption{
     font-size: 15px;
   }
   .btn{
@@ -293,10 +293,10 @@ h1 {
 }
 
 @media screen and (max-width: 300px){
-  .carousel-item{
+  .about_us_carousel .carousel-item{
     height: 120px;
   }
-  .carousel-caption{
+  .about_us_carousel .carousel-caption{
     font-size: 15px;
   }
 }
@@ -548,7 +548,6 @@ header {
 }
 
 .entry {
-	margin-bottom: var(--gutter);
   font-family: "Poppins", sans-serif;
 }
 

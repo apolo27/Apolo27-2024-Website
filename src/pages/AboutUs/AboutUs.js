@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
 import {Container, Card, Carousel, Button} from 'react-bootstrap';
 
-import blankPic from '../../imgs/blank-profile.png'
 import first from '../../imgs/carousel/first.jpg'
 import second from '../../imgs/carousel/second.jpeg'
 import third from '../../imgs/carousel/third.jpg'
@@ -11,9 +10,6 @@ import fourth from '../../imgs/carousel/fourth.jpg'
 
 import photochards from '../../imgs/AboutUs/photocards.png'
 
-import stem1 from '../../imgs/AboutUs/stem-1.jpg'
-import stem2 from '../../imgs/AboutUs/stem-2.jpg'
-import stem3 from '../../imgs/AboutUs/stem-3.jpg'
 
 import Ezequiel from '../../imgs/AboutUs/TeamMembers/Ezequiel.jpg'
 import Angello from '../../imgs/AboutUs/TeamMembers/Angello.jpg'
@@ -62,13 +58,6 @@ const AboutUs = (props) =>{
   }
 
   const members = [
-    
-    {
-      img: Chaljub,
-      nombre: "Carlos Chaljub",
-      titulo: "Mechatronics Engineering",
-      equipo: ["Mentor"]
-    },
     {
       img: Colmenares,
       nombre: "Colmenares",
@@ -237,7 +226,7 @@ const AboutUs = (props) =>{
 
   return(
     <div style={{textAlign: "center"}}>
-      <Carousel>
+      <Carousel className='about_us_carousel'>
         <Carousel.Item>
         <img className='d-block w-100' src={second} alt='second'></img>
           <Carousel.Caption>
@@ -511,47 +500,7 @@ const AboutUs = (props) =>{
               </div>
           </div>
         </section>
-        
-        <section id="stem">
-            <div className="title">
-              <h1>Apolo 27 + STEM</h1>
-            </div>
-            <header className="header">
-              <h1 className="header-title masthead">{t('StemForAll')}</h1>
-            </header>
-            <main className="main">
-              <article className="entry entry-lede">
-                <img className="entry-img" src={stem1} alt="stem-img1"/>
-                <div className="entry-content">
-                  <h1 className="entry-headline primary-headline">{t('ImportanceOfStem')}</h1>
-                  <time className="entry-date meta">{t('ImportanceOfStemSub')}</time>
-                  <p className="entry-summary">{t('ImportanceOfStemBody')}</p>
-                </div>
-              </article>
-              <article className="entry">
-                <img className="entry-img" src={stem2} alt="The profile view of three majestic brown horses" />
-                <h1 className="entry-headline primary-headline">{t('GirlsAreTheFuture')}</h1>
-                <time className="entry-date meta">{t('March 8, 2023')}</time>
-                <span className="entry-byline meta">{t('WomenInSTEM')}</span>
-                <p className="entry-summary">{t('WomenInSTEMBody')}</p>
-              </article>
-              <article className="entry">
-                <img className="entry-img" src={stem3} alt="The profile view of three majestic brown horses" />
-                <h1 className="entry-headline primary-headline">{t('WeBelieveInDominicanYouth')}</h1>
-                <time className="entry-date meta">{t('March 29, 2023')}</time>
-                <span className="entry-byline meta">{t('School Visits')}</span>
-                <p className="entry-summary">{t('School VisitsBody')}</p>
-              </article>
-              <section className="trending">
-                <article className="trending-entry">
-                  <h1 className="trending-entry-headline primary-headline">{t('School VisitsFooter')}</h1>
-                </article>
-                <article className="trending-entry">
-                  <h1 className="trending-entry-headline primary-headline"><br/>{t('School VisitsFooter2')}</h1>
-                </article>
-              </section>              
-            </main>  
-        </section>
+
 
       </Container>
     </div>
