@@ -4,8 +4,9 @@
   "DATA-DASHBOARD": "DATA DASHBOARD",
   "STEM-WITH-US": "STEM WITH US",
   "ABOUT-THE-TEAM": "ABOUT THE TEAM",
-  "GAMES": "GAMES",
+  "GAMES": "SIMULATION",
   "BECOME-A-SPONSOR": "BECOME A SPONSOR",
+
   "Hero-Title": "The First Dominican Republic University Division Winners at NASA’s Human Exploration Rover Challenge",
   "Hero-Sub":"4 times category winners",
   "Live-location":"Live location",
@@ -34,8 +35,8 @@
   "Rovers-Accel": "Rover's Acceleration",
 
   "Eventos_Proximos": "Upcoming Events",
-  "Stem-Tutorials": "Stem Tutorials: ",
-  "Recent-Videos": "Recents Videos: ",
+  "Stem-Tutorials": "Stem Tutorials ",
+  "Recent-Videos": "Recents Videos ",
   "Seguir": "Follow",
 
   "Contactenos": "Contact Us",
@@ -101,6 +102,11 @@
   "School VisitsFooter": "Our events inspire individuals to pursue their passions.",
   "School VisitsFooter2": "We showcase the power of hard work to achieve success.",
 
+  "Blogs": "Recent Blogs",
+
+  "Articles": "Articles",
+  "Calendar": "Calendar",
+
   "Pages": "Pages",
   "Home": "Home",
   "AboutUsFooter": "About US",
@@ -112,7 +118,11 @@
   "OurStoryFooter": "Our Timeline",
   "NasaHERCFooter": "Nasa HERC",
   "TeamMembersFooter": "Team members",
-  "OurAwardsFooter": "Our Awards"
+  "OurAwardsFooter": "Our Awards",
   
+  "404Title": "Looks like you are lost in space",
+  "404GoBack": "GO BACK HOME",
+
+  "SimulationWarning": "Not available for mobile devices"
 
 }

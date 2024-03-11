@@ -1,0 +1,58 @@
+.mobile-stem-with-us{
+  display: none;
+    background-image: url('../../imgs/StemWithUs/background.png');
+}
+
+.mobile-stem-with-us .tabs{
+  margin-top: 50px;
+}
+
+.tab_content{
+  overflow-y: scroll;
+  height: 600px;
+}
+
+.mobile-stem-with-us .container{
+  margin-bottom: 50px;
+  padding-top: 25px;
+  background-color: #161A2C;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.mobile-stem-with-us .tab{
+  padding-left: 0;
+  padding-right: 0;
+  
+}
+
+@media screen and (max-width: 900px) {
+
+    .eventos{
+        margin-top: 25px;
+        border: none;
+    }
+    
+    .recent_videos .carousel{
+        height: 275px;
+    }
+    
+  .tutorialsLine-top{
+    text-align: center;
+  }
+  
+  .miniatura{
+    width: 350px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    filter:brightness(0.7);
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  .mobile-stem-with-us{
+    display: block;
+  }
+}
