@@ -1,30 +1,62 @@
-import './DataDashboard.css'
-import React, { useEffect, useState } from 'react';
-import database from '../../services/firebase';
+import "./DataDashboard.css";
+import React, { useEffect, useState } from "react";
+import database from "../../services/firebase";
 // import {Container,Tab, Tabs} from 'react-bootstrap';
 
-import {Grid, Box, FormControl, InputLabel, MenuItem, FormGroup, FormControlLabel, Checkbox, Container, BottomNavigation, BottomNavigationAction, List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography, Select} from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
-import { PedalBike } from '@mui/icons-material';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import PersonIcon from '@mui/icons-material/Person';
-import {MdOutlineWbSunny, MdOutlineWaterDrop, MdOutlineCompress, MdOutlineArrowUpward} from 'react-icons/md'
+import {
+  Grid,
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  Container,
+  BottomNavigation,
+  BottomNavigationAction,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  ListItemIcon,
+  Typography,
+  Select,
+  Button,
+  colors,
+} from "@mui/material";
+import {LineChart} from "@mui/x-charts/LineChart"
+import HomeIcon from "@mui/icons-material/Home";
+import { PedalBike } from "@mui/icons-material";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import PersonIcon from "@mui/icons-material/Person";
+import {
+  MdOutlineWbSunny,
+  MdOutlineWaterDrop,
+  MdOutlineCompress,
+  MdOutlineArrowUpward,
+} from "react-icons/md";
 //import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress'
+import CircularProgress from "@mui/material/CircularProgress";
 
-import {Canvas} from '@react-three/fiber'
-import {useGLTF, Stage, PresentationControls} from '@react-three/drei'
+import { Canvas } from "@react-three/fiber";
+import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
 
-import tempIcon from '../../imgs/DataDashboard/tempIcon.png'
-import Crewmembers from '../../imgs/DataDashboard/Frame Crewmembers.svg'
-import { set } from 'lodash';
-import { borderRadius } from '@mui/system';
+import tempIcon from "../../imgs/DataDashboard/tempIcon.png";
+import Crewmembers from "../../imgs/DataDashboard/Frame Crewmembers.svg";
+import { set } from "lodash";
+import { borderRadius } from "@mui/system";
+import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
+import { getLastVideo, getRecentVideos } from "../../services/FetchYTVideos";
+import YouTube from "react-youtube";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { axisClasses } from "@mui/x-charts";
 
-
-
-function Model(props){
-  const {scene} = useGLTF("./rover.glb")
-  return <primitive object={scene} {...props} />
+function Model(props) {
+  const { scene } = useGLTF("./rover.glb");
+  return <primitive object={scene} {...props} />;
 }
 
 const DataDashboard = (props) => {
@@ -43,19 +75,46 @@ const DataDashboard = (props) => {
   const [temperatura, setTemperatura] = useState(0);
   const [humedad, setHumedad] = useState(0);
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [piloto, setPiloto] = React.useState('');
+  const [piloto, setPiloto] = React.useState("Angello Ortiz");
+  const [lastVideo, setLastVideo] = useState([]);
+  const [resentVideos, setRecentVideos] = useState([]);
 
   const handleChange = (event, newIndex) => {
     setActiveIndex(newIndex);
+  };
+
+  const handleChangePiloto = (event) => {
     setPiloto(event.target.value);
   };
 
   const icons = [
-    {label: 'Overview', icon: <HomeIcon/>},
-    {label: 'Rover', icon: <PedalBike />},
-    {label: 'Tripulante', icon: <PersonIcon />},
-    {label: 'Sensors', icon: <BarChartIcon />},
-  ]
+    { label: "Overview", icon: <HomeIcon /> },
+    { label: "Rover", icon: <PedalBike /> },
+    { label: "Tripulante", icon: <PersonIcon /> },
+    { label: "Sensors", icon: <BarChartIcon /> },
+  ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (sessionStorage.getItem("lastVideo") === null) {
+          await getLastVideo(setLastVideo);
+          console.log("Fetching last video from YouTube");
+          console.log(lastVideo)
+        } else {
+          setLastVideo(JSON.parse(sessionStorage.getItem("lastVideo")));
+          console.log("Getting last video from session storage");
+          console.log(lastVideo)
+        }
+      } catch (error) {
+        console.error("Error in fetchData:", error.message);
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -103,23 +162,26 @@ const DataDashboard = (props) => {
         setTemperatura1(parseFloat(lastEntryData.temperatura1));
         setHumedadRelativa1(parseFloat(lastEntryData.humedadRelativa1));
         setPresionAtmosferica1(parseFloat(lastEntryData.presionAtmosferica1));
-        setAlturaSobreNivelDelMar1(parseFloat(lastEntryData.alturaSobreNivelDelMar1));
+        setAlturaSobreNivelDelMar1(
+          parseFloat(lastEntryData.alturaSobreNivelDelMar1)
+        );
         setTemperatura2(parseFloat(lastEntryData.temperatura2));
         setHumedadRelativa2(parseFloat(lastEntryData.humedadRelativa2));
         setPresionAtmosferica2(parseFloat(lastEntryData.presionAtmosferica2));
-        setAlturaSobreNivelDelMar2(parseFloat(lastEntryData.alturaSobreNivelDelMar2));
-        
+        setAlturaSobreNivelDelMar2(
+          parseFloat(lastEntryData.alturaSobreNivelDelMar2)
+        );
+
         setTimeout(() => {
-          console.log('Temperatura1:', temperatura1.toFixed(2));
-          console.log('Humedad1:', humedadRelativa1.toFixed(2));
-          console.log('Presion1:', presionAtmosferica1.toFixed(2));
-          console.log('Altura1:', alturaSobreNivelDelMar1.toFixed(2));
-          console.log('Temperatura2:', temperatura2.toFixed(2));
-          console.log('Humedad2:', humedadRelativa2.toFixed(2));
-          console.log('Presion2:', presionAtmosferica2.toFixed(2));
-          console.log('Altura2:', alturaSobreNivelDelMar2.toFixed(2));
+          console.log("Temperatura1:", temperatura1.toFixed(2));
+          console.log("Humedad1:", humedadRelativa1.toFixed(2));
+          console.log("Presion1:", presionAtmosferica1.toFixed(2));
+          console.log("Altura1:", alturaSobreNivelDelMar1.toFixed(2));
+          console.log("Temperatura2:", temperatura2.toFixed(2));
+          console.log("Humedad2:", humedadRelativa2.toFixed(2));
+          console.log("Presion2:", presionAtmosferica2.toFixed(2));
+          console.log("Altura2:", alturaSobreNivelDelMar2.toFixed(2));
         }, 5);
-        
       }
     };
 
@@ -131,6 +193,34 @@ const DataDashboard = (props) => {
       databaseRef.off("value", onDataChange);
     };
   }, []); // El segundo parámetro del useEffect es un array vacío para que se ejecute solo una vez al montar el componente
+
+  const style = {
+    top: 60,
+    left: 220,
+    lineHeight: "25px",
+    fontSize: "12px",
+  };
+
+  const dataChart = [
+    {
+      name: "Habitabilidad",
+      porcentaje: 31.47,
+      pv: 2400,
+      fill: "#FF4549",
+    },
+    {
+      name: "Eficiencia Energética",
+      porcentaje: 26.69,
+      pv: 4567,
+      fill: "#3BF79D",
+    },
+    {
+      name: "Fatiga del tripulante",
+      porcentaje: 15.69,
+      pv: 1398,
+      fill: "#226BD8",
+    },
+  ];
 
   return (
     <Container maxWidth="auto" style={{ marginTop: "50px" }}>
@@ -181,17 +271,16 @@ const DataDashboard = (props) => {
                     id="demo-simple-select"
                     value={piloto}
                     label="Piloto"
-                    onChange={handleChange}
+                    onChange={handleChangePiloto}
                     sx={{
                       bgcolor: "#1F264B",
                       border: "2px solid #3E4879",
                       borderRadius: "20px",
                       "& .MuiSelect-select": {
                         padding: "10px",
-                        lineHeight: "10px", // Adjust as needed
-                      },
-                      "& .MuiMenu-paper": {
-                        bgcolor: "#1F264B",
+                        lineHeight: "22px", // Adjust as needed
+                        color: "#2196f3", // Cambia el color del texto seleccionado
+                        textAlign: "center", // Centra el texto seleccionado
                       },
                     }}
                   >
@@ -200,102 +289,193 @@ const DataDashboard = (props) => {
                   </Select>
                 </FormControl>
                 <div className="crewmembers-health">
-                  <img src={Crewmembers} alt="crewmembers" style={{ textAlign: "left" }}/>
+                  <img
+                    src={Crewmembers}
+                    alt="crewmembers"
+                    style={{ textAlign: "left" }}
+                  />
                   <div className="crewmember-temperatura">
-                    <label>{temperatura1}</label>
-                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> bpm</label>
+                    <label>
+                      {piloto === "Angello Ortiz" ? temperatura1 : temperatura2}
+                    </label>
+                    <label
+                      style={{
+                        fontSize: "16px",
+                        color: "#818181",
+                        marginLeft: "4px",
+                      }}
+                    >
+                      {" "}
+                      bpm
+                    </label>
                   </div>
                   <div className="crewmember-oximetro">
-                    <label>{temperatura1}</label>
-                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> %</label>
+                    <label>
+                      {piloto === "Angello Ortiz" ? temperatura1 : temperatura2}
+                    </label>
+                    <label
+                      style={{
+                        fontSize: "16px",
+                        color: "#818181",
+                        marginLeft: "4px",
+                      }}
+                    >
+                      {" "}
+                      %
+                    </label>
                   </div>
                   <div className="crewmember-radiacion">
-                    <label>{temperatura1}</label>
-                    <label style={{fontSize: "16px", color: '#818181', marginLeft: "4px"}}> mW/cm2</label>
+                    <label>
+                      {piloto === "Angello Ortiz" ? temperatura1 : temperatura2}
+                    </label>
+                    <label
+                      style={{
+                        fontSize: "16px",
+                        color: "#818181",
+                        marginLeft: "4px",
+                      }}
+                    >
+                      {" "}
+                      mW/cm2
+                    </label>
                   </div>
                 </div>
               </div>
               <div className="graph">
-                <h4 style={{ fontWeight: "700" }}>{t("Rovers-Accel")}</h4>
+                <h5 className="crewmembers-title">{"Ambient Reaction"}</h5>
+
+                <RadialBarChart
+                  className="crewmembers-health"
+                  width={250}
+                  height={250}
+                  innerRadius={40}
+                  outerRadius={110}
+                  barSize={8}
+                  data={dataChart}
+                  cx={110}
+                >
+                  <RadialBar background clockWise={true} dataKey="porcentaje" />
+
+                  <Legend
+                    iconSize={10}
+                    width={120}
+                    height={140}
+                    layout="vertical"
+                    verticalAlign="middle"
+                    wrapperStyle={style}
+                  />
+                  <Tooltip />
+                </RadialBarChart>
               </div>
             </Grid>
 
             <Grid item xs="auto" order={{ xs: 1, md: 1, lg: 1, xl: 2 }}>
-              <iframe
+              {/* <iframe
+                src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
+                style={{ background: <CircularProgress /> }}
+                className="herc-map"
+                title="Nasa Herc map"
+                id="herc-map"
+              ></iframe> */}
+              {/* Incrustar video reciente*/}
+              {lastVideo.map((video) => {
+                return (
+                  <div className="video-container">
+                    <p>{video.url}</p>
+                    <iframe
+                      title={video.title}
+                      src={video.url}
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                  </div>
+                ); 
+                
+              })
+
+              }
+            </Grid>
+
+            <Grid item xs="auto" order={{ xs: 3, md: 3, lg: 3, xl: 3 }}>
+              <div className="graph-acceleration">
+                <h5 className="crewmembers-title" style={{marginBottom:"20px"}}>{t("Acceleration")}</h5>
+                <Button 
+                  variant="contained" 
+                  endIcon={<NavigateNextIcon/>}
+                  style={{
+                    backgroundColor: '#1F264B',
+                    textTransform: 'none', // Esto evita que el texto se muestre en mayúsculas
+                    border: "2px solid #3E4879",
+                    borderRadius: "20px",
+                    color: '#2196f3'
+                    
+                  }}
+                >
+                  Show more
+                </Button>
+                <div className="graph-acceleration-grafico">
+                <LineChart
+                  sx={{
+                    //change left yAxis label styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel":{
+                      strokeWidth:"0.4",
+                      fill:"white"
+                    },
+                   // change all labels fontFamily shown on both xAxis and yAxis
+                   "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":{
+                      fontFamily: "poppins",
+                    },
+                    // change bottom label styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel":{
+                      strokeWidth:"0.5",
+                      fill:"white"
+                    },
+                      // bottomAxis Line Styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line":{
+                      stroke:"white",
+                      strokeWidth:3
+
+                    },
+                     // leftAxis Line Styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-line":{
+                      stroke:"white",
+                      strokeWidth:3
+                    },
+                    "& .MuiAreaElement-root":{
+                      display:"none",
+                    },
+                    position:"absolute",
+                    zIndex:1,
+                    top:-30,
+                  
+                  }}
+                  xAxis={
+                    [
+                      { data: [1, 2, 3, 5, 8, 10]}
+                    ]
+                  }
+                  series={[
+                    {
+                      data: [2, 5.5, 2, 8.5, 1.5, 5],
+                      color:'#0096C7'
+                    },
+                  ]}
+                  width={350}
+                  height={300}
+                
+                >
+                </LineChart>
+                
+                </div>
+              </div>
+              <div className="environment-sneakpeek">
+                <iframe
                 src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
                 style={{ background: <CircularProgress /> }}
                 className="herc-map"
                 title="Nasa Herc map"
                 id="herc-map"
               ></iframe>
-            </Grid>
-
-            <Grid item xs="auto" order={{ xs: 3, md: 3, lg: 3, xl: 3 }}>
-              <div className="participants">
-                <h2 style={{ fontWeight: "700" }}>{t("Pilots")}</h2>
-                <List dense className="crewmembers">
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Miguel Arredondo"
-                          src="https://apolo27.com/img/about-us/team-members/miguela.png"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Miguel Arredondo"} />
-                    </ListItemButton>
-                  </ListItem>
-
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Rosanna Bautista"
-                          src="https://apolo27.com/img/about-us/team-members/rosanna.png"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Rosanna Bautista"} />
-                    </ListItemButton>
-                  </ListItem>
-
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Raymond Ruiz"
-                          src="https://apolo27.com/img/about-us/team-members/raymond.png"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Raymond Ruiz"} />
-                    </ListItemButton>
-                  </ListItem>
-
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemAvatar>
-                        <Avatar
-                          alt="Ingrid Lopez"
-                          src="https://apolo27.com/img/about-us/team-members/ingrid.png"
-                        />
-                      </ListItemAvatar>
-                      <ListItemText id={1} primary={"Ingrid Lopez"} />
-                    </ListItemButton>
-                  </ListItem>
-                </List>
-              </div>
-              <div className="environment-sneakpeek">
-                <h4 style={{ fontWeight: "700" }}>{t("Surrounding-temp")}</h4>
-                <div className="temperatura">
-                  <div className="icono-temperatura">
-                    <img alt="termometer" src={tempIcon}></img>
-                  </div>
-                  {/* <h3>
-                              {temperatura ? temperatura : surroundingTemp}
-                              <span style={{ fontSize: "14px", paddingBottom: "15px" }}>
-                                °C
-                              </span>
-                            </h3> */}
-                </div>
               </div>
             </Grid>
           </Grid>
@@ -559,6 +739,6 @@ const DataDashboard = (props) => {
       */}
     </Container>
   );
-}
+};
 
 export default DataDashboard;
