@@ -10,6 +10,7 @@
   background-color: #161A2C;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  margin-top: 20px;
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -44,6 +45,10 @@
 
 .eventos:hover::-webkit-scrollbar{
   display: block;
+}
+
+.eventos h1{
+  padding-top: 50%;
 }
 
 .eventos .card{
@@ -369,7 +374,10 @@ section .reelsLine{
   .contact-us{
     margin-bottom: 35px;
   }
-  
+  .eventos h1{
+    padding-top: 12%;
+    padding-left: 10%;
+  }
   .astronautStemIZQ{
     display: none;
   }

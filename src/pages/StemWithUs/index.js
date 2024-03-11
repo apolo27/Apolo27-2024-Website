@@ -325,7 +325,7 @@ const StemWithUs = (props) => {
               <section className="eventos" style={{marginTop: 75}}>
               {
                 events.length === 0 ? 
-                <h1 style={{paddingTop: '50%'}}>No hay eventos proximos</h1>
+                <h1>No hay eventos proximos</h1>
                 : events.map((event) => {
                   return(
                     <Card key={event.title}>
