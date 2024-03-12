@@ -187,6 +187,9 @@
     border-radius: 24px;
     border: 1px solid #3E4879;
     background: #161A2C;
+    text-align: center;
+    position: relative;
+    
 }
 
 .icono-temperatura{
@@ -213,14 +216,50 @@
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1535px){
     .herc-map, .video-container{
-        width: 900px;
+        width: 1200px;
         height: 500px;
 
     }
 
-    .crewmembers, .graph, .participants, .environment-sneakpeek {
+    .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek {
+        width: 415px;
+    }
+
+    
+
+    .environment-sneakpeek h4{
+        font-size: 32px;
+    }
+
+    .environment-sneakpeek .temperatura h2{
+        font-size: 92px;
+    }
+
+    .graph, .environment-sneakpeek{
+        height: 300px;
+    }
+
+    .temperatura{
+        padding-top: 15px;
+    }
+
+    .icono-temperatura{
+        width: 35%;
+        height: 125px;
+    }
+    
+}
+
+@media screen and (max-width: 1400px){
+    .herc-map, .video-container{
+        width: 1000px;
+        height: 500px;
+
+    }
+
+    .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek {
         width: 415px;
     }
 
@@ -265,7 +304,7 @@
         height: 200px;
     }
 
-    .crewmembers, .participants, .graph, .environment-sneakpeek{
+    .crewmembers, .participants, .graph, .graph-acceleration, .environment-sneakpeek{
         width: 350px;
     }
 

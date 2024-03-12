@@ -470,12 +470,13 @@ const DataDashboard = (props) => {
               </div>
               <div className="environment-sneakpeek">
                 <iframe
-                src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
-                style={{ background: <CircularProgress /> }}
+                src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
+                style={{ background: <CircularProgress />, borderRadius: "24px", paddingBottom: "10px", paddingRight: "5px"}}
                 className="herc-map"
                 title="Nasa Herc map"
                 id="herc-map"
-              ></iframe>
+                
+                ></iframe>
               </div>
             </Grid>
           </Grid>
