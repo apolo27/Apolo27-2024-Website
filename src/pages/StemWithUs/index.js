@@ -24,7 +24,6 @@ import TutorialMiniature from '../../components/TutorialMiniature';
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
 import arrow from '../../imgs/StemWithUs/arrow.png'
 import STEM from '../../imgs/StemWithUs/STEM.png'
-import waitingAstronaut from '../../imgs/StemWithUs/WaitingAstronaut.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeOpenText, faCalendarDays, faVideo } from '@fortawesome/free-solid-svg-icons'
@@ -42,6 +41,7 @@ function MarsModel(props){
 }
 
 const StemWithUs = (props) => {
+  const [modalState, setModalState] = useState(false)
   const [events, setEvents] = useState([])
   const [eventToShow, setEventToShow] = useState({})
   const [tutorials, setTutorials] = useState([])
@@ -80,10 +80,49 @@ const StemWithUs = (props) => {
 
   }, []);
 
-  const handleSelected = (event) => {
-    setEventToShow(event);
-    console.log(eventToShow);
-  };
+  
+  const handleSelectedEvent = (event) => {
+    setEventToShow(event)
+    setModalState(true)
+ }
+
+ const Modal = () => {
+  return (
+     <div className={`modal-${modalState === true ? 'show' : 'hide'}`}>
+      <Card>
+          <Card.Title style={{paddingTop: 25}}>{new Date(eventToShow.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+          <Card.Title>{eventToShow.title}</Card.Title>
+        <Card.Body>
+          <Card.Text style={{maxWidth: 300, paddingTop: 50}}> {eventToShow.location}</Card.Text>
+          <Button style={{width: '75%'}} href={eventToShow.htmlLink}>{t('Seguir')}</Button>
+        </Card.Body>
+      </Card>
+     </div>
+  )
+}
+ const MobileModal = () => {
+  return (
+     <div className={`mobile-modal-${modalState === true ? 'show' : 'hide'}`}>
+      <Card style={{position: 'relative'}}>
+        <Button style={{
+          position: 'absolute', 
+          right: 0, 
+          width: 40,
+          height: 40, 
+          backgroundColor: '#000', 
+          border: 'solid 2px #fff', 
+          borderRadius: '100%'
+          }} onClick={()=> setModalState(false)}>X</Button>
+          <Card.Title style={{paddingTop: 50}}>{new Date(eventToShow.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+          <Card.Title>{eventToShow.title}</Card.Title>
+        <Card.Body style={{height: 200}}>
+          <Card.Text style={{maxWidth: 300, marginTop: 50}}> {eventToShow.location}</Card.Text>
+          <Button style={{width: '75%'}} href={eventToShow.htmlLink}>{t('Seguir')}</Button>
+        </Card.Body>
+      </Card>
+     </div>
+  )
+}
 
     return(
       <div>
@@ -124,29 +163,36 @@ const StemWithUs = (props) => {
                     endAccessor="end"
                     toolbar={true}
                     views={['month', 'agenda']}
+                    selected={eventToShow}
+                    onSelectSlot={(e) => handleSelectedEvent(e)}
+                    onSelectEvent={(e) => handleSelectedEvent(e)}
+    
                   />
-                <section className="eventos">
+                  {eventToShow && <MobileModal />}
                 {
-                  events.length === 0 ? 
-                  <div>
-                    <img style={{height: 100}} src={waitingAstronaut} alt='astronaut waiting'></img>
-                    <h1>{t('NoEvents')}</h1>
-                  </div>
-                  : events
-                  .map((event) => {
-                    return(
-                      <Card key={event.title}>
-                        <Card.Body>
-                          <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
-                          <Card.Title>{event.title}</Card.Title>
-                          <Card.Text> {event.location}</Card.Text>
-                          <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                        </Card.Body>
-                      </Card>
-                      )
-                  })
+                  /*
+                    <section className="eventos">
+                      events.length === 0 ? 
+                      <div>
+                        <img style={{height: 100}} src={waitingAstronaut} alt='astronaut waiting'></img>
+                        <h1>{t('NoEvents')}</h1>
+                      </div>
+                      : events
+                      .map((event) => {
+                        return(
+                          <Card key={event.title}>
+                            <Card.Body>
+                              <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                              <Card.Title>{event.title}</Card.Title>
+                              <Card.Text> {event.location}</Card.Text>
+                              <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                            </Card.Body>
+                          </Card>
+                          )
+                      })
+                    </section>
+                  */
                 }
-                </section>
                 </div>
               </div>
               </Tab>
@@ -307,9 +353,11 @@ const StemWithUs = (props) => {
                 toolbar={true}
                 views={['month', 'agenda']}
                 selected={eventToShow}
-                onSelectEvent={handleSelected}
+                onSelectSlot={(e) => handleSelectedEvent(e)}
+                onSelectEvent={(e) => handleSelectedEvent(e)}
               />
-                {
+              {eventToShow && <Modal />}
+                {/*
                   Object.keys(eventToShow).length !== 0 ?
                   <section className="eventos" style={{marginTop: 75}}>
                       <Card>
@@ -322,7 +370,7 @@ const StemWithUs = (props) => {
                       </Card>
                   </section>
                   : <></>
-                }
+            */}
             </div>
             
             <section className='tutorials'>
