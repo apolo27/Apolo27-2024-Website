@@ -255,7 +255,7 @@ const StemWithUs = (props) => {
                   polar={[-0.1, Math.PI / 4]}
                 >
                   <Stage shadows={false}>
-                    <MarsModel scale={0.15} />
+                    <MarsModel scale={0.25} />
                   </Stage>
                 </PresentationControls>
                 
