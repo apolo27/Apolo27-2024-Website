@@ -8,6 +8,7 @@
     color: #fff; 
     font-family: 'Poppins';
     font-size: 15px;
+    border-top: solid 3px rgb(0, 166, 255)
 }
 
 .footer h4{

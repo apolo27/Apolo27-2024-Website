@@ -24,7 +24,6 @@ import TutorialMiniature from '../../components/TutorialMiniature';
 import Fastronaut from '../../imgs/StemWithUs/Fastronaut.png';
 import arrow from '../../imgs/StemWithUs/arrow.png'
 import STEM from '../../imgs/StemWithUs/STEM.png'
-import waitingAstronaut from '../../imgs/StemWithUs/WaitingAstronaut.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelopeOpenText, faCalendarDays, faVideo } from '@fortawesome/free-solid-svg-icons'
@@ -42,7 +41,9 @@ function MarsModel(props){
 }
 
 const StemWithUs = (props) => {
+  const [modalState, setModalState] = useState(false)
   const [events, setEvents] = useState([])
+  const [eventToShow, setEventToShow] = useState({})
   const [tutorials, setTutorials] = useState([])
   const [recentVideos, setRecentVideos] = useState([])
   const [blogs, setBlogs] = useState([])
@@ -78,6 +79,50 @@ const StemWithUs = (props) => {
     }
 
   }, []);
+
+  
+  const handleSelectedEvent = (event) => {
+    setEventToShow(event)
+    setModalState(true)
+ }
+
+ const Modal = () => {
+  return (
+     <div className={`modal-${modalState === true ? 'show' : 'hide'}`}>
+      <Card>
+          <Card.Title style={{paddingTop: 25}}>{new Date(eventToShow.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+          <Card.Title>{eventToShow.title}</Card.Title>
+        <Card.Body>
+          <Card.Text style={{maxWidth: 300, paddingTop: 50}}> {eventToShow.location}</Card.Text>
+          <Button style={{width: '75%'}} href={eventToShow.htmlLink}>{t('Seguir')}</Button>
+        </Card.Body>
+      </Card>
+     </div>
+  )
+}
+ const MobileModal = () => {
+  return (
+     <div className={`mobile-modal-${modalState === true ? 'show' : 'hide'}`}>
+      <Card style={{position: 'relative'}}>
+        <Button style={{
+          position: 'absolute', 
+          right: 0, 
+          width: 40,
+          height: 40, 
+          backgroundColor: '#000', 
+          border: 'solid 2px #fff', 
+          borderRadius: '100%'
+          }} onClick={()=> setModalState(false)}>X</Button>
+          <Card.Title style={{paddingTop: 50}}>{new Date(eventToShow.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+          <Card.Title>{eventToShow.title}</Card.Title>
+        <Card.Body style={{height: 200}}>
+          <Card.Text style={{maxWidth: 300, marginTop: 50}}> {eventToShow.location}</Card.Text>
+          <Button style={{width: '75%'}} href={eventToShow.htmlLink}>{t('Seguir')}</Button>
+        </Card.Body>
+      </Card>
+     </div>
+  )
+}
 
     return(
       <div>
@@ -118,29 +163,36 @@ const StemWithUs = (props) => {
                     endAccessor="end"
                     toolbar={true}
                     views={['month', 'agenda']}
+                    selected={eventToShow}
+                    onSelectSlot={(e) => handleSelectedEvent(e)}
+                    onSelectEvent={(e) => handleSelectedEvent(e)}
+    
                   />
-                <section className="eventos">
+                  {eventToShow && <MobileModal />}
                 {
-                  events.length === 0 ? 
-                  <div>
-                    <img style={{height: 100}} src={waitingAstronaut} alt='astronaut waiting'></img>
-                    <h1>{t('NoEvents')}</h1>
-                  </div>
-                  : events
-                  .map((event) => {
-                    return(
-                      <Card key={event.title}>
-                        <Card.Body>
-                          <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
-                          <Card.Title>{event.title}</Card.Title>
-                          <Card.Text> {event.location}</Card.Text>
-                          <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                        </Card.Body>
-                      </Card>
-                      )
-                  })
+                  /*
+                    <section className="eventos">
+                      events.length === 0 ? 
+                      <div>
+                        <img style={{height: 100}} src={waitingAstronaut} alt='astronaut waiting'></img>
+                        <h1>{t('NoEvents')}</h1>
+                      </div>
+                      : events
+                      .map((event) => {
+                        return(
+                          <Card key={event.title}>
+                            <Card.Body>
+                              <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                              <Card.Title>{event.title}</Card.Title>
+                              <Card.Text> {event.location}</Card.Text>
+                              <Button href={event.htmlLink}>{t('Seguir')}</Button>
+                            </Card.Body>
+                          </Card>
+                          )
+                      })
+                    </section>
+                  */
                 }
-                </section>
                 </div>
               </div>
               </Tab>
@@ -230,6 +282,12 @@ const StemWithUs = (props) => {
         </div>
 
         <div className='stem-with-us' style={{textAlign: "center"}}>
+          {/*<svg style={{position: 'absolute', left: 0}} preserveAspectRatio='none' viewBox='0 0 1398 4103' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
+            <path
+              d='M0 0L18.1933 210.565C23.6961 274.253 26.4475 306.097 42.9652 330.85C46.4838 336.123 50.404 341.07 54.7342 345.699C75.0613 367.434 105.498 377.405 166.371 397.348C210.077 411.667 257.37 427.22 296.853 440.345C329.151 451.081 345.3 456.449 359.423 470.698C362.423 473.724 365.218 477.011 367.722 480.458C379.514 496.689 383.18 519.484 390.511 565.076C403.897 648.324 446.824 720 554.5 720C630.094 720 718.604 721.151 798.305 722.552C896.139 724.271 945.057 725.131 978.628 752.583C985.606 758.289 992.059 764.856 997.642 771.933C1024.5 805.982 1024.5 855.252 1024.5 953.792V1430.73C1024.5 1549.43 1024.5 1608.78 1056.78 1649.06C1063.52 1657.48 1071.17 1665.13 1079.59 1671.88C1119.88 1704.15 1179.22 1704.15 1297.92 1704.15H1398L1388.56 4102.84H0V0Z'
+              fill='#161A2C'
+            />
+                      </svg>*/}
           <Container>
             <section style={{display: 'flex'}}>
               <div style={{position: 'absolute'}}>
@@ -249,7 +307,7 @@ const StemWithUs = (props) => {
                   polar={[-0.1, Math.PI / 4]}
                 >
                   <Stage shadows={false}>
-                    <MarsModel scale={0.15} />
+                    <MarsModel scale={0.25} />
                   </Stage>
                 </PresentationControls>
                 
@@ -286,36 +344,33 @@ const StemWithUs = (props) => {
     
             <h1 style={{paddingTop: 25}}>{t('Eventos_Proximos')}</h1>
             <div className='calendar_container'>
-                <Calendar className="calendario"
-                  culture={localStorage.getItem("i18nextLng")}
-                  localizer={localizer} 
-                  events={events} 
-                  startAccessor="start" 
-                  endAccessor="end"
-                  toolbar={true}
-                  views={['month', 'agenda']}
-                />
-              <section className="eventos" style={{marginTop: 75}}>
-              {
-                events.length === 0 ? 
-                <div>
-                  <img style={{height: 200}} src={waitingAstronaut} alt='astronaut waiting'></img>
-                  <h1>{t('NoEvents')}</h1>
-                </div>
-                : events.map((event) => {
-                  return(
-                    <Card key={event.title}>
-                      <Card.Body>
-                        <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
-                        <Card.Title>{event.title}</Card.Title>
-                        <Card.Text> {event.location}</Card.Text>
-                        <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                      </Card.Body>
-                    </Card>
-                    )
-                })
-              }
-              </section>
+              <Calendar className="calendario"
+                culture={localStorage.getItem("i18nextLng")}
+                localizer={localizer} 
+                events={events} 
+                startAccessor="start" 
+                endAccessor="end"
+                toolbar={true}
+                views={['month', 'agenda']}
+                selected={eventToShow}
+                onSelectSlot={(e) => handleSelectedEvent(e)}
+                onSelectEvent={(e) => handleSelectedEvent(e)}
+              />
+              {eventToShow && <Modal />}
+                {/*
+                  Object.keys(eventToShow).length !== 0 ?
+                  <section className="eventos" style={{marginTop: 75}}>
+                      <Card>
+                        <Card.Body>
+                          <Card.Title>{new Date(eventToShow.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                          <Card.Title>{eventToShow.title}</Card.Title>
+                          <Card.Text> {eventToShow.location}</Card.Text>
+                          <Button href={eventToShow.htmlLink}>{t('Seguir')}</Button>
+                        </Card.Body>
+                      </Card>
+                  </section>
+                  : <></>
+            */}
             </div>
             
             <section className='tutorials'>
