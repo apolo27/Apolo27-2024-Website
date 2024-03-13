@@ -146,7 +146,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-today {
-  background-color: rgb(84, 103, 211);
+  background-color: rgba(110, 116, 150, 0.693);
 }
 
 .rbc-toolbar {
@@ -314,6 +314,7 @@ button.rbc-input::-moz-focus-inner {
 
 .rbc-row-segment {
   padding: 0 1px 1px 1px;
+
 }
 .rbc-selected-cell {
   background-color: rgba(0, 0, 0, 0.1);
@@ -617,9 +618,12 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-event-content{
-  height: 50px;
+
   background-color: #0065FC;
   box-shadow: 0 0 40px #0065FC; 
+
+  text-align: center;
+  vertical-align: middle;
 
   display: flex;
   justify-content: center;

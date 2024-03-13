@@ -43,6 +43,7 @@ function MarsModel(props){
 
 const StemWithUs = (props) => {
   const [events, setEvents] = useState([])
+  const [eventToShow, setEventToShow] = useState({})
   const [tutorials, setTutorials] = useState([])
   const [recentVideos, setRecentVideos] = useState([])
   const [blogs, setBlogs] = useState([])
@@ -78,6 +79,11 @@ const StemWithUs = (props) => {
     }
 
   }, []);
+
+  const handleSelected = (event) => {
+    setEventToShow(event);
+    console.log(eventToShow);
+  };
 
     return(
       <div>
@@ -292,36 +298,31 @@ const StemWithUs = (props) => {
     
             <h1 style={{paddingTop: 25}}>{t('Eventos_Proximos')}</h1>
             <div className='calendar_container'>
-                <Calendar className="calendario"
-                  culture={localStorage.getItem("i18nextLng")}
-                  localizer={localizer} 
-                  events={events} 
-                  startAccessor="start" 
-                  endAccessor="end"
-                  toolbar={true}
-                  views={['month', 'agenda']}
-                />
-              <section className="eventos" style={{marginTop: 75}}>
-              {
-                events.length === 0 ? 
-                <div>
-                  <img style={{height: 200}} src={waitingAstronaut} alt='astronaut waiting'></img>
-                  <h1>{t('NoEvents')}</h1>
-                </div>
-                : events.map((event) => {
-                  return(
-                    <Card key={event.title}>
-                      <Card.Body>
-                        <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
-                        <Card.Title>{event.title}</Card.Title>
-                        <Card.Text> {event.location}</Card.Text>
-                        <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                      </Card.Body>
-                    </Card>
-                    )
-                })
-              }
-              </section>
+              <Calendar className="calendario"
+                culture={localStorage.getItem("i18nextLng")}
+                localizer={localizer} 
+                events={events} 
+                startAccessor="start" 
+                endAccessor="end"
+                toolbar={true}
+                views={['month', 'agenda']}
+                selected={eventToShow}
+                onSelectEvent={handleSelected}
+              />
+                {
+                  Object.keys(eventToShow).length !== 0 ?
+                  <section className="eventos" style={{marginTop: 75}}>
+                      <Card>
+                        <Card.Body>
+                          <Card.Title>{new Date(eventToShow.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
+                          <Card.Title>{eventToShow.title}</Card.Title>
+                          <Card.Text> {eventToShow.location}</Card.Text>
+                          <Button href={eventToShow.htmlLink}>{t('Seguir')}</Button>
+                        </Card.Body>
+                      </Card>
+                  </section>
+                  : <></>
+                }
             </div>
             
             <section className='tutorials'>
