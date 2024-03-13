@@ -1,5 +1,4 @@
 import './Simulation.css'
-import { Unity, useUnityContext } from "react-unity-webgl";
 import {Container, Carousel} from 'react-bootstrap';
 
 import customizacion from '../../imgs/Simulation/customization.png'
@@ -9,12 +8,6 @@ import tasks from '../../imgs/Simulation/tasks.png'
 
 function RoverSimulation(props){
   const t = props.t;
-  const { unityProvider } = useUnityContext({
-    loaderUrl: "Build/Build.loader.js",
-    dataUrl: "Build/Build.data",
-    frameworkUrl: "Build/Build.framework.js",
-    codeUrl: "Build/Build.wasm",
-  });
 
   if(window.screen.width < 1280) {
     return (
