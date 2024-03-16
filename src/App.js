@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route} from 'react-router-dom';
 import Header from './components/Header'
-import Home from './pages/Home'
+import Home from './pages/Home/index.js';
 import AboutUs from './pages/AboutUs/AboutUs.js'
 import DataDashboard from './pages/DataDashboard'
 import Sponsors from './pages/Sponsors'
@@ -19,7 +19,7 @@ function App() {
     <div>
       <Header t={t}/>
       <Routes>
-        {/* <Route path='/' element={<Home t={t}/>}/> */}
+        {<Route path='/' element={<Home t={t}/>}/>}
         <Route path='/About-Us' element={<AboutUs t={t}/>}/>
         <Route path='/Data-Dashboard' element={<DataDashboard t={t}/>}/>
         <Route path='/Sponsors' element={<Sponsors t={t}/>}/>
