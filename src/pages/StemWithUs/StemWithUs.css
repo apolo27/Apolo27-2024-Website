@@ -1,32 +1,74 @@
 .stem-with-us{
+  background-color: #171A2B;
+  
+}
+
+.stem-with-us .container{
+  background-image: url('../../imgs/StemWithUs/background.png');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.stem-with-us-body{
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.stem-with-us-container{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color:#171A2B;
+  clip-path: path('M0 0L18.1933 210.565C23.6961 274.253 26.4475 306.097 42.9652 330.85C46.4838 336.123 50.404 341.07 54.7342 345.699C75.0613 367.434 105.498 377.405 166.371 397.348C210.077 411.667 257.37 427.22 296.853 440.345C329.151 451.081 345.3 456.449 359.423 470.698C362.423 473.724 365.218 477.011 367.722 480.458C379.514 496.689 383.18 519.484 390.511 565.076C403.897 648.324 446.824 720 554.5 720C630.094 720 718.604 721.151 798.305 722.552C896.139 724.271 945.057 725.131 978.628 752.583C985.606 758.289 992.059 764.856 997.642 771.933C1024.5 805.982 1024.5 855.252 1024.5 953.792V1430.73C1024.5 1549.43 1024.5 1608.78 1056.78 1649.06C1063.52 1657.48 1071.17 1665.13 1079.59 1671.88C1119.88 1704.15 1179.22 1704.15 1297.92 1704.15H1398L1388.56 4102.84H0V0Z');
+}
+
 .stem-with-us section{
   padding-top: 50px;
 }
 
+.marte-texto{
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(255, 149, 0), 0 0 5px  rgb(139, 81, 0);;
+}
+
 .calendar_container{
   display: flex;
+  justify-content: center;
   text-align: center;
+  position: relative;
 }
 .calendario{
-  
   margin-top: 50px;
 }
 
 .eventos{
+  display: flex;
+  justify-content: center;
+  align-items: center;      
+  width: 400px;
+  height: 580px;
+  border: 2px solid #3E4879;
+  background-color: rgba(24, 24, 45, 0.69);
+
+  overflow-y: scroll;
   border-radius: 10px;
   padding: 10px;
-  border: 2px solid #3E4879;
-  overflow-y: scroll;
-  width: 650px;
-  height: 580px;
   margin-left: 15px;
+
 }
+
+.eventos h2{
+  flex: 0 0 120px;
+}
+
 .eventos::-webkit-scrollbar{
   display: none;
 }
@@ -35,15 +77,66 @@
   display: block;
 }
 
-.eventos .card{
-  margin-top: 15px;
-  margin-bottom: 15px;
+.calendar_container .card{
+  
+  height: 500px;
+  background-color: red;
+  border-radius: 110px;
+  border: none;
+}
+
+.calendar_container .card-body{
+  height: 500px;
+  background: linear-gradient(45deg, rgb(194,0,7), rgba(182,0,6,0.6));
+  border: none;
+  border-radius: 110px;
+  margin: 15px;
+}
+
+@keyframes popup {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.3);
+  }
+  60%{
+    transform: scale(1.1);
+  }
+  70%{
+    transform: scale(1.2);
+  }
+  80%{
+    transform: scale(1);
+  }
+  90%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.modal-show {
+  animation: popup 0.7s;
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+  z-index: 100;
+
+  width: 350px;
+}
+
+.modal-hide {
+  display: none;
 }
 
 .blogs{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  clipPath: 'polygon(50% 0%, 0% 80%, 0% 100%, 100% 100%, 100% 80%)',
 }
 
 .blogs .card{
@@ -357,7 +450,7 @@ section .reelsLine{
   .contact-us{
     margin-bottom: 35px;
   }
-  
+
   .astronautStemIZQ{
     display: none;
   }
@@ -374,7 +467,9 @@ section .reelsLine{
   
   .calendar_container{
     display: block;
+    padding-left: 0px;
   }
+  
 
   .eventos{
     overflow-y:scroll;

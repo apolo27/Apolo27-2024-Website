@@ -1,13 +1,14 @@
 .footer{
-    padding-top: 40px;
-    padding-bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between; 
-    background-color: rgb(13,15,24);
-    color: #fff; 
-    font-family: 'Poppins';
-    font-size: 15px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; 
+  background-color: rgb(13,15,24);
+  color: hsl(0, 0%, 100%); 
+  font-family: 'Poppins';
+  font-size: 15px;
+  border-top: solid 3px rgb(0, 166, 255)
 }
 
 .footer h4{

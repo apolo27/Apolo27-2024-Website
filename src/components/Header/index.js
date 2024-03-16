@@ -6,9 +6,7 @@ import $ from 'jquery'; // Import jQuery
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../../imgs/logo.svg'
-import { Container, Nav, Navbar, Button } from 'react-bootstrap/';
-import Themes from '../Themes';
-import SelectLanguage from '../SelectLanguage';
+
 
 function Header(props) {
     let t = props.t;
