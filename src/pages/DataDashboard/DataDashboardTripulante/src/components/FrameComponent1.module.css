@@ -1,0 +1,43 @@
+.chestIn {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.chestIn,
+.shapeAssembler {
+  position: relative;
+}
+.colorCombinerIcon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.chestInParent,
+.shapeAssemblerParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+  font-size: var(--font-size-5xl);
+  color: var(--general-color-3);
+}
+.chestInParent {
+  border-radius: var(--br-xs);
+  background-color: var(--dentro-del-glass);
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--padding-5xl) var(--padding-13xl);
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-dimgray);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 450px) {
+  .shapeAssembler {
+    font-size: var(--font-size-lgi);
+  }
+}

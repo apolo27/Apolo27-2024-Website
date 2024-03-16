@@ -26,6 +26,7 @@
     width: 325px;
     height: 260px;
     font-family: 'Poppins';
+
 }
 
 .participants{
@@ -49,7 +50,7 @@
 .crewmembers-title{
     font-weight: 700;
     text-align: center;
-    padding-left: 0;
+    font-family: 'Poppins';
 }
 
 .crewmembers-select{
@@ -187,6 +188,9 @@
     border-radius: 24px;
     border: 1px solid #3E4879;
     background: #161A2C;
+    text-align: center;
+    position: relative;
+    
 }
 
 .icono-temperatura{
@@ -213,15 +217,61 @@
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1400px){
-    .herc-map, .video-container{
-        width: 900px;
+@media screen and (max-width: 1535px){
+    .video-container{
+        width: 1200px;
         height: 500px;
 
     }
 
-    .crewmembers, .graph, .participants, .environment-sneakpeek {
+    .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek{
         width: 415px;
+    }
+
+    .herc-map{
+        width: 390px;
+        height: 275px;
+    }
+
+    
+
+    .environment-sneakpeek h4{
+        font-size: 32px;
+    }
+
+    .environment-sneakpeek .temperatura h2{
+        font-size: 92px;
+    }
+
+    .graph, .environment-sneakpeek{
+        height: 300px;
+    }
+
+    .temperatura{
+        padding-top: 15px;
+    }
+
+    .icono-temperatura{
+        width: 35%;
+        height: 125px;
+    }
+    
+}
+
+@media screen and (max-width: 1400px){
+    .herc-map, .video-container{
+        width: 1000px;
+        height: 500px;
+
+    }
+
+    .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek {
+        width: 415px;
+    }
+
+    .herc-map{
+        width: 390px;
+        height: 275px;
     }
 
     
@@ -257,6 +307,10 @@
     .environment-sneakpeek, .participants{
         display: block;
     }
+    .herc-map{
+        width: 390px;
+        height: 275px;
+    }
 }
 
 @media screen and (max-width: 720px){
@@ -265,7 +319,7 @@
         height: 200px;
     }
 
-    .crewmembers, .participants, .graph, .environment-sneakpeek{
+    .crewmembers, .participants, .graph, .graph-acceleration, .environment-sneakpeek{
         width: 350px;
     }
 
@@ -275,14 +329,22 @@
     }
     .video-container {
         padding-bottom: 75%; /* Proporción de aspecto 4:3 (ajusta según necesites) */
-      }
+    }
+    .herc-map{
+        width: 390px;
+        height: 275px;
+    }
 
 }
 
 @media screen and (max-width: 520px){
-    .herc-map, .video-container{
+    .video-container{
         width: 350px;
         height: 200px;
+    }
+    .herc-map{
+        width: 325px;
+        height: 275px;
     }
 }
 

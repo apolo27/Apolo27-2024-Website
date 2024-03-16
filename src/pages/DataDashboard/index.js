@@ -1,3 +1,5 @@
+import FrameComponent from './DataDashboardTripulante/src/components/BottonLine';
+import './DataDashboardTripulante/src/global.css';
 import "./DataDashboard.css";
 import React, { useEffect, useState } from "react";
 import database from "../../services/firebase";
@@ -471,12 +473,13 @@ const DataDashboard = (props) => {
               </div>
               <div className="environment-sneakpeek">
                 <iframe
-                src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
-                style={{ background: <CircularProgress /> }}
+                src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
+                style={{ background: <CircularProgress />, borderRadius: "16px", paddingBottom: "10px", paddingRight: "5px"}}
                 className="herc-map"
                 title="Nasa Herc map"
                 id="herc-map"
-              ></iframe>
+                
+                ></iframe>
               </div>
             </Grid>
           </Grid>
@@ -499,7 +502,7 @@ const DataDashboard = (props) => {
             </PresentationControls>
           </Canvas>
         )}
-        {activeIndex === 2 && <h1>Active Index 2</h1>}
+        {activeIndex === 2 && <FrameComponent/>}
         {activeIndex === 3 && (
           <Grid container spacing={2} alignItems="center" justify="center">
             <Grid item xs={12} md={6}>
