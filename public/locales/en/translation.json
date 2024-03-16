@@ -19,12 +19,20 @@
   "Stem-Engament-Award-Description": "The introduction of the STEM Tour and its hands-on activities was a significant achievement, and it enabled the team to win the award. This recognition highlights the team's efforts to promote STEM education and its impact on the Dominican Republic's society.",
   "Coming-Soon-Description": "This year, we are raising the bar even higher and striving to improve in every category. Our team is determined to continue making strides in the field of engineering and technology, and we are excited to see where our dedication and hard work will take us.",
 
+  "Task": "Task",
+  
+
   "Tasks": "Tasks",
   "Find-ARV": "Find ARV-30",
   "Regolith-removal": "Regolith Removal",
   "Moon-maintenance": "Moon Maintenance",
   "Power-it-up": "Power it up",
   "Rover-Redundancy": "Rover Redundancy",
+
+  "taskdesc1": "Remove the regolith from the solar panel",
+  "taskdesc2": "Unscrew the cover plate",
+  "taskdesc3": "Make the cable connection",
+  "taskdesc4": "Retrieve the samples",
 
   "Herc-map": "Nasa HERC Contests map. Huntsville Alabama",
   

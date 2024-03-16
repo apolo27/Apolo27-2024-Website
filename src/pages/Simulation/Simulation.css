@@ -5,9 +5,26 @@
 
 .simulation_info{
     background-color: #1d233fcb;
-    padding: 25px;
+    
     margin-bottom: 125px;
 
     border-radius: 15px;
+}
 
+.simulation_text{
+    background: linear-gradient(#647ae6, #e75229);    border-radius: 15px;
+    padding: 25px;
+}
+
+.cards{
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards .card{
+    width: 300px;
 }
