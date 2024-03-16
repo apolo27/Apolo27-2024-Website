@@ -10,7 +10,7 @@ body {
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px; /* Padding between grid items */
-    height: 100vh;
+    height: 900px;
     padding: 30px;
 }
 
@@ -23,9 +23,10 @@ body {
     background-image: linear-gradient(180deg, rgba(64, 209, 255), rgba(16, 19, 33, 1));
     grid-row-start: 1;
     grid-column-start: 1;
-    grid-row-end: 3;
+    grid-row-end: span 7;
     grid-column-end: 5;
     position: relative; /* Make item-0 container for relative positioning */
+    height: 500px; /* Height for web version */
 }
 
 .astronaut-image {
@@ -44,6 +45,22 @@ body {
     font-weight: bold;
     text-align: left;
     flex: 1;
+	position: relative;
+}
+
+#item-0 h4 {
+    position: absolute; /* Establecer el posicionamiento absoluto */
+    top: 60px; /* Colocar el texto a la misma altura que h1 */
+    left: 50px; /* Alinear al inicio del contenedor */
+    width: 100%; /* Ocupar todo el ancho del contenedor */
+    text-align: left; /* Alinear el texto a la izquierda */
+    padding: 5px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Borde redondeado */
+    font-size: 14px; /* Tamaño de fuente */
+    margin: 0; /* Eliminar el margen por defecto */
+    z-index: 1; /* Colocar encima del h1 */
+	font-weight: bold;
+	font-size: 18px;
 }
 
 #item-1 {
@@ -90,6 +107,10 @@ body {
         gap: 20px; /* Padding between grid items */
     }
 
+	#item-0 h4 {
+        display: none;
+    }
+
     #item-0 h1 {
         font-size: 18px; /* Set smaller font size for mobile */
     }
@@ -97,8 +118,9 @@ body {
     #item-0 {
         grid-row-start: 1;
         grid-column-start: 1;
-        grid-row-end: 2;
-        grid-column-end: 3;
+		grid-row-end: span 1;
+        grid-column-end: span 2;
+		height: auto;
     }
 
     #item-1 {
@@ -141,6 +163,9 @@ body {
         justify-content: center; /* Center horizontally */
     }
 
-    /* Adjust other styles as needed for smaller screens */
+	#item-0 h4 {
+		display: none;
+    }
+
 }
 

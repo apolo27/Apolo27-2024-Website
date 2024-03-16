@@ -1,0 +1,113 @@
+.auntTwiceRemovedNodes {
+  position: absolute;
+  top: 30px;
+  left: 38px;
+  width: 20.7px;
+  height: 35px;
+  z-index: 2;
+}
+.splitNode {
+  height: 262px;
+  width: 213px;
+  position: relative;
+}
+.siblingFiveTimesRemovedNod {
+  height: 19px;
+  width: 19px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-darkgray-400);
+  box-shadow: 0 4px 6.7px rgba(0, 0, 0, 0.42) inset;
+}
+.siblingFiveTimesRemovedNod1,
+.siblingFiveTimesRemovedNod2,
+.siblingFiveTimesRemovedNod3,
+.siblingFiveTimesRemovedNod4 {
+  height: 19px;
+  width: 19px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-darkslategray);
+  box-shadow: 0 4px 6.7px rgba(0, 0, 0, 0.42) inset;
+}
+.functionArgument,
+.functionReturn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.functionReturn {
+  flex: 1;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.functionArgument {
+  align-self: stretch;
+  justify-content: flex-start;
+  padding: 0 var(--padding-8xs) 0 0;
+}
+.groupIcon {
+  position: absolute;
+  top: 26.3px;
+  left: 39px;
+  width: 19.3px;
+  height: 35.8px;
+  z-index: 3;
+}
+.expressionTree {
+  width: 213px;
+  height: 262px;
+  position: relative;
+}
+.matrixRow {
+  width: 229px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0 var(--padding-5xs) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+  color: var(--color-darkturquoise);
+  font-family: var(--font-mulish);
+}
+.groupIcon1 {
+  position: absolute;
+  top: 34.8px;
+  left: 35px;
+  width: 30px;
+  height: 30.4px;
+  z-index: 3;
+}
+.splitNode1 {
+  height: 262px;
+  width: 213px;
+  position: relative;
+  color: var(--color-red-200);
+}
+.mergeNode {
+  border-radius: var(--br-29xl);
+  background-color: var(--color-darkgray-300);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: var(--padding-5xl) var(--padding-xl) var(--padding-5xl)
+    var(--padding-5xl);
+  gap: var(--gap-38xl);
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-orange);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 800px) {
+  .mergeNode {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .mergeNode {
+    gap: 57px 28px;
+  }
+}

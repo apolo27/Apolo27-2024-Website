@@ -7,6 +7,9 @@ function Home() {
     <div className="grid">
       <div id="item-0">
         {/* Text content */}
+        <h4>
+          4 TIMES CATEGORY WINNERS AT HERC
+        </h4>
         <h1>
           The First Dominican Republic<br />
           University Division Winners at<br />
