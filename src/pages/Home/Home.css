@@ -9,33 +9,32 @@ body {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px; /* Padding between grid items */
+    gap: 20px; 
     height: 900px;
     padding: 30px;
 }
 
 #item-0 {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    text-align: center; /* Center text inside h1 */
-    border-radius: 25px;
-    background-image: linear-gradient(180deg, rgba(64, 209, 255), rgba(16, 19, 33, 1));
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    border-radius: 40px;
+    background-image: linear-gradient(180deg, rgba(64, 209, 255), rgba(23, 26, 43));
     grid-row-start: 1;
     grid-column-start: 1;
     grid-row-end: span 7;
     grid-column-end: 5;
-    position: relative; /* Make item-0 container for relative positioning */
-    height: 500px; /* Height for web version */
+    position: relative; 
+    height: 400px; 
 }
 
 .astronaut-image {
-    position: absolute; /* Absolute positioning within item-0 */
+    position: absolute; 
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-    /* Additional styles for the image (optional) */
-    width: 600px; /* Adjust width as needed */
+    width: 600px; 
 }
 
 #item-0 h1 {
@@ -48,71 +47,127 @@ body {
 	position: relative;
 }
 
+#item-2 h1 {
+	font-size: 34px;
+	margin: 0;
+	padding: 40px;
+	color: white;
+	font-weight: 525;
+	flex: 1;
+	position: relative;
+	cursor: pointer;
+  }
+  
+  #item-2 h4 {
+	font-size: 12px;
+	margin: 0;
+	color: white;
+	flex: 1;
+	position: relative;
+	cursor: pointer;
+  }
+
 #item-0 h4 {
-    position: absolute; /* Establecer el posicionamiento absoluto */
-    top: 60px; /* Colocar el texto a la misma altura que h1 */
-    left: 50px; /* Alinear al inicio del contenedor */
-    width: 100%; /* Ocupar todo el ancho del contenedor */
-    text-align: left; /* Alinear el texto a la izquierda */
-    padding: 5px 10px; /* Espaciado interno */
-    border-radius: 5px; /* Borde redondeado */
-    font-size: 14px; /* Tamaño de fuente */
-    margin: 0; /* Eliminar el margen por defecto */
-    z-index: 1; /* Colocar encima del h1 */
+    position: absolute; 
+    top: 40px; 
+    left: 50px; 
+    width: 100%; 
+    text-align: left; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    font-size: 14px; 
+    margin: 0; 
+    z-index: 1; 
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 #item-1 {
-    border-radius: 25px;
-    background-color: #EDE7E8;
+    border-radius: 40px;
+	background-color: rgb(28, 31, 50);
     grid-row-start: 3;
     grid-column-start: 1;
-    grid-row-end: 4;
+    grid-row-end: 3;
     grid-column-end: 3;
+	height: 335px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.group-picture{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 40px;
+	filter: grayscale(100%); /* Set the image to black and white */
+}
+
+.group-picture.hovered {
+	filter: grayscale(0%); /* Remove the black and white effect when hovered or clicked */
+  }
+
+#data-button {
+    position: absolute; 
+    top: 1%; 
+    right: 20px; 
+    height: 40px;
+    border-radius: 50px;
+    color: white;
+    background-color: rgb(20, 24, 38);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    margin-top: 20px; 
+	z-index: 999999;
 }
 
 #item-2 {
-    border-radius: 25px;
-    background-color: #DFDDE6;
+    border-radius: 40px;
+	background-image: linear-gradient(360deg, rgb(64, 255, 144), rgba(23, 26, 43));
     grid-row-start: 3;
     grid-column-start: 3;
-    grid-row-end: 4;
+    grid-row-end: 3;
     grid-column-end: 4;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 #item-3 {
-    border-radius: 25px;
-    background-color: #59CA55;
+    border-radius: 40px;
+	background-color: rgb(28, 31, 50);
     grid-row-start: 3;
     grid-column-start: 4;
-    grid-row-end: 4;
+    grid-row-end: 3;
     grid-column-end: 5;
 }
 
-#item-4 {
-    border-radius: 25px;
-    background-color: #59CA55;
-    grid-row-start: 3;
-    grid-column-start: 4;
-    grid-row-end: 4;
-    grid-column-end: 5;
-}
 
 /* Media query for mobile view */
 @media (max-width: 768px) {
+	.group-picture:hover {
+		filter: grayscale(0%);
+		transition: filter 0.3s ease;
+	}
     .grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
-        gap: 20px; /* Padding between grid items */
+        gap: 20px; 
     }
+
+	.group-picture{
+		border-radius: 25px;
+	}
 
 	#item-0 h4 {
         display: none;
     }
 
     #item-0 h1 {
-        font-size: 18px; /* Set smaller font size for mobile */
+        font-size: 18px; 
     }
 
     #item-0 {
@@ -121,6 +176,7 @@ body {
 		grid-row-end: span 1;
         grid-column-end: span 2;
 		height: auto;
+		border-radius: 25px;
     }
 
     #item-1 {
@@ -128,6 +184,8 @@ body {
         grid-column-start: 1;
         grid-row-end: 3;
         grid-column-end: 3;
+		height: auto;
+		border-radius: 25px;
     }
 
     #item-2 {
@@ -135,6 +193,7 @@ body {
         grid-column-start: 1;
         grid-row-end: 4;
         grid-column-end: 2;
+		border-radius: 25px;
     }
 
     #item-3 {
@@ -142,25 +201,26 @@ body {
         grid-column-start: 2;
         grid-row-end: 4;
         grid-column-end: 3;
+		border-radius: 25px;
     }
 
     .astronaut-image {
-        display: none; /* Hide the astronaut image on mobile */
+        display: none; 
     }
 }
 
 /* Media query for smaller screen sizes */
 @media (max-width: 1500px) {
     .astronaut-image {
-        display: none; /* Hide the astronaut image on smaller screens */
+        display: none; 
     }
 
     #item-0 h1 {
-        text-align: center; /* Center the text horizontally */
-        padding: 0; /* Remove padding to center vertically */
-        display: flex; /* Use flexbox to center vertically */
-        align-items: center; /* Center vertically */
-        justify-content: center; /* Center horizontally */
+        text-align: center; 
+        padding: 0; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
     }
 
 	#item-0 h4 {
