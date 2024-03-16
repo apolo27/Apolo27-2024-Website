@@ -16,7 +16,8 @@
 }
 
 .simulation_text, .simulation_header{
-    background: linear-gradient(#647ae6, #e75229);    border-radius: 15px;
+    background: linear-gradient(#3E4879, #1366aec6);    
+    border-radius: 15px;
     padding: 25px;
 }
 

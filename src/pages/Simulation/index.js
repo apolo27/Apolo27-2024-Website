@@ -16,8 +16,8 @@ function RoverSimulation(props){
 
     return (
       <div style={{textAlign: 'center', marginTop: 50}}>
-        <h1 className='simulation_header'>Simulador del NASA Human Exploration Rover Challenge</h1>
         <Container>
+        <h2 className='simulation_header'>Simulador del NASA Human Exploration Rover Challenge</h2>
           {
             window.screen.width >= 1280 ?
             <iframe className='simulation' title='NASA HERC SIMULATION' frameborder="0" src="https://itch.io/embed-upload/9819933?color=333333" allowfullscreen="" width="100%" height="100%"><a href="https://ctrl-sebastian.itch.io/rover-simulation">Play Rover Simulation on itch.io</a></iframe>
