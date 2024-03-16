@@ -1,0 +1,133 @@
+.saludDelTripulante {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: inherit;
+}
+.august122023 {
+  position: relative;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-lightgray-200);
+}
+.functionGenerator,
+.variableHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.variableHolder {
+  align-self: stretch;
+  gap: var(--gap-12xs);
+}
+.functionGenerator {
+  flex: 1;
+  padding: 0 0 13.700000000000044px;
+  box-sizing: border-box;
+  min-width: 188px;
+}
+.descendantOnceRemovedNodes,
+.descendantOnceRemovedNodes1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 23.9px;
+  height: 20.2px;
+}
+.descendantOnceRemovedNodes1 {
+  z-index: 1;
+}
+.loopController {
+  height: 20.2px;
+  width: 23.9px;
+  position: relative;
+}
+.algorithmEngine,
+.matrixProcessor {
+  display: flex;
+  justify-content: flex-start;
+}
+.matrixProcessor {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-end;
+  padding: 0;
+  gap: var(--gap-base);
+}
+.algorithmEngine {
+  width: 329.9px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-7xs) 0 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.filterNodeIcon {
+  height: 25px;
+  width: 25px;
+  position: relative;
+}
+.locationbutton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-7xs) var(--padding-4xs);
+  background-color: transparent;
+  height: 67px;
+  width: 68px;
+  border-radius: var(--br-27xl);
+  background: linear-gradient(252.57deg, #00c2ff, #04bd43);
+  box-shadow: 0 1px 12.3px #00c2ff;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.graphFormer,
+.listHandler,
+.mapCreator {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.mapCreator {
+  flex: 1;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.graphFormer,
+.listHandler {
+  width: 1231px;
+  justify-content: flex-start;
+  padding: 0 var(--padding-9xl);
+  box-sizing: border-box;
+}
+.listHandler {
+  width: 1362px;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 0 var(--padding-8xl) var(--padding-xl);
+  gap: 3.2999999999999545px;
+  text-align: left;
+  font-size: var(--font-size-9xl);
+  color: var(--general-color-3);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 800px) {
+  .mapCreator {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .saludDelTripulante {
+    font-size: var(--font-size-3xl);
+  }
+  .matrixProcessor {
+    flex-wrap: wrap;
+  }
+}
