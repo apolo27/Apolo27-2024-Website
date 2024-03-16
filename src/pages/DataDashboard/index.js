@@ -1,3 +1,5 @@
+import FrameComponent from './DataDashboardTripulante/src/components/BottonLine';
+import './DataDashboardTripulante/src/global.css';
 import "./DataDashboard.css";
 import React, { useEffect, useState } from "react";
 import database from "../../services/firebase";
@@ -498,7 +500,7 @@ const DataDashboard = (props) => {
             </PresentationControls>
           </Canvas>
         )}
-        {activeIndex === 2 && <h1>Active Index 2</h1>}
+        {activeIndex === 2 && <FrameComponent/>}
         {activeIndex === 3 && (
           <Grid container spacing={2} alignItems="center" justify="center">
             <Grid item xs={12} md={6}>

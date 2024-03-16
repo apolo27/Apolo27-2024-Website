@@ -1,0 +1,42 @@
+.searchTree,
+.sortingNode {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.sortingNode {
+  width: 813px;
+  flex-direction: column;
+  gap: var(--gap-31xl);
+  min-width: 813px;
+}
+.searchTree {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0;
+  box-sizing: border-box;
+  gap: var(--gap-10xl);
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color-orange);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 1325px) {
+  .sortingNode {
+    flex: 1;
+  }
+  .searchTree {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .sortingNode {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sortingNode {
+    gap: 25px 50px;
+  }
+}
