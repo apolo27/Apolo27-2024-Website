@@ -14,39 +14,21 @@ import task4 from '../../imgs/Simulation/task4.png'
 function RoverSimulation(props){
   const t = props.t;
 
-  if(window.screen.width < 1280) {
-    return (
-      <div className="stars">      
-        <h1>{t('SimulationWarning')}</h1>
-        <div className="objects">
-          <div className="box_astronaut">
-            <img className="object_astronaut" src="http://salehriaz.com/404Page/img/astronaut.svg" width="140px" alt='Astronauta'/>
-          </div>
-        </div>
-        <div className="glowing_stars">
-          <div className="star"></div>
-          <div className="star"></div>
-          <div className="star"></div>
-          <div className="star"></div>
-          <div className="star"></div>
-        </div>
-      </div>
-    )
-  }
-  else{
     return (
       <div style={{textAlign: 'center', marginTop: 50}}>
-        <h1 className='simulation_text'>Simulador del NASA Human Exploration Rover Challenge</h1>
+        <h1 className='simulation_header'>Simulador del NASA Human Exploration Rover Challenge</h1>
         <Container>
-          {/*
-            <Unity unityProvider={unityProvider} className='simulation'/>
-          */}
-          <iframe className='simulation' title='NASA HERC SIMULATION' frameborder="0" src="https://itch.io/embed-upload/9819933?color=333333" allowfullscreen="" width="100%" height="100%"><a href="https://ctrl-sebastian.itch.io/rover-simulation">Play Rover Simulation on itch.io</a></iframe>
+          {
+            window.screen.width >= 1280 ?
+            <iframe className='simulation' title='NASA HERC SIMULATION' frameborder="0" src="https://itch.io/embed-upload/9819933?color=333333" allowfullscreen="" width="100%" height="100%"><a href="https://ctrl-sebastian.itch.io/rover-simulation">Play Rover Simulation on itch.io</a></iframe>
+            : <h1 className='simulation_warning'>{t('SimulationWarning')}</h1>
+          }
           
           <hr></hr>
 
           <div className="simulation_info">
-            {<Carousel style={{paddingTop: 25, paddingLeft: 25, paddingRight: 25}}>
+            {
+              <Carousel style={{paddingTop: 25, paddingLeft: 25, paddingRight: 25}}>
               <Carousel.Item>
                 <img className='d-block w-100' src={customizacion} alt='second'></img>
                 <Carousel.Caption>
@@ -74,7 +56,8 @@ function RoverSimulation(props){
                   <h2>¡Cumple tareas!</h2>
                 </Carousel.Caption>
               </Carousel.Item>
-            </Carousel>}
+              </Carousel>
+            }
 
             <div className="cards">
               <Card>
@@ -124,7 +107,7 @@ function RoverSimulation(props){
         </Container>
       </div>
     )
-  }
 }
+
 
 export default RoverSimulation;

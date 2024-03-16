@@ -11,7 +11,11 @@
     border-radius: 15px;
 }
 
-.simulation_text{
+.simulation_warning{
+    background-color: #000;
+}
+
+.simulation_text, .simulation_header{
     background: linear-gradient(#647ae6, #e75229);    border-radius: 15px;
     padding: 25px;
 }
@@ -27,4 +31,20 @@
 
 .cards .card{
     width: 300px;
+}
+
+@media screen and (max-width: 1200px) {
+    .carousel-item{
+        height: 200px;
+    }
+    .carousel-caption h2{
+        font-size: 18px;
+    }
+
+    .cards{
+        flex-wrap: wrap;
+    }
+    .simulation_header{
+        font-size: 24px;
+    }
 }
