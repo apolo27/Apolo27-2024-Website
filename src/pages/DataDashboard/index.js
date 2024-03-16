@@ -66,6 +66,7 @@ const DataDashboard = (props) => {
   const [data, setData] = useState(null);
   const [processedData, setProcessedData] = useState([]);
   const [surroundingTemp, setSurroundingTemp] = useState(61);
+  
   const [temperatura1, setTemperatura1] = useState(0);
   const [humedadRelativa1, setHumedadRelativa1] = useState(0);
   const [presionAtmosferica1, setPresionAtmosferica1] = useState(0);
