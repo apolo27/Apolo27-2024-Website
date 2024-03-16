@@ -285,7 +285,7 @@ const StemWithUs = (props) => {
         <div className='stem-with-us' style={{textAlign: "center"}}>
           <div>
             <Container style={{position: 'relative'}}>
-            <div className='stem-with-us-container'></div>
+            {/*<div className='stem-with-us-container'></div>*/}
               <section style={{display: 'flex', position: 'relative'}}>
                 <div style={{position: 'absolute'}}>
                   <img style={{position: 'relative'}} src={STEM} alt='STEM'></img>
