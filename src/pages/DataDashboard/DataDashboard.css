@@ -26,6 +26,7 @@
     width: 325px;
     height: 260px;
     font-family: 'Poppins';
+
 }
 
 .participants{
@@ -49,7 +50,7 @@
 .crewmembers-title{
     font-weight: 700;
     text-align: center;
-    padding-left: 0;
+    font-family: 'Poppins';
 }
 
 .crewmembers-select{
@@ -217,14 +218,19 @@
 }
 
 @media screen and (max-width: 1535px){
-    .herc-map, .video-container{
+    .video-container{
         width: 1200px;
         height: 500px;
 
     }
 
-    .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek {
+    .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek{
         width: 415px;
+    }
+
+    .herc-map{
+        width: 390px;
+        height: 275px;
     }
 
     
@@ -263,6 +269,11 @@
         width: 415px;
     }
 
+    .herc-map{
+        width: 390px;
+        height: 275px;
+    }
+
     
 
     .environment-sneakpeek h4{
@@ -296,6 +307,10 @@
     .environment-sneakpeek, .participants{
         display: block;
     }
+    .herc-map{
+        width: 390px;
+        height: 275px;
+    }
 }
 
 @media screen and (max-width: 720px){
@@ -314,14 +329,22 @@
     }
     .video-container {
         padding-bottom: 75%; /* Proporción de aspecto 4:3 (ajusta según necesites) */
-      }
+    }
+    .herc-map{
+        width: 390px;
+        height: 275px;
+    }
 
 }
 
 @media screen and (max-width: 520px){
-    .herc-map, .video-container{
+    .video-container{
         width: 350px;
         height: 200px;
+    }
+    .herc-map{
+        width: 325px;
+        height: 275px;
     }
 }
 
