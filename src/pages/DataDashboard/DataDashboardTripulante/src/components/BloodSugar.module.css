@@ -8,6 +8,17 @@
   bottom: 0;
   left: 0;
 }
+
+.chartContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%; /* Ajustapara el gráfico */
+  padding: 0 var(--padding-lg); /*sustituir con un valor si no se encuentra */
+  background: var(--color-dark); 
+}
+
 .queueManager {
   margin: 0 !important;
   border-radius: var(--br-21xl);
