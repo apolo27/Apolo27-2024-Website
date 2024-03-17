@@ -1,5 +1,6 @@
 import ActivityCrewMember from "./ActivityCrewMember";
 import styles from "./BottonLine.module.css";
+import vector2 from "../../public/vector-2.svg";
 
 const BottonLine = () => {
   return (
@@ -23,7 +24,7 @@ const BottonLine = () => {
             </div>
           </div>
           <button className={styles.locationbutton}>
-            <img className={styles.filterNodeIcon} alt="" src="/vector-2.svg" />
+            <img className={styles.filterNodeIcon} alt="" src={vector2} />
           </button>
         </div>
       </div>

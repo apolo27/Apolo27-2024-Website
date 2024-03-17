@@ -2,6 +2,9 @@ import BloodSugar from "./BloodSugar";
 import BloodPressure from "./BloodPressure";
 import HeartRate from "./HeartRate";
 import styles from "./MeditionsDetails.module.css";
+import vector3 from "../../public/vector-3.svg";
+import group from "../../public/group.svg";
+import group1 from "../../public/group-1.svg";
 
 const MeditionsDetails = () => {
   return (
@@ -11,7 +14,7 @@ const MeditionsDetails = () => {
         <img
           className={styles.auntTwiceRemovedNodes}
           alt=""
-          src="/vector-3.svg"
+          src={vector3}
         />
       </div>
       <div className={styles.matrixRow}>
@@ -30,13 +33,13 @@ const MeditionsDetails = () => {
             className={styles.groupIcon}
             loading="lazy"
             alt=""
-            src="/group.svg"
+            src={group}
           />
         </div>
       </div>
       <div className={styles.splitNode1}>
         <HeartRate />
-        <img className={styles.groupIcon1} alt="" src="/group-1.svg" />
+        <img className={styles.groupIcon1} alt="" src={group1} />
       </div>
     </div>
   );
