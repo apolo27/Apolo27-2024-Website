@@ -1,38 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { Line } from "react-chartjs-2";
 import 'chart.js/auto';
-import styles from "./BloodSugar.module.css";
 
-// Suponiendo que este JSON simula los datos que vendrán de Firebase en el futuro
-const historicalData = {
-  spo2: [
-    { value: 95, timestamp: "Momento 1" },
-    { value: 97, timestamp: "Momento 2" },
-    // Añade más datos simulados aquí
-  ],
-  status: "Normal", // Este valor podría determinarse dinámicamente basado en `spo2`
+const fetchSpO2Data = () => {
+  // Simulating fetching data; replace with 
+  return {
+    currentSpO2: 95,
+    status: "Normal",
+    historicalData: [92, 93, 94, 95, 96, 95, 94, 95], // Example historical SpO2 data
+  };
 };
 
-const BloodSugar = () => {
-  const [currentSpO2, setCurrentSpO2] = useState(historicalData.spo2[historicalData.spo2.length - 1].value);
-  const [status, setStatus] = useState(historicalData.status);
+const SpO2Card = () => {
+  const [spO2Data, setSpO2Data] = useState({
+    currentSpO2: 0,
+    status: "",
+    historicalData: [],
+  });
+
+  useEffect(() => {
+    const data = fetchSpO2Data();
+    setSpO2Data(data);
+  }, []);
 
   const data = {
-    labels: historicalData.spo2.map(data => data.timestamp), // Usar timestamp para las etiquetas
+    labels: spO2Data.historicalData.map((_, index) => `Time ${index}`),
     datasets: [
       {
-        label: 'SpO2',
-        data: historicalData.spo2.map(data => data.value), // Mapear valores de SpO2 para el dataset
+        label: "SpO2",
+        data: spO2Data.historicalData,
         fill: true,
         backgroundColor: "rgba(231, 155, 56, 0.2)",
         borderColor: "rgba(231, 155, 56, 1)",
-        pointRadius: 0,
+        tension: 0.1,
       },
     ],
   };
 
   const options = {
-    responsive: true,
     plugins: {
       legend: {
         display: false,
@@ -43,28 +49,94 @@ const BloodSugar = () => {
         display: false,
       },
       y: {
-        display: false,
+        beginAtZero: true,
       },
     },
+    maintainAspectRatio: false,
   };
 
   return (
-    <div className={styles.bloodSugar}>
-      {/* Elementos previos omitidos para brevedad */}
-      <div className={styles.descendantThriceRemovedNode}>
-        <div className={styles.siblingThriceRemovedNodes}>
-          {/* Mostrar medición actual de SpO2 */}
-          <div className={styles.uncleThriceRemoved}>{currentSpO2}%</div>
-        </div>
-        {/* Mostrar estado actual basado en SpO2 */}
-        <div className={styles.normal}>{status}</div>
-      </div>
-      <div className={styles.wrapperGroup11}>
-        {/* Aquí se renderiza el gráfico de línea */}
-        <Line data={data} options={options} />
-      </div>
-    </div>
+    <CardWrapper>
+      <CardHeader>
+        <IconWrapper />
+        <CardTitle>SpO2</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Value>{spO2Data.currentSpO2}</Value>
+        <Unit>%</Unit>
+        <StatusLabel>{spO2Data.status}</StatusLabel>
+      </CardContent>
+      <GraphWrapper> {/* This is where you use GraphWrapper */}
+        <Line data={data} options={options} height={60} />
+      </GraphWrapper>
+    </CardWrapper>
   );
 };
 
-export default BloodSugar;
+
+
+const CardWrapper = styled.div`
+  border-radius: 40px;
+  box-shadow: 0px 1px 50px 0px rgba(0, 0, 0, 0.08);
+  background-color: var(--Dentro-del-glass, rgba(0, 0, 0, 0.21));
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+`;
+
+const CardHeader = styled.header`
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  color: #ffa025;
+  font-weight: 600;
+`;
+
+const IconWrapper = styled.div`
+  border-radius: 12px;
+  background-color: #f8debd;
+  width: 58px;
+  height: 58px;
+`;
+
+const CardTitle = styled.h2`
+  text-shadow: 0px 0px 5.6px rgba(231, 155, 56, 0.67);
+  font-family: Poppins, sans-serif;
+  margin: auto 0;
+`;
+
+const CardContent = styled.div`
+  display: flex;
+  margin-top: 19px;
+  gap: 4px;
+`;
+
+const Value = styled.span`
+  color: #ffa025;
+  text-shadow: 0px 0px 9.6px rgba(255, 160, 37, 0.57);
+  font: 400 32px Poppins, sans-serif;
+`;
+
+const Unit = styled.span`
+  color: #818181;
+  flex-grow: 1;
+  margin: auto 0;
+  font: 700 16px Poppins, sans-serif;
+`;
+
+const StatusLabel = styled.div`
+  border-radius: 4px;
+  background-color: rgba(36, 228, 164, 0.2);
+  color: #24e4a4;
+  text-align: center;
+  padding: 4px 8px;
+  font: 600 12px Poppins, sans-serif;
+`;
+
+const GraphWrapper = styled.div`
+  width: 100%;
+  align-self: center;
+  margin-top: 6px;
+`;
+
+export default SpO2Card;

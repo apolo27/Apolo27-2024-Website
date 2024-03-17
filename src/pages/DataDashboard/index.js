@@ -1,5 +1,5 @@
 import FrameComponent from './DataDashboardTripulante/src/components/BottonLine';
-import FrameComponentAmbient from './DataDashboardAmbiente/src/components/ComponentsPartsDetail';
+//import FrameComponentAmbient from './DataDashboardAmbiente/src/components/ComponentsPartsDetail';
 import './DataDashboardTripulante/src/global.css';
 import "./DataDashboard.css";
 import React, { useEffect, useState } from "react";
@@ -502,7 +502,7 @@ const DataDashboard = (props) => {
           </Canvas>
         )}
         {activeIndex === 2 && <FrameComponent/>}
-        {activeIndex === 3 && <FrameComponentAmbient />}
+        {activeIndex === 3 && <div/>} {/*<FrameComponentAmbient />*/}
       </div>
 
       {/*
