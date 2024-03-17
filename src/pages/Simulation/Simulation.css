@@ -5,9 +5,47 @@
 
 .simulation_info{
     background-color: #1d233fcb;
-    padding: 25px;
+    
     margin-bottom: 125px;
 
     border-radius: 15px;
+}
 
+.simulation_warning{
+    background-color: #000;
+}
+
+.simulation_text, .simulation_header{
+    background: linear-gradient(#3E4879, #1366aec6);    
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.cards{
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards .card{
+    width: 300px;
+}
+
+@media screen and (max-width: 1200px) {
+    .carousel-item{
+        height: 200px;
+    }
+    .carousel-caption h2{
+        font-size: 18px;
+    }
+
+    .cards{
+        flex-wrap: wrap;
+    }
+    .simulation_header{
+        font-size: 24px;
+    }
 }
