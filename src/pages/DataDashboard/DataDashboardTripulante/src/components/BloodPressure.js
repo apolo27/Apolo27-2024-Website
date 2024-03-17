@@ -9,51 +9,95 @@ const fetchBloodPressureData = () => {
     currentSystolic: 120,
     currentDiastolic: 80,
     status: "Normal",
+    historicalData: {
+      sistolic: [120, 121, 122, 120, 118, 119],
+      diastolic: [80, 82, 81, 79, 78, 77]
+    },
   };
 };
 
+const getStatusColor = (status) => {
+  switch (status) {
+    case "Normal":
+      return "#24e4a4";
+    case "Precaución":
+      return "#f7b500";
+    case "Alerta":
+      return "#ff4d4d";
+    default:
+      return "#999"; // Color por defecto
+  }
+};
+
 const BloodPressureCard = () => {
-  const [bloodPressure, setBloodPressure] = useState({
-    currentSystolic: 0,
-    currentDiastolic: 0,
-    status: '',
-  });
+  const [bloodPressure, setBloodPressure] = useState(fetchBloodPressureData());
 
   useEffect(() => {
-    const data = fetchBloodPressureData();
-    setBloodPressure(data);
+    // Aquí se haría el fetch a la API o Firebase en un caso real
+    const intervalId = setInterval(() => {
+      setBloodPressure(fetchBloodPressureData());
+    }, 5000); // Actualizamos los datos cada 5 segundos por ejemplo
+
+    return () => clearInterval(intervalId);
   }, []);
 
-  // Ajustes para el gráfico
   const data = {
-    labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
+    labels: bloodPressure.historicalData.sistolic.map((_, index) => `Mes ${index + 1}`),
     datasets: [
       {
-        label: "Sistólica",
-        data: [120, 121, 122, 120, 118, 119],
-        borderColor: "#FF6384",
+        label: 'Sistólica',
+        data: bloodPressure.historicalData.sistolic,
+        borderColor: getStatusColor(bloodPressure.status),
+        backgroundColor: getStatusColor(bloodPressure.status),
         fill: false,
+        tension: 0.4,
+        pointRadius: 0, // Puntos invisibles
+        borderWidth: 2,
       },
       {
-        label: "Diastólica",
-        data: [80, 82, 81, 79, 78, 77],
-        borderColor: "#36A2EB",
+        label: 'Diastólica',
+        data: bloodPressure.historicalData.diastolic,
+        borderColor: getStatusColor(bloodPressure.status),
+        backgroundColor: getStatusColor(bloodPressure.status),
         fill: false,
+        tension: 0.4,
+        pointRadius: 0, // Puntos invisibles
+        borderWidth: 2,
       },
     ],
   };
 
-  const getStatusColor = () => {
-    switch (bloodPressure.status) {
-      case "Normal":
-        return "rgba(36, 228, 164, 0.2)";
-      case "Precaución":
-        return "rgba(255, 206, 86, 0.2)";
-      case "Alerta":
-        return "rgba(255, 99, 132, 0.2)";
-      default:
-        return "rgba(201, 203, 207, 0.2)";
-    }
+  const options = {
+    plugins: {
+      legend: {
+        display: false, // Ocultar leyenda
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+    },
+    interaction: {
+      intersect: false,
+      mode: 'index',
+    },
+    hover: {
+      mode: 'index',
+    },
+    elements: {
+      point: {
+        hoverRadius: 7, // Tamaño del punto al pasar el mouse
+      },
+    },
   };
 
   return (
@@ -66,11 +110,17 @@ const BloodPressureCard = () => {
         <PressureValue>{bloodPressure.currentSystolic}</PressureValue>
         <PressureUnit>/ {bloodPressure.currentDiastolic} mmHg</PressureUnit>
       </CardContent>
-      <StatusLabel backgroundColor={getStatusColor()}>{bloodPressure.status}</StatusLabel>
-      <Line data={data} />
+      <StatusLabel>{bloodPressure.status}</StatusLabel>
+      <Line data={data} options={options} /> 
     </CardWrapper>
   );
 };
+
+
+
+
+  
+
 
 const CardWrapper = styled.div`
   border-radius: 40px;
@@ -126,17 +176,33 @@ const PressureUnit = styled.span`
   }
 `;
 
+const getStatusBackgroundColor = (status) => {
+  switch (status) {
+    case "Normal":
+      return "rgba(36, 228, 164, 0.5)"; // Color verde más claro
+    case "Caution":
+      return "rgba(255, 206, 86, 0.5)"; // Color amarillo más claro
+    case "Alert":
+      return "rgba(255, 99, 132, 0.5)"; // Color rojo más claro
+    default:
+      return "rgba(201, 203, 207, 0.5)"; // Color gris por defecto más claro
+  }
+};
+
 const StatusLabel = styled.div`
   border-radius: 4px;
-  background-color: ${(props) => props.backgroundColor};
-  color: #24e4a4;
+  background-color: ${(props) => getStatusBackgroundColor(props.status)};
+  color: #24e4a4; // Cambiado a blanco para mejor contraste
   white-space: nowrap;
   justify-content: center;
   padding: 4px 8px;
-  font: 12px Poppins, sans-serif;
+  font: 12px 'Poppins', sans-serif;
+  margin-top: 10px;
+  text-align: center; // Asegurándose de que el texto esté centrado
 
   @media (max-width: 991px) {
-    padding-left: -2px;
+    padding-left: 6px; // Ajustado para que no sea negativo
+    padding-right: 6px;
   }
 `;
 

@@ -1,7 +1,117 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Line } from "react-chartjs-2";
+import 'chart.js/auto';
+import database from "../../../../../services/firebase"; 
+
+
+
+// Umbrales para la clasificación del ritmo cardíaco
+const RATE_THRESHOLDS = {
+  HIGH: 100,     // Muy alto
+  ELEVATED: 90,  // Elevado
+};
+
+// Determina el color basado en el estado del ritmo cardíaco
+const determineColor = (status) => {
+  if (status === "Normal") {
+    return "#24e4a4"; // Verde para normal
+  }
+  return "#ff4d4d"; // Rojo para elevado y muy alto
+};
+
+// Determina el estado basado en el ritmo cardíaco
+const determineStatus = (rate) => {
+  if (rate >= RATE_THRESHOLDS.HIGH) {
+    return "Muy alto";
+  } else if (rate >= RATE_THRESHOLDS.ELEVATED) {
+    return "Elevado";
+  }
+  return "Normal";
+};
 
 const HeartRateCard = () => {
+  const [heartRate, setHeartRate] = useState({
+    currentRate: 0,
+    status: "Normal",
+    historicalData: []
+  });
+
+  useEffect(() => {
+    // Función para manejar los datos de Firebase
+    const handleNewData = (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        // Asegúrate de que 'rate' sea la propiedad que contiene el ritmo cardíaco actual en tu base de datos
+        const latestRate = data.rate; 
+        
+        // Actualiza el estado con el nuevo ritmo cardíaco y el estado determinado
+        const newStatus = determineStatus(latestRate);
+        setHeartRate(prevData => ({
+          ...prevData,
+          currentRate: latestRate,
+          status: newStatus,
+          historicalData: [...prevData.historicalData.slice(-9), latestRate] // Mantén solo los últimos 10 registros
+        }));
+      } else {
+        console.log("No heart rate data available");
+      }
+    };
+  
+    // Referencia a los datos de ritmo cardíaco en Firebase
+    const heartRateRef = database.ref('/heart-rate-data');
+  
+    // Suscribirse a los cambios en los datos de ritmo cardíaco
+    heartRateRef.on('value', handleNewData, error => console.error(error));
+  
+    // Limpieza al desmontar el componente
+    return () => heartRateRef.off('value', handleNewData);
+  }, []);
+  
+
+  // Configuración del gráfico
+  const chartData = {
+    labels: heartRate.historicalData.map((_, index) => `Time ${index + 1}`),
+    datasets: [
+      {
+        label: "Heart Rate",
+        data: heartRate.historicalData,
+        borderColor: "#ff4d4d",
+        backgroundColor: "#ff4d4d20",
+        fill: true,
+        tension: 0.3,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return `${context.dataset.label}: ${context.parsed.y} bpm (${heartRate.status})`;
+          }
+        }
+      },
+      legend: {
+        display: false, // Oculta la leyenda
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    hover: {
+      mode: 'nearest',
+      intersect: true,
+    },
+  };
+
   return (
     <CardWrapper>
       <CardContent>
@@ -10,11 +120,11 @@ const HeartRateCard = () => {
           <CardTitle>Heart Rate</CardTitle>
         </CardHeader>
         <HeartRateValue>
-          <Value>98</Value>
+          <Value>{heartRate.currentRate}</Value>
           <Unit>bpm</Unit>
         </HeartRateValue>
-        <Status>Normal</Status>
-        <HeartRateGraph src="heart-rate-graph.png" alt="Heart rate graph" />
+        <Status backgroundColor={determineColor(heartRate.status)} status={heartRate.status}>{heartRate.status}</Status>
+        <Line data={chartData} options={chartOptions} />
       </CardContent>
     </CardWrapper>
   );
@@ -76,19 +186,13 @@ const Unit = styled.span`
 
 const Status = styled.div`
   border-radius: 4px;
-  background-color: rgba(36, 228, 164, 0.2);
-  color: #24e4a4;
+  background-color: ${(props) => props.backgroundColor};
+  color: ${(props) => (props.status === "Normal" ? "#24E4A4" : "#24E4A4")};
   white-space: nowrap;
   text-align: center;
   padding: 4px 8px;
   font: 600 12px Poppins, sans-serif;
 `;
 
-const HeartRateGraph = styled.img`
-  width: 173px;
-  height: auto;
-  align-self: center;
-  margin-top: 10px;
-`;
 
 export default HeartRateCard;
