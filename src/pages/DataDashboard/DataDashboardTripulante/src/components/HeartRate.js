@@ -2,42 +2,72 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Line } from "react-chartjs-2";
 import 'chart.js/auto';
+import database from "../../../../../services/firebase"; 
 
-// Simulación de obtención de datos de ritmo cardíaco
-const fetchHeartRateData = () => {
-  return {
-    currentRate: 98, // El ritmo cardíaco actual
-    status: "Normal", // El estado de salud basado en el ritmo cardíaco
-    historicalData: [92, 95, 90, 85, 88, 92, 94, 98], // Datos históricos simulados
-  };
+
+
+// Umbrales para la clasificación del ritmo cardíaco
+const RATE_THRESHOLDS = {
+  HIGH: 100,     // Muy alto
+  ELEVATED: 90,  // Elevado
 };
 
-
+// Determina el color basado en el estado del ritmo cardíaco
 const determineColor = (status) => {
-  switch (status) {
-    case "Elevado":
-      return "#f7b500"; // Amarillo para elevado
-    case "Muy alto":
-      return "#ff4d4d"; // Rojo para muy alto
-    default:
-      return "#24e4a4"; // Verde para normal
+  if (status === "Normal") {
+    return "#24e4a4"; // Verde para normal
   }
+  return "#ff4d4d"; // Rojo para elevado y muy alto
 };
 
-
-
-
+// Determina el estado basado en el ritmo cardíaco
+const determineStatus = (rate) => {
+  if (rate >= RATE_THRESHOLDS.HIGH) {
+    return "Muy alto";
+  } else if (rate >= RATE_THRESHOLDS.ELEVATED) {
+    return "Elevado";
+  }
+  return "Normal";
+};
 
 const HeartRateCard = () => {
-  const [heartRate, setHeartRate] = useState(fetchHeartRateData());
+  const [heartRate, setHeartRate] = useState({
+    currentRate: 0,
+    status: "Normal",
+    historicalData: []
+  });
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setHeartRate(fetchHeartRateData());
-    }, 5000); // Simula la actualización de datos cada 5 segundos
-
-    return () => clearInterval(intervalId);
+    // Función para manejar los datos de Firebase
+    const handleNewData = (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        // Asegúrate de que 'rate' sea la propiedad que contiene el ritmo cardíaco actual en tu base de datos
+        const latestRate = data.rate; 
+        
+        // Actualiza el estado con el nuevo ritmo cardíaco y el estado determinado
+        const newStatus = determineStatus(latestRate);
+        setHeartRate(prevData => ({
+          ...prevData,
+          currentRate: latestRate,
+          status: newStatus,
+          historicalData: [...prevData.historicalData.slice(-9), latestRate] // Mantén solo los últimos 10 registros
+        }));
+      } else {
+        console.log("No heart rate data available");
+      }
+    };
+  
+    // Referencia a los datos de ritmo cardíaco en Firebase
+    const heartRateRef = database.ref('/heart-rate-data');
+  
+    // Suscribirse a los cambios en los datos de ritmo cardíaco
+    heartRateRef.on('value', handleNewData, error => console.error(error));
+  
+    // Limpieza al desmontar el componente
+    return () => heartRateRef.off('value', handleNewData);
   }, []);
+  
 
   // Configuración del gráfico
   const chartData = {
@@ -46,8 +76,8 @@ const HeartRateCard = () => {
       {
         label: "Heart Rate",
         data: heartRate.historicalData,
-        borderColor: determineColor(heartRate.status),
-        backgroundColor: determineColor(heartRate.status) + '20', // Añade transparencia al color para el fondo
+        borderColor: "#ff4d4d",
+        backgroundColor: "#ff4d4d20",
         fill: true,
         tension: 0.3,
       },
@@ -93,7 +123,7 @@ const HeartRateCard = () => {
           <Value>{heartRate.currentRate}</Value>
           <Unit>bpm</Unit>
         </HeartRateValue>
-        <Status backgroundColor={determineColor(heartRate.status)}>{heartRate.status}</Status>
+        <Status backgroundColor={determineColor(heartRate.status)} status={heartRate.status}>{heartRate.status}</Status>
         <Line data={chartData} options={chartOptions} />
       </CardContent>
     </CardWrapper>
@@ -157,18 +187,12 @@ const Unit = styled.span`
 const Status = styled.div`
   border-radius: 4px;
   background-color: ${(props) => props.backgroundColor};
-  color: #24e4a4;
+  color: ${(props) => (props.status === "Normal" ? "#24E4A4" : "#24E4A4")};
   white-space: nowrap;
   text-align: center;
   padding: 4px 8px;
   font: 600 12px Poppins, sans-serif;
 `;
 
-const HeartRateGraph = styled.img`
-  width: 173px;
-  height: auto;
-  align-self: center;
-  margin-top: 10px;
-`;
 
 export default HeartRateCard;
