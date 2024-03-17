@@ -1,5 +1,9 @@
 import FrameComponent1 from "./FrameComponent1";
 import styles from "./FrameComponent.module.css";
+import frame1 from "../../public/frame-1.svg";
+import frame2 from "../../public/frame-2.svg";
+import frame3 from "../../public/frame-3.svg";
+import fill283 from "../../public/fill283.svg";
 
 const FrameComponent = () => {
   return (
@@ -13,7 +17,7 @@ const FrameComponent = () => {
           <div className={styles.valueCalculator}>
             <div className={styles.vantroi}>VANTROI</div>
             <div className={styles.splitter}>
-              <img className={styles.mergerIcon} alt="" src="/frame-1.svg" />
+              <img className={styles.mergerIcon} alt="" src={frame1} />
             </div>
           </div>
         </div>
@@ -104,19 +108,19 @@ const FrameComponent = () => {
           <FrameComponent1
             chestIn="Chest (in)"
             shapeAssembler="44.5"
-            colorCombiner="/frame-2.svg"
+            colorCombiner={frame2}
           />
           <FrameComponent1
             chestIn="Waist (in)"
             shapeAssembler="34"
-            colorCombiner="/frame-3.svg"
+            colorCombiner={frame3}
             propPadding="var(--padding-5xl) var(--padding-12xl)"
             propPadding1="0px var(--padding-2xs) 0px var(--padding-3xs)"
           />
           <FrameComponent1
             chestIn="Hip (in)"
             shapeAssembler="42.5"
-            colorCombiner="/frame-3.svg"
+            colorCombiner={frame3}
             propPadding="var(--padding-5xl) var(--padding-13xl)"
             propPadding1="unset"
           />
@@ -125,7 +129,7 @@ const FrameComponent = () => {
           className={styles.fill283Icon}
           loading="lazy"
           alt=""
-          src="/fill283.svg"
+          src={fill283}
         />
       </div>
     </div>
