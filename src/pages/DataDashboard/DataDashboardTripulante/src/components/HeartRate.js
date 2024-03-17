@@ -1,7 +1,87 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Line } from "react-chartjs-2";
+import 'chart.js/auto';
+
+// Simulación de obtención de datos de ritmo cardíaco
+const fetchHeartRateData = () => {
+  return {
+    currentRate: 98, // El ritmo cardíaco actual
+    status: "Normal", // El estado de salud basado en el ritmo cardíaco
+    historicalData: [92, 95, 90, 85, 88, 92, 94, 98], // Datos históricos simulados
+  };
+};
+
+
+const determineColor = (status) => {
+  switch (status) {
+    case "Elevado":
+      return "#f7b500"; // Amarillo para elevado
+    case "Muy alto":
+      return "#ff4d4d"; // Rojo para muy alto
+    default:
+      return "#24e4a4"; // Verde para normal
+  }
+};
+
+
+
+
 
 const HeartRateCard = () => {
+  const [heartRate, setHeartRate] = useState(fetchHeartRateData());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setHeartRate(fetchHeartRateData());
+    }, 5000); // Simula la actualización de datos cada 5 segundos
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  // Configuración del gráfico
+  const chartData = {
+    labels: heartRate.historicalData.map((_, index) => `Time ${index + 1}`),
+    datasets: [
+      {
+        label: "Heart Rate",
+        data: heartRate.historicalData,
+        borderColor: determineColor(heartRate.status),
+        backgroundColor: determineColor(heartRate.status) + '20', // Añade transparencia al color para el fondo
+        fill: true,
+        tension: 0.3,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return `${context.dataset.label}: ${context.parsed.y} bpm (${heartRate.status})`;
+          }
+        }
+      },
+      legend: {
+        display: false, // Oculta la leyenda
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    hover: {
+      mode: 'nearest',
+      intersect: true,
+    },
+  };
+
   return (
     <CardWrapper>
       <CardContent>
@@ -10,11 +90,11 @@ const HeartRateCard = () => {
           <CardTitle>Heart Rate</CardTitle>
         </CardHeader>
         <HeartRateValue>
-          <Value>98</Value>
+          <Value>{heartRate.currentRate}</Value>
           <Unit>bpm</Unit>
         </HeartRateValue>
-        <Status>Normal</Status>
-        <HeartRateGraph src="heart-rate-graph.png" alt="Heart rate graph" />
+        <Status backgroundColor={determineColor(heartRate.status)}>{heartRate.status}</Status>
+        <Line data={chartData} options={chartOptions} />
       </CardContent>
     </CardWrapper>
   );
@@ -76,7 +156,7 @@ const Unit = styled.span`
 
 const Status = styled.div`
   border-radius: 4px;
-  background-color: rgba(36, 228, 164, 0.2);
+  background-color: ${(props) => props.backgroundColor};
   color: #24e4a4;
   white-space: nowrap;
   text-align: center;
