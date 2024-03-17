@@ -1,4 +1,5 @@
 import FrameComponent from './DataDashboardTripulante/src/components/BottonLine';
+//import FrameComponentAmbient from './DataDashboardAmbiente/src/components/ComponentsPartsDetail';
 import './DataDashboardTripulante/src/global.css';
 import "./DataDashboard.css";
 import React, { useEffect, useState } from "react";
