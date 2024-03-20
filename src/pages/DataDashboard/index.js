@@ -44,8 +44,6 @@ import {
 //import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography } from '@mui/material';
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { Canvas } from "@react-three/fiber";
-import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
 
 import tempIcon from "../../imgs/DataDashboard/tempIcon.png";
 import Crewmembers from "../../imgs/DataDashboard/Frame Crewmembers.svg";
@@ -57,10 +55,8 @@ import YouTube from "react-youtube";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { axisClasses } from "@mui/x-charts";
 
-function Model(props) {
-  const { scene } = useGLTF("./rover.glb");
-  return <primitive object={scene} {...props} />;
-}
+import Rover from './DataDashboardRover/index.js';
+
 
 const DataDashboard = (props) => {
   let t = props.t;
@@ -535,22 +531,7 @@ const DataDashboard = (props) => {
           </Grid>
         )}
         {activeIndex === 1 && (
-          <Canvas
-            spr={[1, 2]}
-            camera={{ fov: 45 }}
-            style={{ width: "100%", height: "720px" }}
-          >
-            <color attach="background" args={["#283b66"]} />
-            <PresentationControls
-              speed={1.5}
-              zoom={0.5}
-              polar={[-0.1, Math.PI / 4]}
-            >
-              <Stage environment={null}>
-                <Model scale={0.25} />
-              </Stage>
-            </PresentationControls>
-          </Canvas>
+          <Rover/>
         )}
         {activeIndex === 2 && <FrameComponent />}
         {activeIndex === 3 && (
