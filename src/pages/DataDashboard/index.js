@@ -271,7 +271,8 @@ const DataDashboard = (props) => {
   ];
 
   return (
-    <Container maxWidth="auto" style={{ marginTop: "50px" }}>
+    <div className={(activeIndex === 1 ? 'data-dashboard-container' : '')}>
+    <Container maxWidth="auto" style={{ paddingTop: "50px" }}>
       <BottomNavigation
         value={activeIndex}
         onChange={handleChange}
@@ -1167,6 +1168,7 @@ const DataDashboard = (props) => {
       </Table>
       */}
     </Container>
+    </div>
   );
 };
 
