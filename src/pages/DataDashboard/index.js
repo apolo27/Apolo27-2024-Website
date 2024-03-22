@@ -552,7 +552,7 @@ const DataDashboard = (props) => {
             </PresentationControls>
           </Canvas>
         )}
-        {activeIndex === 2 && <FrameComponent />}
+        {activeIndex === 2 && <FrameComponent activeIndex={activeIndex}/>}
         {activeIndex === 3 && (
           <Grid container spacing={2} alignItems="center" justifyContent={'center'}>
             <Grid item xs={12} md={5}>

@@ -30,7 +30,7 @@ const determineStatus = (rate) => {
   return "Normal";
 };
 
-const HeartRateCard = () => {
+const HeartRateCard = ({activeIndex}) => {
   const [heartRate, setHeartRate] = useState({
     currentRate: 0,
     status: "Normal",
@@ -38,35 +38,39 @@ const HeartRateCard = () => {
   });
 
   useEffect(() => {
+    if (activeIndex !== 2) {
+      // Si activeIndex no es 2, entonces este componente no debería estar activo
+      // y podrías querer evitar operaciones costosas o suscripciones.
+      return;
+    }
     // Función para manejar los datos de Firebase
     const handleNewData = (snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
-        // Asegúrate de que 'rate' sea la propiedad que contiene el ritmo cardíaco actual en tu base de datos
-        const latestRate = data.rate; 
-        
-        // Actualiza el estado con el nuevo ritmo cardíaco y el estado determinado
+        const latestRate = data.rate; // Asume que 'rate' es tu dato en Firebase
         const newStatus = determineStatus(latestRate);
         setHeartRate(prevData => ({
           ...prevData,
           currentRate: latestRate,
           status: newStatus,
-          historicalData: [...prevData.historicalData.slice(-9), latestRate] // Mantén solo los últimos 10 registros
+          historicalData: [...prevData.historicalData.slice(-9), latestRate] // Mantiene los últimos 10 registros
         }));
       } else {
         console.log("No heart rate data available");
       }
     };
-  
+    
     // Referencia a los datos de ritmo cardíaco en Firebase
     const heartRateRef = database.ref('/heart-rate-data');
   
     // Suscribirse a los cambios en los datos de ritmo cardíaco
     heartRateRef.on('value', handleNewData, error => console.error(error));
-  
+      
+
     // Limpieza al desmontar el componente
     return () => heartRateRef.off('value', handleNewData);
-  }, []);
+  }, [activeIndex]); // Agrega activeIndex como dependencia para reaccionar a sus cambios
+
   
 
   // Configuración del gráfico
@@ -187,7 +191,7 @@ const Unit = styled.span`
 const Status = styled.div`
   border-radius: 4px;
   background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => (props.status === "Normal" ? "#24E4A4" : "#24E4A4")};
+  color: ${(props) => (props.status === "Normal" ? "#FFFFF" : "#FFFFF")};
   white-space: nowrap;
   text-align: center;
   padding: 4px 8px;
