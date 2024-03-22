@@ -49,6 +49,7 @@
     "react-scripts": "^5.0.1",
     "react-social-media-embed": "^2.3.8",
     "react-unity-webgl": "^9.5.0",
+    "react-use": "^17.5.0",
     "react-youtube": "^10.1.0",
     "recharts": "^2.12.2",
     "three": "^0.162.0",
