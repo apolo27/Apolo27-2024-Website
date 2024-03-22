@@ -171,4 +171,13 @@ i {
 		bottom: -25px;
 		left: -25px;
 	}
+	.collapse {
+		transition: max-height 0.15s ease-out;
+		max-height: 0;
+		overflow: hidden;
+	}
+	
+	.collapse.show {
+		max-height: none;
+	}
 }

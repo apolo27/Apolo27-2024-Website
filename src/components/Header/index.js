@@ -1,15 +1,12 @@
-/* global jQuery */
-
-import './Header.css'
-
-import $ from 'jquery'; // Import jQuery
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import logo from '../../imgs/logo.svg'
-
+import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
+import { Link } from 'react-router-dom';
+import './Header.css';
+import logo from '../../imgs/logo.svg';
+import jQuery from 'jquery';
 
 function Header(props) {
-    let t = props.t;
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         function test() {
@@ -47,12 +44,6 @@ function Header(props) {
         $(window).on('resize', function () {
             setTimeout(function () { test(); }, 500);
         });
-        $(".navbar-toggler").click(function () {
-            $(".navbar-collapse").slideToggle(300);
-            setTimeout(function () { test(); });
-        });
-
-
         jQuery(document).ready(function ($) {
             var path = window.location.pathname.split("/").pop();
             if (path == '') {
@@ -67,12 +58,12 @@ function Header(props) {
         <nav className="navbar navbar-expand-custom navbar-mainbg">
             <a className="navbar-brand navbar-logo" href="/"></a>
             <a className="navbar-brand navbar-logo" href="/">
-            <img src={logo} alt="Logo" />
-        </a>
-            <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <img src={logo} alt="Logo" />
+            </a>
+            <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded={isOpen} aria-label="Toggle navigation" onClick={() => setIsOpen(!isOpen)}>
                 <i className="fas fa-bars text-white"></i>
             </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto">
                     <div className="hori-selector"><div className="left"></div><div className="right"></div></div>
                     <li className="nav-item active">
@@ -90,7 +81,7 @@ function Header(props) {
                 </ul>
             </div>
         </nav>
-    ) 
+    );
 }
 
 export default Header;
