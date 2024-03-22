@@ -2,8 +2,7 @@ import './DataDashboardRover.css'
 import React from 'react'
 import { Canvas } from "@react-three/fiber";
 import {Environment, useGLTF, Stage, PresentationControls } from "@react-three/drei";
-import background from '../../../imgs/DataDashboard/RoverBackground.jpg'
-    
+
 function Model(props) {
     const { scene } = useGLTF("./rover.glb");
     return <primitive object={scene} {...props} />;
@@ -12,11 +11,6 @@ function Model(props) {
 
 function Rover() {
   return (
-    <div className='rover-tab'>
-      <div>
-       
-      </div>
-      
       <Canvas
           spr={[1, 2]}
           camera={{ fov: 70 }}
@@ -34,11 +28,6 @@ function Rover() {
           </PresentationControls>
           
       </Canvas>
-
-      <div>
-
-      </div>
-    </div>
   )
 }
 

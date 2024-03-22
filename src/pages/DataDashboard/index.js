@@ -57,9 +57,13 @@ import { axisClasses } from "@mui/x-charts";
 
 import Rover from './DataDashboardRover/index.js';
 
+import { Chart } from "react-google-charts";
+
 
 const DataDashboard = (props) => {
   let t = props.t;
+  const [gaugeData, setGaugeData] = useState(getGaugeData);
+
   const [data, setData] = useState(null);
   const [dataGrafico, setDataGrafico] = useState(null);
   const [processedData, setProcessedData] = useState([]);
@@ -115,6 +119,16 @@ const DataDashboard = (props) => {
     { label: "Tripulante", icon: <PersonIcon /> },
     { label: "Sensors", icon: <BarChartIcon /> },
   ];
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setData(getGaugeData());
+    }, 3000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -269,6 +283,81 @@ const DataDashboard = (props) => {
       fill: "#226BD8",
     },
   ];
+
+  const dataInclinacion = [
+    ["Time", "Inclinacion"],
+    ["Time", 5],
+    ["Time", 5],
+    ["Time", 4],
+    ["Time", 5],
+    ["Time", 5],
+    ["Time", 6],
+    ["Time", 19],
+    ["Time", 20],
+    ["Time", 23],
+    ["Time", 24],
+    ["Time", 23],
+    ["Time", 22],
+    ["Time", 10],
+    ["Time", 0],
+    ["Time", -30],
+    ["Time", -20],
+  ];
+
+  const dataVibraction = [
+    ["Time", "Inclinacion"],
+    ["Time", 5],
+    ["Time", 5],
+    ["Time", 4],
+    ["Time", 5],
+    ["Time", 5],
+    ["Time", 6],
+    ["Time", 19],
+    ["Time", 20],
+    ["Time", 23],
+    ["Time", 24],
+    ["Time", 23],
+    ["Time", 22],
+    ["Time", 10],
+    ["Time", 0],
+    ["Time", -30],
+    ["Time", -20],
+  ];
+  
+  const inclinationOptions = {
+    title: "Inclinacion del rover",
+    curveType: "function",
+    
+    vAxis: { title: "Grados", minValue: -30, maxValue: 30 },
+    legend: { position: "bottom" },
+  };
+
+  const vibrationOptions = {
+    title: "Vibracion del rover",
+    curveType: "function",
+    
+    legend: { position: "bottom" },
+  };
+
+  function getRandomNumber() {
+    return Math.random() * 100;
+  }
+
+  function getGaugeData() {
+    return [
+      ["Label", "Value"],
+      ["Impacto", getRandomNumber()],
+    ];
+  }
+
+  const gaugeOptions = {
+
+    redFrom: 90,
+    redTo: 100,
+    yellowFrom: 75,
+    yellowTo: 90,
+    minorTicks: 5,
+  };
 
   return (
     <div className={(activeIndex === 1 ? 'data-dashboard-container' : '')}>
@@ -532,7 +621,36 @@ const DataDashboard = (props) => {
           </Grid>
         )}
         {activeIndex === 1 && (
-          <Rover/>
+          <div className='rover-tab'>
+            <div className='graph-izq'>
+              <Chart
+                chartType="LineChart"
+                width="100%"
+                height="400px"
+                data={dataInclinacion}
+                options={inclinationOptions}
+              />
+            </div>
+            
+            <Rover/>
+            
+            <div className='graph-der'>
+            <Chart
+              chartType="Gauge"
+              width="100%"
+              height="400px"
+              data={gaugeData}
+              options={gaugeOptions}
+            />
+            <Chart
+              chartType="LineChart"
+              width="100%"
+              height="400px"
+              data={dataVibraction}
+              options={vibrationOptions}
+            />
+            </div>
+          </div>
         )}
         {activeIndex === 2 && <FrameComponent />}
         {activeIndex === 3 && (
