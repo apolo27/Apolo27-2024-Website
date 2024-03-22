@@ -1,0 +1,64 @@
+.rover-tab{
+    position: relative;
+    height: fit-content;
+}
+
+.data-dashboard-container{
+    padding: 0px;
+    background-image: url('../../../imgs/DataDashboard/RoverBackground.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.graph-izq{
+    position: absolute;
+    top: -158px;
+    left: -24px;
+    width: 375px;
+    height: 145.5%;
+    background: linear-gradient(321.68deg, rgba(75, 90, 106, 0.46) 12.46%, rgba(28, 43, 123, 0.46) 69.72%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    border-top-right-radius: 200px;
+
+    line-height: 1000px;
+    vertical-align: center;
+
+}
+
+.graph-der{
+    position: absolute;
+    right: -24px;
+    top: -158px;
+    width: 375px;
+    height: 145.5%;
+    background: linear-gradient(321.68deg, rgba(75, 90, 106, 0.46) 12.46%, rgba(28, 43, 123, 0.46) 69.72%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    border-bottom-left-radius: 200px;
+
+}
+
+
+
+@media screen and (max-width: 1000px){
+    .rover-tab{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .graph-der{
+        position: inherit;
+        top: -150px;
+        width: 100%;
+        border-top-left-radius: 50px;
+    }
+
+    .graph-izq{
+        position: inherit;
+        top: 125px;
+        height: 400px;
+        line-height: 350px;
+        width: 100%;
+        vertical-align:top;
+        border-radius: 0px;
+    }
+}

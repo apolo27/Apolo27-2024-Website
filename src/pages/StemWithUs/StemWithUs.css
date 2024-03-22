@@ -193,6 +193,11 @@ section .tutorialsLine-top{
 
 }
 
+.tutorials{
+  margin-bottom: 50px;
+  font-family: 'Poppins';
+}
+
 .ver-mas{
   width: 130px;
   transition: transform 0.3s ease-in-out;
