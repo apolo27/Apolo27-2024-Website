@@ -44,8 +44,6 @@ import {
 //import {List, ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar, ListItemIcon, Typography } from '@mui/material';
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { Canvas } from "@react-three/fiber";
-import { useGLTF, Stage, PresentationControls } from "@react-three/drei";
 
 import tempIcon from "../../imgs/DataDashboard/tempIcon.png";
 import Crewmembers from "../../imgs/DataDashboard/Frame Crewmembers.svg";
@@ -57,13 +55,15 @@ import YouTube from "react-youtube";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { axisClasses } from "@mui/x-charts";
 
-function Model(props) {
-  const { scene } = useGLTF("./rover.glb");
-  return <primitive object={scene} {...props} />;
-}
+import Rover from './DataDashboardRover/index.js';
+
+import { Chart } from "react-google-charts";
+
 
 const DataDashboard = (props) => {
   let t = props.t;
+  const [gaugeData, setGaugeData] = useState(getGaugeData);
+
   const [data, setData] = useState(null);
   const [dataGrafico, setDataGrafico] = useState(null);
   const [processedData, setProcessedData] = useState([]);
@@ -119,6 +119,16 @@ const DataDashboard = (props) => {
     { label: "Tripulante", icon: <PersonIcon /> },
     { label: "Sensors", icon: <BarChartIcon /> },
   ];
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setData(getGaugeData());
+    }, 3000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -274,8 +284,84 @@ const DataDashboard = (props) => {
     },
   ];
 
+  const dataInclinacion = [
+    ["Time", "Inclinacion"],
+    ["Time", 5],
+    ["Time", 5],
+    ["Time", 4],
+    ["Time", 5],
+    ["Time", 5],
+    ["Time", 6],
+    ["Time", 19],
+    ["Time", 20],
+    ["Time", 23],
+    ["Time", 24],
+    ["Time", 23],
+    ["Time", 22],
+    ["Time", 10],
+    ["Time", 0],
+    ["Time", -30],
+    ["Time", -20],
+  ];
+
+  const dataVibraction = [
+    ["Time", "Inclinacion"],
+    ["Time", 5],
+    ["Time", 5],
+    ["Time", 4],
+    ["Time", 5],
+    ["Time", 5],
+    ["Time", 6],
+    ["Time", 19],
+    ["Time", 20],
+    ["Time", 23],
+    ["Time", 24],
+    ["Time", 23],
+    ["Time", 22],
+    ["Time", 10],
+    ["Time", 0],
+    ["Time", -30],
+    ["Time", -20],
+  ];
+  
+  const inclinationOptions = {
+    title: "Inclinacion del rover",
+    curveType: "function",
+    
+    vAxis: { title: "Grados", minValue: -30, maxValue: 30 },
+    legend: { position: "bottom" },
+  };
+
+  const vibrationOptions = {
+    title: "Vibracion del rover",
+    curveType: "function",
+    
+    legend: { position: "bottom" },
+  };
+
+  function getRandomNumber() {
+    return Math.random() * 100;
+  }
+
+  function getGaugeData() {
+    return [
+      ["Label", "Value"],
+      ["Impacto", getRandomNumber()],
+    ];
+  }
+
+  const gaugeOptions = {
+
+    redFrom: 90,
+    redTo: 100,
+    yellowFrom: 75,
+    yellowTo: 90,
+    minorTicks: 5,
+  };
+
   return (
-    <Container maxWidth="auto" style={{ marginTop: "50px" }}>
+    <div className={(activeIndex === 1 ? 'data-dashboard-container' : '')}>
+    <Container maxWidth="auto" style={{ paddingTop: "50px" }}>
       <BottomNavigation
         value={activeIndex}
         onChange={handleChange}
@@ -535,22 +621,36 @@ const DataDashboard = (props) => {
           </Grid>
         )}
         {activeIndex === 1 && (
-          <Canvas
-            spr={[1, 2]}
-            camera={{ fov: 45 }}
-            style={{ width: "100%", height: "720px" }}
-          >
-            <color attach="background" args={["#283b66"]} />
-            <PresentationControls
-              speed={1.5}
-              zoom={0.5}
-              polar={[-0.1, Math.PI / 4]}
-            >
-              <Stage environment={null}>
-                <Model scale={0.25} />
-              </Stage>
-            </PresentationControls>
-          </Canvas>
+          <div className='rover-tab'>
+            <div className='graph-izq'>
+              <Chart
+                chartType="LineChart"
+                width="100%"
+                height="400px"
+                data={dataInclinacion}
+                options={inclinationOptions}
+              />
+            </div>
+            
+            <Rover/>
+            
+            <div className='graph-der'>
+            <Chart
+              chartType="Gauge"
+              width="100%"
+              height="400px"
+              data={gaugeData}
+              options={gaugeOptions}
+            />
+            <Chart
+              chartType="LineChart"
+              width="100%"
+              height="400px"
+              data={dataVibraction}
+              options={vibrationOptions}
+            />
+            </div>
+          </div>
         )}
         {activeIndex === 2 && <FrameComponent />}
         {activeIndex === 3 && (
@@ -1186,6 +1286,7 @@ const DataDashboard = (props) => {
       </Table>
       */}
     </Container>
+    </div>
   );
 };
 
