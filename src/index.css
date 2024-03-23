@@ -1,7 +1,7 @@
 :root{
   --body_background: #161A2C;
   --body_color: aliceblue;
-  
+  font-family: 'Poppins';
 }
 
 [data-theme="dark"]{
