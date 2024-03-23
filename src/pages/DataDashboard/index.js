@@ -51,7 +51,6 @@ import { set } from "lodash";
 import { borderRadius } from "@mui/system";
 import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
 import { getLastVideo, getRecentVideos } from "../../services/FetchYTVideos";
-import YouTube from "react-youtube";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { axisClasses } from "@mui/x-charts";
 
