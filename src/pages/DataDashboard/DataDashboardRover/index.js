@@ -14,7 +14,9 @@ function Rover() {
       <Canvas
           spr={[1, 2]}
           camera={{ fov: 70 }}
-          style={{height: 625}}  
+          style={{
+            height: (window.screen.width >= 1280 ? 625 : 500)
+        }}
       >
           <Environment preset='night'/>
           <PresentationControls

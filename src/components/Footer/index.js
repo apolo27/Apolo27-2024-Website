@@ -8,7 +8,7 @@ import { faInstagram, faTiktok, faFacebook, faSquareXTwitter, faLinkedin, faYout
 const Footer = (props) => {
     let t = props.t;
     return(
-        <footer className="footer">
+        <footer>
             <Container>
                 <Grid container={true} spacing={0} wrap="wrap">
 

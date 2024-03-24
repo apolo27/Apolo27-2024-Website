@@ -20,7 +20,7 @@ function RoverSimulation(props){
         <h2 className='simulation_header'>Simulador del NASA Human Exploration Rover Challenge</h2>
           {
             window.screen.width >= 1280 ?
-            <iframe className='simulation' title='NASA HERC SIMULATION' frameborder="0" src="https://itch.io/embed-upload/9819933?color=333333" allowfullscreen="" width="100%" height="100%"><a href="https://ctrl-sebastian.itch.io/rover-simulation">Play Rover Simulation on itch.io</a></iframe>
+            <iframe title="NASA HERC SIMULATION" frameborder="0" src="https://itch.io/embed-upload/10012853?color=333333" allowfullscreen="" width="1280" height="740"><a href="https://ctrl-sebastian.itch.io/rover-simulation">Play Rover Simulation on itch.io</a></iframe>
             : <h1 className='simulation_warning'>{t('SimulationWarning')}</h1>
           }
           
@@ -69,6 +69,7 @@ function RoverSimulation(props){
                   </Card.Text>
                 </Card.Body>
               </Card>
+
               <Card>
                 <Card.Header>{t('Task')} 2: {t('Moon-maintenance')}</Card.Header>
                 <Card.Img variant="top" src={task2}></Card.Img>
@@ -79,6 +80,7 @@ function RoverSimulation(props){
                   </Card.Text>
                 </Card.Body>
               </Card>
+
               <Card>
                 <Card.Header>{t('Task')} 3: {t('Power-it-up')}</Card.Header>
                 <Card.Img variant="top" src={task3}></Card.Img>
@@ -89,6 +91,7 @@ function RoverSimulation(props){
                   </Card.Text>
                 </Card.Body>
               </Card>
+              
               <Card>
                 <Card.Header>{t('Task')} 4: {t('Rover-Redundancy')}</Card.Header>
                 <Card.Img variant="top" src={task4}></Card.Img>
