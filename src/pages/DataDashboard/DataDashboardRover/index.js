@@ -14,7 +14,7 @@ function Rover() {
       <Canvas
           spr={[1, 2]}
           camera={{ fov: 70 }}
-          style={{height: 625}}  
+          className='rover-canvas'
       >
           <Environment preset='night'/>
           <PresentationControls

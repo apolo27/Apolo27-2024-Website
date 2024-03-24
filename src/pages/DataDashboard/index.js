@@ -345,7 +345,7 @@ const DataDashboard = (props) => {
   function getGaugeData() {
     return [
       ["Label", "Value"],
-      ["Impacto", getRandomNumber()],
+      ["Impacto(N)", getRandomNumber()],
     ];
   }
 
@@ -622,32 +622,220 @@ const DataDashboard = (props) => {
         {activeIndex === 1 && (
           <div className='rover-tab'>
             <div className='graph-izq'>
-              <Chart
-                chartType="LineChart"
-                width="100%"
-                height="400px"
-                data={dataInclinacion}
-                options={inclinationOptions}
-              />
+
+              <LineChart
+                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                series={[
+                  {
+                    data: [2, 5.5, 2, 8.5, 1.5, 5],
+                    color: "#0096C7",
+                  },
+                ]}
+
+                sx={{
+                  //change left yAxis label styles
+                  "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                    strokeWidth: "0.4",
+                    fill: "white",
+                  },
+                  // change all labels fontFamily shown on both xAxis and yAxis
+                  "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+                    {
+                      fontFamily: "poppins",
+                    },
+                  // change bottom label styles
+                  "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                    strokeWidth: "0.5",
+                    fill: "white",
+                  },
+                  // bottomAxis Line Styles
+                  "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                    stroke: "white",
+                    strokeWidth: 3,
+                  },
+                  // leftAxis Line Styles
+                  "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                    stroke: "white",
+                    strokeWidth: 3,
+                  },
+                  "& .MuiAreaElement-root": {
+                    display: "none",
+                  },
+   
+                }}
+
+                width={350}
+                height={300}
+              ></LineChart>
+              <h2>Inclinacion</h2>
+
+              <hr></hr>
+
+              <LineChart
+                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                series={[
+                  {
+                    data: [2, 5.5, 2, 8.5, 1.5, 5],
+                    color: "#0096C7",
+                  },
+                ]}
+
+                sx={{
+                  //change left yAxis label styles
+                  "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                    strokeWidth: "0.4",
+                    fill: "white",
+                  },
+                  // change all labels fontFamily shown on both xAxis and yAxis
+                  "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+                    {
+                      fontFamily: "poppins",
+                    },
+                  // change bottom label styles
+                  "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                    strokeWidth: "0.5",
+                    fill: "white",
+                  },
+                  // bottomAxis Line Styles
+                  "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                    stroke: "white",
+                    strokeWidth: 3,
+                  },
+                  // leftAxis Line Styles
+                  "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                    stroke: "white",
+                    strokeWidth: 3,
+                  },
+                  "& .MuiAreaElement-root": {
+                    display: "none",
+                  },
+   
+                }}
+
+                width={350}
+                height={300}
+              ></LineChart>
+              <h2>Vibracion</h2>
+
             </div>
             
             <Rover/>
             
             <div className='graph-der'>
-            <Chart
-              chartType="Gauge"
-              width="100%"
-              height="400px"
-              data={gaugeData}
-              options={gaugeOptions}
-            />
-            <Chart
-              chartType="LineChart"
-              width="100%"
-              height="400px"
-              data={dataVibraction}
-              options={vibrationOptions}
-            />
+              <Chart
+                chartType="Gauge"
+                width="100%"
+                height="400px"
+                data={gaugeData}
+                options={gaugeOptions}
+              />
+            </div>
+
+            <div className="graphs-bot">
+              <div style={{textAlign: 'center'}}>
+              <h2>Inclinacion</h2>
+                <LineChart
+                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                  series={[
+                    {
+                      data: [2, 5.5, 2, 8.5, 1.5, 5],
+                      color: "#0096C7",
+                    },
+                  ]}
+
+                  sx={{
+                    //change left yAxis label styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                      strokeWidth: "0.4",
+                      fill: "white",
+                    },
+                    // change all labels fontFamily shown on both xAxis and yAxis
+                    "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+                      {
+                        fontFamily: "poppins",
+                      },
+                    // change bottom label styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                      strokeWidth: "0.5",
+                      fill: "white",
+                    },
+                    // bottomAxis Line Styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                      stroke: "white",
+                      strokeWidth: 3,
+                    },
+                    // leftAxis Line Styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                      stroke: "white",
+                      strokeWidth: 3,
+                    },
+                    "& .MuiAreaElement-root": {
+                      display: "none",
+                    },
+    
+                  }}
+
+                  width={300}
+                  height={300}
+                ></LineChart>
+              </div>
+
+              <Chart
+                chartType="Gauge"
+                width="200px"
+                height="200px"
+                data={gaugeData}
+                options={gaugeOptions}
+              />
+
+              <div style={{textAlign: 'center'}}>
+              <h2>Vibracion</h2>
+                <LineChart
+                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                  series={[
+                    {
+                      data: [2, 5.5, 2, 8.5, 1.5, 5],
+                      color: "#0096C7",
+                    },
+                  ]}
+
+                  sx={{
+                    //change left yAxis label styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                      strokeWidth: "0.4",
+                      fill: "white",
+                    },
+                    // change all labels fontFamily shown on both xAxis and yAxis
+                    "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+                      {
+                        fontFamily: "poppins",
+                      },
+                    // change bottom label styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                      strokeWidth: "0.5",
+                      fill: "white",
+                    },
+                    // bottomAxis Line Styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                      stroke: "white",
+                      strokeWidth: 3,
+                    },
+                    // leftAxis Line Styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                      stroke: "white",
+                      strokeWidth: 3,
+                    },
+                    "& .MuiAreaElement-root": {
+                      display: "none",
+                    },
+    
+                  }}
+
+                  width={300}
+                  height={300}
+                ></LineChart>
+
+              </div>
             </div>
           </div>
         )}
@@ -1261,29 +1449,6 @@ const DataDashboard = (props) => {
           </Grid>
         )}
       </div>
-
-      {/*
-      <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Sensor</th>
-          <th>Data</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          processedData.map((data) => {
-            return(
-              <tr key={data.key}>
-                <td>{data.key}</td>
-                <td>{data.value}</td>
-              </tr>
-            )
-          })
-        }
-      </tbody>
-      </Table>
-      */}
     </Container>
     </div>
   );

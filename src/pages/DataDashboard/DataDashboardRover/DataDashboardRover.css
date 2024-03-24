@@ -3,6 +3,10 @@
     height: fit-content;
 }
 
+.rover-canvas{
+    height: 625px;
+}
+
 .data-dashboard-container{
     padding: 0px;
     background-image: url('../../../imgs/DataDashboard/RoverBackground.jpg');
@@ -13,18 +17,23 @@
 }
 
 .graph-izq{
+    text-align: center;
+
+    padding-top: 100px;
+
     position: absolute;
     top: -158px;
     left: -24px;
+
     width: 375px;
     height: 145.5%;
+
     background: linear-gradient(321.68deg, rgba(75, 90, 106, 0.46) 12.46%, rgba(28, 43, 123, 0.46) 69.72%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     border-top-right-radius: 200px;
 
-    line-height: 1000px;
-    vertical-align: center;
 
 }
+
 
 .graph-der{
     position: absolute;
@@ -35,30 +44,32 @@
     background: linear-gradient(321.68deg, rgba(75, 90, 106, 0.46) 12.46%, rgba(28, 43, 123, 0.46) 69.72%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     border-bottom-left-radius: 200px;
 
+    
+    line-height: 800px;
+    vertical-align: center;
 }
 
+.graphs-bot{
+    display: none;
+}
 
+@media screen and (max-width: 1200px){
+    .graph-der, .graph-izq{
+        display: none;
+    }
 
-@media screen and (max-width: 1000px){
-    .rover-tab{
+    .graphs-bot{
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-evenly;
+        background: linear-gradient(321.68deg, rgba(75, 90, 106, 0.46) 12.46%, rgba(28, 43, 123, 0.46) 69.72%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        border-radius: 25px;
+        padding-top: 20px;
     }
+}
 
-    .graph-der{
-        position: inherit;
-        top: -150px;
-        width: 100%;
-        border-top-left-radius: 50px;
-    }
-
-    .graph-izq{
-        position: inherit;
-        top: 125px;
-        height: 400px;
-        line-height: 350px;
-        width: 100%;
-        vertical-align:top;
-        border-radius: 0px;
+@media screen and (max-width: 600px){
+    .rover-canvas{
+        height: 500px;
     }
 }
