@@ -26,6 +26,10 @@ function Header(props) {
         var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
         var itemPosNewAnimTop = activeItemNewAnim.position();
         var itemPosNewAnimLeft = activeItemNewAnim.position();
+
+        if (itemPosNewAnimTop === undefined) {
+          return;
+        }
         $(".hori-selector").css({
           top: itemPosNewAnimTop.top + "px",
           left: itemPosNewAnimLeft.left + "px",
