@@ -283,61 +283,6 @@ const DataDashboard = (props) => {
     },
   ];
 
-  const dataInclinacion = [
-    ["Time", "Inclinacion"],
-    ["Time", 5],
-    ["Time", 5],
-    ["Time", 4],
-    ["Time", 5],
-    ["Time", 5],
-    ["Time", 6],
-    ["Time", 19],
-    ["Time", 20],
-    ["Time", 23],
-    ["Time", 24],
-    ["Time", 23],
-    ["Time", 22],
-    ["Time", 10],
-    ["Time", 0],
-    ["Time", -30],
-    ["Time", -20],
-  ];
-
-  const dataVibraction = [
-    ["Time", "Inclinacion"],
-    ["Time", 5],
-    ["Time", 5],
-    ["Time", 4],
-    ["Time", 5],
-    ["Time", 5],
-    ["Time", 6],
-    ["Time", 19],
-    ["Time", 20],
-    ["Time", 23],
-    ["Time", 24],
-    ["Time", 23],
-    ["Time", 22],
-    ["Time", 10],
-    ["Time", 0],
-    ["Time", -30],
-    ["Time", -20],
-  ];
-  
-  const inclinationOptions = {
-    title: "Inclinacion del rover",
-    curveType: "function",
-    
-    vAxis: { title: "Grados", minValue: -30, maxValue: 30 },
-    legend: { position: "bottom" },
-  };
-
-  const vibrationOptions = {
-    title: "Vibracion del rover",
-    curveType: "function",
-    
-    legend: { position: "bottom" },
-  };
-
   function getRandomNumber() {
     return Math.random() * 100;
   }
