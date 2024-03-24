@@ -8,7 +8,6 @@
   color: hsl(0, 0%, 100%); 
   font-family: 'Poppins';
   font-size: 15px;
-  border-top: solid 3px rgb(0, 166, 255)
 }
 
 .footer h4{
@@ -62,7 +61,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #f00;
+    background: rgba(255, 0, 0, 0.625);
     transition: top 0.5s;
   }
   

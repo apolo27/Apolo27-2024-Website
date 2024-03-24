@@ -14,6 +14,7 @@ body {
     padding: 30px;
 }
 
+
 #item-0 {
     display: flex;
     justify-content: center; 
@@ -44,20 +45,20 @@ body {
     font-weight: bold;
     text-align: left;
     flex: 1;
-	position: relative;
+    position: relative;
 }
 
 #item-2 h1 {
-	font-size: 34px;
-	margin: 0;
-	padding: 40px;
-	color: white;
-	font-weight: 525;
-	flex: 1;
-	position: relative;
-	cursor: pointer;
-  }
-  
+    font-size: 34px;
+    margin: 0;
+    padding: 40px;
+    color: white;
+    font-weight: 525;
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+}
+
 
 #item-0 h4 {
     position: absolute; 
@@ -70,46 +71,31 @@ body {
     font-size: 14px; 
     margin: 0; 
     z-index: 1; 
-	font-weight: bold;
-	font-size: 20px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 #item-1 {
     border-radius: 40px;
-	background-color: rgb(28, 31, 50);
+    background-color: rgb(28, 31, 50);
     grid-row-start: 3;
     grid-column-start: 1;
     grid-row-end: 3;
     grid-column-end: 3;
-	height: 335px;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.group-picture{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 40px;
-}
-
-
-#data-button {
-    position: absolute; 
-    top: 1%; 
-    right: 20px; 
-    height: 40px;
-    border-radius: 50px;
-    color: white;
-    background-color: rgb(20, 24, 38);
+    height: 335px; /* Altura máxima del div */
+    position: relative;
     display: flex;
-    justify-content: center;
+    cursor: pointer;
+    flex-direction: column;
     align-items: center;
-    padding: 10px 20px;
-    margin-top: 20px; 
-	z-index: 999999;
+    overflow: hidden; /* Evita que la imagen se salga del div */
+}
+
+.group-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 40px;
 }
 
 #item-2 {
@@ -123,21 +109,22 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
-    overflow: hidden; /* Ensure the image doesn't overflow the div */
+    cursor: pointer;
+    overflow: hidden;
 }
 
+
 #item-2 img {
-    width: 100%; /* Make the image take up the full width of the div */
-    height: 100%; /* Make the image take up the full height of the div */
     object-fit: cover; /* Ensure the image covers the div without stretching */
 }
 
 
 #item-3 {
     border-radius: 40px;
-	background-color: rgb(28, 31, 50);
+    background-color: rgb(28, 31, 50);
     grid-row-start: 3;
     grid-column-start: 4;
+    cursor: pointer;
     grid-row-end: 3;
     grid-column-end: 5;
 }
@@ -151,11 +138,11 @@ body {
         gap: 20px; 
     }
 
-	.group-picture{
-		border-radius: 25px;
-	}
+    .group-picture {
+        border-radius: 25px;
+    }
 
-	#item-0 h4 {
+    #item-0 h4 {
         display: none;
     }
 
@@ -166,10 +153,10 @@ body {
     #item-0 {
         grid-row-start: 1;
         grid-column-start: 1;
-		grid-row-end: span 1;
+        grid-row-end: span 1;
         grid-column-end: span 2;
-		height: auto;
-		border-radius: 25px;
+        height: auto;
+        border-radius: 25px;
     }
 
     #item-1 {
@@ -177,8 +164,8 @@ body {
         grid-column-start: 1;
         grid-row-end: 3;
         grid-column-end: 3;
-		height: auto;
-		border-radius: 25px;
+        height: auto;
+        border-radius: 25px;
     }
 
     #item-2 {
@@ -186,7 +173,7 @@ body {
         grid-column-start: 1;
         grid-row-end: 4;
         grid-column-end: 2;
-		border-radius: 25px;
+        border-radius: 25px;
     }
 
     #item-3 {
@@ -194,7 +181,7 @@ body {
         grid-column-start: 2;
         grid-row-end: 4;
         grid-column-end: 3;
-		border-radius: 25px;
+        border-radius: 25px;
     }
 
     .astronaut-image {
@@ -216,9 +203,74 @@ body {
         justify-content: center; 
     }
 
-	#item-0 h4 {
-		display: none;
+    #item-0 h4 {
+        display: none;
     }
-
 }
+
+#pre-game-div {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    background-image: linear-gradient(80deg, rgb(44, 51, 85), rgba(23, 26, 43));
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: span 7;
+    grid-column-end: 5;
+    position: relative; 
+    height: 300px; 
+}
+
+#container {
+    text-transform: uppercase;
+    font-size: 38px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    bottom: 25%;
+    display: block;
+}
+  
+  #flip {
+    height: 50px;
+    overflow: hidden;
+  }
+
+  #flip > div > div {
+    color:#fff;
+    padding:1px 12px;
+    height:55px;
+    margin-bottom:35px;
+    display:inline-block;
+  }
+  
+#flip div:first-child {
+    animation: show 5s linear infinite;
+  }
+#flip > div:nth-child(1) > div {
+    background: #42c58a; /* Color for the first div */
+  }
+  
+#flip > div:nth-child(2) > div {
+    background: #4274c5; /* Color for the second div */
+  }
+  
+#flip > div:nth-child(3) > div {
+    background: #3234a0; /* Color for the third div */
+  }
+
+  
+  @keyframes show {
+    0% {margin-top:-270px;}
+    5% {margin-top:-180px;}
+    33% {margin-top:-180px;}
+    38% {margin-top:-90px;}
+    66% {margin-top:-90px;}
+    71% {margin-top:0px;}
+    99.99% {margin-top:0px;}
+    100% {margin-top:-270px;}
+  }
 

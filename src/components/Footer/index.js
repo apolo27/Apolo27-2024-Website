@@ -1,7 +1,6 @@
 import "./Footer.css"
 import {Container} from 'react-bootstrap/';
 import Grid from '@mui/material/Grid';
-import footerLogo from '../../imgs/logo.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faTiktok, faFacebook, faSquareXTwitter, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
@@ -14,7 +13,7 @@ const Footer = (props) => {
                 <Grid container={true} spacing={0} wrap="wrap">
 
                     <Grid item xs={0} sm={4} md={4} >
-                        <img src={footerLogo} alt="apolo27 logo"/><h4  style={{display: "inline-block"}}>Apolo 27</h4>
+                        <h4 style={{display: "inline-block"}}>Apolo 27</h4>
                         <p>{t('Hero-Title')}</p>
                         <section className="socials">
                             <a style={{marginLeft: 25}} href="https://www.instagram.com/apolo27_rd/"> <FontAwesomeIcon icon={faInstagram} size="xl" className="fa-ig"/></a>
@@ -25,8 +24,6 @@ const Footer = (props) => {
                             <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faYoutube} size="xl" className="fa-yt"/></a>
                         </section>
                     </Grid>
-
-
                     
                     <Grid item xs={0} sm={3} md={3} >
                         <h4>{t('Pages')}</h4>
@@ -40,7 +37,6 @@ const Footer = (props) => {
                         </ul>
                     </Grid>
 
-                    
                     <Grid item xs={0} sm={3} md={3} >
                         <h4>{t('AboutUsFooter')}</h4>
                         <ul className="footer-col">
@@ -50,7 +46,6 @@ const Footer = (props) => {
                             <li><a href="/About-Us#OurAwards">{t('OurAwardsFooter')}</a></li>
                         </ul>
                     </Grid>
-
                 </Grid>
             </Container>
         </footer>
