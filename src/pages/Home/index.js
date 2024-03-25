@@ -5,11 +5,15 @@ import group_picture from '../../imgs/Home/group-img.png'; // Foto grupal
 import { Link } from 'react-router-dom';
 import mapa from '../../imgs/Home/mapa.png';
 import simulation from '../../imgs/game.jpg';
-
+import { timeline } from '../../pages/Home/timeline.js';
+import team2024 from '../../imgs/Home/group-img.png'
 
 function Home() {
   return (
     <>
+
+    {/* PRIMEROS WIDGETS */}
+
       <div className="grid">
         <div id="item-0">
           <h4>
@@ -45,6 +49,8 @@ function Home() {
         </div>
       </div>
       
+    {/* TEXTO ANIMADO */}
+
       <section id='pre-game'>
           <div id='pre-game-div'>
             <div id="container">
@@ -100,10 +106,66 @@ function Home() {
       </div>
       </section>
 
+{/* TIMELINE */}
+
+    <section id="timeline-1" class="timeline-container">
+      <div class="timeline-header">
+        <h2 class="timeline-header__title">Our story</h2>
+        <h3 class="timeline-header__subtitle">Get to know us since the beginning</h3>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item" data-text="APOLO 27">
+          <div class="timeline__content">
+            <img class="timeline__img" src="https://i0.wp.com/nuevodiario-assets.s3.us-east-2.amazonaws.com/wp-content/uploads/2019/04/Estudiantes-de-INTEC.jpeg?fit=1024%2C768&ssl=1" />
+            <h2 class="timeline__content-title">2019</h2>
+            <p class="timeline__content-desc">In 2019, we started with just a few members, and it was a challenging time for us. But we were determined to represent our country for the first time ever in the NASA Human Exploration Rover Challenge, and we did just that.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-text="APOLO 27">
+          <div class="timeline__content">
+            <img class="timeline__img" src="https://i0.wp.com/ensegundos.do/wp-content/uploads/2020/08/Ministra-jueventud-y-estudiantes.jpg?fit=1200%2C800&ssl=1" />
+            <h2 class="timeline__content-title">2020</h2>
+            <p class="timeline__content-desc">In 2020, despite the challenges posed by the pandemic, we persevered and learned valuable lessons that helped us grow, which led to win our first award: "System Safety Award".</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-text="APOLO 27">
+          <div class="timeline__content">
+            <img class="timeline__img" src="https://pbs.twimg.com/media/EyiPSveWYAEHLWy?format=jpg&name=medium" />
+            <h2 class="timeline__content-title">2021</h2>
+            <p class="timeline__content-desc">In 2021, we continued to promote STEM in our country. Also, we focused in making the Rover's design even better. We also successfully raised awareness for STEM in our country.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-text="APOLO 27">
+          <div class="timeline__content">
+            <img class="timeline__img" src="https://listindiario.com/files/article_main_microformat/uploads/2022/05/12/643011cad8e42.jpeg" />
+            <h2 class="timeline__content-title">2022</h2>
+            <p class="timeline__content-desc">In 2022, we focused on even more aspects of STEM. This led us to create the STEM Tour, an event where we showcased interactive STEM projects. This year, we won "STEM Engagement Award".</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-text="APOLO 27">
+          <div class="timeline__content">
+            <img class="timeline__img" src="https://cdn.filestackcontent.com/no_metadata/resize=width:700,fit:max/OsWMci9gTwabQetTx4Hw" />
+            <h2 class="timeline__content-title">2023</h2>
+            <p class="timeline__content-desc">In 2023, the team kept growing and learning. This year, we won two category awards for the first time, "Most Improved Award" and "Team Spirit Award".</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-text="APOLO 27">
+          <div class="timeline__content">
+            <img class="timeline__img" src={team2024} />
+            <h2 class="timeline__content-title">2024</h2>
+            <p class="timeline__content-desc">This year we are focused on improving everything even more. Expanding through all the country and create bigger impact.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-text="APOLO 27">
+
+        </div>
+      </div>
+    </section>
     </>
   );
 }
 
 export default Home;
+timeline()
 
 
