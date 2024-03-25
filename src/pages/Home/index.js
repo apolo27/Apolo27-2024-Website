@@ -53,11 +53,53 @@ function Home() {
               <div><div>Telemetry</div></div>
               <div><div>Manufacturing</div></div>
               <div><div>STEM</div></div>
+            </div>          
+          </div>   
+        </div> 
+      </section>
+
+      <section id='areas'>
+            <div class="container-areas">
+        <div class="card">
+          <div class="box">
+            <div class="content">
+              <h2>01</h2>
+              <h3>Manufacturing</h3>
+              <p>
+              The manufacturing team is the backbone of our HERC entry. They take the designs from our
+              engineers and transform them into a real, functioning rover.</p>
+              <a href="#">Read More</a>
             </div>
-            
           </div>
         </div>
+
+        <div class="card">
+          <div class="box">
+            <div class="content">
+              <h2>02</h2>
+              <h3>Telemetry</h3>
+              <p>
+              Our top-notch telemetry team builds the rover's "nervous system," keeping it in constant communication during competition.
+              They're the silent heroes who ensure smooth operation through real-time data monitoring.</p>
+              <a href="#">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="box">
+            <div class="content">
+              <h2>03</h2>
+              <h3>STEM</h3>
+              <p>Our STEM team brings exciting events and hands-on activities to schools nationwide, sparking
+                 a love for science, technology, engineering, and math.</p>
+              <a href="#">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
       </section>
+
     </>
   );
 }
