@@ -60,6 +60,7 @@ import Rover from './DataDashboardRover/index.js';
 
 import { Chart } from "react-google-charts";
 import { a } from '@react-spring/three';
+import TrackGaugeChart from '../../components/RadialBarChart/index.js';
 
 
 const DataDashboard = (props) => {
@@ -448,7 +449,7 @@ const DataDashboard = (props) => {
                 </div>
               </div>
               <div className="graph">
-                <h5 className="crewmembers-title">{"Ambient Reaction"}</h5>
+                {/* <h5 className="crewmembers-title">{"Ambient Reaction"}</h5>
 
                 <RadialBarChart
                   className="crewmembers-health"
@@ -471,7 +472,8 @@ const DataDashboard = (props) => {
                     wrapperStyle={style}
                   />
                   <Tooltip />
-                </RadialBarChart>
+                </RadialBarChart> */}
+                <TrackGaugeChart />
               </div>
             </Grid>
 
