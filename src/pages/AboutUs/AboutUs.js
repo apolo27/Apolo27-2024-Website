@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
 import {Container, Card, Carousel, Button} from 'react-bootstrap';
 
-import first from '../../imgs/carousel/first.jpg'
+import first from '../../imgs/group-picture.webp'
 import second from '../../imgs/carousel/second.jpeg'
 import third from '../../imgs/carousel/third.jpg'
 import fourth from '../../imgs/carousel/fourth.jpg'
