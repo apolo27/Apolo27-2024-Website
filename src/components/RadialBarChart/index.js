@@ -1,62 +1,175 @@
-import React from "react";
-import { RadialBarChart, RadialBar, Legend } from "recharts";
+import React, { useEffect } from 'react';
+import Highcharts from 'highcharts';
+import HighchartsMore from 'highcharts/highcharts-more';
+import SolidGauge from 'highcharts/modules/solid-gauge';
+import Exporting from 'highcharts/modules/exporting';
+import ExportData from 'highcharts/modules/export-data';
+import Accessibility from 'highcharts/modules/accessibility';
 
-const RadialBarChartComponent = () => {
+HighchartsMore(Highcharts);
+SolidGauge(Highcharts);
+Exporting(Highcharts);
+ExportData(Highcharts);
+Accessibility(Highcharts);
 
-    const data = [
-        {
-        name: "18-24",
-        uv: 31.47,
-        pv: 2400,
-        fill: "#8884d8"
-        },
-        {
-        name: "25-29",
-        uv: 26.69,
-        pv: 4567,
-        fill: "#83a6ed"
-        },
-        {
-        name: "30-34",
-        uv: 15.69,
-        pv: 1398,
-        fill: "#8dd1e1"
-        },
-        
-    ];
-    
-    const style = {
-        top: 0,
-        left: 350,
-        lineHeight: "24px"
-    };
-    
+const TrackGaugeChart = () => {
+    useEffect(() => {
+        const trackColors = Highcharts.getOptions().colors.map(color =>
+            new Highcharts.Color(color).setOpacity(0.3).get()
+        );
+
+        Highcharts.chart("container", {
+          chart: {
+            type: "solidgauge",
+            height: "80%",
+            backgroundColor: "transparent",
+          },
+          title: {
+            text: "Ambient Reaction",
+            style: {
+              fontSize: "20px",
+              fontFamily: "poppins",
+              color: "white",
+              textTransform: "none",
+            },
+          },
+          tooltip: {
+            borderWidth: 0,
+            backgroundColor: "none",
+            shadow: false,
+            style: {
+              fontSize: "16px",
+              fontFamily: "poppins",
+              color: "white",
+              textTransform: "none",
+            },
+            valueSuffix: "%",
+            pointFormat:
+              "{series.name}<br>" +
+              '<span style="font-size: 2em; color: {point.color}; ' +
+              'font-weight: bold">{point.y}</span>',
+            positioner: function (labelWidth) {
+              return {
+                x: (this.chart.chartWidth - labelWidth) / 2,
+                y: this.chart.plotHeight / 2 + 15,
+              };
+            },
+          },
+          pane: {
+            startAngle: 0,
+            endAngle: 360,
+            background: [
+              {
+                // Track for Conversion
+                outerRadius: "112%",
+                innerRadius: "88%",
+                backgroundColor: trackColors[0],
+                borderWidth: 0,
+              },
+              {
+                // Track for Engagement
+                outerRadius: "87%",
+                innerRadius: "63%",
+                backgroundColor: trackColors[1],
+                borderWidth: 0,
+              },
+              {
+                // Track for Feedback
+                outerRadius: "62%",
+                innerRadius: "38%",
+                backgroundColor: trackColors[2],
+                borderWidth: 0,
+              },
+            ],
+          },
+          yAxis: {
+            min: 0,
+            max: 100,
+            lineWidth: 0,
+            tickPositions: [],
+          },
+          plotOptions: {
+            solidgauge: {
+              dataLabels: {
+                enabled: false,
+              },
+              linecap: "round",
+              stickyTracking: false,
+              rounded: true,
+            },
+          },
+          legend: {
+            enabled: true,
+            align: "right",
+            verticalAlign: "middle",
+            layout: "vertical",
+            itemStyle: {
+              color: "#ffffff",
+              fontWeight: "bold",
+              fontSize: "13px",
+            },
+          },
+          series: [
+            {
+              name: "Habitability",
+              data: [
+                {
+                  color: Highcharts.getOptions().colors[0],
+                  radius: "112%",
+                  innerRadius: "88%",
+                  y: 80,
+                },
+              ],
+              custom: {
+                icon: "filter",
+                iconColor: "#303030",
+              },
+            },
+            {
+              name: "Energy efficiency",
+              data: [
+                {
+                  color: Highcharts.getOptions().colors[1],
+                  radius: "87%",
+                  innerRadius: "63%",
+                  y: 65,
+                },
+              ],
+              custom: {
+                icon: "comments-o",
+                iconColor: "#ffffff",
+              },
+            },
+            {
+              name: "Crew fatigue",
+              data: [
+                {
+                  color: Highcharts.getOptions().colors[2],
+                  radius: "62%",
+                  innerRadius: "38%",
+                  y: 50,
+                },
+              ],
+              custom: {
+                icon: "commenting-o",
+                iconColor: "#303030",
+              },
+            },
+          ],
+          exporting: {
+            enabled: false,
+          },
+          credits: {
+            enabled: false,
+          },
+        });
+    }, []);
+
     return (
-        <RadialBarChart
-        width={500}
-        height={300}
-        cx={110}
-        cy={110}
-        innerRadius={40}
-        outerRadius={110}
-        barSize={8}
-        data={data}
-        >
-        <RadialBar
-            label={{ position: "insideStart", fill: "#fff" }}
-            background
-            dataKey="uv"
-        />
-        <Legend
-            iconSize={10}
-            width={120}
-            height={140}
-            layout="vertical"
-            verticalAlign="middle"
-            wrapperStyle={style}
-        />
-        </RadialBarChart>
+        <figure className="highcharts-figure">
+            <div id="container"></div>
+        </figure>
     );
 };
 
-export default RadialBarChartComponent;
+export default TrackGaugeChart;
