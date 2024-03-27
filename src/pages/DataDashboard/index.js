@@ -78,10 +78,11 @@ const DataDashboard = (props) => {
   const [resentVideos, setRecentVideos] = useState([]);
 
   //Piloto 1
-  const [pulsoCardiaco1, setPulsoCardiaco1] = useState(0);
-  const [concentracionGas1, setConcentracionGas1] = useState(0);
-  const [radiacionUV1, setRadiacionUV1] = useState(0);
   const [aceleracionLineal1, setAceleracionLineal1] = useState(0);
+  const [aceleracionLineal1_x, setAceleracionLineal1_x] = useState([]);
+  const [aceleracionLineal1_y, setAceleracionLineal1_y] = useState([]);
+  const [aceleracionLineal1_z, setAceleracionLineal1_z] = useState([]);
+  const [pulsoCardiacoBPM1, setPulsoCardiacoBPM1] = useState(0);
   const [inclinacion1, setInclinacion1] = useState(0);
   const [humedad1, setHumedad1] = useState(0);
   const [intensidadGravitatoria1, setIntensidadGravitatoria1] = useState(0);
@@ -89,13 +90,17 @@ const DataDashboard = (props) => {
   const [presion1, setPresion1] = useState(0);
   const [temperatura1, setTemperatura1] = useState(0);
   const [velocidadAngular1, setVelocidadAngular1] = useState(0);
+  const [velocidadAngular1_x, setVelocidadAngular1_x] = useState([]);
+  const [velocidadAngular1_y, setVelocidadAngular1_y] = useState([]);
+  const [velocidadAngular1_z, setVelocidadAngular1_z] = useState([]);
   const [aceleracionGrafico, setAceleracionGrafico] = useState([]);
 
   //Piloto 2
-  const [pulsoCardiaco2, setPulsoCardiaco2] = useState(0);
-  const [concentracionGas2, setConcentracionGas2] = useState(0);
-  const [radiacionUV2, setRadiacionUV2] = useState(0);
+  const [pulsoCardiacoBPM2, setPulsoCardiacoBPM2] = useState(0);
   const [aceleracionLineal2, setAceleracionLineal2] = useState(0);
+  const [aceleracionLineal2_x, setAceleracionLineal2_x] = useState([]);
+  const [aceleracionLineal2_y, setAceleracionLineal2_y] = useState([]);
+  const [aceleracionLineal2_z, setAceleracionLineal2_z] = useState([]);
   const [inclinacion2, setInclinacion2] = useState(0);
   const [humedad2, setHumedad2] = useState(0);
   const [intensidadGravitatoria2, setIntensidadGravitatoria2] = useState(0);
@@ -103,11 +108,22 @@ const DataDashboard = (props) => {
   const [presion2, setPresion2] = useState(0);
   const [temperatura2, setTemperatura2] = useState(0);
   const [velocidadAngular2, setVelocidadAngular2] = useState(0);
+  const [velocidadAngular2_x, setVelocidadAngular2_x] = useState([]);
+  const [velocidadAngular2_y, setVelocidadAngular2_y] = useState([]);
+  const [velocidadAngular2_z, setVelocidadAngular2_z] = useState([]);
 
   //Rover
   const [impacto, setImpacto] = useState(0);
   const [inclinacionRover, setInclinacionRover] = useState(0);
+  const [inclinacionRover_x, setInclinacionRover_x] = useState([]);
+  const [inclinacionRover_y, setInclinacionRover_y] = useState([]);
+  const [inclinacionRover_z, setInclinacionRover_z] = useState([]);
   const [vibracion, setVibracion] = useState(0);
+  const [concentracionGas1, setConcentracionGas1] = useState(0);
+  const [radiacionUV1, setRadiacionUV1] = useState(0);
+  const [latitud, setLatitud] = useState(0);
+  const [longitud, setLongitud] = useState(0);
+  const [altitud, setAltitud] = useState(0);
 
   const handleChange = (event, newIndex) => {
     setActiveIndex(newIndex);
@@ -208,9 +224,7 @@ const DataDashboard = (props) => {
         });
 
         //asignacion piloto 1
-        setPulsoCardiaco1(lastEntryData.pulsoCardiaco1);
-        setConcentracionGas1(lastEntryData.ConcentracionGas1);
-        setRadiacionUV1(lastEntryData.radiacionUV1);
+        setPulsoCardiacoBPM1(lastEntryData.pulsoCardiaco1);
         setAceleracionLineal1(lastEntryData.AceleraciónLineal1);
         setInclinacion1(lastEntryData.inclinacion1);
         setHumedad1(lastEntryData.humedad1);
@@ -221,9 +235,7 @@ const DataDashboard = (props) => {
         setVelocidadAngular1(lastEntryData.velocidadAngular1);
 
         //asignacion piloto 2
-        setPulsoCardiaco2(lastEntryData.pulsoCardiaco2);
-        setConcentracionGas2(lastEntryData.ConcentracionGas2);
-        setRadiacionUV2(lastEntryData.radiacionUV2);
+        setPulsoCardiacoBPM2(lastEntryData.pulsoCardiaco2);
         setAceleracionLineal2(lastEntryData.AceleraciónLineal2);
         setInclinacion2(lastEntryData.inclinacion2);
         setHumedad2(lastEntryData.humedad2);
@@ -237,6 +249,8 @@ const DataDashboard = (props) => {
         setImpacto(lastEntryData.impacto);
         setInclinacionRover(lastEntryData.inclinacionRover);
         setVibracion(lastEntryData.vibracion);
+        setConcentracionGas1(lastEntryData.ConcentracionGas1);
+        setRadiacionUV1(lastEntryData.radiacionUV1);
       }
 
       
@@ -325,205 +339,377 @@ const DataDashboard = (props) => {
   };
 
   return (
-    <div className={(activeIndex === 1 ? 'data-dashboard-container' : '')}>
-    <Container maxWidth="auto" style={{ paddingTop: "50px" }}>
-      <BottomNavigation
-        value={activeIndex}
-        onChange={handleChange}
-        showLabels
-        sx={{
-          width: "auto",
-          maxWidth: "30%",
-          minWidth: "350px",
-          margin: "auto", // Centra el menú de navegación
-          borderRadius: "30px", // Ajusta el radio de las esquinas
-          border: "2px solid #3E4879", // Ajusta el borde del menú de navegación
-          backgroundColor: "#1F264B",
-        }}
-      >
-        {icons.map((item, index) => (
-          <BottomNavigationAction
-            key={index}
-            label={item.label}
-            icon={item.icon}
-            sx={{ color: "white" }}
-          />
-        ))}
-      </BottomNavigation>
+    <div className={activeIndex === 1 ? "data-dashboard-container" : ""}>
+      <Container maxWidth="auto" style={{ paddingTop: "50px" }}>
+        <BottomNavigation
+          value={activeIndex}
+          onChange={handleChange}
+          showLabels
+          sx={{
+            width: "auto",
+            maxWidth: "30%",
+            minWidth: "350px",
+            margin: "auto", // Centra el menú de navegación
+            borderRadius: "30px", // Ajusta el radio de las esquinas
+            border: "2px solid #3E4879", // Ajusta el borde del menú de navegación
+            backgroundColor: "#1F264B",
+          }}
+        >
+          {icons.map((item, index) => (
+            <BottomNavigationAction
+              key={index}
+              label={item.label}
+              icon={item.icon}
+              sx={{ color: "white" }}
+            />
+          ))}
+        </BottomNavigation>
 
-      <div className="data-dashboard-body">
-        {activeIndex === 0 && (
-          <Grid
-            container={true}
-            wrap="wrap"
-            justifyContent="space-evenly"
-            rowSpacing={4}
-          >
-            <Grid item xs="auto" order={{ xs: 2, md: 3, lg: 2, xl: 1 }}>
-              <div className="crewmembers">
-                <h5 className="crewmembers-title">{"Crewmembers health"}</h5>
-                <FormControl sx={{ m: 1, minWidth: 160 }}>
-                  <InputLabel
-                    id="demo-simple-select-label"
-                    sx={{ color: "white", textAlign: "center" }}
-                  >
-                    <Typography align="center">Crewmember</Typography>
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={piloto}
-                    label="Piloto"
-                    onChange={handleChangePiloto}
-                    sx={{
-                      bgcolor: "#1F264B",
-                      border: "2px solid #3E4879",
-                      borderRadius: "20px",
-                      "& .MuiSelect-select": {
-                        padding: "10px",
-                        lineHeight: "22px", // Adjust as needed
-                        color: "#2196f3", // Cambia el color del texto seleccionado
-                        textAlign: "center", // Centra el texto seleccionado
-                      },
-                    }}
-                  >
-                    <MenuItem value="Angello Ortiz">Angello Ortiz</MenuItem>
-                    <MenuItem value="Eridania Pérez">Eridania Pérez</MenuItem>
-                  </Select>
-                </FormControl>
-                <div className="crewmembers-health">
-                  <img
-                    src={Crewmembers}
-                    alt="crewmembers"
-                    style={{ textAlign: "left" }}
-                  />
-                  <div className="crewmember-temperatura">
-                    <label>
-                      {piloto === "Angello Ortiz"
-                        ? pulsoCardiaco1
-                        : pulsoCardiaco2}
-                    </label>
-                    <label
-                      style={{
-                        fontSize: "16px",
-                        color: "#818181",
-                        marginLeft: "4px",
+        <div className="data-dashboard-body">
+          {activeIndex === 0 && (
+            <Grid
+              container={true}
+              wrap="wrap"
+              justifyContent="space-evenly"
+              rowSpacing={4}
+            >
+              <Grid item xs="auto" order={{ xs: 2, md: 3, lg: 2, xl: 1 }}>
+                <div className="crewmembers">
+                  <h5 className="crewmembers-title">{"Crewmembers health"}</h5>
+                  <FormControl sx={{ m: 1, minWidth: 160 }}>
+                    <InputLabel
+                      id="demo-simple-select-label"
+                      sx={{ color: "white", textAlign: "center" }}
+                    >
+                      <Typography align="center">Crewmember</Typography>
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={piloto}
+                      label="Piloto"
+                      onChange={handleChangePiloto}
+                      sx={{
+                        bgcolor: "#1F264B",
+                        border: "2px solid #3E4879",
+                        borderRadius: "20px",
+                        "& .MuiSelect-select": {
+                          padding: "10px",
+                          lineHeight: "22px", // Adjust as needed
+                          color: "#2196f3", // Cambia el color del texto seleccionado
+                          textAlign: "center", // Centra el texto seleccionado
+                        },
                       }}
                     >
-                      {" "}
-                      bpm
-                    </label>
-                  </div>
-                  <div className="crewmember-oximetro">
-                    <label>
-                      {piloto === "Angello Ortiz"
-                        ? concentracionGas1
-                        : concentracionGas2}
-                    </label>
-                    <label
-                      style={{
-                        fontSize: "16px",
-                        color: "#818181",
-                        marginLeft: "4px",
-                      }}
-                    >
-                      {" "}
-                      %
-                    </label>
-                  </div>
-                  <div className="crewmember-radiacion">
-                    <label>
-                      {piloto === "Angello Ortiz" ? radiacionUV1 : radiacionUV2}
-                    </label>
-                    <label
-                      style={{
-                        fontSize: "16px",
-                        color: "#818181",
-                        marginLeft: "4px",
-                      }}
-                    >
-                      {" "}
-                      mW/cm2
-                    </label>
+                      <MenuItem value="Angello Ortiz">Angello Ortiz</MenuItem>
+                      <MenuItem value="Eridania Pérez">Eridania Pérez</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <div className="crewmembers-health">
+                    <img
+                      src={Crewmembers}
+                      alt="crewmembers"
+                      style={{ textAlign: "left" }}
+                    />
+                    <div className="crewmember-temperatura">
+                      <label>
+                        {piloto === "Angello Ortiz"
+                          ? pulsoCardiacoBPM1
+                          : pulsoCardiacoBPM2}
+                      </label>
+                      <label
+                        style={{
+                          fontSize: "16px",
+                          color: "#818181",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        {" "}
+                        bpm
+                      </label>
+                    </div>
+                    <div className="crewmember-oximetro">
+                      <label>
+                        {piloto === "Angello Ortiz"
+                          ? concentracionGas1
+                          : concentracionGas1}
+                      </label>
+                      <label
+                        style={{
+                          fontSize: "16px",
+                          color: "#818181",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        {" "}
+                        %
+                      </label>
+                    </div>
+                    <div className="crewmember-radiacion">
+                      <label>
+                        {piloto === "Angello Ortiz"
+                          ? radiacionUV1
+                          : radiacionUV1}
+                      </label>
+                      <label
+                        style={{
+                          fontSize: "16px",
+                          color: "#818181",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        {" "}
+                        mW/cm2
+                      </label>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="graph">
-                {/* <h5 className="crewmembers-title">{"Ambient Reaction"}</h5>
+                <div className="graph">
+                  <TrackGaugeChart />
+                </div>
+              </Grid>
 
-                <RadialBarChart
-                  className="crewmembers-health"
-                  width={250}
-                  height={250}
-                  innerRadius={40}
-                  outerRadius={110}
-                  barSize={8}
-                  data={dataChart}
-                  cx={110}
-                >
-                  <RadialBar background clockWise={true} dataKey="porcentaje" />
+              <Grid item xs="auto" order={{ xs: 1, md: 1, lg: 1, xl: 2 }}>
+                {lastVideo.map((video) => {
+                  return (
+                    <div className="video-container">
+                      <p>{video.url}</p>
+                      <iframe
+                        title={video.title}
+                        src={video.url}
+                        frameBorder="0"
+                        allowFullScreen
+                      />
+                    </div>
+                  );
+                })}
+              </Grid>
 
-                  <Legend
-                    iconSize={10}
-                    width={120}
-                    height={140}
-                    layout="vertical"
-                    verticalAlign="middle"
-                    wrapperStyle={style}
-                  />
-                  <Tooltip />
-                </RadialBarChart> */}
-                <TrackGaugeChart />
-              </div>
-            </Grid>
+              <Grid item xs="auto" order={{ xs: 3, md: 3, lg: 3, xl: 3 }}>
+                <div className="graph-acceleration">
+                  <h5
+                    className="crewmembers-title"
+                    style={{ marginBottom: "20px" }}
+                  >
+                    {t("Acceleration")}
+                  </h5>
+                  <Button
+                    variant="contained"
+                    endIcon={<NavigateNextIcon />}
+                    style={{
+                      backgroundColor: "#1F264B",
+                      textTransform: "none", // Esto evita que el texto se muestre en mayúsculas
+                      border: "2px solid #3E4879",
+                      borderRadius: "20px",
+                      color: "#2196f3",
+                      top: "-5px",
+                    }}
+                  >
+                    Show more
+                  </Button>
+                  <div className="graph-acceleration-grafico">
+                    <LineChart
+                      slotProps={{
+                        legend: {
+                          labelStyle: {
+                            fill: "white",
+                          },
+                        },
+                        
 
-            <Grid item xs="auto" order={{ xs: 1, md: 1, lg: 1, xl: 2 }}>
-              {/* <iframe
-                src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
-                style={{ background: <CircularProgress /> }}
-                className="herc-map"
-                title="Nasa Herc map"
-                id="herc-map"
-              ></iframe> */}
-              {/* Incrustar video reciente*/}
-              {lastVideo.map((video) => {
-                return (
-                  <div className="video-container">
-                    <p>{video.url}</p>
-                    <iframe
-                      title={video.title}
-                      src={video.url}
-                      frameBorder="0"
-                      allowFullScreen
-                    />
+                      }}
+                      sx={{
+                        //change left yAxis label styles
+                        "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                          strokeWidth: "0.4",
+                          fill: "white",
+                        },
+                        // change all labels fontFamily shown on both xAxis and yAxis
+                        "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+                          {
+                            fontFamily: "poppins",
+                          },
+                        // change bottom label styles
+                        "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                          strokeWidth: "0.5",
+                          fill: "white",
+                        },
+                        // bottomAxis Line Styles
+                        "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                          stroke: "white",
+                          strokeWidth: 3,
+                        },
+
+                        // leftAxis Line Styles
+                        "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                          stroke: "white",
+                          strokeWidth: 3,
+                        },
+                        "& .MuiAreaElement-root": {
+                          display: "none",
+                        },
+                        "& .MuiChartsLegend-label": {
+                          color: "white",
+                          fontSize: "0.8em", // adjust as needed
+                        },
+                      
+                        position: "absolute",
+                        zIndex: 1,
+                        top: -10,
+                      }}
+                      xAxis={[{ data: [1, 2, 3, 4, 5, 6] }]}
+                      series={[
+                        {
+                          data: aceleracionGrafico,
+                          color: "#0096C7",
+                          label: "Ax",
+                        },
+                        {
+                          data: [2, 5.5, 2, 8.5, 1.5, 5],
+                          color: "#FF4549",
+                          label: "Ay",
+                        },
+                        {
+                          data: [1, 3, 5, 7, 9, 11],
+                          color: "#3BF79D",
+                          label: "Az",
+                        },
+                      ]}
+                      width={350}
+                      height={300}
+                    ></LineChart>
                   </div>
-                );
-              })}
+                </div>
+                <div className="environment-sneakpeek">
+                  <iframe
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
+                    style={{
+                      background: <CircularProgress />,
+                      borderRadius: "16px",
+                      paddingBottom: "10px",
+                      paddingRight: "5px",
+                    }}
+                    className="herc-map"
+                    title="Nasa Herc map"
+                    id="herc-map"
+                  ></iframe>
+                </div>
+              </Grid>
             </Grid>
-
-            <Grid item xs="auto" order={{ xs: 3, md: 3, lg: 3, xl: 3 }}>
-              <div className="graph-acceleration">
-                <h5
-                  className="crewmembers-title"
-                  style={{ marginBottom: "20px" }}
-                >
-                  {t("Acceleration")}
-                </h5>
-                <Button
-                  variant="contained"
-                  endIcon={<NavigateNextIcon />}
-                  style={{
-                    backgroundColor: "#1F264B",
-                    textTransform: "none", // Esto evita que el texto se muestre en mayúsculas
-                    border: "2px solid #3E4879",
-                    borderRadius: "20px",
-                    color: "#2196f3",
+          )}
+          {activeIndex === 1 && (
+            <div className="rover-tab">
+              <div className="graph-izq">
+                <LineChart
+                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                  series={[
+                    {
+                      data: [2, 5.5, 2, 8.5, 1.5, 5],
+                      color: "#0096C7",
+                    },
+                  ]}
+                  sx={{
+                    //change left yAxis label styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                      strokeWidth: "0.4",
+                      fill: "white",
+                    },
+                    // change all labels fontFamily shown on both xAxis and yAxis
+                    "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel": {
+                      fontFamily: "poppins",
+                    },
+                    // change bottom label styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                      strokeWidth: "0.5",
+                      fill: "white",
+                    },
+                    // bottomAxis Line Styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                      stroke: "white",
+                      strokeWidth: 3,
+                    },
+                    // leftAxis Line Styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                      stroke: "white",
+                      strokeWidth: 3,
+                    },
+                    "& .MuiAreaElement-root": {
+                      display: "none",
+                    },
                   }}
-                >
-                  Show more
-                </Button>
-                <div className="graph-acceleration-grafico">
+                  width={350}
+                  height={300}
+                ></LineChart>
+                <h2>Inclinacion</h2>
+
+                <hr></hr>
+
+                <LineChart
+                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                  series={[
+                    {
+                      data: [2, 5.5, 2, 8.5, 1.5, 5],
+                      color: "#0096C7",
+                    },
+                  ]}
+                  sx={{
+                    //change left yAxis label styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                      strokeWidth: "0.4",
+                      fill: "white",
+                    },
+                    // change all labels fontFamily shown on both xAxis and yAxis
+                    "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel": {
+                      fontFamily: "poppins",
+                    },
+                    // change bottom label styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                      strokeWidth: "0.5",
+                      fill: "white",
+                    },
+                    // bottomAxis Line Styles
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                      stroke: "white",
+                      strokeWidth: 3,
+                    },
+                    // leftAxis Line Styles
+                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                      stroke: "white",
+                      strokeWidth: 3,
+                    },
+                    "& .MuiAreaElement-root": {
+                      display: "none",
+                    },
+                  }}
+                  width={350}
+                  height={300}
+                ></LineChart>
+                <h2>Vibracion</h2>
+              </div>
+
+              <Rover />
+
+              <div className="graph-der">
+                <Chart
+                  chartType="Gauge"
+                  width="100%"
+                  height="400px"
+                  data={gaugeData}
+                  options={gaugeOptions}
+                />
+              </div>
+
+              <div className="graphs-bot">
+                <div style={{ textAlign: "center" }}>
+                  <h2>Inclinacion</h2>
                   <LineChart
+                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                    series={[
+                      {
+                        data: [2, 5.5, 2, 8.5, 1.5, 5],
+                        color: "#0096C7",
+                      },
+                    ]}
                     sx={{
                       //change left yAxis label styles
                       "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
@@ -553,870 +739,695 @@ const DataDashboard = (props) => {
                       "& .MuiAreaElement-root": {
                         display: "none",
                       },
-                      position: "absolute",
-                      zIndex: 1,
-                      top: -30,
                     }}
-                    xAxis={[{ data: [1, 2, 3, 4, 5, 6] }]}
+                    width={300}
+                    height={300}
+                  ></LineChart>
+                </div>
+
+                <Chart
+                  chartType="Gauge"
+                  width="200px"
+                  height="200px"
+                  data={gaugeData}
+                  options={gaugeOptions}
+                />
+
+                <div style={{ textAlign: "center" }}>
+                  <h2>Vibracion</h2>
+                  <LineChart
+                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
                     series={[
                       {
-                        data: aceleracionGrafico,
+                        data: [2, 5.5, 2, 8.5, 1.5, 5],
                         color: "#0096C7",
                       },
                     ]}
-                    width={350}
+                    sx={{
+                      //change left yAxis label styles
+                      "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                        strokeWidth: "0.4",
+                        fill: "white",
+                      },
+                      // change all labels fontFamily shown on both xAxis and yAxis
+                      "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+                        {
+                          fontFamily: "poppins",
+                        },
+                      // change bottom label styles
+                      "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                        strokeWidth: "0.5",
+                        fill: "white",
+                      },
+                      // bottomAxis Line Styles
+                      "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                        stroke: "white",
+                        strokeWidth: 3,
+                      },
+                      // leftAxis Line Styles
+                      "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                        stroke: "white",
+                        strokeWidth: 3,
+                      },
+                      "& .MuiAreaElement-root": {
+                        display: "none",
+                      },
+                    }}
+                    width={300}
                     height={300}
                   ></LineChart>
                 </div>
               </div>
-              <div className="environment-sneakpeek">
-                <iframe
-                  src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
-                  style={{
-                    background: <CircularProgress />,
-                    borderRadius: "16px",
-                    paddingBottom: "10px",
-                    paddingRight: "5px",
-                  }}
-                  className="herc-map"
-                  title="Nasa Herc map"
-                  id="herc-map"
-                ></iframe>
-              </div>
-            </Grid>
-          </Grid>
-        )}
-        {activeIndex === 1 && (
-          <div className='rover-tab'>
-            <div className='graph-izq'>
-
-              <LineChart
-                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                series={[
-                  {
-                    data: [2, 5.5, 2, 8.5, 1.5, 5],
-                    color: "#0096C7",
-                  },
-                ]}
-
-                sx={{
-                  //change left yAxis label styles
-                  "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                    strokeWidth: "0.4",
-                    fill: "white",
-                  },
-                  // change all labels fontFamily shown on both xAxis and yAxis
-                  "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
-                    {
-                      fontFamily: "poppins",
-                    },
-                  // change bottom label styles
-                  "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                    strokeWidth: "0.5",
-                    fill: "white",
-                  },
-                  // bottomAxis Line Styles
-                  "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                    stroke: "white",
-                    strokeWidth: 3,
-                  },
-                  // leftAxis Line Styles
-                  "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                    stroke: "white",
-                    strokeWidth: 3,
-                  },
-                  "& .MuiAreaElement-root": {
-                    display: "none",
-                  },
-   
-                }}
-
-                width={350}
-                height={300}
-              ></LineChart>
-              <h2>Inclinacion</h2>
-
-              <hr></hr>
-
-              <LineChart
-                xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                series={[
-                  {
-                    data: [2, 5.5, 2, 8.5, 1.5, 5],
-                    color: "#0096C7",
-                  },
-                ]}
-
-                sx={{
-                  //change left yAxis label styles
-                  "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                    strokeWidth: "0.4",
-                    fill: "white",
-                  },
-                  // change all labels fontFamily shown on both xAxis and yAxis
-                  "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
-                    {
-                      fontFamily: "poppins",
-                    },
-                  // change bottom label styles
-                  "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                    strokeWidth: "0.5",
-                    fill: "white",
-                  },
-                  // bottomAxis Line Styles
-                  "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                    stroke: "white",
-                    strokeWidth: 3,
-                  },
-                  // leftAxis Line Styles
-                  "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                    stroke: "white",
-                    strokeWidth: 3,
-                  },
-                  "& .MuiAreaElement-root": {
-                    display: "none",
-                  },
-   
-                }}
-
-                width={350}
-                height={300}
-              ></LineChart>
-              <h2>Vibracion</h2>
-
             </div>
-            
-            <Rover/>
-            
-            <div className='graph-der'>
-              <Chart
-                chartType="Gauge"
-                width="100%"
-                height="400px"
-                data={gaugeData}
-                options={gaugeOptions}
-              />
-            </div>
-
-            <div className="graphs-bot">
-              <div style={{textAlign: 'center'}}>
-              <h2>Inclinacion</h2>
-                <LineChart
-                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                  series={[
-                    {
-                      data: [2, 5.5, 2, 8.5, 1.5, 5],
-                      color: "#0096C7",
-                    },
-                  ]}
-
-                  sx={{
-                    //change left yAxis label styles
-                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                      strokeWidth: "0.4",
-                      fill: "white",
-                    },
-                    // change all labels fontFamily shown on both xAxis and yAxis
-                    "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
-                      {
-                        fontFamily: "poppins",
-                      },
-                    // change bottom label styles
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                      strokeWidth: "0.5",
-                      fill: "white",
-                    },
-                    // bottomAxis Line Styles
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                      stroke: "white",
-                      strokeWidth: 3,
-                    },
-                    // leftAxis Line Styles
-                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                      stroke: "white",
-                      strokeWidth: 3,
-                    },
-                    "& .MuiAreaElement-root": {
-                      display: "none",
-                    },
-    
-                  }}
-
-                  width={300}
-                  height={300}
-                ></LineChart>
-              </div>
-
-              <Chart
-                chartType="Gauge"
-                width="200px"
-                height="200px"
-                data={gaugeData}
-                options={gaugeOptions}
-              />
-
-              <div style={{textAlign: 'center'}}>
-              <h2>Vibracion</h2>
-                <LineChart
-                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                  series={[
-                    {
-                      data: [2, 5.5, 2, 8.5, 1.5, 5],
-                      color: "#0096C7",
-                    },
-                  ]}
-
-                  sx={{
-                    //change left yAxis label styles
-                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                      strokeWidth: "0.4",
-                      fill: "white",
-                    },
-                    // change all labels fontFamily shown on both xAxis and yAxis
-                    "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
-                      {
-                        fontFamily: "poppins",
-                      },
-                    // change bottom label styles
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                      strokeWidth: "0.5",
-                      fill: "white",
-                    },
-                    // bottomAxis Line Styles
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                      stroke: "white",
-                      strokeWidth: 3,
-                    },
-                    // leftAxis Line Styles
-                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                      stroke: "white",
-                      strokeWidth: 3,
-                    },
-                    "& .MuiAreaElement-root": {
-                      display: "none",
-                    },
-    
-                  }}
-
-                  width={300}
-                  height={300}
-                ></LineChart>
-
-              </div>
-            </div>
-          </div>
-        )}
-        {activeIndex === 2 && <FrameComponent />}
-        {activeIndex === 3 && (
-          <Grid container spacing={2} alignItems="center" justifyContent={'center'}>
-            <Grid item xs={12} md={5}>
-              <Grid container spacing={2} textAlign={'center'}>
-                <Grid item xs={12} >
-                  <Typography variant="h4">Piloto 1</Typography>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <List dense>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid>
-                          <ListItemIcon>
-                            <MdOutlineWbSunny
-                              fontSize="large"
-                              style={{ color: "#FFD700" }}
+          )}
+          {activeIndex === 2 && <FrameComponent />}
+          {activeIndex === 3 && (
+            <Grid
+              container
+              spacing={2}
+              alignItems="center"
+              justifyContent={"center"}
+            >
+              <Grid item xs={12} md={5}>
+                <Grid container spacing={2} textAlign={"center"}>
+                  <Grid item xs={12}>
+                    <Typography variant="h4">Piloto 1</Typography>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <List dense>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid>
+                            <ListItemIcon>
+                              <MdOutlineWbSunny
+                                fontSize="large"
+                                style={{ color: "#FFD700" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid>
+                            <ListItemText
+                              primary="Temperatura Relativa"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {temperatura1 + " °C"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid>
-                          <ListItemText
-                            primary="Temperatura Relativa"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {temperatura1 + " °C"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineWaterDrop
-                              fontSize="large"
-                              style={{ color: "#3498db" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineWaterDrop
+                                fontSize="large"
+                                style={{ color: "#3498db" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Humedad Relativa"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {humedad1 + " %"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Humedad Relativa"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {humedad1 + " %"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineCompress
-                              fontSize="large"
-                              style={{ color: "#FF5733" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineCompress
+                                fontSize="large"
+                                style={{ color: "#FF5733" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Presión Atmosférica"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {presion1 + " hPa"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Presión Atmosférica"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {presion1 + " hPa"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineArrowUpward
-                              fontSize="large"
-                              style={{ color: "#8E44AD" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Pulso Cardiaco"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {pulsoCardiacoBPM1 + " bpm"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Pulso Cardiaco"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {pulsoCardiaco1 + " bpm"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineArrowUpward
-                              fontSize="large"
-                              style={{ color: "#8E44AD" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Aceleracion lineal"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {aceleracionLineal1 + " m/s²"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Aceleracion lineal"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {aceleracionLineal1 + " m/s²"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                  </List>
-                </Grid>
-                <Grid item xs={10} md={6}>
-                  <List dense>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid>
-                          <ListItemIcon>
-                            <MdOutlineWbSunny
-                              fontSize="large"
-                              style={{ color: "#FFD700" }}
+                      </ListItem>
+                    </List>
+                  </Grid>
+                  <Grid item xs={10} md={6}>
+                    <List dense>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid>
+                            <ListItemIcon>
+                              <MdOutlineWbSunny
+                                fontSize="large"
+                                style={{ color: "#FFD700" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid>
+                            <ListItemText
+                              primary="RadiacionUV"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {radiacionUV1 + " mW/cm2"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid>
-                          <ListItemText
-                            primary="RadiacionUV"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {radiacionUV1 + " mW/cm2"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineWaterDrop
-                              fontSize="large"
-                              style={{ color: "#3498db" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineWaterDrop
+                                fontSize="large"
+                                style={{ color: "#3498db" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Velocidad Angular"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {velocidadAngular1 + " rad/s"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Velocidad Angular"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {velocidadAngular1 + " rad/s"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineCompress
-                              fontSize="large"
-                              style={{ color: "#FF5733" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineCompress
+                                fontSize="large"
+                                style={{ color: "#FF5733" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Inclinación piloto"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {inclinacion1 + " º"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Inclinación piloto"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {inclinacion1 + " º"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineArrowUpward
-                              fontSize="large"
-                              style={{ color: "#8E44AD" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Intensidad Gravitatoria"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {intensidadGravitatoria1 + " N/kg"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Intensidad Gravitatoria"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {intensidadGravitatoria1 + " N/kg"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineArrowUpward
-                              fontSize="large"
-                              style={{ color: "#8E44AD" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Intensidad magnética"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {intensidadMagnetica1 + " µT"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Intensidad magnética"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {intensidadMagnetica1 + " µT"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                  </List>
+                      </ListItem>
+                    </List>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-            <Grid item xs={12} md={5}>
-              <Grid container spacing={2} >
-                <Grid item xs={12} >
-                  <Typography variant="h4" align="center">Piloto 2</Typography>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <List dense>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid>
-                          <ListItemIcon>
-                            <MdOutlineWbSunny
-                              fontSize="large"
-                              style={{ color: "#FFD700" }}
+              <Grid item xs={12} md={5}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h4" align="center">
+                      Piloto 2
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <List dense>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid>
+                            <ListItemIcon>
+                              <MdOutlineWbSunny
+                                fontSize="large"
+                                style={{ color: "#FFD700" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid>
+                            <ListItemText
+                              primary="Temperatura Relativa"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {temperatura2 + " °C"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid>
-                          <ListItemText
-                            primary="Temperatura Relativa"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {temperatura2 + " °C"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineWaterDrop
-                              fontSize="large"
-                              style={{ color: "#3498db" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineWaterDrop
+                                fontSize="large"
+                                style={{ color: "#3498db" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Humedad Relativa"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {humedad2 + " %"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Humedad Relativa"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {humedad2 + " %"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineCompress
-                              fontSize="large"
-                              style={{ color: "#FF5733" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineCompress
+                                fontSize="large"
+                                style={{ color: "#FF5733" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Presión Atmosférica"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {presion2 + " hPa"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Presión Atmosférica"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {presion2 + " hPa"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineArrowUpward
-                              fontSize="large"
-                              style={{ color: "#8E44AD" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Pulso Cardiaco"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {pulsoCardiacoBPM2 + " bpm"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Pulso Cardiaco"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {pulsoCardiaco2 + " bpm"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineArrowUpward
-                              fontSize="large"
-                              style={{ color: "#8E44AD" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Aceleracion lineal"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {aceleracionLineal2 + " m/s²"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Aceleracion lineal"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {aceleracionLineal2 + " m/s²"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                  </List>
-                </Grid>
-                <Grid item xs={10} md={6}>
-                  <List dense>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid>
-                          <ListItemIcon>
-                            <MdOutlineWbSunny
-                              fontSize="large"
-                              style={{ color: "#FFD700" }}
+                      </ListItem>
+                    </List>
+                  </Grid>
+                  <Grid item xs={10} md={6}>
+                    <List dense>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid>
+                            <ListItemIcon>
+                              <MdOutlineWbSunny
+                                fontSize="large"
+                                style={{ color: "#FFD700" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid>
+                            <ListItemText
+                              primary="RadiacionUV"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {radiacionUV1 + " mw/cm²"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid>
-                          <ListItemText
-                            primary="RadiacionUV"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {radiacionUV2 + " mw/cm²"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineWaterDrop
-                              fontSize="large"
-                              style={{ color: "#3498db" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineWaterDrop
+                                fontSize="large"
+                                style={{ color: "#3498db" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Velocidad Angular"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {velocidadAngular2 + " rad/s"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Velocidad Angular"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {velocidadAngular2 + " rad/s"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineCompress
-                              fontSize="large"
-                              style={{ color: "#FF5733" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineCompress
+                                fontSize="large"
+                                style={{ color: "#FF5733" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Inclinación piloto"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {inclinacion2 + " º"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Inclinación piloto"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {inclinacion2 + " º"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineArrowUpward
-                              fontSize="large"
-                              style={{ color: "#8E44AD" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Intensidad Gravitatoria"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {intensidadGravitatoria2 + " N/kg"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Intensidad Gravitatoria"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {intensidadGravitatoria2 + " N/kg"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                    <ListItem>
-                      <Grid container alignItems="center">
-                        <Grid item>
-                          <ListItemIcon>
-                            <MdOutlineArrowUpward
-                              fontSize="large"
-                              style={{ color: "#8E44AD" }}
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Intensidad magnética"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {intensidadMagnetica2 + " µT"}
+                                </Typography>
+                              }
                             />
-                          </ListItemIcon>
+                          </Grid>
                         </Grid>
-                        <Grid item>
-                          <ListItemText
-                            primary="Intensidad magnética"
-                            secondary={
-                              <Typography
-                                variant="body2"
-                                style={{ color: "#4CAF50" }}
-                              >
-                                {intensidadMagnetica2 + " µT"}
-                              </Typography>
-                            }
-                          />
-                        </Grid>
-                      </Grid>
-                    </ListItem>
-                  </List>
+                      </ListItem>
+                    </List>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Grid item xs={12} >
-                <Typography variant="h4" align="center">Rover</Typography>
+              <Grid item xs={12} md={3}>
+                <Grid item xs={12}>
+                  <Typography variant="h4" align="center">
+                    Rover
+                  </Typography>
+                </Grid>
+                <List dense>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid>
+                        <ListItemIcon>
+                          <MdOutlineArrowUpward
+                            fontSize="large"
+                            style={{ color: "#8E44AD" }}
+                          />
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid>
+                        <ListItemText
+                          primary="Impacto"
+                          secondary={
+                            <Typography
+                              variant="body2"
+                              style={{ color: "#4CAF50" }}
+                            >
+                              {impacto + " N"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid>
+                        <ListItemIcon>
+                          <MdOutlineArrowUpward
+                            fontSize="large"
+                            style={{ color: "#8E44AD" }}
+                          />
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid>
+                        <ListItemText
+                          primary="Inclinación Rover"
+                          secondary={
+                            <Typography
+                              variant="body2"
+                              style={{ color: "#4CAF50" }}
+                            >
+                              {inclinacionRover + " °"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                  <ListItem>
+                    <Grid container alignItems="center">
+                      <Grid>
+                        <ListItemIcon>
+                          <MdOutlineArrowUpward
+                            fontSize="large"
+                            style={{ color: "#8E44AD" }}
+                          />
+                        </ListItemIcon>
+                      </Grid>
+                      <Grid>
+                        <ListItemText
+                          primary="Vibración"
+                          secondary={
+                            <Typography
+                              variant="body2"
+                              style={{ color: "#4CAF50" }}
+                            >
+                              {vibracion + " Hz"}
+                            </Typography>
+                          }
+                        />
+                      </Grid>
+                    </Grid>
+                  </ListItem>
+                </List>
               </Grid>
-              <List dense>
-                <ListItem>
-                  <Grid container alignItems="center">
-                    <Grid>
-                      <ListItemIcon>
-                        <MdOutlineArrowUpward
-                          fontSize="large"
-                          style={{ color: "#8E44AD" }}
-                        />
-                      </ListItemIcon>
-                    </Grid>
-                    <Grid>
-                      <ListItemText
-                        primary="Impacto"
-                        secondary={
-                          <Typography variant="body2" style={{ color: "#4CAF50" }}>
-                            {impacto + " N"}
-                          </Typography>
-                        }
-                      />
-                    </Grid>
-                  </Grid>
-                </ListItem>
-                <ListItem>
-                  <Grid container alignItems="center">
-                    <Grid>
-                      <ListItemIcon>
-                        <MdOutlineArrowUpward
-                          fontSize="large"
-                          style={{ color: "#8E44AD" }}
-                        />
-                      </ListItemIcon>
-                    </Grid>
-                    <Grid>
-                      <ListItemText
-                        primary="Inclinación Rover"
-                        secondary={
-                          <Typography variant="body2" style={{ color: "#4CAF50" }}>
-                            {inclinacionRover + " °"}
-                          </Typography>
-                        }
-                      />
-                    </Grid>
-                  </Grid>
-                </ListItem>
-                <ListItem>
-                  <Grid container alignItems="center">
-                    <Grid>
-                      <ListItemIcon>
-                        <MdOutlineArrowUpward
-                          fontSize="large"
-                          style={{ color: "#8E44AD" }}
-                        />
-                      </ListItemIcon>
-                    </Grid>
-                    <Grid>
-                      <ListItemText
-                        primary="Vibración"
-                        secondary={
-                          <Typography variant="body2" style={{ color: "#4CAF50" }}>
-                            {vibracion + " Hz"}
-                          </Typography>
-                        }
-                      />
-                    </Grid>
-                  </Grid>
-                </ListItem>
-              </List>
             </Grid>
-            
-          </Grid>
-        )}
-      </div>
-    </Container>
+          )}
+        </div>
+      </Container>
     </div>
   );
 };
