@@ -225,11 +225,11 @@
     }
 
     .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek{
-        width: 415px;
+        width: 350px;
     }
 
     .herc-map{
-        width: 390px;
+        width: 325px;
         height: 275px;
     }
 
@@ -258,19 +258,19 @@
     
 }
 
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1300px){
     .herc-map, .video-container{
-        width: 1000px;
+        width: 900px;
         height: 500px;
 
     }
 
     .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek {
-        width: 415px;
+        width: 350px;
     }
 
     .herc-map{
-        width: 390px;
+        width: 325px;
         height: 275px;
     }
 
@@ -308,13 +308,13 @@
         display: block;
     }
     .herc-map{
-        width: 390px;
+        width: 325px;
         height: 275px;
     }
 }
 
 @media screen and (max-width: 720px){
-    .herc-map, .video-container{
+    .video-container{
         width: 500px;
         height: 200px;
     }
@@ -331,7 +331,7 @@
         padding-bottom: 75%; /* Proporción de aspecto 4:3 (ajusta según necesites) */
     }
     .herc-map{
-        width: 390px;
+        width: 325px;
         height: 275px;
     }
 

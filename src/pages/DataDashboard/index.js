@@ -4,6 +4,7 @@ import './DataDashboardTripulante/src/global.css';
 import "./DataDashboard.css";
 import React, { useEffect, useState } from "react";
 import database from "../../services/firebase";
+
 // import {Container,Tab, Tabs} from 'react-bootstrap';
 
 import {
@@ -51,12 +52,15 @@ import { set } from "lodash";
 import { borderRadius } from "@mui/system";
 import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
 import { getLastVideo, getRecentVideos } from "../../services/FetchYTVideos";
+import { fetchAllData, fetchLastFiveData } from '../../services/FetchFirebase.js';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { axisClasses } from "@mui/x-charts";
 
 import Rover from './DataDashboardRover/index.js';
 
 import { Chart } from "react-google-charts";
+import { a } from '@react-spring/three';
+import TrackGaugeChart from '../../components/RadialBarChart/index.js';
 
 
 const DataDashboard = (props) => {
@@ -85,6 +89,7 @@ const DataDashboard = (props) => {
   const [presion1, setPresion1] = useState(0);
   const [temperatura1, setTemperatura1] = useState(0);
   const [velocidadAngular1, setVelocidadAngular1] = useState(0);
+  const [aceleracionGrafico, setAceleracionGrafico] = useState([]);
 
   //Piloto 2
   const [pulsoCardiaco2, setPulsoCardiaco2] = useState(0);
@@ -148,112 +153,128 @@ const DataDashboard = (props) => {
   
     fetchData();
   }, []);
-
   
+  //Obtener toda la data de firebase con fetchAllData
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Assuming we have a 'data' node in our database
-        const snapshot = await database
-          .ref("/temperatura-humedad")
-          .orderByKey()
-          .limitToLast(1)
-          .once("value");
-        const dataFromDatabase = snapshot.val();
-
-        //obtener datos de gráficos
-        const snapshot2 = await database
-          .ref("/temperatura-humedad")
-          .orderByKey()
-          .limitToLast(10)
-          .once("value");
-        const dataFromDatabase2 = snapshot2.val();
-
-        setData(dataFromDatabase);
-        setDataGrafico(dataFromDatabase2);
-        console.log("Data from Firebase:", dataFromDatabase);
-        console.log("Data from Firebase cantidad 10:", dataFromDatabase2);
+        const data = await fetchAllData();
+        setData(data);
+        console.log("Toda la data", data);
       } catch (error) {
-        console.error("Error fetching data from Firebase:", error);
+        console.error("Error in fetchData Firebase All:", error.message);
       }
     };
-
     fetchData();
   }, []);
 
-  // Configurar el listener 'on' para la ubicación /temperatura-humedad
+  //Obtener los ultimos 5 registros de firebase con fetchLastFiveData
+
   useEffect(() => {
-    const onDataChange = (snapshot) => {
-      const dataFromDatabase = snapshot.val();
-      const dataFromDatabase2 = snapshot.val();
+    const fetchData = async () => {
+      try {
+        const data = await fetchLastFiveData();
+        setDataGrafico(data);
+        console.log("Ultima 5", data);
+      } catch (error) {
+        console.error("Error in fetchData Firebase Last Five:", error.message);
+      }
+    };
+    fetchData();
+  }, []);
 
-      setData(dataFromDatabase);
-      setDataGrafico(dataFromDatabase2);
+  // asignar valores y mantenerlos actualizados
 
-      console.log("Data from Firebase:", dataFromDatabase);
+  useEffect(() => {
+    const handleData = (snapshot) => {
+      const data = snapshot.val();
+      
+      console.log(data)
+      console.log(data.inclinacion2)
 
-      if (dataFromDatabase) {
+      if (data) {
         let lastEntryKey;
         let lastEntryData;
-
 
         snapshot.forEach((childSnapshot) => {
           lastEntryKey = childSnapshot.key;
           lastEntryData = childSnapshot.val();
         });
 
-        // Procesar los datos directamente
         setProcessedData({
           key: lastEntryKey,
           value: lastEntryData,
         });
 
-        // Acceder a los valores piloto 1
-        setAceleracionLineal1(parseFloat(lastEntryData.AceleraciónLineal1));
-        setRadiacionUV1(parseFloat(lastEntryData.radiacionUV1));
-        setConcentracionGas1(parseFloat(lastEntryData.ConcentracionGas1));
-        setPulsoCardiaco1(parseFloat(lastEntryData.pulsoCardiaco1));
-        setTemperatura1(parseFloat(lastEntryData.temperatura1));
-        setHumedad1(parseFloat(lastEntryData.humedad1));
-        setPresion1(parseFloat(lastEntryData.presion1));
-        setInclinacion1(parseFloat(lastEntryData.inclinacion1));
-        setIntensidadGravitatoria1(parseFloat(lastEntryData.intensidadGravitatoria1));
-        setIntensidadMagnetica1(parseFloat(lastEntryData.intensidadMagnetica1));
-        setVelocidadAngular1(parseFloat(lastEntryData.velocidadAngular1));
+        //asignacion piloto 1
+        setPulsoCardiaco1(lastEntryData.pulsoCardiaco1);
+        setConcentracionGas1(lastEntryData.ConcentracionGas1);
+        setRadiacionUV1(lastEntryData.radiacionUV1);
+        setAceleracionLineal1(lastEntryData.AceleraciónLineal1);
+        setInclinacion1(lastEntryData.inclinacion1);
+        setHumedad1(lastEntryData.humedad1);
+        setIntensidadGravitatoria1(lastEntryData.intensidadGravitatoria1);
+        setIntensidadMagnetica1(lastEntryData.intensidadMagnetica1);
+        setPresion1(lastEntryData.presion1);
+        setTemperatura1(lastEntryData.temperatura1);
+        setVelocidadAngular1(lastEntryData.velocidadAngular1);
 
+        //asignacion piloto 2
+        setPulsoCardiaco2(lastEntryData.pulsoCardiaco2);
+        setConcentracionGas2(lastEntryData.ConcentracionGas2);
+        setRadiacionUV2(lastEntryData.radiacionUV2);
+        setAceleracionLineal2(lastEntryData.AceleraciónLineal2);
+        setInclinacion2(lastEntryData.inclinacion2);
+        setHumedad2(lastEntryData.humedad2);
+        setIntensidadGravitatoria2(lastEntryData.intensidadGravitatoria2);
+        setIntensidadMagnetica2(lastEntryData.intensidadMagnetica2);
+        setPresion2(lastEntryData.presion2);
+        setTemperatura2(lastEntryData.temperatura2);
+        setVelocidadAngular2(lastEntryData.velocidadAngular2);
 
-        // Acceder a los valores piloto 2
-        setAceleracionLineal2(parseFloat(lastEntryData.AceleraciónLineal2));
-        setRadiacionUV2(parseFloat(lastEntryData.radiacionUV2));
-        setConcentracionGas2(parseFloat(lastEntryData.ConcentracionGas2));
-        setPulsoCardiaco2(parseFloat(lastEntryData.pulsoCardiaco2));
-        setTemperatura2(parseFloat(lastEntryData.temperatura2));
-        setHumedad2(parseFloat(lastEntryData.humedad2));
-        setPresion2(parseFloat(lastEntryData.presion2));
-        setInclinacion2(parseFloat(lastEntryData.inclinacion2));
-        setIntensidadGravitatoria2(parseFloat(lastEntryData.intensidadGravitatoria2));
-        setIntensidadMagnetica2(parseFloat(lastEntryData.intensidadMagnetica2));
-        setVelocidadAngular2(parseFloat(lastEntryData.velocidadAngular2));
-
-        // Acceder a los valores del rover
-        setImpacto(parseFloat(lastEntryData.impacto));
-        setInclinacionRover(parseFloat(lastEntryData.inclinacionRover));
-        setVibracion(parseFloat(lastEntryData.vibracion));
+        //asignacion rover
+        setImpacto(lastEntryData.impacto);
+        setInclinacionRover(lastEntryData.inclinacionRover);
+        setVibracion(lastEntryData.vibracion);
       }
-      if(dataFromDatabase2){
-        
-      }
+
+      
     };
 
-    const databaseRef = database.ref("/temperatura-humedad");
-    databaseRef.on("value", onDataChange);
+    database.ref("/temperatura-humedad").on("value", handleData);
 
-    // Devuelve una función de limpieza para desregistrar el listener cuando el componente se desmonta
     return () => {
-      databaseRef.off("value", onDataChange);
+      database.ref("/temperatura-humedad").off("value", handleData);
     };
-  }, []); // El segundo parámetro del useEffect es un array vacío para que se ejecute solo una vez al montar el componente
+  }, []);
+
+  // Asignar ahora los ultimos cinco registros
+  useEffect(() => {
+    const handleData = (snapshot) => {
+      const data = [];
+      snapshot.forEach((childSnapshot) => {
+        data.push(childSnapshot.val());
+      });
+  
+      // Asegúrate de que solo tengas los últimos cinco registros
+      const lastFiveData = data.slice(-5);
+  
+      setDataGrafico(lastFiveData);
+
+      const aceleracionData = lastFiveData.map((data) => data.AceleraciónLineal2);
+      console.log(aceleracionData)
+      setAceleracionGrafico(aceleracionData);
+    };
+  
+    const ref = database.ref("/temperatura-humedad");
+    ref.limitToLast(5).on("value", handleData);
+  
+    return () => {
+      ref.off("value", handleData);
+    };
+  }, []);
+
 
   const style = {
     top: 60,
@@ -428,7 +449,7 @@ const DataDashboard = (props) => {
                 </div>
               </div>
               <div className="graph">
-                <h5 className="crewmembers-title">{"Ambient Reaction"}</h5>
+                {/* <h5 className="crewmembers-title">{"Ambient Reaction"}</h5>
 
                 <RadialBarChart
                   className="crewmembers-health"
@@ -451,7 +472,8 @@ const DataDashboard = (props) => {
                     wrapperStyle={style}
                   />
                   <Tooltip />
-                </RadialBarChart>
+                </RadialBarChart> */}
+                <TrackGaugeChart />
               </div>
             </Grid>
 
@@ -535,10 +557,10 @@ const DataDashboard = (props) => {
                       zIndex: 1,
                       top: -30,
                     }}
-                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                    xAxis={[{ data: [1, 2, 3, 4, 5, 6] }]}
                     series={[
                       {
-                        data: [2, 5.5, 2, 8.5, 1.5, 5],
+                        data: aceleracionGrafico,
                         color: "#0096C7",
                       },
                     ]}
