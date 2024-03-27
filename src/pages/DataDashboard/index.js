@@ -96,7 +96,7 @@ const DataDashboard = (props) => {
   const [aceleracionGrafico, setAceleracionGrafico] = useState([]);
 
   //Piloto 2
-  const [pulsoCardiaco2, setPulsoCardiaco2] = useState(0);
+  const [pulsoCardiacoBPM2, setPulsoCardiacoBPM2] = useState(0);
   const [aceleracionLineal2, setAceleracionLineal2] = useState(0);
   const [aceleracionLineal2_x, setAceleracionLineal2_x] = useState([]);
   const [aceleracionLineal2_y, setAceleracionLineal2_y] = useState([]);
@@ -224,7 +224,7 @@ const DataDashboard = (props) => {
         });
 
         //asignacion piloto 1
-        setPulsoCardiacoBPM1(lastEntryData.pulsoCardiacoBPM1);
+        setPulsoCardiacoBPM1(lastEntryData.pulsoCardiaco1);
         setAceleracionLineal1(lastEntryData.AceleraciónLineal1);
         setInclinacion1(lastEntryData.inclinacion1);
         setHumedad1(lastEntryData.humedad1);
@@ -235,7 +235,7 @@ const DataDashboard = (props) => {
         setVelocidadAngular1(lastEntryData.velocidadAngular1);
 
         //asignacion piloto 2
-        setPulsoCardiaco2(lastEntryData.pulsoCardiaco2);
+        setPulsoCardiacoBPM2(lastEntryData.pulsoCardiaco2);
         setAceleracionLineal2(lastEntryData.AceleraciónLineal2);
         setInclinacion2(lastEntryData.inclinacion2);
         setHumedad2(lastEntryData.humedad2);
@@ -415,7 +415,7 @@ const DataDashboard = (props) => {
                       <label>
                         {piloto === "Angello Ortiz"
                           ? pulsoCardiacoBPM1
-                          : pulsoCardiaco2}
+                          : pulsoCardiacoBPM2}
                       </label>
                       <label
                         style={{
@@ -1175,7 +1175,7 @@ const DataDashboard = (props) => {
                                   variant="body2"
                                   style={{ color: "#4CAF50" }}
                                 >
-                                  {pulsoCardiaco2 + " bpm"}
+                                  {pulsoCardiacoBPM2 + " bpm"}
                                 </Typography>
                               }
                             />
