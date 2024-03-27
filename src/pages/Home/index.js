@@ -5,15 +5,17 @@ import group_picture from '../../imgs/Home/group-img.png'; // Foto grupal
 import { Link } from 'react-router-dom';
 import mapa from '../../imgs/Home/mapa.png';
 import simulation from '../../imgs/game.jpg';
-import { timeline } from '../../pages/Home/timeline.js';
-import team2024 from '../../imgs/Home/group-img.png'
+import team2019 from '../../imgs/Home/2019.jpg';
+import team2020 from '../../imgs/Home/2020.jpg';
+import team2021 from '../../imgs/Home/2021.jpg';
+import team2022 from '../../imgs/Home/2022.jpg';
+import team2023 from '../../imgs/Home/2023.jpg';
+import team2024 from '../../imgs/Home/2024.jpg';
 
 function Home() {
   return (
     <>
-
-    {/* PRIMEROS WIDGETS */}
-
+      {/* PRIMEROS WIDGETS */}
       <div className="grid">
         <div id="item-0">
           <h4>
@@ -32,7 +34,7 @@ function Home() {
 
         <div id="item-1" className='item-1'>
           <Link to='/About-Us'>
-            <img src={group_picture} alt="Apolo 27 official picture" className='group-picture' />
+            <img src={simulation} alt="Simulation" className='group-picture' />
           </Link>
         </div>
 
@@ -44,16 +46,115 @@ function Home() {
         
         <div id="item-3">
           <Link to='/Simulation'>
-            <img src={simulation} alt="Simulación" className="group-picture" />
+            <img src={group_picture} alt="hola" className="group-picture" />
           </Link>
         </div>
       </div>
-      
-    {/* TEXTO ANIMADO */}
 
-      <section id='pre-game'>
-          <div id='pre-game-div'>
-            <div id="container">
+      {/* TIMELINE */}
+
+      <section id="timeline">
+    <h1>Get to know us</h1>
+    <p class="leader">Take a trip through time and see our journey unfold. Our story and evolution over the years.</p>
+    <div class="demo-card-wrapper">
+      <div class="demo-card demo-card--step1">
+        <div class="head">
+          <div class="number-box">
+            <span>2019</span>
+          </div>
+          <h2><span class="small">Beginning</span> Resilence</h2>
+        </div>
+        <div class="body">
+          <p>
+          Formed in 2019, our small team made history: 1st university division team from our country at the NASA Rover Challenge!
+          </p>
+          <img src={team2019} alt="2019" className="team-picture" />
+        </div>
+      </div>
+
+      <div class="demo-card demo-card--step2">
+        <div class="head">
+          <div class="number-box">
+            <span>2020</span>
+          </div>
+          <h2><span class="small">Second</span> Robust</h2>
+        </div>
+        <div class="body">
+          <p>
+          2020's pandemic brought challenges, but our team persevered. Learned lessons fueled historic "System Safety Award" win!
+          </p>
+          <img src={team2020} alt="2020" className="team-picture" />
+        </div>
+      </div>
+
+      <div class="demo-card demo-card--step3">
+        <div class="head">
+          <div class="number-box">
+            <span>2021</span>
+          </div>
+          <h2><span class="small">Third</span>Bold</h2>
+        </div>
+        <div class="body">
+          <p>
+          Rover revamp boosted strength! Team knowledge soared, igniting national STEM passion through our previous experience.
+          </p>
+          <img src={team2021} alt="2021" className="team-picture" />
+        </div>
+      </div>
+
+      <div class="demo-card demo-card--step4">
+        <div class="head">
+          <div class="number-box">
+            <span>2022</span>
+          </div>
+          <h2><span class="small">Fourth</span>Fearless</h2>
+        </div>
+        <div class="body">
+          <p>
+          STEM focus expanded in 2022! Launched "STEM Tour" (interactive projects!), crowned "Engagement Award" winners!
+          </p>
+          <img src={team2022} alt="2022" className="team-picture" />
+        </div>
+      </div>
+
+      <div class="demo-card demo-card--step5">
+        <div class="head">
+          <div class="number-box">
+            <span>2023</span>
+          </div>
+          <h2><span class="small">Fifth</span>Robust</h2>
+        </div>
+        <div class="body">
+          <p>
+          Dominican DOMINANCE! Major improvements across the board earned "Most Improved" & "Team Spirit" awards - a historic first!
+          </p>
+          <img src={team2023} alt="2023" className="team-picture" />
+        </div>
+      </div>
+
+      <div class="demo-card demo-card--step6">
+        <div class="head">
+          <div class="number-box">
+            <span>2024</span>
+          </div>
+          <h2><span class="small">Sixth</span>Bold</h2>
+        </div>
+        <div class="body">
+          <p>
+          Fueled by 2023's challenges, we've leveled up all areas of our team.  Ready to crush ambitious goals & achieve excellence in 2024!
+          </p>
+          <img src={team2024} alt="2024" className="team-picture" />
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+{/* BOTONES ÁREAS */}
+
+  <section id='pre-game'>
+        <div id='pre-game-div'>
+          <div id="container">
             Apolo 27 is 
             <div id="flip">
               <div><div>Telemetry</div></div>
@@ -64,108 +165,53 @@ function Home() {
         </div> 
       </section>
 
-      <section id='areas'>
-            <div class="container-areas">
-        <div class="card">
-          <div class="box">
-            <div class="content">
-              <h2>01</h2>
-              <h3>Manufacturing</h3>
-              <p>
-              The manufacturing team is the backbone of our HERC entry. They take the designs from our
-              engineers and transform them into a real, functioning rover.</p>
-              <a href="#">Read More</a>
+        <section id='areas'>
+          <div className="container-areas">
+            <div className="card">
+              <div className="box">
+                <div className="content">
+                  <h2>01</h2>
+                  <h3>Manufacturing</h3>
+                  <p>
+                    The manufacturing team is the backbone of our HERC entry. They take the designs from our
+                    engineers and transform them into a real, functioning rover.
+                  </p>
+                  <a href="#">Read More</a>
+                </div>
+              </div>
+            </div>
+
+            <div className="card">
+              <div className="box">
+                <div className="content">
+                  <h2>02</h2>
+                  <h3>Telemetry</h3>
+                  <p>
+                    Our top-notch telemetry team builds the rover's "nervous system," keeping it in constant communication during competition.
+                    They're the silent heroes who ensure smooth operation through real-time data monitoring.
+                  </p>
+                  <a href="#">Read More</a>
+                </div>
+              </div>
+            </div>
+
+            <div className="card">
+              <div className="box">
+                <div className="content">
+                  <h2>03</h2>
+                  <h3>STEM</h3>
+                  <p>
+                    Our STEM team brings exciting events and hands-on activities to schools nationwide, sparking
+                    a love for science, technology, engineering, and math.
+                  </p>
+                  <a href="#">Read More</a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="card">
-          <div class="box">
-            <div class="content">
-              <h2>02</h2>
-              <h3>Telemetry</h3>
-              <p>
-              Our top-notch telemetry team builds the rover's "nervous system," keeping it in constant communication during competition.
-              They're the silent heroes who ensure smooth operation through real-time data monitoring.</p>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="box">
-            <div class="content">
-              <h2>03</h2>
-              <h3>STEM</h3>
-              <p>Our STEM team brings exciting events and hands-on activities to schools nationwide, sparking
-                 a love for science, technology, engineering, and math.</p>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      </section>
-
-{/* TIMELINE */}
-
-    <section id="timeline-1" class="timeline-container">
-      <div class="timeline-header">
-        <h2 class="timeline-header__title">Our story</h2>
-        <h3 class="timeline-header__subtitle">Get to know us since the beginning</h3>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item" data-text="APOLO 27">
-          <div class="timeline__content">
-            <img class="timeline__img" src="https://i0.wp.com/nuevodiario-assets.s3.us-east-2.amazonaws.com/wp-content/uploads/2019/04/Estudiantes-de-INTEC.jpeg?fit=1024%2C768&ssl=1" />
-            <h2 class="timeline__content-title">2019</h2>
-            <p class="timeline__content-desc">In 2019, we started with just a few members, and it was a challenging time for us. But we were determined to represent our country for the first time ever in the NASA Human Exploration Rover Challenge, and we did just that.</p>
-          </div>
-        </div>
-        <div class="timeline-item" data-text="APOLO 27">
-          <div class="timeline__content">
-            <img class="timeline__img" src="https://i0.wp.com/ensegundos.do/wp-content/uploads/2020/08/Ministra-jueventud-y-estudiantes.jpg?fit=1200%2C800&ssl=1" />
-            <h2 class="timeline__content-title">2020</h2>
-            <p class="timeline__content-desc">In 2020, despite the challenges posed by the pandemic, we persevered and learned valuable lessons that helped us grow, which led to win our first award: "System Safety Award".</p>
-          </div>
-        </div>
-        <div class="timeline-item" data-text="APOLO 27">
-          <div class="timeline__content">
-            <img class="timeline__img" src="https://pbs.twimg.com/media/EyiPSveWYAEHLWy?format=jpg&name=medium" />
-            <h2 class="timeline__content-title">2021</h2>
-            <p class="timeline__content-desc">In 2021, we continued to promote STEM in our country. Also, we focused in making the Rover's design even better. We also successfully raised awareness for STEM in our country.</p>
-          </div>
-        </div>
-        <div class="timeline-item" data-text="APOLO 27">
-          <div class="timeline__content">
-            <img class="timeline__img" src="https://listindiario.com/files/article_main_microformat/uploads/2022/05/12/643011cad8e42.jpeg" />
-            <h2 class="timeline__content-title">2022</h2>
-            <p class="timeline__content-desc">In 2022, we focused on even more aspects of STEM. This led us to create the STEM Tour, an event where we showcased interactive STEM projects. This year, we won "STEM Engagement Award".</p>
-          </div>
-        </div>
-        <div class="timeline-item" data-text="APOLO 27">
-          <div class="timeline__content">
-            <img class="timeline__img" src="https://cdn.filestackcontent.com/no_metadata/resize=width:700,fit:max/OsWMci9gTwabQetTx4Hw" />
-            <h2 class="timeline__content-title">2023</h2>
-            <p class="timeline__content-desc">In 2023, the team kept growing and learning. This year, we won two category awards for the first time, "Most Improved Award" and "Team Spirit Award".</p>
-          </div>
-        </div>
-        <div class="timeline-item" data-text="APOLO 27">
-          <div class="timeline__content">
-            <img class="timeline__img" src={team2024} />
-            <h2 class="timeline__content-title">2024</h2>
-            <p class="timeline__content-desc">This year we are focused on improving everything even more. Expanding through all the country and create bigger impact.</p>
-          </div>
-        </div>
-        <div class="timeline-item" data-text="APOLO 27">
-
-        </div>
-      </div>
-    </section>
+        </section>
     </>
   );
 }
 
 export default Home;
-timeline()
-
-
