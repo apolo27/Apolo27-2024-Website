@@ -18,11 +18,15 @@ const TrackGaugeChart = () => {
             new Highcharts.Color(color).setOpacity(0.3).get()
         );
 
+        
+
         Highcharts.chart("container", {
           chart: {
             type: "solidgauge",
             height: "80%",
             backgroundColor: "transparent",
+           
+
           },
           title: {
             text: "Ambient Reaction",
@@ -50,8 +54,8 @@ const TrackGaugeChart = () => {
               'font-weight: bold">{point.y}</span>',
             positioner: function (labelWidth) {
               return {
-                x: (this.chart.chartWidth - labelWidth) / 2,
-                y: this.chart.plotHeight / 2 + 15,
+                x: (this.chart.chartWidth - labelWidth) / 6,
+                y: this.chart.plotHeight / 2 + 2,
               };
             },
           },
@@ -99,19 +103,46 @@ const TrackGaugeChart = () => {
             },
           },
           legend: {
+            x: 15,
+            y: 15,
             enabled: true,
             align: "right",
             verticalAlign: "middle",
+            backgroundColor: "transparent",
             layout: "vertical",
+
             itemStyle: {
-              color: "#ffffff",
               fontWeight: "bold",
               fontSize: "13px",
+              textTransform: "none",
+              
             },
+            useHTML: true,
+            symbolRadius: 0,
+            symbolHeight: 0,
+            symbolWidth: 0,
+            labelFormatter: function () {
+                
+                let status;
+                let statusColor;
+                if (this.yData[0] < 30) {
+                    status = 'Bajo';
+                    statusColor = '#3BF79D';
+                } else if (this.yData[0] < 70) {
+                    status = 'Medio';
+                    statusColor = '#226BD8';
+                } else {
+                    status = 'Alto';
+                    statusColor = '#FF4549';
+                }
+                return '<span><div style="width:10px;height:10px;border-radius:50%;background-color:' + this.userOptions.color + ';display:inline-block;margin-right:10px;"></div><span style="color: ' + this.userOptions.color + '">' + this.name + '</span><br/><span style="font-size: 12px; color: ' + statusColor + '; margin-left: 20px;">' + status + '</span></span>';                //return '<span style="color: ' + this.userOptions.color + '">' + this.name + '</span><br/><span style="font-size: 12px; color: ' + statusColor + '">' + status + '</span>';
+            },
+            
           },
           series: [
             {
               name: "Habitability",
+              color: Highcharts.getOptions().colors[0],
               data: [
                 {
                   color: Highcharts.getOptions().colors[0],
@@ -120,6 +151,7 @@ const TrackGaugeChart = () => {
                   y: 80,
                 },
               ],
+              showInLegend: true,
               custom: {
                 icon: "filter",
                 iconColor: "#303030",
@@ -127,6 +159,7 @@ const TrackGaugeChart = () => {
             },
             {
               name: "Energy efficiency",
+              color: Highcharts.getOptions().colors[1],
               data: [
                 {
                   color: Highcharts.getOptions().colors[1],
@@ -135,6 +168,8 @@ const TrackGaugeChart = () => {
                   y: 65,
                 },
               ],
+              showInLegend: true,
+
               custom: {
                 icon: "comments-o",
                 iconColor: "#ffffff",
@@ -142,6 +177,7 @@ const TrackGaugeChart = () => {
             },
             {
               name: "Crew fatigue",
+              color: Highcharts.getOptions().colors[2],
               data: [
                 {
                   color: Highcharts.getOptions().colors[2],
@@ -150,12 +186,14 @@ const TrackGaugeChart = () => {
                   y: 50,
                 },
               ],
+              showInLegend: true,
               custom: {
                 icon: "commenting-o",
                 iconColor: "#303030",
               },
             },
           ],
+          
           exporting: {
             enabled: false,
           },
