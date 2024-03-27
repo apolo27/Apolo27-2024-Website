@@ -18,11 +18,14 @@ const TrackGaugeChart = () => {
             new Highcharts.Color(color).setOpacity(0.3).get()
         );
 
+        
+
         Highcharts.chart("container", {
           chart: {
             type: "solidgauge",
             height: "80%",
             backgroundColor: "transparent",
+           
 
           },
           title: {
@@ -100,11 +103,14 @@ const TrackGaugeChart = () => {
             },
           },
           legend: {
+            x: 15,
+            y: 15,
             enabled: true,
             align: "right",
             verticalAlign: "middle",
             backgroundColor: "transparent",
             layout: "vertical",
+
             itemStyle: {
               fontWeight: "bold",
               fontSize: "13px",
@@ -112,7 +118,11 @@ const TrackGaugeChart = () => {
               
             },
             useHTML: true,
+            symbolRadius: 0,
+            symbolHeight: 0,
+            symbolWidth: 0,
             labelFormatter: function () {
+                
                 let status;
                 let statusColor;
                 if (this.yData[0] < 30) {
@@ -125,8 +135,9 @@ const TrackGaugeChart = () => {
                     status = 'Alto';
                     statusColor = '#FF4549';
                 }
-                return '<span style="color: ' + this.userOptions.color + '">' + this.name + '</span><br/><span style="font-size: 12px; color: ' + statusColor + '">' + status + '</span>';
+                return '<span><div style="width:10px;height:10px;border-radius:50%;background-color:' + this.userOptions.color + ';display:inline-block;margin-right:10px;"></div><span style="color: ' + this.userOptions.color + '">' + this.name + '</span><br/><span style="font-size: 12px; color: ' + statusColor + '; margin-left: 20px;">' + status + '</span></span>';                //return '<span style="color: ' + this.userOptions.color + '">' + this.name + '</span><br/><span style="font-size: 12px; color: ' + statusColor + '">' + status + '</span>';
             },
+            
           },
           series: [
             {
