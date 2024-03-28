@@ -1,4 +1,5 @@
 import "./Footer.css"
+import { HashLink } from 'react-router-hash-link';
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
 
 const Footer = () => {
@@ -31,9 +32,9 @@ const Footer = () => {
   	 		<div class="footer-col">
   	 			<h4>Stem With Us</h4>
   	 			<ul>
-  	 				<li><a href="#">Blog</a></li>
-  	 				<li><a href="#">Events Calendar</a></li>
-  	 				<li><a href="#">Book a School Visit</a></li>
+  	 				<li><HashLink smooth to="Stem-With-Us#blogs">Blog</HashLink></li>
+  	 				<li><HashLink smooth to="Stem-With-Us#events">Events Calendar</HashLink></li>
+  	 				<li><HashLink smooth to="Stem-With-Us#schoolvisit">Book a School Visit</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
