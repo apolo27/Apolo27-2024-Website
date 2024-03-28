@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Line } from "react-chartjs-2";
 import 'chart.js/auto';
+import { ReactComponent as BloodPressureIcon } from '../../public/group.svg';
 
-// Simulación de obtención de datos de presión arterial
 const fetchBloodPressureData = () => {
   return {
     currentSystolic: 120,
@@ -25,7 +25,7 @@ const getStatusColor = (status) => {
     case "Alerta":
       return "#ff4d4d";
     default:
-      return "#999"; // Color por defecto
+      return "#999";
   }
 };
 
@@ -33,10 +33,9 @@ const BloodPressureCard = () => {
   const [bloodPressure, setBloodPressure] = useState(fetchBloodPressureData());
 
   useEffect(() => {
-    // Aquí se haría el fetch a la API o Firebase en un caso real
     const intervalId = setInterval(() => {
       setBloodPressure(fetchBloodPressureData());
-    }, 5000); // Actualizamos los datos cada 5 segundos por ejemplo
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -50,8 +49,7 @@ const BloodPressureCard = () => {
         borderColor: getStatusColor(bloodPressure.status),
         backgroundColor: getStatusColor(bloodPressure.status),
         fill: false,
-        tension: 0.4,
-        pointRadius: 0, // Puntos invisibles
+        tension: 0.1,
         borderWidth: 2,
       },
       {
@@ -60,8 +58,7 @@ const BloodPressureCard = () => {
         borderColor: getStatusColor(bloodPressure.status),
         backgroundColor: getStatusColor(bloodPressure.status),
         fill: false,
-        tension: 0.4,
-        pointRadius: 0, // Puntos invisibles
+        tension: 0.1,
         borderWidth: 2,
       },
     ],
@@ -70,54 +67,56 @@ const BloodPressureCard = () => {
   const options = {
     plugins: {
       legend: {
-        display: false, // Ocultar leyenda
+        display: false,
       },
     },
     scales: {
       x: {
-        grid: {
-          display: false,
-        },
+        display: false,
       },
       y: {
         beginAtZero: true,
-        grid: {
-          display: false,
-        },
+        display: false,
       },
     },
+    maintainAspectRatio: false,
     interaction: {
       intersect: false,
       mode: 'index',
     },
     hover: {
-      mode: 'index',
+      mode: 'nearest',
+      intersect: true,
     },
     elements: {
-      point: {
-        hoverRadius: 7, // Tamaño del punto al pasar el mouse
+      line: {
+        tension: 0.5
       },
+      point: {
+        radius: 0
+      }
     },
   };
 
   return (
     <CardWrapper>
       <CardHeader>
-        <IconWrapper />
+        <IconWrapper>
+          <BloodPressureIcon />
+        </IconWrapper>
         <CardTitle>Presión Arterial</CardTitle>
       </CardHeader>
       <CardContent>
         <PressureValue>{bloodPressure.currentSystolic}</PressureValue>
         <PressureUnit>/ {bloodPressure.currentDiastolic} mmHg</PressureUnit>
+        <StatusLabel status={bloodPressure.status}>{bloodPressure.status}</StatusLabel>
       </CardContent>
-      <StatusLabel>{bloodPressure.status}</StatusLabel>
-      <Line data={data} options={options} /> 
+      <GraphWrapper>
+        <Line data={data} options={options} />
+      </GraphWrapper>
     </CardWrapper>
   );
 };
-
-
-
 
   
 
@@ -206,6 +205,17 @@ const StatusLabel = styled.div`
   }
 `;
 
+const GraphWrapper = styled.div`
+  width: 100%;
+  align-self: center;
+  margin-top: 10px; // Ajusta el margen superior según necesites
+
+  // Para asegurarte de que el gráfico se expanda correctamente dentro de su contenedor
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+`;
 
 
 export default BloodPressureCard;
