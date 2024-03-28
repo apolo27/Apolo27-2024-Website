@@ -153,48 +153,25 @@ const StemWithUs = (props) => {
               </Tab>
 
               <Tab eventKey="calendar" title={<span><FontAwesomeIcon icon={faCalendarDays} /> {t('Calendar')}</span>} tabClassName='tab'>
-              <div className='tab_content'> 
-                <div className='calendar_container'>
-                  <Calendar className="calendario"
-                    culture={localStorage.getItem("i18nextLng")}
-                    localizer={localizer} 
-                    events={events} 
-                    startAccessor="start" 
-                    endAccessor="end"
-                    toolbar={true}
-                    views={['month', 'agenda']}
-                    selected={eventToShow}
-                    onSelectSlot={(e) => handleSelectedEvent(e)}
-                    onSelectEvent={(e) => handleSelectedEvent(e)}
-    
-                  />
-                  {eventToShow && <MobileModal />}
-                {
-                  /*
-                    <section className="eventos">
-                      events.length === 0 ? 
-                      <div>
-                        <img style={{height: 100}} src={waitingAstronaut} alt='astronaut waiting'></img>
-                        <h1>{t('NoEvents')}</h1>
-                      </div>
-                      : events
-                      .map((event) => {
-                        return(
-                          <Card key={event.title}>
-                            <Card.Body>
-                              <Card.Title>{new Date(event.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
-                              <Card.Title>{event.title}</Card.Title>
-                              <Card.Text> {event.location}</Card.Text>
-                              <Button href={event.htmlLink}>{t('Seguir')}</Button>
-                            </Card.Body>
-                          </Card>
-                          )
-                      })
-                    </section>
-                  */
-                }
+                <div className='tab_content'> 
+                  <div className='calendar_container'>
+                    <Calendar className="calendario"
+                      culture={localStorage.getItem("i18nextLng")}
+                      localizer={localizer} 
+                      events={events} 
+                      startAccessor="start" 
+                      endAccessor="end"
+                      toolbar={true}
+                      views={['month', 'agenda']}
+                      selected={eventToShow}
+                      onSelectSlot={(e) => handleSelectedEvent(e)}
+                      onSelectEvent={(e) => handleSelectedEvent(e)}
+      
+                    />
+                    {eventToShow && <MobileModal />}
+                
+                  </div>
                 </div>
-              </div>
               </Tab>
 
               <Tab eventKey="videos" title={<span><FontAwesomeIcon icon={faVideo} /> VIDEOS</span>}  tabClassName='tab'>
@@ -232,7 +209,7 @@ const StemWithUs = (props) => {
                               <div style={{position: 'relative'}}>
                                 <a href={vid.url} >
                                   <img className='miniatura' src={vid.thumbnail} alt='miniatura de video'></img>
-                                  <h4 className='miniatura_overlay'>{vid.title}</h4>
+                                  <h4 className='miniatura_overlay'>•{vid.title}</h4>
                                 </a>
           
                               </div>
