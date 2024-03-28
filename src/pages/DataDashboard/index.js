@@ -50,7 +50,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import tempIcon from "../../imgs/DataDashboard/tempIcon.png";
 import Crewmembers from "../../imgs/DataDashboard/Frame Crewmembers.svg";
 import { set } from "lodash";
-import { borderRadius } from "@mui/system";
+import { borderRadius, maxHeight } from "@mui/system";
 import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
 import { getLastVideo, getRecentVideos } from "../../services/FetchYTVideos";
 import { fetchAllData, fetchLastFiveData } from '../../services/FetchFirebase.js';
@@ -141,7 +141,7 @@ const DataDashboard = (props) => {
   const icons = [
     { label: "Overview", icon: <HomeIcon /> },
     { label: "Rover", icon: <PedalBike /> },
-    { label: "Tripulante", icon: <PersonIcon /> },
+    { label: "Pilot", icon: <PersonIcon /> },
     { label: "Ambient", icon: <BarChartIcon /> },
     { label: "Sensors", icon: <BarChartIcon /> },
     
@@ -352,23 +352,41 @@ const DataDashboard = (props) => {
           value={activeIndex}
           onChange={handleChange}
           showLabels
+          
           sx={{
             width: "auto",
             maxWidth: "30%",
-            minWidth: "350px",
+            minWidth: "400px",
             margin: "auto", // Centra el menú de navegación
             borderRadius: "30px", // Ajusta el radio de las esquinas
             border: "2px solid #3E4879", // Ajusta el borde del menú de navegación
             backgroundColor: "#1F264B",
+            '@media (max-width: 440px)': {
+              width: "100%", // Ajusta el ancho al 100% en pantallas pequeñas
+              maxWidth: "unset",
+              minWidth: "unset", // Elimina el ancho mínimo en pantallas pequeñas
+              margin: 0, // Centra el menú de navegación en pantallas pequeñas
+              padding: 0,
+              borderRadius: "10px",
+              border: "2px solid #3E4879"
+            }
           }}
         >
           {icons.map((item, index) => (
             <BottomNavigationAction
+            
               key={index}
               label={item.label}
               icon={item.icon}
-              sx={{ color: "white" }}
+              //Deshabilitar que se muestre grande el icono seleccionado
+              
+              sx={{ 
+                color: "white",
+                // pegar los botones mas cuando se ponga pequeño
+                minWidth: "20%",
+              }}
             />
+            
           ))}
         </BottomNavigation>
 
@@ -408,7 +426,7 @@ const DataDashboard = (props) => {
                         },
                       }}
                     >
-                      <MenuItem value="Angello Ortiz">Angello Ortiz</MenuItem>
+                      <MenuItem value="Angello Ortiz">Miguel Arredondo</MenuItem>
                       <MenuItem value="Eridania Pérez">Eridania Pérez</MenuItem>
                     </Select>
                   </FormControl>

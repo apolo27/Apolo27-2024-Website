@@ -7,8 +7,17 @@ import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
 import { cilArrowTop, cilOptions } from '@coreui/icons'
 import { CChartLine } from '@coreui/react-chartjs'
 import { border, borderRadius } from '@mui/system'
+import { useEffect } from 'react'
 
 function Sensors() {
+
+    // useEffect(() => {
+    //     const titleElement = document.querySelector('.title-class');
+    //     if (titleElement) {
+    //         titleElement.style.textTransform = 'none';
+    //         titleElement.style.fontFamily = 'poppins';
+    //     }
+    // }, []);
 
     return (
       <CContainer>
@@ -28,8 +37,9 @@ function Sensors() {
                 style={{
                     borderRadius: 20,
                     backgroundColor: '#1F264B',
+                    fontFamily: 'Poppins'
                 }}
-                title="Temperature"
+                title={"Temperature"}
                 chart={
                     <CChartLine
                     className="mt-3 mx-3"
@@ -294,15 +304,13 @@ function Sensors() {
                 <CWidgetStatsF
                   className="mb-4"
                   color="primary"
-                  title={"Linear Acceleration"}
+                  title={<div className="title-class2">Linear Acceleration</div>}
                   value={'1, 2.1, 1 mm/s²'}
                   smallText="ppm"
                   style={{
                     borderRadius: 20,
                     height: '125px',
                     backgroundColor: '#1F264B',
-                    textTransform: 'none',
-                    fontFamily: 'Poppins',
                   }}
                 />
               </CCol>
@@ -310,7 +318,7 @@ function Sensors() {
                 <CWidgetStatsF
                   className="mb-4"
                   color="primary"
-                  title="Angular Velocity"
+                  title={<div className="title-class2">Angular Velocity</div>}
                   value="10, 15, 12 rad/s"
                   smallText="µg/m³"
                   style={{
@@ -331,7 +339,7 @@ function Sensors() {
                   color="primary"
                   //titulo en minuscula
 
-                  title="Inclination"
+                  title={<div className="title-class2">Inclination</div>}
                   value="-1.2, 0.5, 0.3 °"
                   smallText="ppm"
                   style={{
@@ -349,7 +357,7 @@ function Sensors() {
               
             </CRow>
           </CCol>
-          <CCol lg={4}>
+          <CCol xl={4}>
             <CWidgetStatsA
               className="mb-4"
               value={
@@ -444,13 +452,14 @@ function Sensors() {
                 <CWidgetStatsF
                   className="mb-4"
                   color="primary"
-                  title="Gravitational intensity"
+                  title={<div className="title-class2">Gravitational Intensity</div>}
                   value="-1 N/kg"
                   smallText="ppm"
                   style={{
                     borderRadius: 20,
                     height: '125px',
                     backgroundColor: '#1F264B',
+
                   }}
                   chart={{
                     data: [65, 59, 84, 84, 51, 55, 40],
@@ -463,7 +472,7 @@ function Sensors() {
                 <CWidgetStatsF
                   className="mb-4"
                   color="primary"
-                  title="Magnetic intensity"
+                  title={<div className="title-class2">Magnetic intensity</div>}
                   value="21 µT"
                   smallText="µg/m³"
                   style={{
