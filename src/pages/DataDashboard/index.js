@@ -69,7 +69,7 @@ const DataDashboard = (props) => {
   const [gaugeData, setGaugeData] = useState(getGaugeData);
 
   const [data, setData] = useState(null);
-  const [dataGrafico, setDataGrafico] = useState(null);
+  const [dataGrafico, setDataGrafico] = useState([]);
   const [processedData, setProcessedData] = useState([]);
   const [surroundingTemp, setSurroundingTemp] = useState(61);
 
@@ -939,7 +939,9 @@ const DataDashboard = (props) => {
           )}
           {activeIndex === 2 && <FrameComponent />}
           {activeIndex === 4 && (
-            <Sensors/>
+            <Sensors
+              data={dataGrafico}
+            />
             // <Grid
             //   container
             //   spacing={2}
