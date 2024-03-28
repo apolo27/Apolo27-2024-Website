@@ -7,9 +7,9 @@ import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
 import { cilArrowTop, cilOptions } from '@coreui/icons'
 import { CChartLine } from '@coreui/react-chartjs'
 import { border, borderRadius } from '@mui/system'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-function Sensors() {
+function Sensors({ data }) {
 
     // useEffect(() => {
     //     const titleElement = document.querySelector('.title-class');
@@ -19,281 +19,300 @@ function Sensors() {
     //     }
     // }, []);
 
+    const [filter, setFilter] = useState('piloto1'); // Estado para mantener el valor seleccionado del dropdown
+
+    // Datos para los gráficos
+    
+
+    const filterData = (data) => {
+        if (!filter) return data; // Si no hay filtro seleccionado, retornar los datos sin filtrar
+        if (filter === 'piloto1' || filter === 'piloto2') {
+            // Filtrar datos para piloto 1 o piloto 2
+            return data.filter(item => item.group === filter);
+        } else if (filter === 'rover') {
+            // Filtrar datos para rover
+            return data.filter(item => item.group === filter);
+        }
+    };
+
     return (
       <CContainer>
+        <CDropdown className="mb-4">
+          <CDropdownToggle color="primary">
+            {filter ? `Filtrar por ${filter}` : "Filtrar"}
+          </CDropdownToggle>
+          <CDropdownMenu>
+            <CDropdownItem onClick={() => setFilter("piloto1")}>
+              Piloto 1
+            </CDropdownItem>
+            <CDropdownItem onClick={() => setFilter("piloto2")}>
+              Piloto 2
+            </CDropdownItem>
+            <CDropdownItem onClick={() => setFilter("rover")}>
+              Rover
+            </CDropdownItem>
+          </CDropdownMenu>
+        </CDropdown>
         <CRow>
           <CCol xl={4}>
             <CWidgetStatsA
-                className="mb-4"
-                value={
-                    <>
-                    28{" "}
-                    <span className="fs-6 fw-normal">
-                        °C 
-                        {/* <CIcon icon={cilArrowTop} height={'15px'} /> */}
-                    </span>
-                    </>
-                }
-                style={{
-                    borderRadius: 20,
-                    backgroundColor: '#1F264B',
-                    fontFamily: 'Poppins'
-                }}
-                title={"Temperature"}
-                chart={
-                    <CChartLine
-                    className="mt-3 mx-3"
-                    style={{ 
-                        height: "60px",
-                        
-                    }}
-                    data={{
-                        labels: [
-                        "January",
-                        "February",
-                        "March",
-                        "April",
-                        "May",
-                        "June",
-                        "July",
-                        ],
-                        datasets: [
-                        {
-                            label: "My First dataset",
-                            backgroundColor: "transparent",
-                            borderColor: "rgba(255,255,255,.55)",
-                            pointBackgroundColor: "#5856d6",
-                            data: [65, 59, 84, 84, 51, 55, 40],
-                            
+              className="mb-4"
+              value={
+                <>
+                  28{" "}
+                  <span className="fs-6 fw-normal">
+                    °C
+                    {/* <CIcon icon={cilArrowTop} height={'15px'} /> */}
+                  </span>
+                </>
+              }
+              style={{
+                borderRadius: 20,
+                backgroundColor: "#1F264B",
+                fontFamily: "Poppins",
+              }}
+              title={"Temperature"}
+              chart={
+                <CChartLine
+                  className="mt-3 mx-3"
+                  style={{
+                    height: "60px",
+                  }}
+                  data={{
+                    labels: [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                    ],
+                    datasets: [
+                      {
+                        label: "My First dataset",
+                        backgroundColor: "transparent",
+                        borderColor: "rgba(255,255,255,.55)",
+                        pointBackgroundColor: "#5856d6",
+                        data: [65, 59, 84, 84, 51, 55, 40],
+                      },
+                    ],
+                  }}
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: false,
+                      },
+                    },
+                    maintainAspectRatio: false,
+                    scales: {
+                      x: {
+                        border: {
+                          display: false,
                         },
-                        ],
-                    }}
-                    options={{
-                        plugins: {
-                        legend: {
-                            display: false,
+                        grid: {
+                          display: false,
+                          drawBorder: false,
                         },
+                        ticks: {
+                          display: false,
                         },
-                        maintainAspectRatio: false,
-                        scales: {
-                        x: {
-                            border: {
-                            display: false,
-                            },
-                            grid: {
-                            display: false,
-                            drawBorder: false,
-                            },
-                            ticks: {
-                            display: false,
-                            },
+                      },
+                      y: {
+                        min: 30,
+                        max: 89,
+                        display: false,
+                        grid: {
+                          display: false,
                         },
-                        y: {
-                            min: 30,
-                            max: 89,
-                            display: false,
-                            grid: {
-                            display: false,
-                            },
-                            ticks: {
-                            display: false,
-                            },
+                        ticks: {
+                          display: false,
                         },
-                        },
-                        elements: {
-                        line: {
-                            borderWidth: 1,
-                            tension: 0.4,
-                        },
-                        point: {
-                            radius: 4,
-                            hitRadius: 10,
-                            hoverRadius: 4,
-                        },
-                        },
-                    }}
-                    />
-                }
-            >
-            </CWidgetStatsA>
+                      },
+                    },
+                    elements: {
+                      line: {
+                        borderWidth: 1,
+                        tension: 0.4,
+                      },
+                      point: {
+                        radius: 4,
+                        hitRadius: 10,
+                        hoverRadius: 4,
+                      },
+                    },
+                  }}
+                />
+              }
+            ></CWidgetStatsA>
           </CCol>
           <CCol xl={4}>
             <CWidgetStatsA
-                className="mb-4"
-                value={
-                    <>
-                    85{" "}
-                    <span className="fs-6 fw-normal">
-                        %
-                    </span>
-                    </>
-                }
-                style={{
-                    borderRadius: 20,
-                    backgroundColor: '#1F264B',
-                
-                }}
-                title="Humidity"
-                chart={
-                    <CChartLine
-                    className="mt-3 mx-3"
-                    style={{ height: "60px" }}
-                    data={{
-                        labels: [
-                        "January",
-                        "February",
-                        "March",
-                        "April",
-                        "May",
-                        "June",
-                        "July",
-                        ],
-                        datasets: [
-                        {
-                            label: "My First dataset",
-                            backgroundColor: "transparent",
-                            borderColor: "rgba(255,255,255,.55)",
-                            data: [65, 59, 84, 84, 51, 55, 40],
-                            
+              className="mb-4"
+              value={
+                <>
+                  85 <span className="fs-6 fw-normal">%</span>
+                </>
+              }
+              style={{
+                borderRadius: 20,
+                backgroundColor: "#1F264B",
+              }}
+              title="Humidity"
+              chart={
+                <CChartLine
+                  className="mt-3 mx-3"
+                  style={{ height: "60px" }}
+                  data={{
+                    labels: [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                    ],
+                    datasets: [
+                      {
+                        label: "My First dataset",
+                        backgroundColor: "transparent",
+                        borderColor: "rgba(255,255,255,.55)",
+                        data: [65, 59, 84, 84, 51, 55, 40],
+                      },
+                    ],
+                  }}
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: false,
+                      },
+                    },
+                    maintainAspectRatio: false,
+                    scales: {
+                      x: {
+                        border: {
+                          display: false,
                         },
-                        ],
-                    }}
-                    options={{
-                        plugins: {
-                        legend: {
-                            display: false,
+                        grid: {
+                          display: false,
+                          drawBorder: false,
                         },
+                        ticks: {
+                          display: false,
                         },
-                        maintainAspectRatio: false,
-                        scales: {
-                        x: {
-                            border: {
-                            display: false,
-                            },
-                            grid: {
-                            display: false,
-                            drawBorder: false,
-                            },
-                            ticks: {
-                            display: false,
-                            },
+                      },
+                      y: {
+                        min: 30,
+                        max: 89,
+                        display: false,
+                        grid: {
+                          display: false,
                         },
-                        y: {
-                            min: 30,
-                            max: 89,
-                            display: false,
-                            grid: {
-                            display: false,
-                            },
-                            ticks: {
-                            display: false,
-                            },
+                        ticks: {
+                          display: false,
                         },
-                        },
-                        elements: {
-                        line: {
-                            borderWidth: 1,
-                            tension: 0.4,
-                        },
-                        point: {
-                            radius: 4,
-                            hitRadius: 10,
-                            hoverRadius: 4,
-                        },
-                        },
-                    }}
-                    />
-                }
+                      },
+                    },
+                    elements: {
+                      line: {
+                        borderWidth: 1,
+                        tension: 0.4,
+                      },
+                      point: {
+                        radius: 4,
+                        hitRadius: 10,
+                        hoverRadius: 4,
+                      },
+                    },
+                  }}
+                />
+              }
             />
           </CCol>
           <CCol xl={4}>
             <CWidgetStatsA
-                className="mb-4"
-                value={
-                    <>
-                    1012{" "}
-                    <span className="fs-6 fw-normal">
-                    hPa
-                    </span>
-                    </>
-                }
-                style={{
-                    borderRadius: 20,
-                    backgroundColor: '#1F264B',
-                
-                }}
-                title="Pressure"
-                chart={
-                    <CChartLine
-                    className="mt-3 mx-3"
-                    style={{ height: "60px" }}
-                    data={{
-                        labels: [
-                        "January",
-                        "February",
-                        "March",
-                        "April",
-                        "May",
-                        "June",
-                        "July",
-                        ],
-                        datasets: [
-                        {
-                            label: "My First dataset",
-                            backgroundColor: "transparent",
-                            borderColor: "rgba(255,255,255,.55)",
-                            pointBackgroundColor: "#5856d6",
-                            data: [1012, 1012, 1012, 1012, 1012, 1012, 1012],
-                            
+              className="mb-4"
+              value={
+                <>
+                  1012 <span className="fs-6 fw-normal">hPa</span>
+                </>
+              }
+              style={{
+                borderRadius: 20,
+                backgroundColor: "#1F264B",
+              }}
+              title="Pressure"
+              chart={
+                <CChartLine
+                  className="mt-3 mx-3"
+                  style={{ height: "60px" }}
+                  data={{
+                    labels: [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                    ],
+                    datasets: [
+                      {
+                        label: "My First dataset",
+                        backgroundColor: "transparent",
+                        borderColor: "rgba(255,255,255,.55)",
+                        pointBackgroundColor: "#5856d6",
+                        data: [1012, 1012, 1012, 1012, 1012, 1012, 1012],
+                      },
+                    ],
+                  }}
+                  options={{
+                    plugins: {
+                      legend: {
+                        display: false,
+                      },
+                    },
+                    maintainAspectRatio: false,
+                    scales: {
+                      x: {
+                        border: {
+                          display: false,
                         },
-                        ],
-                    }}
-                    options={{
-                        plugins: {
-                        legend: {
-                            display: false,
+                        grid: {
+                          display: false,
+                          drawBorder: false,
                         },
+                        ticks: {
+                          display: false,
                         },
-                        maintainAspectRatio: false,
-                        scales: {
-                        x: {
-                            border: {
-                            display: false,
-                            },
-                            grid: {
-                            display: false,
-                            drawBorder: false,
-                            },
-                            ticks: {
-                            display: false,
-                            },
+                      },
+                      y: {
+                        min: 900,
+                        max: 1200,
+                        display: false,
+                        grid: {
+                          display: false,
                         },
-                        y: {
-                            min: 900,
-                            max: 1200,
-                            display: false,
-                            grid: {
-                            display: false,
-                            },
-                            ticks: {
-                            display: false,
-                            },
+                        ticks: {
+                          display: false,
                         },
-                        },
-                        elements: {
-                        line: {
-                            borderWidth: 1,
-                            tension: 0.4,
-                        },
-                        point: {
-                            radius: 4,
-                            hitRadius: 10,
-                            hoverRadius: 4,
-                        },
-                        },
-                    }}
-                    />
-                }
+                      },
+                    },
+                    elements: {
+                      line: {
+                        borderWidth: 1,
+                        tension: 0.4,
+                      },
+                      point: {
+                        radius: 4,
+                        hitRadius: 10,
+                        hoverRadius: 4,
+                      },
+                    },
+                  }}
+                />
+              }
             />
           </CCol>
         </CRow>
@@ -304,13 +323,15 @@ function Sensors() {
                 <CWidgetStatsF
                   className="mb-4"
                   color="primary"
-                  title={<div className="title-class2">Linear Acceleration</div>}
-                  value={'1, 2.1, 1 mm/s²'}
+                  title={
+                    <div className="title-class2">Linear Acceleration</div>
+                  }
+                  value={"1, 2.1, 1 mm/s²"}
                   smallText="ppm"
                   style={{
                     borderRadius: 20,
-                    height: '125px',
-                    backgroundColor: '#1F264B',
+                    height: "125px",
+                    backgroundColor: "#1F264B",
                   }}
                 />
               </CCol>
@@ -323,8 +344,8 @@ function Sensors() {
                   smallText="µg/m³"
                   style={{
                     borderRadius: 20,
-                    height: '125px',
-                    backgroundColor: '#1F264B',
+                    height: "125px",
+                    backgroundColor: "#1F264B",
                   }}
                   chart={{
                     data: [65, 59, 84, 84, 51, 55, 40],
@@ -344,8 +365,8 @@ function Sensors() {
                   smallText="ppm"
                   style={{
                     borderRadius: 20,
-                    height: '125px',
-                    backgroundColor: '#1F264B',
+                    height: "125px",
+                    backgroundColor: "#1F264B",
                   }}
                   chart={{
                     data: [65, 59, 84, 84, 51, 55, 40],
@@ -354,7 +375,6 @@ function Sensors() {
                   }}
                 />
               </CCol>
-              
             </CRow>
           </CCol>
           <CCol xl={4}>
@@ -362,17 +382,13 @@ function Sensors() {
               className="mb-4"
               value={
                 <>
-                  98{" "}
-                  <span className="fs-6 fw-normal">
-                    BPM
-                  </span>
+                  98 <span className="fs-6 fw-normal">BPM</span>
                 </>
               }
               title="Heart Rate"
               style={{
                 borderRadius: 20,
-                backgroundColor: '#1F264B',
-              
+                backgroundColor: "#1F264B",
               }}
               chart={
                 <CChartLine
@@ -452,14 +468,15 @@ function Sensors() {
                 <CWidgetStatsF
                   className="mb-4"
                   color="primary"
-                  title={<div className="title-class2">Gravitational Intensity</div>}
+                  title={
+                    <div className="title-class2">Gravitational Intensity</div>
+                  }
                   value="-1 N/kg"
                   smallText="ppm"
                   style={{
                     borderRadius: 20,
-                    height: '125px',
-                    backgroundColor: '#1F264B',
-
+                    height: "125px",
+                    backgroundColor: "#1F264B",
                   }}
                   chart={{
                     data: [65, 59, 84, 84, 51, 55, 40],
@@ -477,8 +494,8 @@ function Sensors() {
                   smallText="µg/m³"
                   style={{
                     borderRadius: 20,
-                    height: '125px',
-                    backgroundColor: '#1F264B',
+                    height: "125px",
+                    backgroundColor: "#1F264B",
                   }}
                   chart={{
                     data: [65, 59, 84, 84, 51, 55, 40],
@@ -487,11 +504,9 @@ function Sensors() {
                   }}
                 />
               </CCol>
-              
             </CRow>
           </CCol>
         </CRow>
-        
       </CContainer>
     );
 }
