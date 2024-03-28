@@ -11,9 +11,10 @@ const Footer = () => {
   	 			<ul>
   	 				<li><a href="#">Our Story</a></li>
   	 				<li><a href="#">Awards</a></li>
+                       <li><a href="#">STEM</a></li>
                     <li><a href="#">Manufacturing</a></li>
   	 				<li><a href="#">Telemetry</a></li>
-  	 				<li><a href="#">STEM</a></li>
+                       <li><a href="#">Donate</a></li>
                     <li><a href="#">HERC Simulation</a></li>
   	 			</ul>
   	 		</div>
