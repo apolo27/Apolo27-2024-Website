@@ -12,7 +12,7 @@
 
 .titleArea {
   margin: 0 auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -41,7 +41,6 @@
   
 
 .logos {
-
   overflow: hidden;
   padding: 5px 0;
   white-space: nowrap;
@@ -68,13 +67,9 @@ right: 0;
 background: linear-gradient(to right, rgba(255, 255, 255, 0),  rgba(22, 26, 44, 1));
 }
 
-.logos:hover .logos-slide {
-animation-play-state: paused;
-}
-
 .logos-slide {
 display: inline-block;
-animation: 40s slide infinite linear;
+animation: 60s slide infinite linear;
 }
 
 .logos-slide img {

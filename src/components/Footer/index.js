@@ -29,7 +29,7 @@ const Footer = (props) => {
                         <h4>{t('Pages')}</h4>
                         <ul className="footer-col">
                             <li><a href="/">{t('Home')}</a></li>
-                            <li><a href="/About-Us">{t('AboutUsFooter')}</a></li>
+                            {/*<li><a href="/About-Us">{t('AboutUsFooter')}</a></li>*/}
                             <li><a href="/Data-Dashboard">{t('DataDashboardFooter')}</a></li>
                             <li><a href="/Stem-With-Us">{t('StemWithUsFooter')}</a></li>
                             <li><a href="/Sponsors">{t('BecomeASponsorFooter')}</a></li>
