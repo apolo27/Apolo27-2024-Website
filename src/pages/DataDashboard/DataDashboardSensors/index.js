@@ -193,7 +193,7 @@ function Sensors({ data }) {
 
     useEffect(() => {
         // Cuando el componente se monta, establecer el filtro por defecto en "piloto1"
-        handleFilter('piloto2');
+        handleFilter('piloto1');
     }, []);
 
     return (
