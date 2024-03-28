@@ -243,162 +243,160 @@ function Home() {
       </section>
 
       <section id='sliderSection'>
-        <div class="containerSlider">
-            <div id='divTitulo'>
-              <h1 id='comienzoTitulo'>
-                Our members
-              </h1>
-            </div>  
-            <div class="faders">
-              <div class="left"></div>
-              <div class="right"></div>
+          <div class="containerSlider">
+              <div id='divTitulo'>
+                <h1 id='comienzoTitulo'>
+                  Our members
+                </h1>
+              </div>  
+              <div class="faders">
+                <div class="left"></div>
+                <div class="right"></div>
+              </div>
+          <div class="itemsSlider">
+            <div class="entry1">
+              <p class="name">Ezequiel Díaz</p>
+              <img src={Ezequiel} alt="Ezequiel" className="imgSlider" />
+              <p class="quote">Team Advisor<br></br>Mechanics Engineering</p>
             </div>
-        <div class="itemsSlider">
-          <div class="entry1">
-            <p class="name">Ezequiel Díaz</p>
-            <img src={Ezequiel} alt="Ezequiel" className="imgSlider" />
-            <p class="quote">Team Advisor<br></br>Mechanics Engineering</p>
+            <div class="entry">
+              <p class="name">Ezequiel Díaz</p>
+              <img src={Ezequiel} alt="Ezequiel" className="imgSlider" />
+              <p class="quote">Team Advisor<br></br>Mechanics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Franmil Estrella</p>
+              <img src={Franmil} alt="Franmil" className="imgSlider" />
+              <p class="quote">Safety Officer<br></br>Mechatronics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Coral Rodríguez</p>
+              <img src={Coral} alt="Coral" className="imgSlider" />
+              <p class="quote">Stem Assistant<br></br>Science Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Camila Tejada</p>
+              <img src={Camila} alt="Camila" className="imgSlider" />
+              <p class="quote">Funding Assistant<br></br>International Business</p>
+            </div>
+            <div class="entry">
+              <p class="name">Angello Ortiz</p>
+              <img src={Angello} alt="Angello" className="imgSlider" />
+              <p class="quote">Stem Assistant<br></br>Mechanics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Jacob Ruíz</p>
+              <img src={Jacob} alt="Jacob" className="imgSlider" />
+              <p class="quote">Special Mentor<br></br>Mechanics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">José Hernández</p>
+              <img src={Humberto} alt="Jose" className="imgSlider" />
+              <p class="quote">Manufacturing Assistant<br></br>Mechanics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Rosanna Bautista</p>
+              <img src={Rosanna} alt="Rosanna" className="imgSlider" />
+              <p class="quote">Telemetry Manager<br></br>Software Engineering<br></br></p>
+            </div>
+            <div class="entry">
+              <p class="name">Iselle Suero</p>
+              <img src={Iselle} alt="Iselle" className="imgSlider" />
+              <p class="quote">Stem Assistant<br></br>Medicine</p>
+            </div>
+            <div class="entry">
+              <p class="name">Miguel Arredondo</p>
+              <img src={Miguel} alt="Miguel" className="imgSlider" />
+              <p class="quote">Manufacturing Manager<br></br>Mechanics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Ismael Martinez</p>
+              <img src={Ismael} alt="Ismael" className="imgSlider" />
+              <p class="quote">Social Media Manager<br></br>Software Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Vantroi Morillo</p>
+              <img src={Vantroi} alt="Vantroi" className="imgSlider" />
+              <p class="quote">Telemetry Manager<br></br>Electronics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Marko De los Santos</p>
+              <img src={Marko} alt="Marko" className="imgSlider" />
+              <p class="quote">Manufacturing Assistant<br></br>Mechanics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Ingrid López</p>
+              <img src={Ingrid} alt="Ingrid" className="imgSlider" />
+              <p class="quote">Team Leader<br></br>Mechatronics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Faisy Alcántara</p>
+              <img src={Faisy} alt="Faisy" className="imgSlider" />
+              <p class="quote">Stem Manager<br></br>Biomedical Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Estarlyn Marrero</p>
+              <img src={Estarlyn} alt="Estarlyn" className="imgSlider" />
+              <p class="quote">Manufacturing Assistant<br></br>Mechatronics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Jorge Colmenares</p>
+              <img src={Colmenares} alt="Randy" className="imgSlider" />
+              <p class="quote">Special Mentor<br></br>Mechanics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Luis Adames</p>
+              <img src={Luis} alt="Luis" className="imgSlider" />
+              <p class="quote">Telemetry Assistant<br></br>Software Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Avril Neder</p>
+              <img src={Avril} alt="Avril" className="imgSlider" />
+              <p class="quote">Social Media Assistant<br></br>Aeroespacial Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Eridania Pérez</p>
+              <img src={Eridania} alt="Eridana" className="imgSlider" />
+              <p class="quote">Manufacturing Assistant<br></br>Industrial Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Raymond Ruíz</p>
+              <img src={Raymond} alt="Raymond" className="imgSlider" />
+              <p class="quote">Special Mentor<br></br>Mechatronics Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Jorge Martínez</p>
+              <img src={Jorge} alt="Randy" className="imgSlider" />
+              <p class="quote">Project Manager<br></br>Industrial Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Erika Portorreal</p>
+              <img src={Erika} alt="Erika" className="imgSlider" />
+              <p class="quote">Funding Manager<br></br>Industrial Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Hanlet Leonardo</p>
+              <img src={Hanlet} alt="Hanlet" className="imgSlider" />
+              <p class="quote">Stem Assistant<br></br>Energy Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Manuel Guerrero</p>
+              <img src={Manuel} alt="Manuel" className="imgSlider" />
+              <p class="quote">Telemetry Assistant<br></br>Systems Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Randy Capellán</p>
+              <img src={Randy} alt="Randy" className="imgSlider" />
+              <p class="quote">Manufacturing Assistant<br></br>Industrial Engineering</p>
+            </div>
+            <div class="entry">
+              <p class="name">Anne Joaquín</p>
+              <img src={Anne} alt="Anne" className="imgSlider" />
+              <p class="quote">Team Leader Assistant<br></br>Mechatronics Engineering</p>
+            </div>
           </div>
-          <div class="entry">
-            <p class="name">Ezequiel Díaz</p>
-            <img src={Ezequiel} alt="Ezequiel" className="imgSlider" />
-            <p class="quote">Team Advisor<br></br>Mechanics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Franmil Estrella</p>
-            <img src={Franmil} alt="Franmil" className="imgSlider" />
-            <p class="quote">Safety Officer<br></br>Mechatronics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Coral Rodríguez</p>
-            <img src={Coral} alt="Coral" className="imgSlider" />
-            <p class="quote">Stem Assistant<br></br>Science Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Camila Tejada</p>
-            <img src={Camila} alt="Camila" className="imgSlider" />
-            <p class="quote">Funding Assistant<br></br>International Business</p>
-          </div>
-          <div class="entry">
-            <p class="name">Angello Ortiz</p>
-            <img src={Angello} alt="Angello" className="imgSlider" />
-            <p class="quote">Stem Assistant<br></br>Mechanics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Jacob Ruíz</p>
-            <img src={Jacob} alt="Jacob" className="imgSlider" />
-            <p class="quote">Special Mentor<br></br>Mechanics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">José Hernández</p>
-            <img src={Humberto} alt="Jose" className="imgSlider" />
-            <p class="quote">Manufacturing Assistant<br></br>Mechanics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Rosanna Bautista</p>
-            <img src={Rosanna} alt="Rosanna" className="imgSlider" />
-            <p class="quote">Telemetry Manager<br></br>Software Engineering<br></br></p>
-          </div>
-          <div class="entry">
-            <p class="name">Iselle Suero</p>
-            <img src={Iselle} alt="Iselle" className="imgSlider" />
-            <p class="quote">Stem Assistant<br></br>Medicine</p>
-          </div>
-          <div class="entry">
-            <p class="name">Miguel Arredondo</p>
-            <img src={Miguel} alt="Miguel" className="imgSlider" />
-            <p class="quote">Manufacturing Manager<br></br>Mechanics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Ismael Martinez</p>
-            <img src={Ismael} alt="Ismael" className="imgSlider" />
-            <p class="quote">Social Media Manager<br></br>Software Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Vantroi Morillo</p>
-            <img src={Vantroi} alt="Vantroi" className="imgSlider" />
-            <p class="quote">Telemetry Manager<br></br>Electronics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Marko De los Santos</p>
-            <img src={Marko} alt="Marko" className="imgSlider" />
-            <p class="quote">Manufacturing Assistant<br></br>Mechanics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Ingrid López</p>
-            <img src={Ingrid} alt="Ingrid" className="imgSlider" />
-            <p class="quote">Team Leader<br></br>Mechatronics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Faisy Alcántara</p>
-            <img src={Faisy} alt="Faisy" className="imgSlider" />
-            <p class="quote">Stem Manager<br></br>Biomedical Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Estarlyn Marrero</p>
-            <img src={Estarlyn} alt="Estarlyn" className="imgSlider" />
-            <p class="quote">Manufacturing Assistant<br></br>Mechatronics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Jorge Colmenares</p>
-            <img src={Colmenares} alt="Randy" className="imgSlider" />
-            <p class="quote">Special Mentor<br></br>Mechanics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Luis Adames</p>
-            <img src={Luis} alt="Luis" className="imgSlider" />
-            <p class="quote">Telemetry Assistant<br></br>Software Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Avril Neder</p>
-            <img src={Avril} alt="Avril" className="imgSlider" />
-            <p class="quote">Social Media Assistant<br></br>Aeroespacial Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Eridania Pérez</p>
-            <img src={Eridania} alt="Eridana" className="imgSlider" />
-            <p class="quote">Manufacturing Assistant<br></br>Industrial Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Raymond Ruíz</p>
-            <img src={Raymond} alt="Raymond" className="imgSlider" />
-            <p class="quote">Special Mentor<br></br>Mechatronics Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Jorge Martínez</p>
-            <img src={Jorge} alt="Randy" className="imgSlider" />
-            <p class="quote">Project Manager<br></br>Industrial Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Erika Portorreal</p>
-            <img src={Erika} alt="Erika" className="imgSlider" />
-            <p class="quote">Funding Manager<br></br>Industrial Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Hanlet Leonardo</p>
-            <img src={Hanlet} alt="Hanlet" className="imgSlider" />
-            <p class="quote">Stem Assistant<br></br>Energy Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Manuel Guerrero</p>
-            <img src={Manuel} alt="Manuel" className="imgSlider" />
-            <p class="quote">Telemetry Assistant<br></br>Systems Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Randy Capellán</p>
-            <img src={Randy} alt="Randy" className="imgSlider" />
-            <p class="quote">Manufacturing Assistant<br></br>Industrial Engineering</p>
-          </div>
-          <div class="entry">
-            <p class="name">Anne Joaquín</p>
-            <img src={Anne} alt="Anne" className="imgSlider" />
-            <p class="quote">Team Leader Assistant<br></br>Mechatronics Engineering</p>
-          </div>
-
         </div>
-      </div>
-    </section>
-
+      </section>
     </>
   );
 }
