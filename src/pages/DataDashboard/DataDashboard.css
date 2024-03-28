@@ -101,6 +101,10 @@
     /* position: relative; */
 }
 
+.sensors-piloto1{
+    font-family: 'Poppins';
+}
+
 .crewmembers-health{
     position: relative;
     text-align: center;
