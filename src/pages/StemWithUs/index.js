@@ -293,7 +293,7 @@ const StemWithUs = (props) => {
               </section>
 
               <div className='stem-with-us-body'>
-                <h1 style={{paddingTop: 25}}>{t('Blogs')}</h1>
+                <h1 id='blogs' style={{paddingTop: 25}}>{t('Blogs')}</h1>
                 <section className='blogs'>
                   {
                     blogs
@@ -316,7 +316,7 @@ const StemWithUs = (props) => {
                 </section>
 
         
-                <h1 style={{paddingTop: 25}}>{t('Eventos_Proximos')}</h1>
+                <h1 id='events' style={{paddingTop: 25}}>{t('Eventos_Proximos')}</h1>
                 <div className='calendar_container'>
                   <Calendar className="calendario"
                     culture={localStorage.getItem("i18nextLng")}
@@ -423,7 +423,7 @@ const StemWithUs = (props) => {
                   </div>
                 </section>
         
-                <section className='contact-us' style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: 150, marginBottom: 25}}>
+                <section id='schoolvisit' className='contact-us' style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: 150, marginBottom: 25}}>
                     <div className="glowing_stars">
                         <div className="star"></div>
                         <div className="star"></div>
