@@ -84,6 +84,9 @@ const DataDashboard = (props) => {
   const [aceleracionLineal1_z, setAceleracionLineal1_z] = useState([]);
   const [pulsoCardiacoBPM1, setPulsoCardiacoBPM1] = useState(0);
   const [inclinacion1, setInclinacion1] = useState(0);
+  const [inclinacion1_x, setInclinacion1_x] = useState([]);
+  const [inclinacion1_y, setInclinacion1_y] = useState([]);
+  const [inclinacion1_z, setInclinacion1_z] = useState([]);	
   const [humedad1, setHumedad1] = useState(0);
   const [intensidadGravitatoria1, setIntensidadGravitatoria1] = useState(0);
   const [intensidadMagnetica1, setIntensidadMagnetica1] = useState(0);
@@ -101,7 +104,9 @@ const DataDashboard = (props) => {
   const [aceleracionLineal2_x, setAceleracionLineal2_x] = useState([]);
   const [aceleracionLineal2_y, setAceleracionLineal2_y] = useState([]);
   const [aceleracionLineal2_z, setAceleracionLineal2_z] = useState([]);
-  const [inclinacion2, setInclinacion2] = useState(0);
+  const [inclinacion2_x, setInclinacion2_x] = useState([]);
+  const [inclinacion2_y, setInclinacion2_y] = useState([]);
+  const [inclinacion2_z, setInclinacion2_z] = useState([]);
   const [humedad2, setHumedad2] = useState(0);
   const [intensidadGravitatoria2, setIntensidadGravitatoria2] = useState(0);
   const [intensidadMagnetica2, setIntensidadMagnetica2] = useState(0);
@@ -114,7 +119,6 @@ const DataDashboard = (props) => {
 
   //Rover
   const [impacto, setImpacto] = useState(0);
-  const [inclinacionRover, setInclinacionRover] = useState(0);
   const [inclinacionRover_x, setInclinacionRover_x] = useState([]);
   const [inclinacionRover_y, setInclinacionRover_y] = useState([]);
   const [inclinacionRover_z, setInclinacionRover_z] = useState([]);
@@ -224,7 +228,7 @@ const DataDashboard = (props) => {
         });
 
         //asignacion piloto 1
-        setPulsoCardiacoBPM1(lastEntryData.pulsoCardiaco1);
+        setPulsoCardiacoBPM1(lastEntryData.pulsoCardiacoBPM1);
         setAceleracionLineal1(lastEntryData.AceleraciónLineal1);
         setInclinacion1(lastEntryData.inclinacion1);
         setHumedad1(lastEntryData.humedad1);
@@ -235,9 +239,9 @@ const DataDashboard = (props) => {
         setVelocidadAngular1(lastEntryData.velocidadAngular1);
 
         //asignacion piloto 2
-        setPulsoCardiacoBPM2(lastEntryData.pulsoCardiaco2);
+        setPulsoCardiacoBPM2(lastEntryData.pulsoCardiacoBPM2);
         setAceleracionLineal2(lastEntryData.AceleraciónLineal2);
-        setInclinacion2(lastEntryData.inclinacion2);
+        setInclinacion2_x(lastEntryData.inclinacion2);
         setHumedad2(lastEntryData.humedad2);
         setIntensidadGravitatoria2(lastEntryData.intensidadGravitatoria2);
         setIntensidadMagnetica2(lastEntryData.intensidadMagnetica2);
@@ -247,7 +251,7 @@ const DataDashboard = (props) => {
 
         //asignacion rover
         setImpacto(lastEntryData.impacto);
-        setInclinacionRover(lastEntryData.inclinacionRover);
+        setInclinacionRover_x(lastEntryData.inclinacionRover);
         setVibracion(lastEntryData.vibracion);
         setConcentracionGas1(lastEntryData.ConcentracionGas1);
         setRadiacionUV1(lastEntryData.radiacionUV1);
@@ -515,6 +519,7 @@ const DataDashboard = (props) => {
                             fill: "white",
                           },
                         },
+
                         
 
                       }}
@@ -927,13 +932,63 @@ const DataDashboard = (props) => {
                           </Grid>
                           <Grid item>
                             <ListItemText
-                              primary="Aceleracion lineal"
+                              primary="Aceleracion lineal X"
                               secondary={
                                 <Typography
                                   variant="body2"
                                   style={{ color: "#4CAF50" }}
                                 >
-                                  {aceleracionLineal1 + " m/s²"}
+                                  {aceleracionLineal1_x + " m/s²"}
+                                </Typography>
+                              }
+                            />
+                          </Grid>
+                        </Grid>
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Aceleracion lineal Y"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {aceleracionLineal1_y + " m/s²"}
+                                </Typography>
+                              }
+                            />
+                          </Grid>
+                        </Grid>
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineArrowUpward
+                                fontSize="large"
+                                style={{ color: "#8E44AD" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Aceleracion lineal Z"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {aceleracionLineal1_z + " m/s²"}
                                 </Typography>
                               }
                             />
@@ -956,13 +1011,13 @@ const DataDashboard = (props) => {
                           </Grid>
                           <Grid>
                             <ListItemText
-                              primary="RadiacionUV"
+                              primary="Velocidad Angular X"
                               secondary={
                                 <Typography
                                   variant="body2"
                                   style={{ color: "#4CAF50" }}
                                 >
-                                  {radiacionUV1 + " mW/cm2"}
+                                  {velocidadAngular1_x + " rad/s"}
                                 </Typography>
                               }
                             />
@@ -981,13 +1036,38 @@ const DataDashboard = (props) => {
                           </Grid>
                           <Grid item>
                             <ListItemText
-                              primary="Velocidad Angular"
+                              primary="Velocidad Angular Y"
                               secondary={
                                 <Typography
                                   variant="body2"
                                   style={{ color: "#4CAF50" }}
                                 >
-                                  {velocidadAngular1 + " rad/s"}
+                                  {velocidadAngular1_y + " rad/s"}
+                                </Typography>
+                              }
+                            />
+                          </Grid>
+                        </Grid>
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid>
+                            <ListItemIcon>
+                              <MdOutlineWbSunny
+                                fontSize="large"
+                                style={{ color: "#FFD700" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid>
+                            <ListItemText
+                              primary="Velocidad Angular z"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {velocidadAngular1_z + " rad/s"}
                                 </Typography>
                               }
                             />
@@ -1006,13 +1086,13 @@ const DataDashboard = (props) => {
                           </Grid>
                           <Grid item>
                             <ListItemText
-                              primary="Inclinación piloto"
+                              primary="Inclinación piloto X"
                               secondary={
                                 <Typography
                                   variant="body2"
                                   style={{ color: "#4CAF50" }}
                                 >
-                                  {inclinacion1 + " º"}
+                                  {inclinacion1_x + " º"}
                                 </Typography>
                               }
                             />
@@ -1023,21 +1103,46 @@ const DataDashboard = (props) => {
                         <Grid container alignItems="center">
                           <Grid item>
                             <ListItemIcon>
-                              <MdOutlineArrowUpward
+                              <MdOutlineCompress
                                 fontSize="large"
-                                style={{ color: "#8E44AD" }}
+                                style={{ color: "#FF5733" }}
                               />
                             </ListItemIcon>
                           </Grid>
                           <Grid item>
                             <ListItemText
-                              primary="Intensidad Gravitatoria"
+                              primary="Inclinación piloto Y"
                               secondary={
                                 <Typography
                                   variant="body2"
                                   style={{ color: "#4CAF50" }}
                                 >
-                                  {intensidadGravitatoria1 + " N/kg"}
+                                  {inclinacion1_y + " º"}
+                                </Typography>
+                              }
+                            />
+                          </Grid>
+                        </Grid>
+                      </ListItem>
+                      <ListItem>
+                        <Grid container alignItems="center">
+                          <Grid item>
+                            <ListItemIcon>
+                              <MdOutlineCompress
+                                fontSize="large"
+                                style={{ color: "#FF5733" }}
+                              />
+                            </ListItemIcon>
+                          </Grid>
+                          <Grid item>
+                            <ListItemText
+                              primary="Inclinación piloto Z"
+                              secondary={
+                                <Typography
+                                  variant="body2"
+                                  style={{ color: "#4CAF50" }}
+                                >
+                                  {inclinacion1_z + " º"}
                                 </Typography>
                               }
                             />
@@ -1279,7 +1384,7 @@ const DataDashboard = (props) => {
                                   variant="body2"
                                   style={{ color: "#4CAF50" }}
                                 >
-                                  {inclinacion2 + " º"}
+                                  {inclinacion2_x + " º"}
                                 </Typography>
                               }
                             />
@@ -1390,7 +1495,7 @@ const DataDashboard = (props) => {
                               variant="body2"
                               style={{ color: "#4CAF50" }}
                             >
-                              {inclinacionRover + " °"}
+                              {inclinacionRover_x + " °"}
                             </Typography>
                           }
                         />
