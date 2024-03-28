@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Line } from "react-chartjs-2";
 import 'chart.js/auto';
+import { ReactComponent as BloodSugarIcon } from '../../public/vector-3.svg';
+
+
 
 const fetchSpO2Data = () => {
   // Simulating fetching data; replace with 
@@ -58,7 +61,8 @@ const SpO2Card = () => {
   return (
     <CardWrapper>
       <CardHeader>
-        <IconWrapper />
+        <IconWrapper><BloodSugarIcon/></IconWrapper>
+
         <CardTitle>SpO2</CardTitle>
       </CardHeader>
       <CardContent>

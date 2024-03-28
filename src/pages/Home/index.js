@@ -33,7 +33,7 @@ function Home() {
         </div>
 
         <div id="item-1" className='item-1'>
-          <Link to='/About-Us'>
+          <Link to='/Simulation'>
             <img src={simulation} alt="Simulation" className='group-picture' />
           </Link>
         </div>
@@ -46,7 +46,7 @@ function Home() {
         
         <div id="item-3">
           <Link to='/Simulation'>
-            <img src={group_picture} alt="hola" className="group-picture" />
+            
           </Link>
         </div>
       </div>
