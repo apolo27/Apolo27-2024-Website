@@ -104,15 +104,17 @@ function Sponsors(props){
                 }
                 </div>
             </div>
-            {/*
-                <button className="button-82-pushable">
-                    <span className="button-82-shadow"></span>
-                    <span className="button-82-edge"></span>
-                    <span className="button-82-front text">
-                        {t('Sponsor-us')}
-                    </span>
-                </button>
-            */}
+            {
+                <a href="https://www.paypal.com/donate/?hosted_button_id=4ERGH2W4NPAWW">
+                    <button className="button-82-pushable">
+                        <span className="button-82-shadow"></span>
+                        <span className="button-82-edge"></span>
+                        <span className="button-82-front text">
+                            {t('Sponsor-us')}
+                        </span>
+                    </button>
+                </a>
+            }
         </Container>
     </div>
   )
