@@ -394,7 +394,7 @@ const StemWithUs = (props) => {
                 </section>
         
                 <section className='recent_videos'>
-                  <h2 className='tutorialsLine-top'>{t('Recent-Videos')}</h2>
+                  <h1 style={{textAlign: 'center'}}>{t('Recent-Videos')}</h1>
                   <Carousel touch controls={false}>
                     {
                       recentVideos.map((vid, i) => {
