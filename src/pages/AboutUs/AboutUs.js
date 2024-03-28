@@ -39,7 +39,7 @@ import Marko from '../../imgs/AboutUs/TeamMembers/Marko.jpg'
 import Miguel from '../../imgs/AboutUs/TeamMembers/Miguel.jpg'
 import Randy from '../../imgs/AboutUs/TeamMembers/Randy.jpg'
 import Raymond from '../../imgs/AboutUs/TeamMembers/Raymond.jpg'
-import Rossana from '../../imgs/AboutUs/TeamMembers/Rossana.jpg'
+import Rosanna from '../../imgs/AboutUs/TeamMembers/Rosanna.jpg'
 import Vantroi from '../../imgs/AboutUs/TeamMembers/Vantroi.jpg'
 
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab/';
@@ -139,8 +139,8 @@ const AboutUs = (props) =>{
       equipo: ["3D Printing"]
     },
     {
-      img: Rossana,
-      nombre: "Rossana Bautista",
+      img: Rosanna,
+      nombre: "Rosanna Bautista",
       titulo: "Software Engineering",
       equipo: ["Telemetry Team", "Woman"]
     },
