@@ -9,6 +9,35 @@
     margin-top: 30px;
 }
 
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.css-17dkv59-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    font-family: "Poppins", sans-serif;
+  }
+
+.MuiTypography-root.MuiTypography-body1.MuiTypography-alignCenter.css-1uwgr7b-MuiTypography-root {
+    font-family: "Poppins", sans-serif;
+  }
+  
+.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    font-family: "Poppins", sans-serif;
+}
+
+.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    font-family: "Poppins", sans-serif;
+}
+
+.MuiBottomNavigationAction-label.Mui-selected.css-imwso6-MuiBottomNavigationAction-label {
+    font-family: "Poppins", sans-serif;
+}
+
+.css-1j59aic-MuiBottomNavigation-root{
+    font-family: "Poppins", sans-serif;
+}
+
+.MuiBottomNavigationAction-label.css-imwso6-MuiBottomNavigationAction-label{
+    font-family: "Poppins", sans-serif;
+}
+
+
 .data-dashboard-body{
     margin-top: 50px;
     padding-bottom: 125px;
@@ -56,7 +85,6 @@
 .crewmembers-select{
     background-color: #1F264B;
 }
-
 
 .crewmembers{
     border-radius: 16px;
