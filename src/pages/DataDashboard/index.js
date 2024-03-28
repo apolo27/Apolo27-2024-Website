@@ -4,7 +4,7 @@ import './DataDashboardTripulante/src/global.css';
 import "./DataDashboard.css";
 import React, { useEffect, useState } from "react";
 import database from "../../services/firebase";
-
+import FrameComponentAmbient from './DataDashboardAmbiente/src/components/Home';
 // import {Container,Tab, Tabs} from 'react-bootstrap';
 
 import {
@@ -137,7 +137,9 @@ const DataDashboard = (props) => {
     { label: "Overview", icon: <HomeIcon /> },
     { label: "Rover", icon: <PedalBike /> },
     { label: "Tripulante", icon: <PersonIcon /> },
+    { label: "Ambient", icon: <BarChartIcon /> },
     { label: "Sensors", icon: <BarChartIcon /> },
+    
   ];
 
   useEffect(() => {
@@ -801,7 +803,7 @@ const DataDashboard = (props) => {
             </div>
           )}
           {activeIndex === 2 && <FrameComponent />}
-          {activeIndex === 3 && (
+          {activeIndex === 4 && (
             <Grid
               container
               spacing={2}
@@ -1426,7 +1428,31 @@ const DataDashboard = (props) => {
               </Grid>
             </Grid>
           )}
+          {activeIndex === 3 && <FrameComponentAmbient/>}
+          
         </div>
+           {/*
+      <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Sensor</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          processedData.map((data) => {
+            return(
+              <tr key={data.key}>
+                <td>{data.key}</td>
+                <td>{data.value}</td>
+              </tr>
+            )
+          })
+        }
+      </tbody>
+      </Table>
+      */}
       </Container>
     </div>
   );
