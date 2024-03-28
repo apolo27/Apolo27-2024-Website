@@ -1,48 +1,86 @@
+import React, { useState } from 'react';
 import BloodSugar from "./BloodSugar";
 import BloodPressure from "./BloodPressure";
 import HeartRate from "./HeartRate";
-import styles from "./MeditionsDetails.module.css";
-import vector3 from "../../public/vector-3.svg";
-import group from "../../public/group.svg";
-import group1 from "../../public/group-1.svg";
+import styled from "styled-components";
+
+// Datos de paginación inicial
+const chartGroups = [
+  [<BloodSugar />, <BloodPressure />, <HeartRate />],
+  [<BloodSugar />, <BloodPressure />, <HeartRate />],
+];
 
 const MeditionsDetails = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <div className={styles.mergeNode}>
-      <div className={styles.splitNode}>
-        <BloodSugar />
-        <img
-          className={styles.auntTwiceRemovedNodes}
-          alt=""
-          src={vector3}
-        />
-      </div>
-      <div className={styles.matrixRow}>
-        <div className={styles.functionArgument}>
-          <div className={styles.functionReturn}>
-            <div className={styles.siblingFiveTimesRemovedNod} />
-            <div className={styles.siblingFiveTimesRemovedNod1} />
-            <div className={styles.siblingFiveTimesRemovedNod2} />
-            <div className={styles.siblingFiveTimesRemovedNod3} />
-            <div className={styles.siblingFiveTimesRemovedNod4} />
-          </div>
-        </div>
-        <div className={styles.expressionTree}>
-          <BloodPressure />
-          <img
-            className={styles.groupIcon}
-            loading="lazy"
-            alt=""
-            src={group}
+    <HealthMonitorWrapper>
+      {/* Botones de paginación */}
+      <PaginationContainer>
+        {chartGroups.map((_, index) => (
+          <PaginationItem
+            key={index}
+            isActive={index === activeIndex}
+            onClick={() => setActiveIndex(index)}
           />
-        </div>
-      </div>
-      <div className={styles.splitNode1}>
-        <HeartRate />
-        <img className={styles.groupIcon1} alt="" src={group1} />
-      </div>
-    </div>
+        ))}
+      </PaginationContainer>
+
+      {/* Contenedor de tarjetas */}
+      <HealthDataGrid>
+        {chartGroups[activeIndex].map((Component, index) => (
+          <HealthDataColumn key={index}>
+            {Component}
+          </HealthDataColumn>
+        ))}
+      </HealthDataGrid>
+    </HealthMonitorWrapper>
   );
 };
+
+// Estilos
+const HealthMonitorWrapper = styled.section`
+  border-radius: 48px;
+  background-color: rgba(166, 166, 166, 0.21);
+  max-width: 813px;
+  padding: 24px 22px;
+  @media (max-width: 991px) {
+    padding: 20px;
+  }
+`;
+
+const HealthDataGrid = styled.div`
+  display: flex;
+  gap: 20px;
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+`;
+
+const HealthDataColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  @media (max-width: 991px) {
+    width: 100%;
+    margin-top: 40px;
+  }
+`;
+
+const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+`;
+
+const PaginationItem = styled.div`
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background-color: ${(props) => (props.isActive ? "#9ea1ac" : "#2a2c38")};
+  box-shadow: 0px 4px 6.7px 0px rgba(0, 0, 0, 0.42) inset;
+  cursor: pointer;
+`;
 
 export default MeditionsDetails;

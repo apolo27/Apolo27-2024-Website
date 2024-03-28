@@ -3,7 +3,7 @@ import AcitivityGrowth from "./AcitivityGrowth";
 import FrameComponent from "./FrameComponent";
 import styles from "./ActivityCrewMember.module.css";
 
-const ActivityCrewMember = () => {
+const AcitivityCrewMember = () => {
   return (
     <div className={styles.searchTree}>
       <div className={styles.sortingNode}>
@@ -15,4 +15,4 @@ const ActivityCrewMember = () => {
   );
 };
 
-export default ActivityCrewMember;
+export default AcitivityCrewMember;

@@ -1,22 +1,19 @@
-
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-// Plugin para bordes redondeados
 const roundedCornersPlugin = {
   id: 'roundedCorners',
   afterDraw: (chart) => {
     const ctx = chart.ctx;
     chart.getDatasetMeta(0).data.forEach((bar) => {
       const { x, y, base, width } = bar;
-      const radius = 20; // Aquí ajustas el radio de las esquinas
+      const radius = 20;
       ctx.save();
       ctx.fillStyle = bar.options.backgroundColor;
       ctx.beginPath();
       ctx.moveTo(x - width / 2, y);
-      // Dibuja las esquinas redondeadas aquí
       ctx.arcTo(x + width / 2, y, x + width / 2, base, radius);
       ctx.arcTo(x + width / 2, base, x - width / 2, base, radius);
       ctx.arcTo(x - width / 2, base, x - width / 2, y, radius);
@@ -28,11 +25,9 @@ const roundedCornersPlugin = {
   }
 };
 
-// Asegúrate de registrar el plugin
 Chart.register(roundedCornersPlugin);
 
 const options = {
-  // Tus opciones aquí
   plugins: {
     legend: {
       display: true,
@@ -76,7 +71,6 @@ const options = {
   maintainAspectRatio: false,
 };
 
-// Datos del gráfico Cambiar con el que se recibe de 
 const data = {
   labels: ['Jan 1', 'Jan 2', 'Jan 3', 'Jan 4', 'Jan 5', 'Jan 6', 'Jan 7', 'Jan 8', 'Jan 9', 'Jan 10', 'Jan 11', 'Jan 12', 'Jan 13', 'Jan 14', 'Jan 15', 'Jan 16', 'Jan 17', 'Jan 18'],
   datasets: [
@@ -90,7 +84,7 @@ const data = {
     {
       label: 'Presión',
       data: [28, 48, 40, 19, 86, 27, 90, 85, 70, 60, 80, 95, 55, 60, 80, 100, 90, 65],
-      backgroundColor: 'rga(102,181,188,0.2)',
+      backgroundColor: 'rgba(102,181,188,0.2)', // Corrección aquí
       borderWidth: 0.5,
       borderRadius: 20,
     },
@@ -105,6 +99,7 @@ const data = {
 };
 
 const ActivityGrowth = () => {
+
   return (
     <div style={{ position: 'relative', width: '100%', height: '400px' }}>
       <Bar data={data} options={options} />
