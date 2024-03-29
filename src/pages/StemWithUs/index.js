@@ -460,7 +460,7 @@ const StemWithUs = (props) => {
                   <img src={Fastronaut} className='astronautStemIZQ' alt='Female Astronaut'></img>
                   <div style={{marginTop: 100}}>
                     <h2>{t('Plan-a-meeting')}</h2>
-                    <Button href='/Contact-Us' style={{width: '275px', height: '75px', fontSize: '36px', fontWeight: 700}}>{t('Contactenos')}!</Button>
+                    <Button href='/ContactUs' style={{width: '275px', height: '75px', fontSize: '36px', fontWeight: 700}}>{t('Contactenos')}!</Button>
                   </div>
                   <img src={Fastronaut} className='astronautStemDER' alt='Female Astronaut'></img>
                 </section>
