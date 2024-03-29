@@ -22,11 +22,11 @@ const Footer = () => {
   	 		<div class="footer-col">
   	 			<h4>Data Dashboard</h4>
   	 			<ul>
-                    <li><HashLink smooth to="Data-Dashboard#root">Overview</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#root">Rover</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#root">Crewmembers</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#root">Environment</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#root">Sensors</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#overview">Overview</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#rover">Rover</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#crewmembers">Crewmembers</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#environment">Environment</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#sensors">Sensors</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
