@@ -10,23 +10,23 @@ const Footer = () => {
   	 		<div class="footer-col">
   	 			<h4>Apolo 27</h4>
   	 			<ul>
-  	 				<li><a href="#">Our Story</a></li>
+                   <li><HashLink smooth to="/#timeline">Our Story</HashLink></li>
+                   <li><HashLink smooth to="Sponsors#root">Donate</HashLink></li>
   	 				<li><a href="#">Awards</a></li>
-                       <li><a href="#">STEM</a></li>
+                    <li><a href="#">STEM</a></li>
                     <li><a href="#">Manufacturing</a></li>
   	 				<li><a href="#">Telemetry</a></li>
-                       <li><a href="#">Donate</a></li>
-                    <li><a href="#">HERC Simulation</a></li>
+                    <li><HashLink smooth to="Simulation#root">HERC Simulation</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>Data Dashboard</h4>
   	 			<ul>
-  	 				<li><a href="#">Overview</a></li>
-  	 				<li><a href="#">Rover</a></li>
-  	 				<li><a href="#">Crewmembers</a></li>
-  	 				<li><a href="#">Environment</a></li>
-  	 				<li><a href="#">Sensors</a></li>
+                    <li><HashLink smooth to="Data-Dashboard#root">Overview</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#root">Rover</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#root">Crewmembers</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#root">Environment</HashLink></li>
+                    <li><HashLink smooth to="Data-Dashboard#root">Sensors</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
@@ -34,7 +34,7 @@ const Footer = () => {
   	 			<ul>
   	 				<li><HashLink smooth to="Stem-With-Us#blogs">Blog</HashLink></li>
   	 				<li><HashLink smooth to="Stem-With-Us#events">Events Calendar</HashLink></li>
-  	 				<li><HashLink smooth to="Stem-With-Us#schoolvisit">Book a School Visit</HashLink></li>
+  	 				<li><HashLink smooth to="Contact-Us#root">Book a School Visit</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
