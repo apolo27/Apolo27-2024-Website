@@ -39,7 +39,7 @@ import Marko from '../../imgs/AboutUs/TeamMembers/Marko.jpg'
 import Miguel from '../../imgs/AboutUs/TeamMembers/Miguel.jpg'
 import Randy from '../../imgs/AboutUs/TeamMembers/Randy.jpg'
 import Raymond from '../../imgs/AboutUs/TeamMembers/Raymond.jpg'
-import Rossana from '../../imgs/AboutUs/TeamMembers/Rossana.jpg'
+import Rosanna from '../../imgs/AboutUs/TeamMembers/Rosanna.jpg'
 import Vantroi from '../../imgs/AboutUs/TeamMembers/Vantroi.jpg'
 
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab/';
@@ -139,8 +139,8 @@ const AboutUs = (props) =>{
       equipo: ["3D Printing"]
     },
     {
-      img: Rossana,
-      nombre: "Rossana Bautista",
+      img: Rosanna,
+      nombre: "Rosanna Bautista",
       titulo: "Software Engineering",
       equipo: ["Telemetry Team", "Woman"]
     },
@@ -502,47 +502,6 @@ const AboutUs = (props) =>{
               </div>
           </div>
         </section>
-
-        <section id="stem">
-                  <div className="title">
-                    <h1>Apolo 27 + STEM</h1>
-                  </div>
-                  <header className="header">
-                    <h1 className="header-title masthead">{t('StemForAll')}</h1>
-                  </header>
-                  <main className="main">
-                    <article className="entry entry-lede">
-                      <img className="entry-img" src={stem1} alt="stem-img1"/>
-                      <div className="entry-content">
-                        <h1 className="entry-headline primary-headline">{t('ImportanceOfStem')}</h1>
-                        <time className="entry-date meta">{t('ImportanceOfStemSub')}</time>
-                        <p className="entry-summary">{t('ImportanceOfStemBody')}</p>
-                      </div>
-                    </article>
-                    <article className="entry">
-                      <img className="entry-img" src={stem2} alt="The profile view of three majestic brown horses" />
-                      <h1 className="entry-headline primary-headline">{t('GirlsAreTheFuture')}</h1>
-                      <time className="entry-date meta">{t('March 8, 2023')}</time>
-                      <span className="entry-byline meta">{t('WomenInSTEM')}</span>
-                    </article>
-                    <article className="entry">
-                      <img className="entry-img" src={stem3} alt="The profile view of three majestic brown horses" />
-                      <h1 className="entry-headline primary-headline">{t('WeBelieveInDominicanYouth')}</h1>
-                      <time className="entry-date meta">{t('March 29, 2023')}</time>
-                      <span className="entry-byline meta">{t('School Visits')}</span>
-                    </article>
-                    <section className="trending">
-                      <article className="trending-entry">
-                        <h2>{t('School VisitsFooter')}</h2>
-                      </article>
-                      <br></br>
-                      <article className="trending-entry">
-                        <h2>{t('School VisitsFooter2')}</h2>
-                      </article>
-                    </section>              
-                  </main>  
-              </section>
-
       </Container>
     </div>
   )

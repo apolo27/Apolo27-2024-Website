@@ -20,7 +20,7 @@ function App() {
       <Header t={t}/>
       <Routes>
         {<Route path='/' element={<Home t={t}/>}/>}
-        <Route path='/About-Us' element={<AboutUs t={t}/>}/>
+        {/*<Route path='/About-Us' element={<AboutUs t={t}/>}/>*/}
         <Route path='/Data-Dashboard' element={<DataDashboard t={t}/>}/>
         <Route path='/Sponsors' element={<Sponsors t={t}/>}/>
         <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>

@@ -1669,28 +1669,6 @@ const DataDashboard = (props) => {
           {activeIndex === 3 && <FrameComponentAmbient/>}
           
         </div>
-           {/*
-      <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Sensor</th>
-          <th>Data</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          processedData.map((data) => {
-            return(
-              <tr key={data.key}>
-                <td>{data.key}</td>
-                <td>{data.value}</td>
-              </tr>
-            )
-          })
-        }
-      </tbody>
-      </Table>
-      */}
       </Container>
     </div>
   );
