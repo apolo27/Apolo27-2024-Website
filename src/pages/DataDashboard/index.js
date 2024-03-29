@@ -38,6 +38,7 @@ import { PedalBike } from "@mui/icons-material";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import PersonIcon from "@mui/icons-material/Person";
 import SensorsIcon from '@mui/icons-material/Sensors';
+import PublicIcon from '@mui/icons-material/Public';
 import {
   MdOutlineWbSunny,
   MdOutlineWaterDrop,
@@ -140,7 +141,7 @@ const DataDashboard = (props) => {
     { label: "Overview", icon: <HomeIcon /> },
     { label: "Rover", icon: <PedalBike /> },
     { label: "Crewmember", icon: <PersonIcon /> },
-    { label: "Ambient", icon: <BarChartIcon /> },
+    { label: "Ambient", icon: <PublicIcon /> },
     { label: "Sensors", icon: <SensorsIcon /> },
     
   ];
