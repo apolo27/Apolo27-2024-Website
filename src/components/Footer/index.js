@@ -31,9 +31,9 @@ const Footer = () => {
   	 		<div class="footer-col">
   	 			<h4>Stem With Us</h4>
   	 			<ul>
-  	 				<li><HashLink smooth to="Stem-With-Us#blogs">Blog</HashLink></li>
-  	 				<li><HashLink smooth to="Stem-With-Us#events">Events Calendar</HashLink></li>
-  	 				<li><HashLink smooth to="Stem-With-Us#schoolvisit">Book a School Visit</HashLink></li>
+  	 				<li><HashLink smooth to={window.innerWidth > 1280 ? "Stem-With-Us#blogs" : "Stem-With-Us"}>Blog</HashLink></li>
+  	 				<li><HashLink smooth to={window.innerWidth > 1280 ? "Stem-With-Us#events" : "Stem-With-Us"}>Events Calendar</HashLink></li>
+  	 				<li><HashLink smooth to={window.innerWidth > 1280 ? "Stem-With-Us#schoolvisit" : "Stem-With-Us"}>Book a School Visit</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
