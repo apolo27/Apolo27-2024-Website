@@ -411,6 +411,11 @@ body .container-areas .card .box .content a:hover {
 
 /* TIMELINE */
 
+#timeline{
+  padding-top: 0px;
+  padding: 20px;
+}
+
 @media (min-width: 1000px) {
 
 
@@ -485,7 +490,7 @@ body .container-areas .card .box .content a:hover {
 
 #timeline h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 38px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -704,4 +709,3 @@ body .container-areas .card .box .content a:hover {
 }
 
 /* MIEMBROS SLIDER MAIN */
-
