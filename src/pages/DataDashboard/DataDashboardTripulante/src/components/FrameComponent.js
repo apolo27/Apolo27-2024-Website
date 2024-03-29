@@ -1,36 +1,112 @@
-import * as React from "react";
 import styled from "styled-components";
 
-const bmiData = [
-  { label: "Altura", value: "170 cm", icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/8535394453cb82d44c7d12ae36bd1b3c55dcfb7ff4859766488db176d8696eb6?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" },
-  { label: "Peso", value: "72 kg", icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/deb216c7b637f647aea88291611f0ad7e7bd1f8fff07af8d1f3f4225039e430d?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" },
+import React, { useState } from 'react';
+
+
+// Datos iniciales para VANTROI
+const usersData = [
+  {
+    userName: "VANTROI",
+    bmiData: [
+      { label: "Altura", value: "170 cm", icon: "URL_ICON_ALTURA" },
+      { label: "Peso", value: "72 kg", icon: "URL_ICON_PESO" },
+    ],
+    measurementData: [
+      { label: "Chest (in)", value: "44.5", icon: "URL_ICON_CHEST" },
+      { label: "Waist (in)", value: "34", icon: "URL_ICON_WAIST" },
+      { label: "Hip (in)", value: "42.5", icon: "URL_ICON_HIP" },
+    ],
+    bmiValue: "24.9",
+    bmiStatus: "SALUDABLE",
+    userIcon: "URL_ICON_VANTROI",
+    bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_VANTROI"
+  },
+  {
+    userName: "CAMILA",
+    bmiData: [
+      { label: "Altura", value: "160 cm", icon: "URL_ICON_ALTURA_CAMILA" },
+      { label: "Peso", value: "55 kg", icon: "URL_ICON_PESO_CAMILA" },
+    ],
+    measurementData: [
+      { label: "Chest (in)", value: "38", icon: "URL_ICON_CHEST_CAMILA" },
+      { label: "Waist (in)", value: "30", icon: "URL_ICON_WAIST_CAMILA" },
+      { label: "Hip (in)", value: "40", icon: "URL_ICON_HIP_CAMILA" },
+    ],
+    bmiValue: "21.5",
+    bmiStatus: "SALUDABLE",
+    userIcon: "URL_ICON_CAMILA",
+    bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_CAMILA"
+  },
+  // Más usuarios
 ];
 
-const measurementData = [
-  { label: "Chest (in)", value: "44.5", icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b32f5f90fd4bdf4d4deaf514062274a1c1e58983e878d8963a0285f130bd1b4d?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" },
-  { label: "Waist (in)", value: "34", icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/372e38d8644a72b96ddfb2e96f523e0fba4c015105fca9bb45da22694072739f?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" },
-  { label: "Hip (in)", value: "42.5", icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/03d176f6e2bb38b6caf8cb7bb98aa096694dc7837b215a07a5709d04d8c52cb4?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" },
+
+const BMIData = [
+  { value: 15, label: "15" },
+  { value: 20, label: "20" },
+  { value: 28, label: "28" },
+  { value: 35, label: "35" },
+  { value: 40, label: "40" },
 ];
+
+
+
+
+
 
 function FrameComponent() {
+  const [userData, setUserData] = useState(usersData[0]);
+
+  const handleSelectChange = (event) => {
+    const selectedUserName = event.target.value;
+    const selectedUser = usersData.find((user) => user.userName === selectedUserName);
+    setUserData(selectedUser);
+  };
+
+  const calculatePosition = (value) => {
+    const scaleMin = 15;
+    const scaleMax = 40;
+    const position = ((value - scaleMin) / (scaleMax - scaleMin)) * 100;
+    return position;
+  };
+
+  const calculateBmiStatus = (bmiValue) => {
+    if (bmiValue < 18.5) return "BAJO PESO";
+    if (bmiValue >= 18.5 && bmiValue < 25) return "SALUDABLE";
+    if (bmiValue >= 25 && bmiValue < 30) return "SOBREPESO";
+    return "OBESIDAD";
+  };
+
+  const calculateMarkerPosition = () => {
+    const scaleMin = 15;
+    const scaleMax = 40;
+    const bmiValue = parseFloat(userData.bmiValue);
+    const position = ((bmiValue - scaleMin) / (scaleMax - scaleMin)) * 100;
+    return `${position}%`;
+  };
+  
+
   return (
     <Container>
       <ContentWrapper>
         <Header>
           <Title>BMI Calculator</Title>
-          <UserInfo>
-            <UserName>VANTROI</UserName>
-            <UserIcon src="https://cdn.builder.io/api/v1/image/assets/TEMP/dde676e9bfe5fc0ac74ec209647508f103ae0adf50b0f6dc7de1f0ae906267bb?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" alt="User Icon" />
-          </UserInfo>
+          
+            <UserSelector onChange={handleSelectChange} value={userData.userName}>
+              {usersData.map((user) => (
+                <option key={user.userName} value={user.userName}>{user.userName}</option>
+              ))}
+            </UserSelector>
+          
         </Header>
         <BodyMeasurements>
           <BodyMeasurementsContent>
             <BodyMeasurementsColumn>
-              {bmiData.map((data, index) => (
+              {userData.bmiData.map((data, index) => (
                 <BmiDataItem key={index}>
                   <BmiDataLabel>{data.label}</BmiDataLabel>
                   <BmiDataValue>
-                    <BmiDataIcon src={data.icon} alt={`${data.label} Icon`} />
+                    <BmiDataIcon src={data.icon} alt={`${data.label} icon`} />
                     <BmiDataText>{data.value}</BmiDataText>
                   </BmiDataValue>
                 </BmiDataItem>
@@ -38,19 +114,24 @@ function FrameComponent() {
             </BodyMeasurementsColumn>
             <BodyIndexColumn>
               <BodyIndexWrapper>
-                <BodyIndexTitle>Indice de Masa Corporal (BMI)</BodyIndexTitle>
+              <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
                 <BodyIndexContent>
-                  <BodyIndexValue>24.9</BodyIndexValue>
-                  <BodyIndexStatus>SALUDABLE</BodyIndexStatus>
+                  <BodyIndexValue>{userData.bmiValue}</BodyIndexValue>
+                  <BodyIndexStatus>{userData.bmiStatus}</BodyIndexStatus>
                 </BodyIndexContent>
-                <BodyIndexScale />
-                <BodyIndexLabels>
-                  <BodyIndexLabel>15</BodyIndexLabel>
-                  <BodyIndexLabel>18.5</BodyIndexLabel>
-                  <BodyIndexLabel>25</BodyIndexLabel>
-                  <BodyIndexLabel>30</BodyIndexLabel>
-                  <BodyIndexLabel>40</BodyIndexLabel>
-                </BodyIndexLabels>
+                <BMIScaleWrapper>
+                <BMIMarker style={{ left: calculateMarkerPosition() }} />
+                  <BMIScaleBackground />
+                  {/* El marcador que indica la posición del valor del BMI actual del Tripu*/}
+                  
+              </BMIScaleWrapper>
+                <BMIValuesContainer>
+                  {BMIData.map((data) => (
+                    <BMIValueLabel key={data.value} style={{ left: `${calculatePosition(data.value)}%` }}>
+                      {data.label}
+                    </BMIValueLabel>
+                  ))}
+                </BMIValuesContainer>
               </BodyIndexWrapper>
             </BodyIndexColumn>
           </BodyMeasurementsContent>
@@ -58,18 +139,18 @@ function FrameComponent() {
         <BodyMeasurementsDetails>
           <BodyMeasurementsDetailsContent>
             <MeasurementsColumn>
-              {measurementData.map((data, index) => (
+              {userData.measurementData.map((data, index) => (
                 <MeasurementItem key={index}>
                   <MeasurementLabel>{data.label}</MeasurementLabel>
                   <MeasurementValue>
                     <MeasurementText>{data.value}</MeasurementText>
-                    <MeasurementIcon src={data.icon} alt={`${data.label} Icon`} />
+                    <MeasurementIcon src={data.icon} alt={`${data.label} icon`} />
                   </MeasurementValue>
                 </MeasurementItem>
               ))}
             </MeasurementsColumn>
             <BodyImageColumn>
-              <BodyImage src="https://cdn.builder.io/api/v1/image/assets/TEMP/858f4c3cf4a02500e5e6969a1597e6c0b6bc92799cea91d96eb5701e20db7918?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" alt="Body Measurements" />
+              <BodyImage src={userData.bodyMeasurementImage} alt="Medidas Corporales" />
             </BodyImageColumn>
           </BodyMeasurementsDetailsContent>
         </BodyMeasurementsDetails>
@@ -77,6 +158,62 @@ function FrameComponent() {
     </Container>
   );
 }
+
+
+const BMIValuesContainer = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 35px; // Espacio para el marcador
+`;
+
+const BMIValueLabel = styled.span`
+  position: absolute;
+  bottom: 15px; // Coloca las etiquetas debajo de la barra
+  left: ${props => `calc(${props.left}% - 10px)`}; // Ajusta la posición horizontalmente
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap; // Asegura que el texto no se envuelva
+`;
+
+
+const BMILabelButton = styled.button`
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 9px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+`;
+
+
+const UserSelector = styled.select`
+  font-family: Poppins, sans-serif;
+  padding: 14px 24px;
+  border-radius: 21px;
+  margin-top: 24px;
+  background-color: var(--Dentro-del-glass, rgba(0, 0, 0, 0.21));
+  color: #cacaca;
+  border: 21px;
+  outline: none;
+  font-size: 16px;
+
+  option {
+    color: black;
+    background: white;
+    display: flex;
+    white-space: pre;
+    min-height: 20px;
+    padding: 0px 2px 1px;
+  }
+`;
+
 
 const Container = styled.div`
   border-radius: 40px 0 0 40px;
@@ -297,6 +434,33 @@ const BodyIndexLabels = styled.div`
 
 const BodyIndexLabel = styled.span`
   font-family: Poppins, sans-serif;
+`;
+
+
+const BMIScaleWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  margin-top: 12px;
+`;
+
+const BMIScaleBackground = styled.div`
+  height: 20px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #0c82ed, #45e8d6, #f0c72f, #ec252c);
+  margin-top: 10px; // Espacio en la parte superior para el marcador
+`;
+
+const BMIMarker = styled.div`
+  position: absolute;
+  top: -8px; // Sube el marcador para que esté centrado verticalmente con la barra de colores
+  left: ${props => props.position};
+  width: 12px; // Ancho reducido para un marcador más pequeño
+  height: 12px; // Altura reducida para coincidir con el ancho
+  border-radius: 50%; 
+  background-color: red; // Color de marcador
+  border: 2px solid white; // Borde 
+  transition: left 0.3s ease-in-out; // Animación suave para los cambios de posición
+  z-index: 10; // el marcador esté por encima de cualquier otro elemento
 `;
 
 const BodyMeasurementsDetails = styled.section`
