@@ -62,7 +62,7 @@ import Rover from './DataDashboardRover/index.js';
 import { Chart } from "react-google-charts";
 import { a } from '@react-spring/three';
 import TrackGaugeChart from '../../components/RadialBarChart/index.js';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const DataDashboard = (props) => {
   let t = props.t;
@@ -126,6 +126,9 @@ const DataDashboard = (props) => {
 
   const handleChange = (event, newIndex) => {
     setActiveIndex(newIndex);
+    const section = icons[newIndex].label.toLowerCase(); // Sección en minúsculas
+    navigate(`/Data-Dashboard/#${section}`); // Actualizar la URL
+    
   };
 
   const handleChangePiloto = (event) => {
@@ -140,6 +143,32 @@ const DataDashboard = (props) => {
     { label: "Sensors", icon: <BarChartIcon /> },
     
   ];
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  
+
+  useEffect(() => {
+    const hash = location.hash;
+    switch (hash) {
+        case "#overview":
+            setActiveIndex(0);
+            break;
+        case "#rover":
+            setActiveIndex(1);
+            break;
+        case "#crewmembers":
+            setActiveIndex(2);
+            break;
+        case "#environment":
+            setActiveIndex(3);
+            break;
+        case "#sensors":
+            setActiveIndex(4);
+            break;
+    }
+}, [location.hash]);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -201,64 +230,6 @@ const DataDashboard = (props) => {
     fetchData();
   }, []);
 
-  // asignar valores y mantenerlos actualizados
-
-  // useEffect(() => {
-  //   const handleData = (snapshot) => {
-  //     const data = snapshot.val();
-      
-  //     console.log(data)
-  //     console.log(data.inclinacion2)
-
-  //     if (data) {
-  //       let lastEntryKey;
-  //       let lastEntryData;
-
-  //       snapshot.forEach((childSnapshot) => {
-  //         lastEntryKey = childSnapshot.key;
-  //         lastEntryData = childSnapshot.val();
-  //       });
-
-  //       setProcessedData({
-  //         key: lastEntryKey,
-  //         value: lastEntryData,
-  //       });
-
-  //       //asignacion piloto 1 ultimo dato
-  //       setPulsoCardiacoBPM1(lastEntryData.pulsoCardiacoBPM1);
-  //       setHumedad1(lastEntryData.humedad1);
-  //       setIntensidadGravitatoria1(lastEntryData.intensidadGravitatoria1);
-  //       setIntensidadMagnetica1(lastEntryData.intensidadMagnetica1);
-  //       setPresion1(lastEntryData.presion1);
-  //       setTemperatura1(lastEntryData.temperatura1);
-
-  //       //asignacion piloto 2
-  //       setPulsoCardiacoBPM2(lastEntryData.pulsoCardiacoBPM2);
-  //       setHumedad2(lastEntryData.humedad2);
-  //       setIntensidadGravitatoria2(lastEntryData.intensidadGravitatoria2);
-  //       setIntensidadMagnetica2(lastEntryData.intensidadMagnetica2);
-  //       setPresion2(lastEntryData.presion2);
-  //       setTemperatura2(lastEntryData.temperatura2);
-
-  //       //asignacion rover
-  //       setImpacto(lastEntryData.impacto);
-  //       setVibracion(lastEntryData.vibracion);
-  //       setConcentracionGas1(lastEntryData.ConcentracionGas1);
-  //       setRadiacionUV1(lastEntryData.radiacionUV1);
-  //       setLatitud(lastEntryData.latitud);
-  //       setLongitud(lastEntryData.longitud);
-  //       setAltitud(lastEntryData.altitud);
-  //     }
-
-      
-  //   };
-
-  //   database.ref("/temperatura-humedad").on("value", handleData);
-
-  //   return () => {
-  //     database.ref("/temperatura-humedad").off("value", handleData);
-  //   };
-  // }, []);
 
   // Asignar ahora los ultimos cinco registros
   useEffect(() => {
@@ -505,6 +476,7 @@ const DataDashboard = (props) => {
         </BottomNavigation>
 
         <div className="data-dashboard-body">
+        <div id="overview">
           {activeIndex === 0 && (
             <Grid
               container={true}
@@ -734,6 +706,8 @@ const DataDashboard = (props) => {
               </Grid>
             </Grid>
           )}
+        </div>
+        <div id="rover">
           {activeIndex === 1 && (
             <div className="rover-tab">
               <div className="graph-izq">
@@ -937,7 +911,11 @@ const DataDashboard = (props) => {
               </div>
             </div>
           )}
+        </div>
+        <div id="crewmembers">
           {activeIndex === 2 && <FrameComponent />}
+        </div>
+        <div id="sensors">
           {activeIndex === 4 && (
             <Sensors
               data={dataGrafico}
@@ -1666,8 +1644,10 @@ const DataDashboard = (props) => {
             //   </Grid>
             // </Grid>
           )}
+        </div>
+        <div id="environment">
           {activeIndex === 3 && <FrameComponentAmbient/>}
-          
+        </div>
         </div>
       </Container>
     </div>

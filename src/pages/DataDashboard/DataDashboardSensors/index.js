@@ -545,7 +545,7 @@ function Sensors({ data }) {
                           className="title-class2"
                           style={{ display: "flex", alignItems: "center" }}
                         >
-                          <div style={{ width: "24px", marginRight: "-10px" }}>
+                          <div style={{ width: "24px", marginRight: "-20px" }}>
                             {" "}
                             {/* Ancho fijo del contenedor del icono */}
                             <img
@@ -553,7 +553,7 @@ function Sensors({ data }) {
                               alt="Icono"
                               style={{
                                 height: "50px",
-                                marginLeft: "-55px",
+                                marginLeft: "-60px",
                                 marginTop: "-10px",
                               }}
                             />{" "}
