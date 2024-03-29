@@ -12,11 +12,10 @@ const Footer = () => {
   	 			<ul>
                    <li><HashLink smooth to="/#timeline">Our Story</HashLink></li>
                    <li><HashLink smooth to="Sponsors#root">Donate</HashLink></li>
-  	 				<li><a href="#">Awards</a></li>
-                    <li><a href="#">STEM</a></li>
-                    <li><a href="#">Manufacturing</a></li>
-  	 				<li><a href="#">Telemetry</a></li>
-                    <li><HashLink smooth to="Simulation#root">HERC Simulation</HashLink></li>
+                   <li><HashLink smooth to="Telemetry#Telemetry-page">Telemetry</HashLink></li>
+                   <li><HashLink smooth to="STEM#STEM-page">STEM</HashLink></li>
+                   <li><HashLink smooth to="Manufacturing#Manufacturing-page">Manufacturing</HashLink></li>
+                   <li><HashLink smooth to="Simulation#root">HERC Simulation</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">

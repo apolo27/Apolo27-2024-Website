@@ -8,6 +8,10 @@ body {
 
 /* RECUADROS GRID */
 
+#areas-button{
+  list-style: none;
+}
+
 .grid {
     min-height: 100vh;
     display: grid;
