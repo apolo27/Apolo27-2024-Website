@@ -29,7 +29,7 @@ import AltitudIcon from "../../../imgs/DataDashboard/altitud.png"
 
 function Sensors({ data }) {
 
-    const [filter, setFilter] = useState('piloto1'); // Estado para mantener el valor seleccionado del dropdown
+    const [filter, setFilter] = useState('Crewmember 1'); // Estado para mantener el valor seleccionado del dropdown
 
     // Datos para los gráficos pilotos
     const [temperatura, setTemperatura] = useState([]);
@@ -63,9 +63,9 @@ function Sensors({ data }) {
     const handleFilter = (value) => {
         setFilter(value)
 
-        if(value === 'piloto1' || value === 'piloto2') {
+        if(value === 'Crewmember 1' || value === 'Crewmember 2') {
             console.log('Hola', data)
-            if (value === "piloto1") {
+            if (value === "Crewmember 1") {
                 const aceleracionLineal1_x = data.map(
                     (item) => item.AceleraciónLineal1_X
                 );
@@ -193,7 +193,7 @@ function Sensors({ data }) {
 
     useEffect(() => {
         // Cuando el componente se monta, establecer el filtro por defecto en "piloto1"
-        handleFilter('piloto1');
+        handleFilter('Crewmember 1');
     }, []);
 
     return (
@@ -216,7 +216,7 @@ function Sensors({ data }) {
               borderColor: "#1F264B",
             }}
           >
-            {filter ? `Filtrar por ${filter}` : "Filtrar"}
+            {filter ? `Filter by:  ${filter}` : "Filtrar"}
           </CDropdownToggle>
           <CDropdownMenu
             style={{
@@ -229,31 +229,31 @@ function Sensors({ data }) {
               className="dropdown-item-custom" // Clase personalizada para estilos adicionales
               onMouseEnter={(e) => (e.target.style.backgroundColor = "#384156")} // Cambia el color de fondo al pasar el mouse
               onMouseLeave={(e) => (e.target.style.backgroundColor = "#1F264B")} // Restablece el color de fondo al quitar el mouse
-              onClick={() => handleFilter("piloto1")}
+              onClick={() => handleFilter("Crewmember 1")}
             >
-              Piloto 1
+              Crewmember 1
             </CDropdownItem>
             <CDropdownItem
               style={{ color: "white" }}
               className="dropdown-item-custom" // Clase personalizada para estilos adicionales
               onMouseEnter={(e) => (e.target.style.backgroundColor = "#384156")} // Cambia el color de fondo al pasar el mouse
               onMouseLeave={(e) => (e.target.style.backgroundColor = "#1F264B")} // Restablece el color de fondo al quitar el mouse
-              onClick={() => handleFilter("piloto2")}
+              onClick={() => handleFilter("Crewmember 2")}
             >
-              Piloto 2
+              Crewmember 2
             </CDropdownItem>
             <CDropdownItem
               style={{ color: "white" }}
               className="dropdown-item-custom" // Clase personalizada para estilos adicionales
               onMouseEnter={(e) => (e.target.style.backgroundColor = "#384156")} // Cambia el color de fondo al pasar el mouse
               onMouseLeave={(e) => (e.target.style.backgroundColor = "#1F264B")} // Restablece el color de fondo al quitar el mouse
-              onClick={() => handleFilter("rover")}
+              onClick={() => handleFilter("Rover")}
             >
               Rover
             </CDropdownItem>
           </CDropdownMenu>
         </CDropdown>
-        {(filter === "piloto1" || filter === "piloto2") && (
+        {(filter === "Crewmember 1" || filter === "Crewmember 2") && (
           <>
             <CRow>
               <CCol xl={4}>
@@ -828,7 +828,7 @@ function Sensors({ data }) {
             </CRow>
           </>
         )}
-        {filter === "rover" && (
+        {filter === "Rover" && (
           <>
             <CRow>
               <CCol xl={4}>
