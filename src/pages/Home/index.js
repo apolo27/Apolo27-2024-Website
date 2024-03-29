@@ -3,6 +3,7 @@ import './Home.css';
 import './slider-styles.css'; 
 import astronaut from '../../imgs/astronaut.png'; 
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import mapa from '../../imgs/Home/mapa.png';
 import simulation from '../../imgs/game.jpg';
 import team2019 from '../../imgs/Home/2019.jpg';
@@ -207,7 +208,7 @@ function Home() {
                     The manufacturing team is the backbone of our HERC entry. They take the designs from our
                     engineers and transform them into a real, functioning rover.
                   </p>
-                  <a href="#">Read More</a>
+                  <li id='areas-button'><HashLink smooth to="Manufacturing#Manufacturing-page">Read More</HashLink></li>
                 </div>
               </div>
             </div>
@@ -221,7 +222,7 @@ function Home() {
                     Our top-notch telemetry team builds the rover's "nervous system," keeping it in constant communication during competition.
                     They're the silent heroes who ensure smooth operation through real-time data monitoring.
                   </p>
-                  <a href="#">Read More</a>
+                  <li id='areas-button'><HashLink smooth to="Telemetry#Telemetry-page">Read More</HashLink></li>
                 </div>
               </div>
             </div>
@@ -235,7 +236,7 @@ function Home() {
                     Our STEM team brings exciting events and hands-on activities to schools nationwide, sparking
                     a love for science, technology, engineering, and math.
                   </p>
-                  <a href="#">Read More</a>
+                  <li id='areas-button'><HashLink smooth to="STEM#STEM-page">Read More</HashLink></li>
                 </div>
               </div>
             </div>
