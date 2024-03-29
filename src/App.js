@@ -24,14 +24,14 @@ function App() {
       <Routes>
         {<Route path='/' element={<Home t={t}/>}/>}
         {/*<Route path='/About-Us' element={<AboutUs t={t}/>}/>*/}
-        <Route path='/Data-Dashboard' element={<DataDashboard t={t}/>}/>
+        <Route path='/DataDashboard' element={<DataDashboard t={t}/>}/>
         <Route path='/Sponsors' element={<Sponsors t={t}/>}/>
-        <Route path='/Stem-With-Us' element={<StemWithUs t={t}/>}/>
+        <Route path='/StemWithUs' element={<StemWithUs t={t}/>}/>
         <Route path='/Simulation' element={<RoverSimulation t={t}/>}/>
         <Route path='/Telemetry' element={<Telemetry t={t}/>}/>
         <Route path='/STEM' element={<STEM t={t}/>}/>
         <Route path='/Manufacturing' element={<Manufacturing t={t}/>}/>
-        <Route path='/Contact-Us' element={<ContactUs t={t}/>}/>
+        <Route path='/ContactUs' element={<ContactUs t={t}/>}/>
         <Route path='/*' element={<PageNotFound t={t}/>}/>
       </Routes>
       <Footer t={t}/>

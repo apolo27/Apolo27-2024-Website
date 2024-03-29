@@ -11,29 +11,29 @@ const Footer = () => {
   	 			<h4>Apolo 27</h4>
   	 			<ul>
                    <li><HashLink smooth to="/#timeline">Our Story</HashLink></li>
-                   <li><HashLink smooth to="Sponsors#root">Donate</HashLink></li>
-                   <li><HashLink smooth to="Telemetry#Telemetry-page">Telemetry</HashLink></li>
-                   <li><HashLink smooth to="STEM#STEM-page">STEM</HashLink></li>
-                   <li><HashLink smooth to="Manufacturing#Manufacturing-page">Manufacturing</HashLink></li>
-                   <li><HashLink smooth to="Simulation#root">HERC Simulation</HashLink></li>
+                   <li><HashLink smooth to="Sponsors">Sponsors</HashLink></li>
+                   <li><HashLink smooth to="Telemetry">Telemetry</HashLink></li>
+                   <li><HashLink smooth to="STEM">STEM</HashLink></li>
+                   <li><HashLink smooth to="Manufacturing">Manufacturing</HashLink></li>
+                   <li><HashLink smooth to="Simulation">HERC Simulation</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>Data Dashboard</h4>
   	 			<ul>
-                    <li><HashLink smooth to="Data-Dashboard#overview">Overview</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#rover">Rover</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#crewmembers">Crewmembers</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#environment">Environment</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#sensors">Sensors</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#overview">Overview</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#rover">Rover</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#crewmembers">Crewmembers</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#environment">Environment</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#sensors">Sensors</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>Stem With Us</h4>
   	 			<ul>
-  	 				<li><HashLink smooth to="Stem-With-Us#blogs">Blog</HashLink></li>
-  	 				<li><HashLink smooth to="Stem-With-Us#events">Events Calendar</HashLink></li>
-  	 				<li><HashLink smooth to="Contact-Us#root">Book a School Visit</HashLink></li>
+  	 				<li><HashLink smooth to="StemWithUs#blogs">Blog</HashLink></li>
+  	 				<li><HashLink smooth to="StemWithUs#events">Events Calendar</HashLink></li>
+  	 				<li><HashLink smooth to="ContactUs">Book a School Visit</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
