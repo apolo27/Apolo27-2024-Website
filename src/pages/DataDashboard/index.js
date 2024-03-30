@@ -37,6 +37,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import { PedalBike } from "@mui/icons-material";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import PersonIcon from "@mui/icons-material/Person";
+import SensorsIcon from '@mui/icons-material/Sensors';
+import PublicIcon from '@mui/icons-material/Public';
 import {
   MdOutlineWbSunny,
   MdOutlineWaterDrop,
@@ -50,7 +52,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import tempIcon from "../../imgs/DataDashboard/tempIcon.png";
 import Crewmembers from "../../imgs/DataDashboard/Frame Crewmembers.svg";
 import { set } from "lodash";
-import { borderRadius } from "@mui/system";
+import { borderRadius, maxHeight } from "@mui/system";
 import { RadialBarChart, RadialBar, Legend, Tooltip } from "recharts";
 import { getLastVideo, getRecentVideos } from "../../services/FetchYTVideos";
 import { fetchAllData, fetchLastFiveData } from '../../services/FetchFirebase.js';
@@ -62,76 +64,73 @@ import Rover from './DataDashboardRover/index.js';
 import { Chart } from "react-google-charts";
 import { a } from '@react-spring/three';
 import TrackGaugeChart from '../../components/RadialBarChart/index.js';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const DataDashboard = (props) => {
   let t = props.t;
   const [gaugeData, setGaugeData] = useState(getGaugeData);
 
   const [data, setData] = useState(null);
-  const [dataGrafico, setDataGrafico] = useState(null);
+  const [dataGrafico, setDataGrafico] = useState([]);
   const [processedData, setProcessedData] = useState([]);
   const [surroundingTemp, setSurroundingTemp] = useState(61);
 
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [piloto, setPiloto] = React.useState("Angello Ortiz");
+  const [piloto, setPiloto] = React.useState("Miguel Arredondo");
   const [lastVideo, setLastVideo] = useState([]);
   const [resentVideos, setRecentVideos] = useState([]);
 
   //Piloto 1
-  const [aceleracionLineal1, setAceleracionLineal1] = useState(0);
   const [aceleracionLineal1_x, setAceleracionLineal1_x] = useState([]);
   const [aceleracionLineal1_y, setAceleracionLineal1_y] = useState([]);
   const [aceleracionLineal1_z, setAceleracionLineal1_z] = useState([]);
-  const [pulsoCardiacoBPM1, setPulsoCardiacoBPM1] = useState(0);
-  const [inclinacion1, setInclinacion1] = useState(0);
+  const [pulsoCardiacoBPM1, setPulsoCardiacoBPM1] = useState([]);
   const [inclinacion1_x, setInclinacion1_x] = useState([]);
   const [inclinacion1_y, setInclinacion1_y] = useState([]);
   const [inclinacion1_z, setInclinacion1_z] = useState([]);	
-  const [humedad1, setHumedad1] = useState(0);
-  const [intensidadGravitatoria1, setIntensidadGravitatoria1] = useState(0);
-  const [intensidadMagnetica1, setIntensidadMagnetica1] = useState(0);
-  const [presion1, setPresion1] = useState(0);
-  const [temperatura1, setTemperatura1] = useState(0);
-  const [velocidadAngular1, setVelocidadAngular1] = useState(0);
+  const [humedad1, setHumedad1] = useState([]);
+  const [intensidadGravitatoria1, setIntensidadGravitatoria1] = useState([]);
+  const [intensidadMagnetica1, setIntensidadMagnetica1] = useState([]);
+  const [presion1, setPresion1] = useState([]);
+  const [temperatura1, setTemperatura1] = useState([]);
   const [velocidadAngular1_x, setVelocidadAngular1_x] = useState([]);
   const [velocidadAngular1_y, setVelocidadAngular1_y] = useState([]);
   const [velocidadAngular1_z, setVelocidadAngular1_z] = useState([]);
-  const [aceleracionGrafico, setAceleracionGrafico] = useState([]);
 
   //Piloto 2
-  const [pulsoCardiacoBPM2, setPulsoCardiacoBPM2] = useState(0);
-  const [aceleracionLineal2, setAceleracionLineal2] = useState(0);
+  const [pulsoCardiacoBPM2, setPulsoCardiacoBPM2] = useState([]);
   const [aceleracionLineal2_x, setAceleracionLineal2_x] = useState([]);
   const [aceleracionLineal2_y, setAceleracionLineal2_y] = useState([]);
   const [aceleracionLineal2_z, setAceleracionLineal2_z] = useState([]);
   const [inclinacion2_x, setInclinacion2_x] = useState([]);
   const [inclinacion2_y, setInclinacion2_y] = useState([]);
   const [inclinacion2_z, setInclinacion2_z] = useState([]);
-  const [humedad2, setHumedad2] = useState(0);
-  const [intensidadGravitatoria2, setIntensidadGravitatoria2] = useState(0);
-  const [intensidadMagnetica2, setIntensidadMagnetica2] = useState(0);
-  const [presion2, setPresion2] = useState(0);
-  const [temperatura2, setTemperatura2] = useState(0);
-  const [velocidadAngular2, setVelocidadAngular2] = useState(0);
+  const [humedad2, setHumedad2] = useState([]);
+  const [intensidadGravitatoria2, setIntensidadGravitatoria2] = useState([]);
+  const [intensidadMagnetica2, setIntensidadMagnetica2] = useState([]);
+  const [presion2, setPresion2] = useState([]);
+  const [temperatura2, setTemperatura2] = useState([]);
   const [velocidadAngular2_x, setVelocidadAngular2_x] = useState([]);
   const [velocidadAngular2_y, setVelocidadAngular2_y] = useState([]);
   const [velocidadAngular2_z, setVelocidadAngular2_z] = useState([]);
 
   //Rover
-  const [impacto, setImpacto] = useState(0);
+  const [impacto, setImpacto] = useState([]);
   const [inclinacionRover_x, setInclinacionRover_x] = useState([]);
   const [inclinacionRover_y, setInclinacionRover_y] = useState([]);
   const [inclinacionRover_z, setInclinacionRover_z] = useState([]);
-  const [vibracion, setVibracion] = useState(0);
-  const [concentracionGas1, setConcentracionGas1] = useState(0);
-  const [radiacionUV1, setRadiacionUV1] = useState(0);
-  const [latitud, setLatitud] = useState(0);
-  const [longitud, setLongitud] = useState(0);
-  const [altitud, setAltitud] = useState(0);
+  const [vibracion, setVibracion] = useState([]);
+  const [concentracionGas, setConcentracionGas] = useState([]);
+  const [radiacionUV, setRadiacionUV] = useState([]);
+  const [latitud, setLatitud] = useState([]);
+  const [longitud, setLongitud] = useState([]);
+  const [altitud, setAltitud] = useState([]);
 
   const handleChange = (event, newIndex) => {
     setActiveIndex(newIndex);
+    const section = icons[newIndex].label.toLowerCase(); // Sección en minúsculas
+    navigate(`/DataDashboard/#${section}`); // Actualizar la URL
+    
   };
 
   const handleChangePiloto = (event) => {
@@ -141,11 +140,37 @@ const DataDashboard = (props) => {
   const icons = [
     { label: "Overview", icon: <HomeIcon /> },
     { label: "Rover", icon: <PedalBike /> },
-    { label: "Tripulante", icon: <PersonIcon /> },
-    { label: "Ambient", icon: <BarChartIcon /> },
-    { label: "Sensors", icon: <BarChartIcon /> },
+    { label: "Crewmember", icon: <PersonIcon /> },
+    { label: "Ambient", icon: <PublicIcon /> },
+    { label: "Sensors", icon: <SensorsIcon /> },
     
   ];
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  
+
+  useEffect(() => {
+    const hash = location.hash;
+    switch (hash) {
+        case "#overview":
+            setActiveIndex(0);
+            break;
+        case "#rover":
+            setActiveIndex(1);
+            break;
+        case "#crewmembers":
+            setActiveIndex(2);
+            break;
+        case "#environment":
+            setActiveIndex(3);
+            break;
+        case "#sensors":
+            setActiveIndex(4);
+            break;
+    }
+}, [location.hash]);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -207,68 +232,6 @@ const DataDashboard = (props) => {
     fetchData();
   }, []);
 
-  // asignar valores y mantenerlos actualizados
-
-  useEffect(() => {
-    const handleData = (snapshot) => {
-      const data = snapshot.val();
-      
-      console.log(data)
-      console.log(data.inclinacion2)
-
-      if (data) {
-        let lastEntryKey;
-        let lastEntryData;
-
-        snapshot.forEach((childSnapshot) => {
-          lastEntryKey = childSnapshot.key;
-          lastEntryData = childSnapshot.val();
-        });
-
-        setProcessedData({
-          key: lastEntryKey,
-          value: lastEntryData,
-        });
-
-        //asignacion piloto 1
-        setPulsoCardiacoBPM1(lastEntryData.pulsoCardiacoBPM1);
-        setAceleracionLineal1(lastEntryData.AceleraciónLineal1);
-        setInclinacion1(lastEntryData.inclinacion1);
-        setHumedad1(lastEntryData.humedad1);
-        setIntensidadGravitatoria1(lastEntryData.intensidadGravitatoria1);
-        setIntensidadMagnetica1(lastEntryData.intensidadMagnetica1);
-        setPresion1(lastEntryData.presion1);
-        setTemperatura1(lastEntryData.temperatura1);
-        setVelocidadAngular1(lastEntryData.velocidadAngular1);
-
-        //asignacion piloto 2
-        setPulsoCardiacoBPM2(lastEntryData.pulsoCardiacoBPM2);
-        setAceleracionLineal2(lastEntryData.AceleraciónLineal2);
-        setInclinacion2_x(lastEntryData.inclinacion2);
-        setHumedad2(lastEntryData.humedad2);
-        setIntensidadGravitatoria2(lastEntryData.intensidadGravitatoria2);
-        setIntensidadMagnetica2(lastEntryData.intensidadMagnetica2);
-        setPresion2(lastEntryData.presion2);
-        setTemperatura2(lastEntryData.temperatura2);
-        setVelocidadAngular2(lastEntryData.velocidadAngular2);
-
-        //asignacion rover
-        setImpacto(lastEntryData.impacto);
-        setInclinacionRover_x(lastEntryData.inclinacionRover);
-        setVibracion(lastEntryData.vibracion);
-        setConcentracionGas1(lastEntryData.ConcentracionGas1);
-        setRadiacionUV1(lastEntryData.radiacionUV1);
-      }
-
-      
-    };
-
-    database.ref("/temperatura-humedad").on("value", handleData);
-
-    return () => {
-      database.ref("/temperatura-humedad").off("value", handleData);
-    };
-  }, []);
 
   // Asignar ahora los ultimos cinco registros
   useEffect(() => {
@@ -279,17 +242,141 @@ const DataDashboard = (props) => {
       });
   
       // Asegúrate de que solo tengas los últimos cinco registros
-      const lastFiveData = data.slice(-5);
-  
-      setDataGrafico(lastFiveData);
+      const lastTenData = data.slice(-10);
 
-      const aceleracionData = lastFiveData.map((data) => data.AceleraciónLineal2);
-      console.log(aceleracionData)
-      setAceleracionGrafico(aceleracionData);
+      setDataGrafico(lastTenData);
+
+      //'''''''''''''''''''''asignacion piloto 1''''''''''''''''''''''''''''''''''''
+
+      const aceleracionLineal1_x = lastTenData.map((data) => data.AceleraciónLineal1_X);
+      setAceleracionLineal1_x(aceleracionLineal1_x);
+
+      const aceleracionLineal1_y = lastTenData.map((data) => data.AceleraciónLineal1_Y);
+      setAceleracionLineal1_y(aceleracionLineal1_y);
+
+      const aceleracionLineal1_z = lastTenData.map((data) => data.AceleraciónLineal1_z);
+      setAceleracionLineal1_z(aceleracionLineal1_z);
+
+      const pulsoCardiacoBPM1 = lastTenData.map((data) => data.pulsoCardiacoBPM1);
+      setPulsoCardiacoBPM1(pulsoCardiacoBPM1);
+
+      const inclinacion1_x = lastTenData.map((data) => data.inclinacion1_X);
+      setInclinacion1_x(inclinacion1_x);
+
+      const inclinacion1_y = lastTenData.map((data) => data.inclinacion1_Y);
+      setInclinacion1_y(inclinacion1_y);
+
+      const inclinacion1_z = lastTenData.map((data) => data.inclinacion1_Z);
+      setInclinacion1_z(inclinacion1_z);
+
+      const humedad1 = lastTenData.map((data) => data.humedad1);
+      setHumedad1(humedad1);
+
+      const intensidadGravitatoria1 = lastTenData.map((data) => data.intensidadGravitatoria1);
+      setIntensidadGravitatoria1(intensidadGravitatoria1);
+
+      const intensidadMagnetica1 = lastTenData.map((data) => data.intensidadMagnetica1);
+      setIntensidadMagnetica1(intensidadMagnetica1);
+
+      const presion1 = lastTenData.map((data) => data.presion1);
+      setPresion1(presion1);
+
+      const temperatura1 = lastTenData.map((data) => data.temperatura1);
+      setTemperatura1(temperatura1);
+
+      const velocidadAngular1_x = lastTenData.map((data) => data.velocidadAngular1_X);
+      setVelocidadAngular1_x(velocidadAngular1_x);
+
+      const velocidadAngular1_y = lastTenData.map((data) => data.velocidadAngular1_Y);
+      setVelocidadAngular1_y(velocidadAngular1_y);
+
+      const velocidadAngular1_z = lastTenData.map((data) => data.velocidadAngular1_Z);
+      setVelocidadAngular1_z(velocidadAngular1_z);
+
+      //'''''''''''''''''''''asignacion piloto 2''''''''''''''''''''''''''
+
+      const aceleracionLineal2_x = lastTenData.map((data) => data.AceleraciónLineal2_X);
+      setAceleracionLineal2_x(aceleracionLineal2_x);
+
+      const aceleracionLineal2_y = lastTenData.map((data) => data.AceleraciónLineal2_Y);
+      setAceleracionLineal2_y(aceleracionLineal2_y);
+
+      const aceleracionLineal2_z = lastTenData.map((data) => data.AceleraciónLineal2_z);
+      setAceleracionLineal2_z(aceleracionLineal2_z);
+
+      const pulsoCardiacoBPM2 = lastTenData.map((data) => data.pulsoCardiacoBPM2);
+      setPulsoCardiacoBPM2(pulsoCardiacoBPM2);
+
+      const inclinacion2_x = lastTenData.map((data) => data.inclinacion2_X);
+      setInclinacion2_x(inclinacion2_x);
+
+      const inclinacion2_y = lastTenData.map((data) => data.inclinacion2_Y);
+      setInclinacion2_y(inclinacion2_y);
+
+      const inclinacion2_z = lastTenData.map((data) => data.inclinacion2_Z);
+      setInclinacion2_z(inclinacion2_z);
+
+      const humedad2 = lastTenData.map((data) => data.humedad2);
+      setHumedad2(humedad2);
+
+      const intensidadGravitatoria2 = lastTenData.map((data) => data.intensidadGravitatoria2);
+      setIntensidadGravitatoria2(intensidadGravitatoria2);
+
+      const intensidadMagnetica2 = lastTenData.map((data) => data.intensidadMagnetica2);
+      setIntensidadMagnetica2(intensidadMagnetica2);
+
+      const presion2 = lastTenData.map((data) => data.presion2);
+      setPresion2(presion2);
+
+      const temperatura2 = lastTenData.map((data) => data.temperatura2);
+      setTemperatura2(temperatura2);
+
+      const velocidadAngular2_x = lastTenData.map((data) => data.velocidadAngular2_X);
+      setVelocidadAngular2_x(velocidadAngular2_x);
+
+      const velocidadAngular2_y = lastTenData.map((data) => data.velocidadAngular2_Y);
+      setVelocidadAngular2_y(velocidadAngular2_y);
+
+      const velocidadAngular2_z = lastTenData.map((data) => data.velocidadAngular2_Z);
+      setVelocidadAngular2_z(velocidadAngular2_z);
+
+      //'''''''''''''''''''''asignacion rover''''''''''''''''''''''''''''''''''
+
+      const impacto = lastTenData.map((data) => data.impacto);
+      setImpacto(impacto);
+
+      const inclinacionRover_x = lastTenData.map((data) => data.inclinacionRover_X);
+      setInclinacionRover_x(inclinacionRover_x);
+
+      const inclinacionRover_y = lastTenData.map((data) => data.inclinacionRover_Y);
+      setInclinacionRover_y(inclinacionRover_y);
+
+      const inclinacionRover_z = lastTenData.map((data) => data.inclinacionRover_Z);
+      setInclinacionRover_z(inclinacionRover_z);
+
+      const vibracion = lastTenData.map((data) => data.vibracion);
+      setVibracion(vibracion);
+
+      const concentracionGas = lastTenData.map((data) => data.ConcentracionGas);
+      setConcentracionGas(concentracionGas);
+
+      const radiacionUV = lastTenData.map((data) => data.radiacionUV);
+      setRadiacionUV(radiacionUV);
+
+      const latitud = lastTenData.map((data) => data.latitud);
+      setLatitud(latitud);
+
+      const longitud = lastTenData.map((data) => data.longitud);
+      setLongitud(longitud);
+
+      const altitud = lastTenData.map((data) => data.altitud);
+      setAltitud(altitud);
+
+      console.log("Last ten data", concentracionGas);
     };
   
     const ref = database.ref("/temperatura-humedad");
-    ref.limitToLast(5).on("value", handleData);
+    ref.limitToLast(10).on("value", handleData);
   
     return () => {
       ref.off("value", handleData);
@@ -352,27 +439,46 @@ const DataDashboard = (props) => {
           value={activeIndex}
           onChange={handleChange}
           showLabels
+          
           sx={{
             width: "auto",
             maxWidth: "30%",
-            minWidth: "350px",
+            minWidth: "400px",
             margin: "auto", // Centra el menú de navegación
             borderRadius: "30px", // Ajusta el radio de las esquinas
             border: "2px solid #3E4879", // Ajusta el borde del menú de navegación
             backgroundColor: "#1F264B",
+            '@media (max-width: 440px)': {
+              width: "100%", // Ajusta el ancho al 100% en pantallas pequeñas
+              maxWidth: "unset",
+              minWidth: "unset", // Elimina el ancho mínimo en pantallas pequeñas
+              margin: 0, // Centra el menú de navegación en pantallas pequeñas
+              padding: 0,
+              borderRadius: "10px",
+              border: "2px solid #3E4879"
+            }
           }}
         >
           {icons.map((item, index) => (
             <BottomNavigationAction
+            
               key={index}
               label={item.label}
               icon={item.icon}
-              sx={{ color: "white" }}
+              //Deshabilitar que se muestre grande el icono seleccionado
+              
+              sx={{ 
+                color: "white",
+                // pegar los botones mas cuando se ponga pequeño
+                minWidth: "20%",
+              }}
             />
+            
           ))}
         </BottomNavigation>
 
         <div className="data-dashboard-body">
+        <div id="overview">
           {activeIndex === 0 && (
             <Grid
               container={true}
@@ -408,7 +514,7 @@ const DataDashboard = (props) => {
                         },
                       }}
                     >
-                      <MenuItem value="Angello Ortiz">Angello Ortiz</MenuItem>
+                      <MenuItem value="Miguel Arredondo">Miguel Arredondo</MenuItem>
                       <MenuItem value="Eridania Pérez">Eridania Pérez</MenuItem>
                     </Select>
                   </FormControl>
@@ -420,9 +526,9 @@ const DataDashboard = (props) => {
                     />
                     <div className="crewmember-temperatura">
                       <label>
-                        {piloto === "Angello Ortiz"
-                          ? pulsoCardiacoBPM1
-                          : pulsoCardiacoBPM2}
+                        {piloto === "Miguel Arredondo"
+                          ? pulsoCardiacoBPM1[9]
+                          : pulsoCardiacoBPM2[9]}
                       </label>
                       <label
                         style={{
@@ -437,9 +543,9 @@ const DataDashboard = (props) => {
                     </div>
                     <div className="crewmember-oximetro">
                       <label>
-                        {piloto === "Angello Ortiz"
-                          ? concentracionGas1
-                          : concentracionGas1}
+                        {piloto === "Migue Arredondo"
+                          ? concentracionGas[9]
+                          : concentracionGas[9]}
                       </label>
                       <label
                         style={{
@@ -454,9 +560,9 @@ const DataDashboard = (props) => {
                     </div>
                     <div className="crewmember-radiacion">
                       <label>
-                        {piloto === "Angello Ortiz"
-                          ? radiacionUV1
-                          : radiacionUV1}
+                        {piloto === "Miguel Arredondo"
+                          ? radiacionUV[9]
+                          : radiacionUV[9]}
                       </label>
                       <label
                         style={{
@@ -522,9 +628,6 @@ const DataDashboard = (props) => {
                             fill: "white",
                           },
                         },
-
-                        
-
                       }}
                       sx={{
                         //change left yAxis label styles
@@ -565,20 +668,20 @@ const DataDashboard = (props) => {
                         zIndex: 1,
                         top: -10,
                       }}
-                      xAxis={[{ data: [1, 2, 3, 4, 5, 6] }]}
+                      xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
                       series={[
                         {
-                          data: aceleracionGrafico,
+                          data: aceleracionLineal1_x,
                           color: "#0096C7",
                           label: "Ax",
                         },
                         {
-                          data: [2, 5.5, 2, 8.5, 1.5, 5],
+                          data: aceleracionLineal1_y,
                           color: "#FF4549",
                           label: "Ay",
                         },
                         {
-                          data: [1, 3, 5, 7, 9, 11],
+                          data: aceleracionLineal1_z,
                           color: "#3BF79D",
                           label: "Az",
                         },
@@ -605,6 +708,8 @@ const DataDashboard = (props) => {
               </Grid>
             </Grid>
           )}
+        </div>
+        <div id="rover">
           {activeIndex === 1 && (
             <div className="rover-tab">
               <div className="graph-izq">
@@ -808,735 +913,20 @@ const DataDashboard = (props) => {
               </div>
             </div>
           )}
+        </div>
+        <div id="crewmembers">
           {activeIndex === 2 && <FrameComponent />}
+        </div>
+        <div id="sensors">
           {activeIndex === 4 && (
-            <Sensors/>
-            // <Grid
-            //   container
-            //   spacing={2}
-            //   alignItems="center"
-            //   justifyContent={"center"}
-            // >
-            //   <Grid item xs={12} md={5}>
-            //     <Grid container spacing={2} textAlign={"center"}>
-            //       <Grid item xs={12}>
-            //         <Typography variant="h4">Piloto 1</Typography>
-            //       </Grid>
-            //       <Grid item xs={12} md={6}>
-            //         <List dense>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWbSunny
-            //                     fontSize="large"
-            //                     style={{ color: "#FFD700" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid>
-            //                 <ListItemText
-            //                   primary="Temperatura Relativa"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {temperatura1 + " °C"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWaterDrop
-            //                     fontSize="large"
-            //                     style={{ color: "#3498db" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Humedad Relativa"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {humedad1 + " %"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineCompress
-            //                     fontSize="large"
-            //                     style={{ color: "#FF5733" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Presión Atmosférica"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {presion1 + " hPa"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Pulso Cardiaco"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {pulsoCardiacoBPM1 + " bpm"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Aceleracion lineal X"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {aceleracionLineal1_x + " m/s²"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Aceleracion lineal Y"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {aceleracionLineal1_y + " m/s²"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Aceleracion lineal Z"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {aceleracionLineal1_z + " m/s²"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //         </List>
-            //       </Grid>
-            //       <Grid item xs={10} md={6}>
-            //         <List dense>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWbSunny
-            //                     fontSize="large"
-            //                     style={{ color: "#FFD700" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid>
-            //                 <ListItemText
-            //                   primary="Velocidad Angular X"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {velocidadAngular1_x + " rad/s"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWaterDrop
-            //                     fontSize="large"
-            //                     style={{ color: "#3498db" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Velocidad Angular Y"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {velocidadAngular1_y + " rad/s"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWbSunny
-            //                     fontSize="large"
-            //                     style={{ color: "#FFD700" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid>
-            //                 <ListItemText
-            //                   primary="Velocidad Angular z"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {velocidadAngular1_z + " rad/s"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineCompress
-            //                     fontSize="large"
-            //                     style={{ color: "#FF5733" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Inclinación piloto X"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {inclinacion1_x + " º"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineCompress
-            //                     fontSize="large"
-            //                     style={{ color: "#FF5733" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Inclinación piloto Y"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {inclinacion1_y + " º"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineCompress
-            //                     fontSize="large"
-            //                     style={{ color: "#FF5733" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Inclinación piloto Z"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {inclinacion1_z + " º"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Intensidad magnética"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {intensidadMagnetica1 + " µT"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //         </List>
-            //       </Grid>
-            //     </Grid>
-            //   </Grid>
-            //   <Grid item xs={12} md={5}>
-            //     <Grid container spacing={2}>
-            //       <Grid item xs={12}>
-            //         <Typography variant="h4" align="center">
-            //           Piloto 2
-            //         </Typography>
-            //       </Grid>
-            //       <Grid item xs={12} md={6}>
-            //         <List dense>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWbSunny
-            //                     fontSize="large"
-            //                     style={{ color: "#FFD700" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid>
-            //                 <ListItemText
-            //                   primary="Temperatura Relativa"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {temperatura2 + " °C"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWaterDrop
-            //                     fontSize="large"
-            //                     style={{ color: "#3498db" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Humedad Relativa"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {humedad2 + " %"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineCompress
-            //                     fontSize="large"
-            //                     style={{ color: "#FF5733" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Presión Atmosférica"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {presion2 + " hPa"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Pulso Cardiaco"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {pulsoCardiacoBPM2 + " bpm"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Aceleracion lineal"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {aceleracionLineal2 + " m/s²"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //         </List>
-            //       </Grid>
-            //       <Grid item xs={10} md={6}>
-            //         <List dense>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWbSunny
-            //                     fontSize="large"
-            //                     style={{ color: "#FFD700" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid>
-            //                 <ListItemText
-            //                   primary="RadiacionUV"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {radiacionUV1 + " mw/cm²"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineWaterDrop
-            //                     fontSize="large"
-            //                     style={{ color: "#3498db" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Velocidad Angular"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {velocidadAngular2 + " rad/s"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineCompress
-            //                     fontSize="large"
-            //                     style={{ color: "#FF5733" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Inclinación piloto"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {inclinacion2_x + " º"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Intensidad Gravitatoria"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {intensidadGravitatoria2 + " N/kg"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //           <ListItem>
-            //             <Grid container alignItems="center">
-            //               <Grid item>
-            //                 <ListItemIcon>
-            //                   <MdOutlineArrowUpward
-            //                     fontSize="large"
-            //                     style={{ color: "#8E44AD" }}
-            //                   />
-            //                 </ListItemIcon>
-            //               </Grid>
-            //               <Grid item>
-            //                 <ListItemText
-            //                   primary="Intensidad magnética"
-            //                   secondary={
-            //                     <Typography
-            //                       variant="body2"
-            //                       style={{ color: "#4CAF50" }}
-            //                     >
-            //                       {intensidadMagnetica2 + " µT"}
-            //                     </Typography>
-            //                   }
-            //                 />
-            //               </Grid>
-            //             </Grid>
-            //           </ListItem>
-            //         </List>
-            //       </Grid>
-            //     </Grid>
-            //   </Grid>
-            //   <Grid item xs={12} md={3}>
-            //     <Grid item xs={12}>
-            //       <Typography variant="h4" align="center">
-            //         Rover
-            //       </Typography>
-            //     </Grid>
-            //     <List dense>
-            //       <ListItem>
-            //         <Grid container alignItems="center">
-            //           <Grid>
-            //             <ListItemIcon>
-            //               <MdOutlineArrowUpward
-            //                 fontSize="large"
-            //                 style={{ color: "#8E44AD" }}
-            //               />
-            //             </ListItemIcon>
-            //           </Grid>
-            //           <Grid>
-            //             <ListItemText
-            //               primary="Impacto"
-            //               secondary={
-            //                 <Typography
-            //                   variant="body2"
-            //                   style={{ color: "#4CAF50" }}
-            //                 >
-            //                   {impacto + " N"}
-            //                 </Typography>
-            //               }
-            //             />
-            //           </Grid>
-            //         </Grid>
-            //       </ListItem>
-            //       <ListItem>
-            //         <Grid container alignItems="center">
-            //           <Grid>
-            //             <ListItemIcon>
-            //               <MdOutlineArrowUpward
-            //                 fontSize="large"
-            //                 style={{ color: "#8E44AD" }}
-            //               />
-            //             </ListItemIcon>
-            //           </Grid>
-            //           <Grid>
-            //             <ListItemText
-            //               primary="Inclinación Rover"
-            //               secondary={
-            //                 <Typography
-            //                   variant="body2"
-            //                   style={{ color: "#4CAF50" }}
-            //                 >
-            //                   {inclinacionRover_x + " °"}
-            //                 </Typography>
-            //               }
-            //             />
-            //           </Grid>
-            //         </Grid>
-            //       </ListItem>
-            //       <ListItem>
-            //         <Grid container alignItems="center">
-            //           <Grid>
-            //             <ListItemIcon>
-            //               <MdOutlineArrowUpward
-            //                 fontSize="large"
-            //                 style={{ color: "#8E44AD" }}
-            //               />
-            //             </ListItemIcon>
-            //           </Grid>
-            //           <Grid>
-            //             <ListItemText
-            //               primary="Vibración"
-            //               secondary={
-            //                 <Typography
-            //                   variant="body2"
-            //                   style={{ color: "#4CAF50" }}
-            //                 >
-            //                   {vibracion + " Hz"}
-            //                 </Typography>
-            //               }
-            //             />
-            //           </Grid>
-            //         </Grid>
-            //       </ListItem>
-            //     </List>
-            //   </Grid>
-            // </Grid>
+            <Sensors
+              data={dataGrafico}
+            />
           )}
+        </div>
+        <div id="environment">
           {activeIndex === 3 && <FrameComponentAmbient/>}
-          
+        </div>
         </div>
       </Container>
     </div>

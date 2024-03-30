@@ -138,11 +138,18 @@ const CardHeader = styled.header`
 `;
 
 const IconWrapper = styled.div`
-  border-radius: 12px;
+  display: flex; // Utiliza flexbox para centrar el contenido
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 20%; 
   background-color: #d0fbff;
   width: 58px;
   height: 58px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // sombra para resaltar el ícono
 `;
+
+
+
 
 const CardTitle = styled.h2`
   text-shadow: 0px 0px 7.6px rgba(84, 227, 240, 0.42);

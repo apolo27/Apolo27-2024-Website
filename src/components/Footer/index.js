@@ -11,30 +11,29 @@ const Footer = () => {
   	 			<h4>Apolo 27</h4>
   	 			<ul>
                    <li><HashLink smooth to="/#timeline">Our Story</HashLink></li>
-                   <li><HashLink smooth to="Sponsors#root">Donate</HashLink></li>
-  	 				<li><a href="#">Awards</a></li>
-                    <li><a href="#">STEM</a></li>
-                    <li><a href="#">Manufacturing</a></li>
-  	 				<li><a href="#">Telemetry</a></li>
-                    <li><HashLink smooth to="Simulation#root">HERC Simulation</HashLink></li>
+                   <li><HashLink smooth to="Sponsors">Sponsors</HashLink></li>
+                   <li><HashLink smooth to="Telemetry">Telemetry</HashLink></li>
+                   <li><HashLink smooth to="STEM">STEM</HashLink></li>
+                   <li><HashLink smooth to="Manufacturing">Manufacturing</HashLink></li>
+                   <li><HashLink smooth to="Simulation">HERC Simulation</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>Data Dashboard</h4>
   	 			<ul>
-                    <li><HashLink smooth to="Data-Dashboard#root">Overview</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#root">Rover</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#root">Crewmembers</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#root">Environment</HashLink></li>
-                    <li><HashLink smooth to="Data-Dashboard#root">Sensors</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#overview">Overview</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#rover">Rover</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#crewmembers">Crewmembers</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#environment">Environment</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#sensors">Sensors</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>Stem With Us</h4>
   	 			<ul>
-  	 				<li><HashLink smooth to={window.innerWidth > 1280 ? "Stem-With-Us#blogs" : "Stem-With-Us#"}>Blog</HashLink></li>
-  	 				<li><HashLink smooth to={window.innerWidth > 1280 ? "Stem-With-Us#events" : "Stem-With-Us#"}>Events Calendar</HashLink></li>
-  	 				<li><HashLink smooth to={window.innerWidth > 1280 ? "Stem-With-Us#schoolvisit" : "Stem-With-Us#"}>Book a School Visit</HashLink></li>
+  	 				<li><HashLink smooth to="StemWithUs#blogs">Blog</HashLink></li>
+  	 				<li><HashLink smooth to="StemWithUs#events">Events Calendar</HashLink></li>
+  	 				<li><HashLink smooth to="ContactUs">Book a School Visit</HashLink></li>
   	 			</ul>
   	 		</div>
   	 		<div class="footer-col">
