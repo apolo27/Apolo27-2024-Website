@@ -4,23 +4,23 @@ import CIcon from '@coreui/icons-react'
 import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
  CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
  } from '@coreui/react'
-import { cilArrowTop, cilOptions } from '@coreui/icons'
+import { cilTemperatureAlt,  } from '@coreui/icons'
 import { CChartLine } from '@coreui/react-chartjs'
 import { border, borderRadius } from '@mui/system'
 import { useEffect, useState } from 'react'
 import { set } from 'lodash'
 import { fi } from 'date-fns/locale'
-import TemperaturaIcon from "../../../imgs/DataDashboard/sensor-de-temperatura.png"
+import TemperaturaIcon from "../../../imgs/DataDashboard/termometro.png"
 import HumedadIcon from "../../../imgs/DataDashboard/humedad.png"
 import PresionIcon from "../../../imgs/DataDashboard/atmosferico.png"
 import AceleracionIcon from "../../../imgs/DataDashboard/reloj.png"
 import VelocidadIcon from "../../../imgs/DataDashboard/velocidad.png"
 import InclinacionIcon from "../../../imgs/DataDashboard/inclinacion.png"
-import PulsoCardiacoIcon from "../../../imgs/DataDashboard/heard.svg"
+import PulsoCardiacoIcon from "../../../imgs/DataDashboard/ritmo-cardiaco.png"
 import GravitatoriaIcon from "../../../imgs/DataDashboard/gravedad.png"
 import MagneticaIcon from "../../../imgs/DataDashboard/iman.png"
 import ImpactoIcon from "../../../imgs/DataDashboard/impacto.png"
-import Gas from "../../../imgs/DataDashboard/combustibles-fosiles.png"
+import Gas from "../../../imgs/DataDashboard/co2.png"
 import VibrationIcon from "../../../imgs/DataDashboard/vibracion.png"
 import RadiacionIcon from "../../../imgs/DataDashboard/indice-uv.png"
 import LatitudIcon from "../../../imgs/DataDashboard/latitud.png"
@@ -277,7 +277,7 @@ function Sensors({ data }) {
                         <img
                           src={TemperaturaIcon}
                           alt="Icono"
-                          height={"50px"}
+                          height={"30px"}
                         />
                       </div>
                     </div>
@@ -371,7 +371,7 @@ function Sensors({ data }) {
                       <div style={{ marginLeft: "auto" }}>
                         {" "}
                         {/* Estilo para alinear a la derecha */}
-                        <img src={HumedadIcon} alt="Icono" height={"50px"} />
+                        <img src={HumedadIcon} alt="Icono" height={"35px"} />
                       </div>
                     </div>
                   }
@@ -460,7 +460,7 @@ function Sensors({ data }) {
                       <div style={{ marginLeft: "auto" }}>
                         {" "}
                         {/* Estilo para alinear a la derecha */}
-                        <img src={PresionIcon} alt="Icono" height={"50px"} />
+                        <img src={PresionIcon} alt="Icono" height={"35px"} />
                       </div>
                     </div>
                   }
@@ -552,8 +552,8 @@ function Sensors({ data }) {
                               src={AceleracionIcon}
                               alt="Icono"
                               style={{
-                                height: "50px",
-                                marginLeft: "-60px",
+                                height: "40px",
+                                marginLeft: "-50px",
                                 marginTop: "-10px",
                               }}
                             />{" "}
@@ -585,16 +585,16 @@ function Sensors({ data }) {
                           className="title-class2"
                           style={{ display: "flex", alignItems: "center" }}
                         >
-                          <div style={{ width: "24px", marginRight: "-10px" }}>
+                          <div style={{ width: "24px", marginRight: "-15px" }}>
                             {" "}
                             {/* Ancho fijo del contenedor del icono */}
                             <img
                               src={VelocidadIcon}
                               alt="Icono"
                               style={{
-                                height: "45px",
+                                height: "40px",
                                 marginLeft: "-55px",
-                                marginTop: "-10px",
+                                marginTop: "-40px",
                               }}
                             />{" "}
                             {/* Tamaño fijo de la imagen */}
@@ -633,7 +633,7 @@ function Sensors({ data }) {
                               src={InclinacionIcon}
                               alt="Icono"
                               style={{
-                                height: "50px",
+                                height: "45px",
                                 marginLeft: "-50px",
                                 marginTop: "-10px",
                               }}
@@ -681,7 +681,7 @@ function Sensors({ data }) {
                         <img
                           src={PulsoCardiacoIcon}
                           alt="Icono"
-                          height={"50px"}
+                          height={"35px"}
                         />
                       </div>
                     </div>
@@ -694,7 +694,7 @@ function Sensors({ data }) {
                   chart={
                     <CChartLine
                       className="mt-3 mx-3"
-                      style={{ height: "166px" }}
+                      style={{ height: "179px" }}
                       data={{
                         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                         datasets: [
@@ -772,7 +772,7 @@ function Sensors({ data }) {
                               src={GravitatoriaIcon}
                               alt="Icono"
                               style={{
-                                height: "45px",
+                                height: "40px",
                                 marginLeft: "-50px",
                                 marginTop: "-10px",
                               }}
@@ -805,7 +805,7 @@ function Sensors({ data }) {
                               src={MagneticaIcon}
                               alt="Icono"
                               style={{
-                                height: "45px",
+                                height: "35px",
                                 marginLeft: "-50px",
                                 marginTop: "-10px",
                               }}
@@ -848,7 +848,7 @@ function Sensors({ data }) {
                       <div style={{ marginLeft: "auto" }}>
                         {" "}
                         {/* Estilo para alinear a la derecha */}
-                        <img src={ImpactoIcon} alt="Icono" height={"50px"} />
+                        <img src={ImpactoIcon} alt="Icono" height={"40px"} />
                       </div>
                     </div>
                   }
@@ -941,7 +941,7 @@ function Sensors({ data }) {
                       </div>
                       <div style={{ marginLeft: "auto" }}>
                         {" "}
-                        <img src={Gas} alt="Icono" height={"50px"} />
+                        <img src={Gas} alt="Icono" height={"35px"} />
                       </div>
                     </div>
                   }
@@ -1030,7 +1030,7 @@ function Sensors({ data }) {
                       </div>
                       <div style={{ marginLeft: "auto" }}>
                         {" "}
-                        <img src={VibrationIcon} alt="Icono" height={"50px"} />
+                        <img src={VibrationIcon} alt="Icono" height={"35px"} />
                       </div>
                     </div>
                   }
@@ -1121,7 +1121,7 @@ function Sensors({ data }) {
                               src={LongitudIcon}
                               alt="Icono"
                               style={{
-                                height: "45px",
+                                height: "35px",
                                 marginLeft: "-50px",
                                 marginTop: "-10px",
                               }}
@@ -1180,14 +1180,14 @@ function Sensors({ data }) {
                           className="title-class2"
                           style={{ display: "flex", alignItems: "center" }}
                         >
-                          <div style={{ width: "24px", marginRight: "-10px" }}>
+                          <div style={{ width: "24px", marginRight: "-20px" }}>
                             {" "}
                             {/* Ancho fijo del contenedor del icono */}
                             <img
                               src={LatitudIcon}
                               alt="Icono"
                               style={{
-                                height: "45px",
+                                height: "35px",
                                 marginLeft: "-50px",
                                 marginTop: "-10px",
                               }}
@@ -1336,7 +1336,7 @@ function Sensors({ data }) {
                       </div>
                       <div style={{ marginLeft: "auto" }}>
                         {" "}
-                        <img src={RadiacionIcon} alt="Icono" height={"50px"} />
+                        <img src={RadiacionIcon} alt="Icono" height={"40px"} />
                       </div>
                     </div>
                   }
@@ -1348,7 +1348,7 @@ function Sensors({ data }) {
                   chart={
                     <CChartLine
                       className="mt-3 mx-3"
-                      style={{ height: "165px" }}
+                      style={{ height: "175px" }}
                       data={{
                         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                         datasets: [

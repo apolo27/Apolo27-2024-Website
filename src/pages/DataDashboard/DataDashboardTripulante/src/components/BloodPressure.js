@@ -16,6 +16,20 @@ const fetchBloodPressureData = () => {
   };
 };
 
+
+const getStatusBackgroundColor = (status) => {
+  switch (status) {
+    case "Normal":
+      return "rgba(36, 228, 164, 0.5)"; // Color verde más claro
+    case "Caution":
+      return "rgba(255, 206, 86, 0.5)"; // Color amarillo más claro
+    case "Alert":
+      return "rgba(255, 99, 132, 0.5)"; // Color rojo más claro
+    default:
+      return "rgba(201, 203, 207, 0.5)"; // Color gris por defecto más claro
+  }
+};
+
 const getStatusColor = (status) => {
   switch (status) {
     case "Normal":
@@ -104,7 +118,7 @@ const BloodPressureCard = () => {
         <IconWrapper>
           <BloodPressureIcon />
         </IconWrapper>
-        <CardTitle>Presión Arterial</CardTitle>
+        <CardTitle>Blood Pressure</CardTitle>
       </CardHeader>
       <CardContent>
         <PressureValue>{bloodPressure.currentSystolic}</PressureValue>
@@ -138,16 +152,27 @@ const CardHeader = styled.header`
 `;
 
 const IconWrapper = styled.div`
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%; // Esto hará que el contenedor sea un círculo perfecto.
   background-color: #d0fbff;
-  width: 58px;
-  height: 58px;
+  padding: 10px; // Añade un poco de padding para que el SVG no toque los bordes.
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  svg {
+    width: 24px; // Ajusta el tamaño del SVG.
+    height: 24px; // Asegúrate de que la altura sea igual al ancho para mantener la proporción cuadrada.
+  }
 `;
+
+
+
 
 const CardTitle = styled.h2`
   text-shadow: 0px 0px 7.6px rgba(84, 227, 240, 0.42);
   font-family: Mulish, sans-serif;
   margin: auto 0;
+  font-size: 20px;
 `;
 
 const CardContent = styled.div`
@@ -162,8 +187,7 @@ const CardContent = styled.div`
 const PressureValue = styled.span`
   color: #54e3f0;
   text-shadow: 0px 0px 8.9px rgba(68, 236, 251, 0.54);
-  flex-grow: 1;
-  font: 400 32px Poppins, sans-serif;
+  font: 400 24px Poppins, sans-serif; // Reduce el tamaño de la fuente aquí si es necesario.
 `;
 
 const PressureUnit = styled.span`
@@ -175,34 +199,17 @@ const PressureUnit = styled.span`
   }
 `;
 
-const getStatusBackgroundColor = (status) => {
-  switch (status) {
-    case "Normal":
-      return "rgba(36, 228, 164, 0.5)"; // Color verde más claro
-    case "Caution":
-      return "rgba(255, 206, 86, 0.5)"; // Color amarillo más claro
-    case "Alert":
-      return "rgba(255, 99, 132, 0.5)"; // Color rojo más claro
-    default:
-      return "rgba(201, 203, 207, 0.5)"; // Color gris por defecto más claro
-  }
-};
+
 
 const StatusLabel = styled.div`
   border-radius: 4px;
   background-color: ${(props) => getStatusBackgroundColor(props.status)};
-  color: #24e4a4; // Cambiado a blanco para mejor contraste
-  white-space: nowrap;
-  justify-content: center;
+  color: ${(props) => getStatusColor(props.status)};
   padding: 4px 8px;
-  font: 12px 'Poppins', sans-serif;
+  font-size: 12px; // Reduce el tamaño de la fuente para el estado.
   margin-top: 10px;
-  text-align: center; // Asegurándose de que el texto esté centrado
-
-  @media (max-width: 991px) {
-    padding-left: 6px; // Ajustado para que no sea negativo
-    padding-right: 6px;
-  }
+  text-align: center;
+  display: inline-block; // Asegúrate de que el label se comporte como un bloque para centrar el texto correctamente.
 `;
 
 const GraphWrapper = styled.div`
