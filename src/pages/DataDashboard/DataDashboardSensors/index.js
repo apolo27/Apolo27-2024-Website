@@ -694,7 +694,7 @@ function Sensors({ data }) {
                   chart={
                     <CChartLine
                       className="mt-3 mx-3"
-                      style={{ height: "166px" }}
+                      style={{ height: "179px" }}
                       data={{
                         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                         datasets: [
@@ -1348,7 +1348,7 @@ function Sensors({ data }) {
                   chart={
                     <CChartLine
                       className="mt-3 mx-3"
-                      style={{ height: "165px" }}
+                      style={{ height: "175px" }}
                       data={{
                         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                         datasets: [
