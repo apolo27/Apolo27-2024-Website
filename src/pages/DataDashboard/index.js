@@ -140,8 +140,8 @@ const DataDashboard = (props) => {
   const icons = [
     { label: "Overview", icon: <HomeIcon /> },
     { label: "Rover", icon: <PedalBike /> },
-    { label: "Crewmember", icon: <PersonIcon /> },
-    { label: "Ambient", icon: <PublicIcon /> },
+    { label: "Crewmembers", icon: <PersonIcon /> },
+    // { label: "Ambient", icon: <PublicIcon /> },
     { label: "Sensors", icon: <SensorsIcon /> },
     
   ];
@@ -163,11 +163,11 @@ const DataDashboard = (props) => {
         case "#crewmembers":
             setActiveIndex(2);
             break;
-        case "#environment":
-            setActiveIndex(3);
-            break;
+        // case "#environment":
+        //     setActiveIndex(3);
+        //     break;
         case "#sensors":
-            setActiveIndex(4);
+            setActiveIndex(3);
             break;
     }
 }, [location.hash]);
@@ -918,15 +918,15 @@ const DataDashboard = (props) => {
           {activeIndex === 2 && <FrameComponent />}
         </div>
         <div id="sensors">
-          {activeIndex === 4 && (
+          {activeIndex === 3 && (
             <Sensors
               data={dataGrafico}
             />
           )}
         </div>
-        <div id="environment">
+        {/* <div id="environment">
           {activeIndex === 3 && <FrameComponentAmbient/>}
-        </div>
+        </div> */}
         </div>
       </Container>
     </div>
