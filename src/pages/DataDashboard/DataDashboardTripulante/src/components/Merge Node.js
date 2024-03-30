@@ -1,21 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BloodSugar from "./BloodSugar";
 import BloodPressure from "./BloodPressure";
 import HeartRate from "./HeartRate";
 import styled from "styled-components";
 
 // Datos de paginación inicial
-const chartGroups = [
-  [<BloodSugar />, <BloodPressure />, <HeartRate />],
-  [<BloodSugar />, <BloodPressure />, <HeartRate />],
-];
+
+const minChartWidth = 250; // Ajusta esto al tamaño mínimo de cada tarjeta
+const maxContainerWidth = 1200; // Ancho máximo del contenedor (3 tarjetas)
+
+
+const maxChartsPerRow = 5; // Maximum number of charts per row
+
+const paginateCharts = (charts, chartsPerPage) => {
+  const pages = [];
+  while (charts.length) {
+    pages.push(charts.splice(0, chartsPerPage));
+  }
+  return pages;
+};
+
+
+
+
 
 const MeditionsDetails = () => {
+  const allCharts = [<BloodSugar />, <BloodPressure />, <HeartRate />,<HeartRate />];
+  // States for active index and chart groups
   const [activeIndex, setActiveIndex] = useState(0);
+  const [chartGroups, setChartGroups] = useState(paginateCharts([...allCharts], maxChartsPerRow));
+
+  // Handle resize
+  useEffect(() => {
+    function handleResize() {
+      const containerWidth = document.querySelector('#health-monitor-wrapper').clientWidth;
+      const chartsPerRow = Math.floor(containerWidth / minChartWidth) || 1;
+      setChartGroups(paginateCharts([...allCharts], Math.min(chartsPerRow, maxChartsPerRow)));
+      if (activeIndex >= chartGroups.length) {
+        setActiveIndex(0);
+      }
+    }
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, [activeIndex, allCharts]);
+
 
   return (
-    <HealthMonitorWrapper>
-      {/* Botones de paginación */}
+    <HealthMonitorWrapper id="health-monitor-wrapper">
       <PaginationContainer>
         {chartGroups.map((_, index) => (
           <PaginationItem
@@ -25,12 +62,10 @@ const MeditionsDetails = () => {
           />
         ))}
       </PaginationContainer>
-
-      {/* Contenedor de tarjetas */}
       <HealthDataGrid>
-        {chartGroups[activeIndex].map((Component, index) => (
+        {chartGroups[activeIndex].map((ChartComponent, index) => (
           <HealthDataColumn key={index}>
-            {Component}
+            {ChartComponent}
           </HealthDataColumn>
         ))}
       </HealthDataGrid>
@@ -40,45 +75,46 @@ const MeditionsDetails = () => {
 
 // Estilos
 const HealthMonitorWrapper = styled.section`
+  padding: 2rem;
   border-radius: 48px;
   background-color: rgba(166, 166, 166, 0.21);
-  max-width: 813px;
-  padding: 24px 22px;
-  @media (max-width: 991px) {
-    padding: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: calc(${maxContainerWidth}px + 4rem); // 4rem para el padding
+  width: 100%;
+  margin: auto; // Centrar en la página
+  gap: 1rem;
+  overflow: hidden;
 `;
-
 const HealthDataGrid = styled.div`
   display: flex;
-  flex-wrap: wrap; // Permitir que los elementos se envuelvan en la siguiente línea si no hay espacio suficiente
+  flex-wrap: nowrap;
   gap: 20px;
-  justify-content: center; // Centrar los elementos horizontalmente
+  overflow-x: auto;
+  justify-content: flex-start;
+  padding: 1rem 0;
 `;
 
-const HealthDataColumn = styled.div`
-  flex: 1; // Permitir que los elementos se expandan y se contraigan según sea necesario
-  min-width: 250px; // Definir un ancho mínimo para cada tarjeta
-  max-width: calc(33.333% - 20px); // Definir un ancho máximo para cada tarjeta (33.333% - gap)
-  margin-top: 20px; // Espacio entre tarjetas cuando se envuelvan
-  
-  @media (max-width: 991px) {
-    max-width: 100%; // Permitir que cada tarjeta ocupe el 100% del ancho del contenedor en pantallas pequeñas
-  }
+  const HealthDataColumn = styled.div`
+  flex: 0 0 auto;
+  min-width: ${minChartWidth}px;
+  width: ${minChartWidth}px;
+  height: 100%;
 `;
 
 const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
+  margin-bottom: 20px;
 `;
 
 const PaginationItem = styled.div`
   width: 19px;
   height: 19px;
   border-radius: 50%;
-  background-color: ${(props) => (props.isActive ? "#9ea1ac" : "#2a2c38")};
+  background-color: ${props => props.isActive ? "#9ea1ac" : "#2a2c38"};
   box-shadow: 0px 4px 6.7px 0px rgba(0, 0, 0, 0.42) inset;
   cursor: pointer;
 `;
