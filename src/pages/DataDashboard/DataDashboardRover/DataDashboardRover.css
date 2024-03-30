@@ -6,11 +6,6 @@
 
 .data-dashboard-container{
     padding: 0px;
-    background-image: url('../../../imgs/DataDashboard/RoverBackground.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .graph-izq{

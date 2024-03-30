@@ -1,0 +1,126 @@
+#sliderSection{
+    margin: 70px;
+}
+
+#divTitulo{
+    height: 40px;
+    padding: 40px;
+}
+
+#comienzoTitulo{
+    font-weight: 700;
+    font-size: 38px;
+}
+
+h1 .containerSlider {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .imgSlider {
+    width: 85%;
+    border-radius: 30px;
+  }
+  
+  .containerSlider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .quote {
+    font-weight: 500;
+  }
+
+  .itemsSlider {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 700px;
+    animation: carouselAnim 130s infinite alternate linear;
+  } 
+    
+  .entry {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 350px;
+    background: rgb(35, 38, 60);
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 30px;
+    box-shadow: 4px 4px 5px 0px rgb(17, 18, 29);
+    border: 0.9px solid rgb(99, 105, 162);
+  }
+
+  .entry1 {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .items {
+      animation: carouselAnim 35s infinite alternate linear;
+    }
+    
+    @keyframes carouselAnim {
+      from {
+        transform: translate(0, 0);
+      }
+      to {
+        transform: translate(calc(-100% + (2 * 300px)));
+      }
+    }
+  }
+  
+  .entry p {
+    text-align: center;
+    padding: 1em;
+  }
+  
+  .name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  @keyframes carouselAnim {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(calc(-100% + (5 * 300px)));
+    }
+  }
+  
+  .containerSlider .faders {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+  }
+  
+  .faders .right,
+  .faders .left {
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    z-index: 200;
+  }
+  
+  .faders .left {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      rgba(24, 26, 42, 1) 0%,
+      rgba(24, 26, 42, 0) 100%
+    );
+  }
+  
+  .faders .right {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      rgba(24, 26, 42, 1) 0%,
+      rgba(24, 26, 42, 0) 100%
+    );
+  }
+  

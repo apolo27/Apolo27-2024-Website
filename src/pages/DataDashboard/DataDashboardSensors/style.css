@@ -1,0 +1,12 @@
+.title-class {
+    text-transform: none;
+    font-family: 'Poppins';
+}
+
+.title-class2 {
+    text-transform: none;
+    font-family: 'Poppins';
+    text-emphasis: none;
+    font-size: 16px;
+    font-weight: normal;
+}
