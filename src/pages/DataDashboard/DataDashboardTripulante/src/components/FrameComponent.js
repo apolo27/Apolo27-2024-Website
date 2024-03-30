@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 import React, { useState } from 'react';
+import { ReactComponent as signGreen } from '../../public/FramesignGreen.svg';
+import { ReactComponent as signRed } from '../../public/FramesignRed.svg';
+import { ReactComponent as PesoIcon } from '../../public/Group 2PesoIcon.svg';
+import { ReactComponent as AlturaIcon } from '../../public/Group 2AlturaIcon.svg';
+import { ReactComponent as CrewmemberIcon } from '../../public/Fill-283CrewMemberRover.svg';
+
+
+
 
 
 // Datos iniciales para VANTROI
@@ -12,9 +20,9 @@ const usersData = [
       { label: "Peso", value: "72 kg", icon: "URL_ICON_PESO" },
     ],
     measurementData: [
-      { label: "Chest (in)", value: "44.5", icon: "URL_ICON_CHEST" },
-      { label: "Waist (in)", value: "34", icon: "URL_ICON_WAIST" },
-      { label: "Hip (in)", value: "42.5", icon: "URL_ICON_HIP" },
+      { label: "Chest (in)", value: "44.5", icon: signGreen },
+      { label: "Waist (in)", value: "34", icon: signRed },
+      { label: "Hip (in)", value: "42.5", icon: signRed },
     ],
     bmiValue: "24.9",
     bmiStatus: "SALUDABLE",
@@ -101,17 +109,19 @@ function FrameComponent() {
         </Header>
         <BodyMeasurements>
           <BodyMeasurementsContent>
-            <BodyMeasurementsColumn>
-              {userData.bmiData.map((data, index) => (
+          <BodyMeasurementsColumn>
+            {userData.bmiData.map((data, index) => {
+              let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
+              let color = data.label === "Altura" ? '#colorParaAltura' : '#colorParaPeso'; // Reemplaza con los colores deseados
+              return (
                 <BmiDataItem key={index}>
                   <BmiDataLabel>{data.label}</BmiDataLabel>
-                  <BmiDataValue>
-                    <BmiDataIcon src={data.icon} alt={`${data.label} icon`} />
-                    <BmiDataText>{data.value}</BmiDataText>
-                  </BmiDataValue>
+                  <Icon style={{ fill: color }} />
+                  <BmiDataText>{data.value}</BmiDataText>
                 </BmiDataItem>
-              ))}
-            </BodyMeasurementsColumn>
+              );
+            })}
+          </BodyMeasurementsColumn>
             <BodyIndexColumn>
               <BodyIndexWrapper>
               <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
