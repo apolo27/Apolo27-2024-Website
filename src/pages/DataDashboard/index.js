@@ -454,7 +454,7 @@ const DataDashboard = (props) => {
               minWidth: "unset", // Elimina el ancho mínimo en pantallas pequeñas
               margin: 0, // Centra el menú de navegación en pantallas pequeñas
               padding: 0,
-              borderRadius: "10px",
+              borderRadius: "30px",
               border: "2px solid #3E4879"
             }
           }}
