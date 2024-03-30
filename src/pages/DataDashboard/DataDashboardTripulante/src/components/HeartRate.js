@@ -7,6 +7,8 @@ import { ReactComponent as HeartIcon } from '../../public/group-1.svg';
 
 
 
+
+
 const RATE_THRESHOLDS = {
   HIGH: 100,
   ELEVATED: 90,
@@ -53,10 +55,8 @@ const PROPORTIONS = {
 };
 
 // generar datos de ECG a BPM
-// generar datos de ECG a BPM
 const generateECGData = (bpm) => {
-  // Correct the generation of the ECG data to match the BPM.
-  // Make sure the number of samples per beat is not too low for high BPMs.
+
   const samplesPerBeat = Math.max(300, Math.floor((60 / bpm) * 300));
   
   const pWaveSamples = Math.floor(samplesPerBeat * PROPORTIONS.P_WAVE);
@@ -77,7 +77,6 @@ const generateECGData = (bpm) => {
     data[i] = Math.sin((Math.PI * i) / pWaveSamples) * pWaveAmplitude;
   }
   
-  // Add the QRS complex with correct proportions.
   const qPoint = Math.floor(qrsComplexSamples / 4);
   const rPoint = qPoint * 2;
   const sPoint = qPoint;
@@ -92,13 +91,13 @@ const generateECGData = (bpm) => {
     data[qrsStart + qPoint + rPoint + i] = ((i / sPoint) * sWaveAmplitude);
   }
   
-  // Add the T wave.
+  // Add T wave.
   const tWaveStart = qrsStart + qrsComplexSamples + stSegmentSamples;
   for (let i = 0; i < tWaveSamples; i++) {
     data[tWaveStart + i] = Math.sin((Math.PI * i) / tWaveSamples) * tWaveAmplitude;
   }
   
-  // Ensure the data array is the correct length by cutting off any excess
+  // 
   return data.slice(0, 300);
 };
 
@@ -238,20 +237,24 @@ const CardHeader = styled.header`
 `;
 
 const IconWrapper = styled.div`
-  display: flex; // Utiliza flexbox para centrar el contenido
-  align-items: center; // Centra el contenido verticalmente
-  justify-content: center; // Centra el contenido horizontalmente
-  border-radius: 20%; // Hace que el contenedor sea completamente redondo
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%; // Círculo perfecto
   background-color: #fbf0f3;
-  width: 58px;
-  height: 58px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Opcional: agrega sombra para resaltar el ícono
+  width: 40px; // Tamaño reducido para el icono
+  height: 40px; // Altura igual al ancho para mantener proporción
+  svg {
+    width: 24px; // Ancho del SVG ajustado
+    height: 24px; // Altura del SVG para mantener la proporción
+  }
 `;
 
 const CardTitle = styled.h2`
-  text-shadow: 0px 0px 5.6px rgba(231, 155, 56, 0.67);
+  text-shadow: 0px 0px 5.6px rgba(244, 28, 35, 0.67);
   font-family: Poppins, sans-serif;
   margin: auto 0;
+  font-size: 20px;
 `;
 
 const CardContent = styled.div`
