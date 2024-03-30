@@ -254,7 +254,7 @@ const DataDashboard = (props) => {
       const aceleracionLineal1_y = lastTenData.map((data) => data.AceleraciónLineal1_Y);
       setAceleracionLineal1_y(aceleracionLineal1_y);
 
-      const aceleracionLineal1_z = lastTenData.map((data) => data.AceleraciónLineal1_z);
+      const aceleracionLineal1_z = lastTenData.map((data) => data.AceleraciónLineal1_Z);
       setAceleracionLineal1_z(aceleracionLineal1_z);
 
       const pulsoCardiacoBPM1 = lastTenData.map((data) => data.pulsoCardiacoBPM1);
@@ -301,7 +301,7 @@ const DataDashboard = (props) => {
       const aceleracionLineal2_y = lastTenData.map((data) => data.AceleraciónLineal2_Y);
       setAceleracionLineal2_y(aceleracionLineal2_y);
 
-      const aceleracionLineal2_z = lastTenData.map((data) => data.AceleraciónLineal2_z);
+      const aceleracionLineal2_z = lastTenData.map((data) => data.AceleraciónLineal2_Z);
       setAceleracionLineal2_z(aceleracionLineal2_z);
 
       const pulsoCardiacoBPM2 = lastTenData.map((data) => data.pulsoCardiacoBPM2);
@@ -606,7 +606,7 @@ const DataDashboard = (props) => {
                   >
                     {t("Acceleration")}
                   </h5>
-                  <Button
+                  {/* <Button
                     variant="contained"
                     endIcon={<NavigateNextIcon />}
                     style={{
@@ -619,7 +619,7 @@ const DataDashboard = (props) => {
                     }}
                   >
                     Show more
-                  </Button>
+                  </Button> */}
                   <div className="graph-acceleration-grafico">
                     <LineChart
                       slotProps={{
@@ -666,7 +666,7 @@ const DataDashboard = (props) => {
                       
                         position: "absolute",
                         zIndex: 1,
-                        top: -10,
+                        top: 10,
                       }}
                       xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
                       series={[
