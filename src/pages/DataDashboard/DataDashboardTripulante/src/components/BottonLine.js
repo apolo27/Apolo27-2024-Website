@@ -1,26 +1,8 @@
 import ActivityCrewMember from "./ActivityCrewMember";
 import styles from "./BottonLine.module.css";
 import vector2 from "../../public/vector-2.svg";
-import React, { useState, useEffect } from 'react';
 
 const BottonLine = () => {
-
-  // Estado local para almacenar la fecha actual
-  const [currentDate, setCurrentDate] = useState(new Date());
-  
-
-  useEffect(() => {
-    // Función que se ejecuta cada segundo para actualizar la fecha
-    const timer = setInterval(() => {
-      setCurrentDate(new Date());
-    }, 1000);
-
-    // Limpiar el temporizador
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
   return (
     <section className={styles.listHandler}>
       <div className={styles.graphFormer}>
@@ -32,7 +14,7 @@ const BottonLine = () => {
                   <h1 className={styles.saludDelTripulante}>
                     Salud Del Tripulante
                   </h1>
-                  <div className={styles.august122023}>{currentDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+                  <div className={styles.august122023}>August 12, 2023</div>
                 </div>
               </div>
               <div className={styles.loopController}>
