@@ -51,19 +51,19 @@ const HealthMonitorWrapper = styled.section`
 
 const HealthDataGrid = styled.div`
   display: flex;
+  flex-wrap: wrap; // Permitir que los elementos se envuelvan en la siguiente línea si no hay espacio suficiente
   gap: 20px;
-  @media (max-width: 991px) {
-    flex-direction: column;
-  }
+  justify-content: center; // Centrar los elementos horizontalmente
 `;
 
 const HealthDataColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 33%;
+  flex: 1; // Permitir que los elementos se expandan y se contraigan según sea necesario
+  min-width: 250px; // Definir un ancho mínimo para cada tarjeta
+  max-width: calc(33.333% - 20px); // Definir un ancho máximo para cada tarjeta (33.333% - gap)
+  margin-top: 20px; // Espacio entre tarjetas cuando se envuelvan
+  
   @media (max-width: 991px) {
-    width: 100%;
-    margin-top: 40px;
+    max-width: 100%; // Permitir que cada tarjeta ocupe el 100% del ancho del contenedor en pantallas pequeñas
   }
 `;
 
