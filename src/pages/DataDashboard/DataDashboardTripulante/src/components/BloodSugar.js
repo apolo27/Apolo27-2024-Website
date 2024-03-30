@@ -126,7 +126,7 @@ const SpO2Card = () => {
         
       </CardContent>
       <GraphWrapper>
-      <Line data={data} options={options} height={60} />
+      <Line data={data} options={options}/>
       </GraphWrapper>
     </CardWrapper>
   );
@@ -136,7 +136,6 @@ const SpO2Card = () => {
 
 const CardWrapper = styled.div`
   border-radius: 40px;
-  box-shadow: 0px 1px 50px 0px rgba(0, 0, 0, 0.08);
   background-color: var(--Dentro-del-glass, rgba(0, 0, 0, 0.21));
   display: flex;
   flex-direction: column;
@@ -152,12 +151,18 @@ const CardHeader = styled.header`
 `;
 
 const IconWrapper = styled.div`
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%; // Esto hará que el contenedor sea un círculo perfecto.
   background-color: #f8debd;
-  width: 58px;
-  height: 58px;
+  padding: 10px; // Añade un poco de padding para que el SVG no toque los bordes.
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  svg {
+    width: 24px; // Ajusta el tamaño del SVG.
+    height: 24px; // Asegúrate de que la altura sea igual al ancho para mantener la proporción cuadrada.
+  }
 `;
-
 
 
 const CardTitle = styled.h2`
@@ -170,13 +175,16 @@ const CardTitle = styled.h2`
 const CardContent = styled.div`
   display: flex;
   margin-top: 19px;
-  gap: 4px;
+  align-items: center;
+  gap: 8px;
+  color: #818181;
+  font-weight: 700;
 `;
 
 const Value = styled.span`
   color: #ffa025;
-  text-shadow: 0px 0px 9.6px rgba(255, 160, 37, 0.57);
-  font: 400 32px Poppins, sans-serif;
+  text-shadow: 0px 0px 8.9px rgba(255, 160, 37, 0.57);
+  font: 400 24px Poppins, sans-serif;
 `;
 
 const Unit = styled.span`
@@ -190,15 +198,22 @@ const StatusLabel = styled.div`
   border-radius: 4px;
   background-color: ${(props) => getStatusColor(props.color)};
   color: #24e4a4;
-  text-align: center;
   padding: 4px 8px;
-  font: 600 12px Poppins, sans-serif;
+  font-size: 12px; // Reduce el tamaño de la fuente para el estado.
+  margin-top: 10px;
+  text-align: center;
+  display: inline-block; // Asegúrate de que el label se comporte como un bloque para centrar el texto correctamente.
 `;
 
 const GraphWrapper = styled.div`
   width: 100%;
   align-self: center;
-  margin-top: 6px;
+  margin-top: 12px; // Ajusta el margen superior según necesites
+  // Para asegurarte de que el gráfico se expanda correctamente dentro de su contenedor
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
 `;
 
 export default SpO2Card;

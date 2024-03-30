@@ -5,14 +5,16 @@ import { ReactComponent as SignRed } from '../../public/FramesignRed.svg';
 import { ReactComponent as PesoIcon } from '../../public/Group 2PesoIcon.svg';
 import { ReactComponent as AlturaIcon } from '../../public/Group 2AlturaIcon.svg';
 import { ReactComponent as CrewmemberIcon } from '../../public/Fill-283CrewMemberRover.svg';
-
+import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
+  CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
+  } from '@coreui/react'
 
 
 
 // Datos iniciales para VANTROI
 const usersData = [
   {
-    userName: "VANTROI",
+    userName: "Miguel",
     bmiData: [
       { label: "Altura", value: "170 cm", icon: "URL_ICON_ALTURA" },
       { label: "Peso", value: "72 kg", icon: "URL_ICON_PESO" },
@@ -28,7 +30,7 @@ const usersData = [
     bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_VANTROI"
   },
   {
-    userName: "CAMILA",
+    userName: "Eridania",
     bmiData: [
       { label: "Altura", value: "160 cm", icon: "URL_ICON_ALTURA_CAMILA" },
       { label: "Peso", value: "55 kg", icon: "URL_ICON_PESO_CAMILA" },
@@ -93,80 +95,176 @@ function FrameComponent() {
   
 
   return (
-    <Container>
+    <CContainer style={{
+      backgroundColor:'#1C1F32',
+      padding: '24px 22px 2px',
+      borderRadius: '48px',
+      alignItems: 'center',
+      }}>
       <ContentWrapper>
+      <CCol>
         <Header>
           <Title>BMI Calculator</Title>
-          
-            <UserSelector onChange={handleSelectChange} value={userData.userName}>
-              {usersData.map((user) => (
-                <option key={user.userName} value={user.userName}>{user.userName}</option>
-              ))}
-            </UserSelector>
-          
+          <UserSelector onChange={handleSelectChange} value={userData.userName}>
+            {usersData.map((user) => (
+              <option key={user.userName} value={user.userName}>
+                {user.userName}
+              </option>
+            ))}
+          </UserSelector>
         </Header>
         <BodyMeasurements>
           <BodyMeasurementsContent>
-          <BodyMeasurementsColumn>
-          {userData.bmiData.map((data, index) => {
-            let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
-            let backgroundColor = data.label === "Altura" ? '#F8DEBD' : '#D0FBFF'; // Colores de fondo
-            return (
-              <BmiDataItem key={index} backgroundColor={backgroundColor}>
-                <BmiDataLabel>{data.label}</BmiDataLabel>
-                <Icon />
-                <BmiDataText>{data.value}</BmiDataText>
-              </BmiDataItem>
-            );
-          })}
-        </BodyMeasurementsColumn>
-            <BodyIndexColumn>
+            <CCol>
+              <div className='mb-4'>
+              {userData.bmiData.map((data, index) => {
+                let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
+                let backgroundColor =
+                  data.label === "Altura" ? "#F8DEBD" : "#D0FBFF"; // Colores de fondo
+                return (
+                  <BmiDataItem key={index} backgroundColor={backgroundColor}>
+                    <BmiDataLabel>{data.label}</BmiDataLabel>
+                    <Icon />
+                    <BmiDataText>{data.value}</BmiDataText>
+                  </BmiDataItem>
+                );
+              })}
+              </div>
+            </CCol>
+            <CCol>
+              <div className='mb-4'>
               <BodyIndexWrapper>
-              <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
+                <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
                 <BodyIndexContent>
                   <BodyIndexValue>{userData.bmiValue}</BodyIndexValue>
                   <BodyIndexStatus>{userData.bmiStatus}</BodyIndexStatus>
                 </BodyIndexContent>
                 <BMIScaleWrapper>
-                <BMIMarker style={{ left: calculateMarkerPosition() }} />
+                  <BMIMarker style={{ left: calculateMarkerPosition() }} />
                   <BMIScaleBackground />
-                  {/* El marcador que indica la posición del valor del BMI actual del Tripu*/}
-                  
-              </BMIScaleWrapper>
+                </BMIScaleWrapper>
                 <BMIValuesContainer>
                   {BMIData.map((data) => (
-                    <BMIValueLabel key={data.value} style={{ left: `${calculatePosition(data.value)}%` }}>
+                    <BMIValueLabel
+                      key={data.value}
+                      style={{ left: `${calculatePosition(data.value)}%` }}
+                    >
                       {data.label}
                     </BMIValueLabel>
                   ))}
                 </BMIValuesContainer>
               </BodyIndexWrapper>
-            </BodyIndexColumn>
+              </div>
+            </CCol>
           </BodyMeasurementsContent>
         </BodyMeasurements>
         <BodyMeasurementsDetails>
           <BodyMeasurementsDetailsContent>
-            <MeasurementsColumn>
-            {userData.measurementData.map((data, index) => {
-              const Icon = data.icon === 'green' ? SignGreen : SignRed;
-              return (
-                <MeasurementItem key={index}>
-                  <MeasurementLabel>{data.label}</MeasurementLabel>
-                  <IconWrapper>
-                    <MeasurementValue>{data.value}</MeasurementValue>
-                    <Icon />
-                  </IconWrapper>
-                </MeasurementItem>
-              );
-            })}
-            </MeasurementsColumn>
-            <BodyImageColumn>
-              <CrewmemberIcon />
-            </BodyImageColumn>
+            <CCol lg={6}>
+              <div className='mb-4'>
+              {userData.measurementData.map((data, index) => {
+                const Icon = data.icon === "green" ? SignGreen : SignRed;
+                return (
+                  <MeasurementItem key={index}>
+                    <MeasurementLabel>{data.label}</MeasurementLabel>
+                    <IconWrapper>
+                      <MeasurementValue>{data.value}</MeasurementValue>
+                      <Icon />
+                    </IconWrapper>
+                  </MeasurementItem>
+                );
+              }
+              )}
+              </div>
+            </CCol >
+            <CCol lg={6} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div className='mb-4'>
+              <SmallCrewmemberIcon />
+              </div>
+            </CCol>
           </BodyMeasurementsDetailsContent>
         </BodyMeasurementsDetails>
+      </CCol>
       </ContentWrapper>
-    </Container>
+    </CContainer>
+    // <Container>
+    //   <ContentWrapper>
+    //     <Header>
+    //       <Title>BMI Calculator</Title>
+
+    //       <UserSelector onChange={handleSelectChange} value={userData.userName}>
+    //         {usersData.map((user) => (
+    //           <option key={user.userName} value={user.userName}>
+    //             {user.userName}
+    //           </option>
+    //         ))}
+    //       </UserSelector>
+    //     </Header>
+    //     <BodyMeasurements>
+    //       <BodyMeasurementsContent>
+    //         <BodyMeasurementsColumn>
+    //           {userData.bmiData.map((data, index) => {
+    //             let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
+    //             let backgroundColor =
+    //               data.label === "Altura" ? "#F8DEBD" : "#D0FBFF"; // Colores de fondo
+    //             return (
+    //               <BmiDataItem key={index} backgroundColor={backgroundColor}>
+    //                 <BmiDataLabel>{data.label}</BmiDataLabel>
+    //                 <Icon />
+    //                 <BmiDataText>{data.value}</BmiDataText>
+    //               </BmiDataItem>
+    //             );
+    //           })}
+    //         </BodyMeasurementsColumn>
+    //         <BodyIndexColumn>
+    //           <BodyIndexWrapper>
+    //             <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
+    //             <BodyIndexContent>
+    //               <BodyIndexValue>{userData.bmiValue}</BodyIndexValue>
+    //               <BodyIndexStatus>{userData.bmiStatus}</BodyIndexStatus>
+    //             </BodyIndexContent>
+    //             <BMIScaleWrapper>
+    //               <BMIMarker style={{ left: calculateMarkerPosition() }} />
+    //               <BMIScaleBackground />
+    //               {/* El marcador que indica la posición del valor del BMI actual del Tripu*/}
+    //             </BMIScaleWrapper>
+    //             <BMIValuesContainer>
+    //               {BMIData.map((data) => (
+    //                 <BMIValueLabel
+    //                   key={data.value}
+    //                   style={{ left: `${calculatePosition(data.value)}%` }}
+    //                 >
+    //                   {data.label}
+    //                 </BMIValueLabel>
+    //               ))}
+    //             </BMIValuesContainer>
+    //           </BodyIndexWrapper>
+    //         </BodyIndexColumn>
+    //       </BodyMeasurementsContent>
+    //     </BodyMeasurements>
+    //     <BodyMeasurementsDetails>
+    //       <BodyMeasurementsDetailsContent>
+    //         <MeasurementsColumn>
+    //           {userData.measurementData.map((data, index) => {
+    //             const Icon = data.icon === "green" ? SignGreen : SignRed;
+    //             return (
+    //               <MeasurementItem key={index}>
+    //                 <MeasurementLabel>{data.label}</MeasurementLabel>
+    //                 <IconWrapper>
+    //                   <MeasurementValue>{data.value}</MeasurementValue>
+    //                   <Icon />
+    //                 </IconWrapper>
+    //               </MeasurementItem>
+    //             );
+    //           })}
+    //         </MeasurementsColumn>
+    //         <BodyImageColumn>
+    //           <CrewmemberIcon />
+    //         </BodyImageColumn>
+    //       </BodyMeasurementsDetailsContent>
+    //     </BodyMeasurementsDetails>
+    //   </ContentWrapper>
+    // </Container>
   );
 }
 
@@ -517,8 +615,11 @@ const MeasurementItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 5px;
+  align-items: center; /* Agrega esta línea para centrar verticalmente */
+  text-align: center; /* Ajusta el texto al centro horizontal */
   width: 100%;
-  padding: 24px 32px;
+
   border-radius: 12px;
   background-color: var(--Dentro-del-glass, rgba(0, 0, 0, 0.21));
   &:not(:first-child) {
@@ -534,17 +635,16 @@ const MeasurementItem = styled.div`
 
 const MeasurementLabel = styled.span`
   color: #5f5f5f;
-  font: 700 16px Poppins, sans-serif;
+  font: 700 14px Poppins, sans-serif;
 `;
 
 const MeasurementValue = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 2px;
   gap: 8px;
-  font-size: 24px;
+  font-size: 20px;
   color: #fff;
-  font-weight: 400;
   white-space: nowrap;
   @media (max-width: 991px) {
     white-space: initial;
@@ -589,5 +689,8 @@ const BodyImage = styled.img`
   }
 `;
 
+const SmallCrewmemberIcon = styled(CrewmemberIcon)`
+  height: 250px; /* Ajusta la altura del icono */
+`;
 
 export default FrameComponent;

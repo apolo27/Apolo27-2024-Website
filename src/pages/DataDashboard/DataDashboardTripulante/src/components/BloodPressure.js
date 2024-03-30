@@ -137,7 +137,6 @@ const BloodPressureCard = () => {
 
 const CardWrapper = styled.div`
   border-radius: 40px;
-  box-shadow: 0px 1px 50px 0px rgba(0, 0, 0, 0.08);
   background-color: var(--Dentro-del-glass, rgba(0, 0, 0, 0.21));
   display: flex;
   flex-direction: column;
@@ -165,12 +164,9 @@ const IconWrapper = styled.div`
   }
 `;
 
-
-
-
 const CardTitle = styled.h2`
   text-shadow: 0px 0px 7.6px rgba(84, 227, 240, 0.42);
-  font-family: Mulish, sans-serif;
+  font-family: Poppins, sans-serif;
   margin: auto 0;
   font-size: 20px;
 `;
@@ -215,8 +211,7 @@ const StatusLabel = styled.div`
 const GraphWrapper = styled.div`
   width: 100%;
   align-self: center;
-  margin-top: 10px; // Ajusta el margen superior según necesites
-
+  margin-top: 16px; // Ajusta el margen superior según necesites
   // Para asegurarte de que el gráfico se expanda correctamente dentro de su contenedor
   canvas {
     width: 100% !important;

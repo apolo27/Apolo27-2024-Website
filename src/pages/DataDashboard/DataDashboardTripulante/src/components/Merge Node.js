@@ -3,38 +3,52 @@ import BloodSugar from "./BloodSugar";
 import BloodPressure from "./BloodPressure";
 import HeartRate from "./HeartRate";
 import styled from "styled-components";
-
-// Datos de paginación inicial
-const chartGroups = [
-  [<BloodSugar />, <BloodPressure />, <HeartRate />],
-  [<BloodSugar />, <BloodPressure />, <HeartRate />],
-];
+import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
+  CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
+  } from '@coreui/react'
 
 const MeditionsDetails = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <HealthMonitorWrapper>
-      {/* Botones de paginación */}
-      <PaginationContainer>
-        {chartGroups.map((_, index) => (
-          <PaginationItem
-            key={index}
-            isActive={index === activeIndex}
-            onClick={() => setActiveIndex(index)}
-          />
-        ))}
-      </PaginationContainer>
-
-      {/* Contenedor de tarjetas */}
-      <HealthDataGrid>
-        {chartGroups[activeIndex].map((Component, index) => (
-          <HealthDataColumn key={index}>
-            {Component}
-          </HealthDataColumn>
-        ))}
-      </HealthDataGrid>
-    </HealthMonitorWrapper>
+    <CContainer style={{
+      backgroundColor:'#1C1F32',
+      padding: '24px 22px 2px',
+      borderRadius: '48px',
+      alignItems: 'center',
+      }}>
+      <CRow>
+        <CCol xl={4}>
+          <div className='mb-4'>
+            <BloodSugar/>
+          </div>
+        </CCol>
+        <CCol xl={4}>
+          <div className='mb-4'>
+            <BloodPressure/>
+          </div>
+        </CCol>
+        <CCol xl={4}>
+          <div className='mb-4'>
+            <HeartRate/>
+          </div>
+        </CCol>
+      </CRow>
+    </CContainer>
+    // <HealthMonitorWrapper>
+    //   <CContainer>
+    //     <CRow>
+    //       <CCol>
+    //         <BloodSugar/>
+    //       </CCol>
+    //       <CCol>
+    //         <BloodPressure/>
+    //       </CCol>
+    //       <CCol>
+    //         <HeartRate/>
+    //       </CCol>
+    //     </CRow>
+    //   </CContainer>
+    // </HealthMonitorWrapper>
   );
 };
 
@@ -67,20 +81,5 @@ const HealthDataColumn = styled.div`
   }
 `;
 
-const PaginationContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-`;
-
-const PaginationItem = styled.div`
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background-color: ${(props) => (props.isActive ? "#9ea1ac" : "#2a2c38")};
-  box-shadow: 0px 4px 6.7px 0px rgba(0, 0, 0, 0.42) inset;
-  cursor: pointer;
-`;
 
 export default MeditionsDetails;
