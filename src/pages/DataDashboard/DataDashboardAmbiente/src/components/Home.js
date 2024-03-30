@@ -1,6 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
+import 'leaflet/dist/leaflet.css';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 
+//MODIFICAR
 const chartData = [
   { title: "Chart", image: "https://cdn.builder.io/api/v1/image/assets/TEMP/fc05dd7d9aa47c5293b99cc871b8fbcffad1e2cc6fe4fc2801c7c4e653be5542?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" },
   { title: "Chart", image: "https://cdn.builder.io/api/v1/image/assets/TEMP/04ac8c9b20d0559d0c8dbc5a763c32ae2ed603b26aa20e6f2bddcfdb8d4c6473?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" },
@@ -19,7 +22,12 @@ const waveData = [
   { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/4760fa82236eb394265df244f5c715804af7a71a8f0b2bd16d8c797322cdccd5?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" },
 ];
 
+// MODIFICAR
+
 function Home() {
+    const position = [51.505, -0.09]; // Replace with your desired coordinates
+    const zoom = 13;
+
   return (
     <Container>
       <Header>
@@ -28,7 +36,13 @@ function Home() {
       <Main>
         <MainContent>
           <ImageWrapper>
-            <MainImage src="https://cdn.builder.io/api/v1/image/assets/TEMP/a7b011f55dd3fb12ef37d42da363eafc03b7c01f38c87274243c615715159c06?apiKey=ddc13dadffbd4d028d5c8a7502968fe6&" alt="Main Image" />
+            <MapContainer center={position} zoom={zoom} style={{ height: '400px', width: '100%' }}>
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              />
+              {/* You can add other map features like markers or popups here */}
+            </MapContainer>
           </ImageWrapper>
           <ContentWrapper>
             <GlassCard>
