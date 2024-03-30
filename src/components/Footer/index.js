@@ -24,7 +24,7 @@ const Footer = () => {
                     <li><HashLink smooth to="DataDashboard#overview">Overview</HashLink></li>
                     <li><HashLink smooth to="DataDashboard#rover">Rover</HashLink></li>
                     <li><HashLink smooth to="DataDashboard#crewmembers">Crewmembers</HashLink></li>
-                    <li><HashLink smooth to="DataDashboard#environment">Environment</HashLink></li>
+                    {/* <li><HashLink smooth to="DataDashboard#environment">Environment</HashLink></li> */}
                     <li><HashLink smooth to="DataDashboard#sensors">Sensors</HashLink></li>
   	 			</ul>
   	 		</div>

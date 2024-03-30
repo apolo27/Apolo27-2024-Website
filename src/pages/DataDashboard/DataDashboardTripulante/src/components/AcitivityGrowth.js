@@ -1,6 +1,10 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
+
+import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
+  CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
+} from '@coreui/react'
 Chart.register(...registerables);
 
 const roundedCornersPlugin = {
@@ -101,9 +105,17 @@ const data = {
 const ActivityGrowth = () => {
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '400px' }}>
-      <Bar data={data} options={options} />
-    </div>
+    <CContainer>
+      <CRow>
+        <CCol lg={12} style={{height: '325px'}}>
+          <Bar data={data} options={options} />
+        </CCol>
+      </CRow>
+    </CContainer>
+
+    // <div style={{ position: 'relative', width: '100%', height: '400px' }}>
+    //   <Bar data={data} options={options} />
+    // </div>
   );
 };
 
