@@ -1,12 +1,10 @@
-import styled from "styled-components";
-
 import React, { useState } from 'react';
-import { ReactComponent as signGreen } from '../../public/FramesignGreen.svg';
-import { ReactComponent as signRed } from '../../public/FramesignRed.svg';
+import styled from "styled-components";
+import { ReactComponent as SignGreen } from '../../public/FramesignGreen.svg';
+import { ReactComponent as SignRed } from '../../public/FramesignRed.svg';
 import { ReactComponent as PesoIcon } from '../../public/Group 2PesoIcon.svg';
 import { ReactComponent as AlturaIcon } from '../../public/Group 2AlturaIcon.svg';
 import { ReactComponent as CrewmemberIcon } from '../../public/Fill-283CrewMemberRover.svg';
-
 
 
 
@@ -20,9 +18,9 @@ const usersData = [
       { label: "Peso", value: "72 kg", icon: "URL_ICON_PESO" },
     ],
     measurementData: [
-      { label: "Chest (in)", value: "44.5", icon: signGreen },
-      { label: "Waist (in)", value: "34", icon: signRed },
-      { label: "Hip (in)", value: "42.5", icon: signRed },
+      { label: "Chest (in)", value: "44.5", icon: SignGreen },
+      { label: "Waist (in)", value: "34", icon: SignRed },
+      { label: "Hip (in)", value: "42.5", icon: SignRed },
     ],
     bmiValue: "24.9",
     bmiStatus: "SALUDABLE",
@@ -110,18 +108,18 @@ function FrameComponent() {
         <BodyMeasurements>
           <BodyMeasurementsContent>
           <BodyMeasurementsColumn>
-            {userData.bmiData.map((data, index) => {
-              let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
-              let color = data.label === "Altura" ? '#colorParaAltura' : '#colorParaPeso'; // Reemplaza con los colores deseados
-              return (
-                <BmiDataItem key={index}>
-                  <BmiDataLabel>{data.label}</BmiDataLabel>
-                  <Icon style={{ fill: color }} />
-                  <BmiDataText>{data.value}</BmiDataText>
-                </BmiDataItem>
-              );
-            })}
-          </BodyMeasurementsColumn>
+          {userData.bmiData.map((data, index) => {
+            let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
+            let backgroundColor = data.label === "Altura" ? '#F8DEBD' : '#D0FBFF'; // Colores de fondo
+            return (
+              <BmiDataItem key={index} backgroundColor={backgroundColor}>
+                <BmiDataLabel>{data.label}</BmiDataLabel>
+                <Icon />
+                <BmiDataText>{data.value}</BmiDataText>
+              </BmiDataItem>
+            );
+          })}
+        </BodyMeasurementsColumn>
             <BodyIndexColumn>
               <BodyIndexWrapper>
               <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
@@ -149,18 +147,21 @@ function FrameComponent() {
         <BodyMeasurementsDetails>
           <BodyMeasurementsDetailsContent>
             <MeasurementsColumn>
-              {userData.measurementData.map((data, index) => (
+            {userData.measurementData.map((data, index) => {
+              const Icon = data.icon === 'green' ? SignGreen : SignRed;
+              return (
                 <MeasurementItem key={index}>
                   <MeasurementLabel>{data.label}</MeasurementLabel>
-                  <MeasurementValue>
-                    <MeasurementText>{data.value}</MeasurementText>
-                    <MeasurementIcon src={data.icon} alt={`${data.label} icon`} />
-                  </MeasurementValue>
+                  <IconWrapper>
+                    <MeasurementValue>{data.value}</MeasurementValue>
+                    <Icon />
+                  </IconWrapper>
                 </MeasurementItem>
-              ))}
+              );
+            })}
             </MeasurementsColumn>
             <BodyImageColumn>
-              <BodyImage src={userData.bodyMeasurementImage} alt="Medidas Corporales" />
+              <CrewmemberIcon />
             </BodyImageColumn>
           </BodyMeasurementsDetailsContent>
         </BodyMeasurementsDetails>
@@ -320,21 +321,26 @@ const BodyMeasurementsColumn = styled.div`
 
 const BmiDataItem = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 19px 6px 19px 18px;
+  padding: 10px;
   border-radius: 12px;
-  background-color: #f8debd;
-  &:not(:first-child) {
-    margin-top: 26px;
+  background-color: ${props => props.backgroundColor};
+  &:not(:last-child) {
+    margin-bottom: 20px;
   }
 `;
 
 const BmiDataLabel = styled.span`
-  align-self: flex-end;
-  margin-top: 28px;
-  font: 12px Poppins, sans-serif;
+  font-size: 13px;
+  color: #000; // Color de texto a negro
+  margin-bottom: 5px; // Espacio entre la etiqueta y el icono
+`;
+
+
+const IconWrapper = styled.span`
+  display: flex;
+  align-items: center; // Alineación vertical de los íconos
 `;
 
 const BmiDataValue = styled.div`
@@ -353,7 +359,8 @@ const BmiDataIcon = styled.img`
 
 const BmiDataText = styled.span`
   font-family: Poppins, sans-serif;
-  margin-top: 9px;
+  
+  color: #000;
 `;
 
 const BodyIndexColumn = styled.div`
