@@ -393,19 +393,19 @@ const DataDashboard = (props) => {
 
   const dataChart = [
     {
-      name: "Habitabilidad",
+      name: "Habitability",
       porcentaje: 31.47,
       pv: 2400,
       fill: "#FF4549",
     },
     {
-      name: "Eficiencia Energética",
+      name: "Energetic Efficiency",
       porcentaje: 26.69,
       pv: 4567,
       fill: "#3BF79D",
     },
     {
-      name: "Fatiga del tripulante",
+      name: "Crewmember Fatigue",
       porcentaje: 15.69,
       pv: 1398,
       fill: "#226BD8",
@@ -419,7 +419,7 @@ const DataDashboard = (props) => {
   function getGaugeData() {
     return [
       ["Label", "Value"],
-      ["Impacto(N)", getRandomNumber()],
+      ["Impact (N)", getRandomNumber()],
     ];
   }
 
@@ -546,7 +546,7 @@ const DataDashboard = (props) => {
                       </div>
                       <div className="crewmember-oximetro">
                         <label>
-                          {piloto === "Migue Arredondo"
+                          {piloto === "Miguel Arredondo"
                             ? concentracionGas[9]
                             : concentracionGas[9]}
                         </label>
@@ -757,7 +757,7 @@ const DataDashboard = (props) => {
                     width={350}
                     height={300}
                   ></LineChart>
-                  <h2>Inclinacion</h2>
+                  <h2>Inclination</h2>
 
                   <hr></hr>
 
@@ -802,7 +802,7 @@ const DataDashboard = (props) => {
                     width={350}
                     height={300}
                   ></LineChart>
-                  <h2>Vibracion</h2>
+                  <h2>Vibration</h2>
                 </div>
 
                 <Rover />
@@ -819,7 +819,7 @@ const DataDashboard = (props) => {
 
                 <div className="graphs-bot">
                   <div style={{ textAlign: "center" }}>
-                    <h2>Inclinacion</h2>
+                    <h2>Inclination</h2>
                     <LineChart
                       xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
                       series={[
@@ -872,7 +872,7 @@ const DataDashboard = (props) => {
                   />
 
                   <div style={{ textAlign: "center" }}>
-                    <h2>Vibracion</h2>
+                    <h2>Vibration (Hz)</h2>
                     <LineChart
                       xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
                       series={[

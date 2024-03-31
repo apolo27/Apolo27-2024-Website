@@ -205,42 +205,6 @@ body {
 	vertical-align: middle;
 }
 
-.article-podcast-player {
-	display: flex;
-	align-items: center;
-	margin-bottom: 1rem;
-	margin-top: 1.25rem;
-}
-
-.podcast-play-button {
-	width: 2.25rem;
-	height: 2.25rem;
-	border-radius: 12px;
-	border: 0;
-	background-color: #000;
-	margin-right: 0.5rem;
-}
-
-.podcast-play-button svg {
-	max-width: 1rem;
-	max-height: 1rem;
-	fill: #fff;
-}
-
-.podcast-progression {
-	flex: 1;
-	height: 8px;
-	border-radius: 99em;
-	background-color: #d9d4cd;
-	background-image: linear-gradient(to right, #f99970 30%, #d9d4cd 30%, #d9d4cd 100%);
-}
-
-.podcast-time {
-	font-weight: 500;
-	font-size: 1.125rem;
-	margin-left: 0.5rem;
-}
-
 :focus {
 	outline: 0;
 }
