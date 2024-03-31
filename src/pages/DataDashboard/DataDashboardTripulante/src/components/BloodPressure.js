@@ -20,7 +20,7 @@ const fetchBloodPressureData = () => {
 const getStatusBackgroundColor = (status) => {
   switch (status) {
     case "Normal":
-      return "rgba(36, 228, 164, 0.5)"; // Color verde más claro
+      return "rgba(36, 228, 164, 0.2)"; // Color verde más claro
     case "Caution":
       return "rgba(255, 206, 86, 0.5)"; // Color amarillo más claro
     case "Alert":
@@ -34,9 +34,9 @@ const getStatusColor = (status) => {
   switch (status) {
     case "Normal":
       return "#24e4a4";
-    case "Precaución":
+    case "Caution":
       return "#f7b500";
-    case "Alerta":
+    case "Alert":
       return "#ff4d4d";
     default:
       return "#999";
@@ -58,7 +58,7 @@ const BloodPressureCard = () => {
     labels: bloodPressure.historicalData.sistolic.map((_, index) => `Mes ${index + 1}`),
     datasets: [
       {
-        label: 'Sistólica',
+        label: 'Systolic',
         data: bloodPressure.historicalData.sistolic,
         borderColor: getStatusColor(bloodPressure.status),
         backgroundColor: getStatusColor(bloodPressure.status),
@@ -67,7 +67,7 @@ const BloodPressureCard = () => {
         borderWidth: 2,
       },
       {
-        label: 'Diastólica',
+        label: 'Diastolic',
         data: bloodPressure.historicalData.diastolic,
         borderColor: getStatusColor(bloodPressure.status),
         backgroundColor: getStatusColor(bloodPressure.status),
@@ -132,8 +132,6 @@ const BloodPressureCard = () => {
   );
 };
 
-  
-
 
 const CardWrapper = styled.div`
   border-radius: 40px;
@@ -195,8 +193,6 @@ const PressureUnit = styled.span`
   }
 `;
 
-
-
 const StatusLabel = styled.div`
   border-radius: 4px;
   background-color: ${(props) => getStatusBackgroundColor(props.status)};
@@ -218,6 +214,5 @@ const GraphWrapper = styled.div`
     height: auto !important;
   }
 `;
-
 
 export default BloodPressureCard;

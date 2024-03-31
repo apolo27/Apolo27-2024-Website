@@ -8,9 +8,9 @@ const spO2Data = [97, 95, 92, 88, 85, 82, 96];
 
 const determineSpo2Status = (value) => {
   if (value >= SPO2_THRESHOLDS.NORMAL) return 'Normal';
-  if (value >= SPO2_THRESHOLDS.LOW) return 'Bajo';
-  if (value < SPO2_THRESHOLDS.CRITICAL) return 'Crítico';
-  return 'No reconocido';
+  if (value >= SPO2_THRESHOLDS.LOW) return 'Low';
+  if (value < SPO2_THRESHOLDS.CRITICAL) return 'Critical';
+  return 'Not recognized';
 };
 
 
@@ -22,12 +22,12 @@ const SPO2_THRESHOLDS = {
 
 const determineStatusColor = (status) => {
   const colors = {
-    Normal: { backgroundColor: 'rgba(36, 228, 164, 0.2)', textColor: '#24e4a4' },
-    Bajo: { backgroundColor: 'rgba(247, 206, 86, 0.2)', textColor: '#f7b500' },
-    Crítico: { backgroundColor: 'rgba(255, 77, 77, 0.2)', textColor: '#ff4d4d' },
-    'No reconocido': { backgroundColor: 'rgba(0, 0, 0, 0.2)', textColor: '#808080' }
+    'Normal': { backgroundColor: 'rgba(36, 228, 164, 0.2)', textColor: '#24e4a4' },
+    'Low': { backgroundColor: 'rgba(247, 206, 86, 0.2)', textColor: '#f7b500' },
+    'Critical': { backgroundColor: 'rgba(255, 77, 77, 0.2)', textColor: '#ff4d4d' },
+    'Not recognized': { backgroundColor: 'rgba(0, 0, 0, 0.2)', textColor: '#808080' }
   };
-  return colors[status] || colors['No reconocido'];
+  return colors[status] || colors['Not recognized'];
 };
 
 
@@ -35,9 +35,9 @@ const getStatusColor = (status) => {
   switch (status) {
     case 'Normal':
       return { background: 'rgba(36, 228, 164, 0.2)', text: '#24e4a4' };
-    case 'Bajo':
+    case 'Low':
       return { background: 'rgba(247, 206, 86, 0.2)', text: '#f7b500' };
-    case 'Crítico':
+    case 'Critical':
       return { background: 'rgba(255, 77, 77, 0.2)', text: '#ff4d4d' };
     default:
       return { background: 'rgba(153, 153, 153, 0.2)', text: '#999' };

@@ -33,7 +33,7 @@ const BottonLine = () => {
               <div className={styles.functionGenerator}>
                 <div className={styles.variableHolder}>
                   <h1 className={styles.saludDelTripulante}>
-                    Salud Del Tripulante
+                    Crewmembers health
                   </h1>
                   <div className={styles.august122023}>{currentDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
                 </div>
