@@ -4,11 +4,6 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ReactComponent as HeartIcon } from '../../public/group-1.svg';
 
-
-
-
-
-
 const RATE_THRESHOLDS = {
   HIGH: 100,
   ELEVATED: 90,
@@ -23,23 +18,23 @@ const bpmData = [40, 110, 40, 115, 134];
 
 const determineStatusColor = (status) => {
   const colors = {
-    'Muy alto': { backgroundColor: 'rgba(255, 77, 77, 0.2)', textColor: '#ff4d4d' },
-    Elevado: { backgroundColor: 'rgba(255, 206, 86, 0.2)', textColor: '#ffce56' },
-    Normal: { backgroundColor: 'rgba(36, 228, 164, 0.2)', textColor: '#24e4a4' },
-    Bajo: { backgroundColor: 'rgba(77, 148, 255, 0.2)', textColor: '#4d94ff' },
-    'Muy bajo': { backgroundColor: 'rgba(50, 77, 255, 0.2)', textColor: '#324dff' },
-    'No reconocido': { backgroundColor: 'rgba(0, 0, 0, 0.2)', textColor: '#808080' }
+    'Very high': { backgroundColor: 'rgba(255, 77, 77, 0.2)', textColor: '#ff4d4d' },
+    'High': { backgroundColor: 'rgba(255, 206, 86, 0.2)', textColor: '#ffce56' },
+    'Normal': { backgroundColor: 'rgba(36, 228, 164, 0.2)', textColor: '#24e4a4' },
+    'Low': { backgroundColor: 'rgba(77, 148, 255, 0.2)', textColor: '#4d94ff' },
+    'Very low': { backgroundColor: 'rgba(50, 77, 255, 0.2)', textColor: '#324dff' },
+    'Not recognized': { backgroundColor: 'rgba(0, 0, 0, 0.2)', textColor: '#808080' }
   };
-  return colors[status] || colors['No reconocido'];
+  return colors[status] || colors['Not recognized'];
 };
 
 const determineStatus = (rate) => {
-  if (rate >= RATE_THRESHOLDS.HIGH) return 'Muy alto';
-  if (rate >= RATE_THRESHOLDS.ELEVATED) return 'Elevado';
+  if (rate >= RATE_THRESHOLDS.HIGH) return 'Very high';
+  if (rate >= RATE_THRESHOLDS.ELEVATED) return 'High';
   if (rate < RATE_THRESHOLDS.ELEVATED && rate >= 60) return 'Normal';
-  if (rate < 60 && rate >= 50) return 'Bajo';
-  if (rate < 50) return 'Muy bajo';
-  return 'No reconocido';
+  if (rate < 60 && rate >= 50) return 'Low';
+  if (rate < 50) return 'Very low';
+  return 'Not recognized';
 };
 
 

@@ -14,10 +14,10 @@ import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
 // Datos iniciales para VANTROI
 const usersData = [
   {
-    userName: "Miguel",
+    userName: "Miguel Arredondo",
     bmiData: [
-      { label: "Altura", value: "170 cm", icon: "URL_ICON_ALTURA" },
-      { label: "Peso", value: "72 kg", icon: "URL_ICON_PESO" },
+      { label: "Height", value: "170 cm", icon: "URL_ICON_ALTURA" },
+      { label: "Weight", value: "72 kg", icon: "URL_ICON_PESO" },
     ],
     measurementData: [
       { label: "Chest (in)", value: "44.5", icon: SignGreen },
@@ -25,15 +25,15 @@ const usersData = [
       { label: "Hip (in)", value: "42.5", icon: SignRed },
     ],
     bmiValue: "24.9",
-    bmiStatus: "SALUDABLE",
+    bmiStatus: "Healthy",
     userIcon: "URL_ICON_VANTROI",
     bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_VANTROI"
   },
   {
-    userName: "Eridania",
+    userName: "Eridania Pérez",
     bmiData: [
-      { label: "Altura", value: "160 cm", icon: "URL_ICON_ALTURA_CAMILA" },
-      { label: "Peso", value: "55 kg", icon: "URL_ICON_PESO_CAMILA" },
+      { label: "Height", value: "160 cm", icon: "URL_ICON_ALTURA_CAMILA" },
+      { label: "Weight", value: "55 kg", icon: "URL_ICON_PESO_CAMILA" },
     ],
     measurementData: [
       { label: "Chest (in)", value: "38", icon: "URL_ICON_CHEST_CAMILA" },
@@ -41,7 +41,7 @@ const usersData = [
       { label: "Hip (in)", value: "40", icon: "URL_ICON_HIP_CAMILA" },
     ],
     bmiValue: "21.5",
-    bmiStatus: "SALUDABLE",
+    bmiStatus: "Healthy",
     userIcon: "URL_ICON_CAMILA",
     bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_CAMILA"
   },
@@ -79,10 +79,10 @@ function FrameComponent() {
   };
 
   const calculateBmiStatus = (bmiValue) => {
-    if (bmiValue < 18.5) return "BAJO PESO";
-    if (bmiValue >= 18.5 && bmiValue < 25) return "SALUDABLE";
-    if (bmiValue >= 25 && bmiValue < 30) return "SOBREPESO";
-    return "OBESIDAD";
+    if (bmiValue < 18.5) return "Low weight";
+    if (bmiValue >= 18.5 && bmiValue < 25) return "Healthy";
+    if (bmiValue >= 25 && bmiValue < 30) return "Overweight";
+    return "Obese";
   };
 
   const calculateMarkerPosition = () => {
@@ -118,9 +118,9 @@ function FrameComponent() {
             <CCol>
               <div className='mb-4'>
               {userData.bmiData.map((data, index) => {
-                let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
+                let Icon = data.label === "Height" ? AlturaIcon : PesoIcon;
                 let backgroundColor =
-                  data.label === "Altura" ? "#F8DEBD" : "#D0FBFF"; // Colores de fondo
+                  data.label === "Height" ? "#F8DEBD" : "#D0FBFF"; // Colores de fondo
                 return (
                   <BmiDataItem key={index} backgroundColor={backgroundColor}>
                     <BmiDataLabel>{data.label}</BmiDataLabel>
@@ -134,7 +134,7 @@ function FrameComponent() {
             <CCol>
               <div className='mb-4'>
               <BodyIndexWrapper>
-                <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
+                <BodyIndexTitle>Body Mass Index (BMI)</BodyIndexTitle>
                 <BodyIndexContent>
                   <BodyIndexValue>{userData.bmiValue}</BodyIndexValue>
                   <BodyIndexStatus>{userData.bmiStatus}</BodyIndexStatus>
