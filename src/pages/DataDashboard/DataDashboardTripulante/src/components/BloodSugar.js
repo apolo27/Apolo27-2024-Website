@@ -4,21 +4,16 @@ import { Line } from "react-chartjs-2";
 import 'chart.js/auto';
 import { ReactComponent as BloodSugarIcon } from '../../public/vector-3.svg';
 
-const spO2Data = [97, 95, 92, 88, 85, 82, 96]; 
-
-const determineSpo2Status = (value) => {
-  if (value >= SPO2_THRESHOLDS.NORMAL) return 'Normal';
-  if (value >= SPO2_THRESHOLDS.LOW) return 'Bajo';
-  if (value < SPO2_THRESHOLDS.CRITICAL) return 'Crítico';
-  return 'No reconocido';
-};
-
+/*const spO2Data = [97, 95, 92, 88, 85, 82, 96]; */
 
 const SPO2_THRESHOLDS = {
   NORMAL: 95,
   LOW: 90,
   CRITICAL: 85,
 };
+
+
+
 
 const determineStatusColor = (status) => {
   const colors = {
@@ -51,30 +46,21 @@ const getStatusColor = (status) => {
 
 
 
-const SpO2Card = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [spO2, setSpO2] = useState({
-    value: spO2Data[currentIndex],
-    status: determineSpo2Status(spO2Data[currentIndex]),
-  });
+const SpO2Card = ({ spO2Data = [] }) => {
+  const determineSpo2Status = (value) => {
+    if (value >= SPO2_THRESHOLDS.NORMAL) return 'Normal';
+    if (value < SPO2_THRESHOLDS.NORMAL && value >= SPO2_THRESHOLDS.LOW) return 'Bajo';
+    if (value < SPO2_THRESHOLDS.LOW) return 'Crítico';
+    return 'No reconocido';
+  };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        const newIndex = (prevIndex + 1) % spO2Data.length;
-        setSpO2({
-          value: spO2Data[newIndex],
-          status: determineSpo2Status(spO2Data[newIndex]),
-        });
-        return newIndex;
-      });
-    }, 5000); // Every 5 seconds
+  // Preparación del último valor de SpO2 y su estado
+  const latestSpO2Value = spO2Data.length > 0 ? spO2Data[spO2Data.length - 1] : null;
+  const spO2Status = latestSpO2Value ? determineSpo2Status(latestSpO2Value) : 'No reconocido';
 
-    return () => clearInterval(intervalId);
-  }, [currentIndex])
-
+  // Configuración de los datos y opciones para el gráfico
   const data = {
-    labels: spO2Data.map((_, index) => `Time ${index + 1}`),
+    labels: spO2Data.map((_, index) => `Punto ${index + 1}`),
     datasets: [
       {
         label: 'SpO2',
@@ -86,6 +72,10 @@ const SpO2Card = () => {
       },
     ],
   };
+  
+
+
+
 
   const options = {
     plugins: {
@@ -108,27 +98,24 @@ const SpO2Card = () => {
 
   return (
     <CardWrapper>
-      <CardHeader>
-        <IconWrapper><BloodSugarIcon/></IconWrapper>
-
-        <CardTitle>SpO2</CardTitle>
-      </CardHeader>
-      <CardContent>
-      <Value>{spO2.value}</Value>
-        <Unit>%</Unit>
-        <StatusLabel style={{
-          backgroundColor: determineStatusColor(spO2.status).backgroundColor,
-          color: determineStatusColor(spO2.status).textColor
-        }}>
-          {spO2.status}
-          </StatusLabel>
-        
-        
-      </CardContent>
-      <GraphWrapper>
+    <CardHeader>
+      <IconWrapper><BloodSugarIcon/></IconWrapper>
+      <CardTitle>SpO2</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <Value>{spO2Data[spO2Data.length - 1]}</Value> {/* Muestra el último valor de SpO2 */}
+      <Unit>%</Unit>
+      <StatusLabel style={{
+        backgroundColor: getStatusColor(determineSpo2Status(spO2Data[spO2Data.length - 1])).background,
+        color: getStatusColor(determineSpo2Status(spO2Data[spO2Data.length - 1])).text
+      }}>
+        {determineSpo2Status(spO2Data[spO2Data.length - 1])} {/* Determina y muestra el estado basado en el último valor de SpO2 */}
+      </StatusLabel>
+    </CardContent>
+    <GraphWrapper>
       <Line data={data} options={options}/>
-      </GraphWrapper>
-    </CardWrapper>
+    </GraphWrapper>
+  </CardWrapper>
   );
 };
 

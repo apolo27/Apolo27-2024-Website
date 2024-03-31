@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ReactComponent as HeartIcon } from '../../public/group-1.svg';
-
+import { 
+  fetchBloodPressureData, 
+  fetchSpO2Data, 
+  fetchHeartRateData 
+} from './healthDataServices';
 
 
 
@@ -18,7 +22,7 @@ const amplitude = 2;
 
 
 //ARREGLO 
-const bpmData = [40, 110, 40, 115, 134];
+/*const bpmData = [40, 110, 40, 115, 134];*/
 
 
 const determineStatusColor = (status) => {
@@ -41,7 +45,6 @@ const determineStatus = (rate) => {
   if (rate < 50) return 'Muy bajo';
   return 'No reconocido';
 };
-
 
 
 
@@ -105,59 +108,26 @@ const generateECGData = (bpm) => {
 
 
 
-const HeartRateCard = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [heartRate, setHeartRate] = useState({
-    currentRate: bpmData[currentIndex],
-    status: determineStatus(bpmData[currentIndex]),
-    historicalData: [],
-  });
+const HeartRateCard = ({heartRateData}) => {
+  const hasData = heartRateData && heartRateData.length > 0;
+  const currentRate = hasData ? heartRateData[heartRateData.length - 1] : "NaN"; // Maneja el caso de no disponibilidad
+  const status = hasData ? determineStatus(currentRate) : "No reconocido";
+  const ecgData = hasData ? generateECGData(currentRate) : []; // Si no hay datos, genera un array vacío para evitar errores en el gráfico
+  const { backgroundColor, textColor } = determineStatusColor(status);
 
-  const chartRef = useRef(null);
-
-  useEffect(() => {
-    // Update ECG data based on the current index
-    const updateECG = () => {
-      const bpmValue = bpmData[currentIndex];
-      const newECGData = generateECGData(bpmValue);
-      setHeartRate((prevHeartRate) => ({
-        ...prevHeartRate,
-        currentRate: bpmValue,
-        status: determineStatus(bpmValue),
-        historicalData: newECGData,
-      }));
-    };
-
-    updateECG(); // Initialize with the first BPM value
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % bpmData.length);
-    }, 2000);
-
-    return () => clearInterval(intervalId);
-  }, [currentIndex]);
-
-  useEffect(() => {
-    const chart = chartRef.current;
-    if (chart) {
-      chart.data.datasets[0].data = heartRate.historicalData;
-      chart.update();
-    }
-  }, [heartRate.historicalData]);
-  
   // configuración de Chart.js
   const chartData = {
-    labels: new Array(heartRate.historicalData.length).fill(''),
-    datasets: [
-      {
-        label: 'ECG',
-        data: heartRate.historicalData,
-        borderColor: 'rgba(255, 77, 77, 1)',
-        backgroundColor: 'rgba(255, 77, 77, 0.1)',
-        fill: false,
-        borderWidth: 2,
-      },
-    ],
+    labels: new Array(ecgData.length).fill(''),
+    datasets: [{
+      label: 'ECG',
+      data: ecgData,
+      borderColor: textColor,
+      backgroundColor: 'rgba(255, 77, 77, 0.1)',
+      fill: false,
+      borderWidth: 2,
+    }],
   };
+
 
   const chartOptions = {
     responsive: true,
@@ -201,18 +171,14 @@ const HeartRateCard = () => {
         <CardTitle>HeartRate (ECG)</CardTitle>
       </CardHeader>
       <CardContent>
-        <Value>{heartRate.currentRate}</Value>
+        <Value>{currentRate}</Value> 
         <Unit>BPM</Unit>
-        <StatusLabel
-          backgroundColor={determineStatusColor(heartRate.status).backgroundColor}
-          textColor={determineStatusColor(heartRate.status).textColor}
-          >
-
-          {heartRate.status}
+        <StatusLabel backgroundColor={backgroundColor} textColor={textColor}>
+          {status}
         </StatusLabel>
       </CardContent>
       <GraphWrapper>
-        <Line ref={chartRef} data={chartData} options={chartOptions} />
+        <Line data={chartData} options={chartOptions} />
       </GraphWrapper>
     </CardWrapper>
   );

@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import 'chart.js/auto';
 import { ReactComponent as BloodPressureIcon } from '../../public/group.svg';
 
+/*
 const fetchBloodPressureData = () => {
   return {
     currentSystolic: 120,
@@ -14,19 +15,19 @@ const fetchBloodPressureData = () => {
       diastolic: [80, 82, 81, 79, 78, 77]
     },
   };
-};
+}; */
 
 
 const getStatusBackgroundColor = (status) => {
   switch (status) {
     case "Normal":
-      return "rgba(36, 228, 164, 0.5)"; // Color verde más claro
+      return "rgba(36, 228, 164, 0.5)";
     case "Caution":
-      return "rgba(255, 206, 86, 0.5)"; // Color amarillo más claro
+      return "rgba(255, 206, 86, 0.5)";
     case "Alert":
-      return "rgba(255, 99, 132, 0.5)"; // Color rojo más claro
+      return "rgba(255, 99, 132, 0.5)";
     default:
-      return "rgba(201, 203, 207, 0.5)"; // Color gris por defecto más claro
+      return "rgba(201, 203, 207, 0.5)";
   }
 };
 
@@ -43,40 +44,39 @@ const getStatusColor = (status) => {
   }
 };
 
-const BloodPressureCard = () => {
-  const [bloodPressure, setBloodPressure] = useState(fetchBloodPressureData());
+const BloodPressureCard = ({ bloodPressureData  }) => {
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setBloodPressure(fetchBloodPressureData());
-    }, 5000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  const hasData = bloodPressureData && bloodPressureData.historicalData && bloodPressureData.historicalData.systolic && bloodPressureData.historicalData.diastolic;
+  const currentSystolic = hasData ? bloodPressureData.currentSystolic : 'NaN';
+  const currentDiastolic = hasData ? bloodPressureData.currentDiastolic : 'NaN';
+  const status = hasData ? bloodPressureData.status : "Datos no disponibles";
 
+  // Datos y opciones para el gráfico
   const data = {
-    labels: bloodPressure.historicalData.sistolic.map((_, index) => `Mes ${index + 1}`),
+    labels: hasData ? bloodPressureData.historicalData.systolic.map((_, index) => `Mes ${index + 1}`) : ['No hay datos'],
     datasets: [
       {
         label: 'Sistólica',
-        data: bloodPressure.historicalData.sistolic,
-        borderColor: getStatusColor(bloodPressure.status),
-        backgroundColor: getStatusColor(bloodPressure.status),
+        data: hasData ? bloodPressureData.historicalData.systolic : [0],
+        borderColor: getStatusColor(status),
+        backgroundColor: getStatusBackgroundColor(status),
         fill: false,
         tension: 0.1,
         borderWidth: 2,
       },
       {
         label: 'Diastólica',
-        data: bloodPressure.historicalData.diastolic,
-        borderColor: getStatusColor(bloodPressure.status),
-        backgroundColor: getStatusColor(bloodPressure.status),
+        data: hasData ? bloodPressureData.historicalData.diastolic : [0],
+        borderColor: getStatusColor(status),
+        backgroundColor: getStatusBackgroundColor(status),
         fill: false,
         tension: 0.1,
         borderWidth: 2,
       },
     ],
   };
+
 
   const options = {
     plugins: {
@@ -118,20 +118,19 @@ const BloodPressureCard = () => {
         <IconWrapper>
           <BloodPressureIcon />
         </IconWrapper>
-        <CardTitle>Blood Pressure</CardTitle>
+        <CardTitle>Presión Arterial</CardTitle>
       </CardHeader>
       <CardContent>
-        <PressureValue>{bloodPressure.currentSystolic}</PressureValue>
-        <PressureUnit>/ {bloodPressure.currentDiastolic} mmHg</PressureUnit>
-        <StatusLabel status={bloodPressure.status}>{bloodPressure.status}</StatusLabel>
-      </CardContent>
+        <PressureValue>{currentSystolic} / {currentDiastolic} </PressureValue>
+        
+        mmHg<StatusLabel status={status}>{status}</StatusLabel>
+        </CardContent>
       <GraphWrapper>
         <Line data={data} options={options} />
       </GraphWrapper>
     </CardWrapper>
   );
 };
-
   
 
 

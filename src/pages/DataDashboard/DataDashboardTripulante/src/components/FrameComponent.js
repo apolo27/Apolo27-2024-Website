@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import { ReactComponent as SignGreen } from '../../public/FramesignGreen.svg';
 import { ReactComponent as SignRed } from '../../public/FramesignRed.svg';
@@ -9,9 +9,20 @@ import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
   CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
   } from '@coreui/react'
 
+// Microservicio Salud tripulante
+import {
+  fetchBloodPressureData,
+  fetchSpO2Data,
+  fetchHeartRateData,
+  usersData,
+} from './healthDataServices';
+
 
 
 // Datos iniciales para VANTROI
+
+
+/*
 const usersData = [
   {
     userName: "Miguel",
@@ -26,7 +37,7 @@ const usersData = [
     ],
     bmiValue: "24.9",
     bmiStatus: "SALUDABLE",
-    userIcon: "URL_ICON_VANTROI",
+    userIcon: "ICON",
     bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_VANTROI"
   },
   {
@@ -42,12 +53,12 @@ const usersData = [
     ],
     bmiValue: "21.5",
     bmiStatus: "SALUDABLE",
-    userIcon: "URL_ICON_CAMILA",
+    userIcon: "ICON",
     bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_CAMILA"
   },
   // Más usuarios
 ];
-
+*/
 
 const BMIData = [
   { value: 15, label: "15" },
@@ -62,13 +73,35 @@ const BMIData = [
 
 
 
-function FrameComponent() {
+
+
+function FrameComponent({ onUserChange }) {
   const [userData, setUserData] = useState(usersData[0]);
+  const [bloodPressureData, setBloodPressureData] = useState({});
+  const [SpO2Data, setSpO2Data] = useState([]);
+  const [heartRateData, setHeartRateData] = useState([]);
+
+  // Actualización de datos de salud basada en el usuario seleccionado
+  useEffect(() => {
+    async function fetchData() {
+      const bpData = await fetchBloodPressureData(userData.userName);
+      const spo2Data = await fetchSpO2Data(userData.userName);
+      const hrData = await fetchHeartRateData(userData.userName);
+
+      setBloodPressureData(bpData);
+      setSpO2Data(spo2Data);
+      setHeartRateData(hrData);
+    }
+
+    fetchData();
+  }, [userData]);
 
   const handleSelectChange = (event) => {
-    const selectedUserName = event.target.value;
-    const selectedUser = usersData.find((user) => user.userName === selectedUserName);
+    const selectedUser = usersData.find(user => user.userName === event.target.value);
     setUserData(selectedUser);
+    if (onUserChange) {
+      onUserChange(selectedUser.userName);
+    }
   };
 
   const calculatePosition = (value) => {

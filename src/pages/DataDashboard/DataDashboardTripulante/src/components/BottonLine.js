@@ -6,7 +6,7 @@ import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
   CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
   } from '@coreui/react'
 
-const BottonLine = () => {
+const BottonLine = ({ data }) => {
 
   // Estado local para almacenar la fecha actual
   const [currentDate, setCurrentDate] = useState(new Date());
