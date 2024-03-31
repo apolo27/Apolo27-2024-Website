@@ -1,12 +1,33 @@
 .sponsors-page{
+  min-height: 100vh;
   text-align: center;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(64, 107, 250, 0.786));
+  background-color: var(--body_background);
 }
 
 .titleArea h1, h3{
   margin-top: 25px;
     font-family: 'poppins', 'sans-serif';
     font-weight: 500;
+}
+
+.titleArea {
+  margin: 0 auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.sponsorsPage-title {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sponsorsPage-text {
+  font-size: 1.2em;
+  text-align: center;
+  width: 500px;
+  margin:0 auto;
+
 }
 
 @keyframes slide {
@@ -20,12 +41,10 @@
   
 
 .logos {
-  margin-top: 25px;
-overflow: hidden;
-padding: 5px 0;
-background: var(--backgroundColor);
-white-space: nowrap;
-position: relative;
+  overflow: hidden;
+  padding: 5px 0;
+  white-space: nowrap;
+  position: relative;
 }
 
 .logos:before,
@@ -40,52 +59,27 @@ z-index: 2;
 
 .logos:before {
 left: 0;
-background: linear-gradient(to left, rgba(255, 255, 255, 0.384), var(--backgroundColor));
+background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(22, 26, 44, 1));
 }
 
 .logos:after {
 right: 0;
-background: linear-gradient(to right, rgba(255, 255, 255, 0.329), var(--backgroundColor));
-}
-
-.logos:hover .logos-slide {
-animation-play-state: paused;
+background: linear-gradient(to right, rgba(255, 255, 255, 0),  rgba(22, 26, 44, 1));
 }
 
 .logos-slide {
 display: inline-block;
-animation: 80s slide infinite linear;
+animation: 60s slide infinite linear;
 }
 
 .logos-slide img {
-height: 150px;
-width: auto;
 margin: 0 40px;
 }
 
-.titleArea {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-margin: 0 auto;
-padding: 20px;
-}
-
-.sponsorsPage-title {
-font-size: 3em;
-text-align: center;
-margin-bottom: 20px;
-}
-
-.sponsorsPage-text {
-    font-size: 1.2em;
-    text-align: center;
-}
 
 .button-82-pushable {
+  margin-top: 0px;
   margin-bottom: 125px;
-  margin-top: 100px;
   width: 50%;
   position: relative;
   border: none;
@@ -157,12 +151,19 @@ margin-bottom: 20px;
   .button-82-pushable {
     width: 100%;
   }
+  .sponsorsPage-title,   
+  .sponsorsPage-text {
+    width: auto;
+  }
 }
+
 @media (min-width: 768px) {
   .button-82-front {
     font-size: 1.25rem;
     padding: 12px 42px;
   }
+
+
 }
 
 .button-82-pushable:hover {

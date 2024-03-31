@@ -9,9 +9,40 @@
     margin-top: 30px;
 }
 
+
+
+.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.css-17dkv59-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
+    font-family: "Poppins", sans-serif;
+  }
+
+.MuiTypography-root.MuiTypography-body1.MuiTypography-alignCenter.css-1uwgr7b-MuiTypography-root {
+    font-family: "Poppins", sans-serif;
+  }
+  
+.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    font-family: "Poppins", sans-serif;
+}
+
+.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    font-family: "Poppins", sans-serif;
+}
+
+.MuiBottomNavigationAction-label.Mui-selected.css-imwso6-MuiBottomNavigationAction-label {
+    font-family: "Poppins", sans-serif;
+}
+
+.css-1j59aic-MuiBottomNavigation-root{
+    font-family: "Poppins", sans-serif;
+}
+
+.MuiBottomNavigationAction-label.css-imwso6-MuiBottomNavigationAction-label{
+    font-family: "Poppins", sans-serif;
+}
+
+
 .data-dashboard-body{
     margin-top: 50px;
-    margin-bottom: 125px;
+    padding-bottom: 125px;
 }
 
 .tab{
@@ -26,6 +57,7 @@
     width: 325px;
     height: 260px;
     font-family: 'Poppins';
+
 }
 
 .participants{
@@ -49,13 +81,12 @@
 .crewmembers-title{
     font-weight: 700;
     text-align: center;
-    padding-left: 0;
+    font-family: 'Poppins';
 }
 
 .crewmembers-select{
     background-color: #1F264B;
 }
-
 
 .crewmembers{
     border-radius: 16px;
@@ -70,6 +101,10 @@
     font-family: 'Poppins';
     text-align: left;
     /* position: relative; */
+}
+
+.sensors-piloto1{
+    font-family: 'Poppins';
 }
 
 .crewmembers-health{
@@ -187,6 +222,9 @@
     border-radius: 24px;
     border: 1px solid #3E4879;
     background: #161A2C;
+    text-align: center;
+    position: relative;
+    
 }
 
 .icono-temperatura{
@@ -213,15 +251,61 @@
     margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 1535px){
+    .video-container{
+        width: 1200px;
+        height: 500px;
+
+    }
+
+    .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek{
+        width: 350px;
+    }
+
+    .herc-map{
+        width: 325px;
+        height: 275px;
+    }
+
+    
+
+    .environment-sneakpeek h4{
+        font-size: 32px;
+    }
+
+    .environment-sneakpeek .temperatura h2{
+        font-size: 92px;
+    }
+
+    .graph, .environment-sneakpeek{
+        height: 300px;
+    }
+
+    .temperatura{
+        padding-top: 15px;
+    }
+
+    .icono-temperatura{
+        width: 35%;
+        height: 125px;
+    }
+    
+}
+
+@media screen and (max-width: 1300px){
     .herc-map, .video-container{
         width: 900px;
         height: 500px;
 
     }
 
-    .crewmembers, .graph, .participants, .environment-sneakpeek {
-        width: 415px;
+    .crewmembers, .graph, .graph-acceleration, .participants, .environment-sneakpeek {
+        width: 350px;
+    }
+
+    .herc-map{
+        width: 325px;
+        height: 275px;
     }
 
     
@@ -257,15 +341,19 @@
     .environment-sneakpeek, .participants{
         display: block;
     }
+    .herc-map{
+        width: 325px;
+        height: 275px;
+    }
 }
 
 @media screen and (max-width: 720px){
-    .herc-map, .video-container{
+    .video-container{
         width: 500px;
         height: 200px;
     }
 
-    .crewmembers, .participants, .graph, .environment-sneakpeek{
+    .crewmembers, .participants, .graph, .graph-acceleration, .environment-sneakpeek{
         width: 350px;
     }
 
@@ -275,14 +363,22 @@
     }
     .video-container {
         padding-bottom: 75%; /* Proporción de aspecto 4:3 (ajusta según necesites) */
-      }
+    }
+    .herc-map{
+        width: 325px;
+        height: 275px;
+    }
 
 }
 
 @media screen and (max-width: 520px){
-    .herc-map, .video-container{
+    .video-container{
         width: 350px;
         height: 200px;
+    }
+    .herc-map{
+        width: 325px;
+        height: 275px;
     }
 }
 

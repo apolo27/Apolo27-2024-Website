@@ -1,59 +1,53 @@
 import "./Footer.css"
-import {Container} from 'react-bootstrap/';
-import Grid from '@mui/material/Grid';
-import footerLogo from '../../imgs/logo.svg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram, faTiktok, faFacebook, faSquareXTwitter, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { HashLink } from 'react-router-hash-link';
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
 
-//Hola como vas
-const Footer = (props) => {
-    let t = props.t;
+const Footer = () => {
     return(
-        <footer className="footer">
-            <Container>
-                <Grid container={true} spacing={0} wrap="wrap">
-
-                    <Grid item xs={0} sm={4} md={4} >
-                        <img src={footerLogo} alt="apolo27 logo"/><h4  style={{display: "inline-block"}}>Apolo 27</h4>
-                        <p>{t('Hero-Title')}</p>
-                        <section className="socials">
-                            <a style={{marginLeft: 25}} href="https://www.instagram.com/apolo27_rd/"> <FontAwesomeIcon icon={faInstagram} size="xl" className="fa-ig"/></a>
-                            <a style={{marginLeft: 25}} href="https://www.tiktok.com/@apolo27rd"> <FontAwesomeIcon icon={faTiktok} size="xl" className="fa-tk"/></a>
-                            <a style={{marginLeft: 25}} href="https://www.facebook.com/Apolo27.rd"> <FontAwesomeIcon icon={faFacebook} size="xl" className="fa-fb"/></a>
-                            <a style={{marginLeft: 25}} href="https://twitter.com/apolo27_rd"> <FontAwesomeIcon icon={faSquareXTwitter} size="xl" className="fa-x"/></a>
-                            <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faLinkedin} size="xl" className="fa-lin"/></a>
-                            <a style={{marginLeft: 25}} href="https://www.linkedin.com/company/apolo27/"> <FontAwesomeIcon icon={faYoutube} size="xl" className="fa-yt"/></a>
-                        </section>
-                    </Grid>
-
-
-                    
-                    <Grid item xs={0} sm={3} md={3} >
-                        <h4>{t('Pages')}</h4>
-                        <ul className="footer-col">
-                            <li><a href="/">{t('Home')}</a></li>
-                            <li><a href="/About-Us">{t('AboutUsFooter')}</a></li>
-                            <li><a href="/Data-Dashboard">{t('DataDashboardFooter')}</a></li>
-                            <li><a href="/Stem-With-Us">{t('StemWithUsFooter')}</a></li>
-                            <li><a href="/Sponsors">{t('BecomeASponsorFooter')}</a></li>
-                            <li><a href="/Games">{t('Games')}</a></li>
-                        </ul>
-                    </Grid>
-
-                    
-                    <Grid item xs={0} sm={3} md={3} >
-                        <h4>{t('AboutUsFooter')}</h4>
-                        <ul className="footer-col">
-                            <li><a href="/About-Us#OurStory">{t('OurStoryFooter')}</a></li>
-                            <li><a href="/About-Us">{t('NasaHERCFooter')}</a></li>
-                            <li><a href="/About-Us#TeamMembers">{t('TeamMembersFooter')}</a></li>
-                            <li><a href="/About-Us#OurAwards">{t('OurAwardsFooter')}</a></li>
-                        </ul>
-                    </Grid>
-
-                </Grid>
-            </Container>
-        </footer>
+        <footer class="footer">
+  	 <div class="container">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>Apolo 27</h4>
+  	 			<ul>
+                   <li><HashLink smooth to="/#timeline">Our Story</HashLink></li>
+                   <li><HashLink smooth to="Sponsors">Sponsors</HashLink></li>
+                   <li><HashLink smooth to="Telemetry">Telemetry</HashLink></li>
+                   <li><HashLink smooth to="STEM">STEM</HashLink></li>
+                   <li><HashLink smooth to="Manufacturing">Manufacturing</HashLink></li>
+                   <li><HashLink smooth to="Simulation">HERC Simulation</HashLink></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>Data Dashboard</h4>
+  	 			<ul>
+                    <li><HashLink smooth to="DataDashboard#overview">Overview</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#rover">Rover</HashLink></li>
+                    <li><HashLink smooth to="DataDashboard#crewmembers">Crewmembers</HashLink></li>
+                    {/* <li><HashLink smooth to="DataDashboard#environment">Environment</HashLink></li> */}
+                    <li><HashLink smooth to="DataDashboard#sensors">Sensors</HashLink></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>Stem With Us</h4>
+  	 			<ul>
+  	 				<li><HashLink smooth to="StemWithUs#blogs">Blog</HashLink></li>
+  	 				<li><HashLink smooth to="StemWithUs#events">Events Calendar</HashLink></li>
+  	 				<li><HashLink smooth to="ContactUs">Book a School Visit</HashLink></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div class="social-links">
+                    <a href="https://www.instagram.com/apolo27_rd/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@apolo2730" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/apolo27/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.tiktok.com/@apolo27rd" target="_blank"><i class="fab fa-tiktok"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
     )
 }
 

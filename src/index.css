@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;700;800&family=Prata&family=Raleway&display=swap');
-
 :root{
   --body_background: #161A2C;
   --body_color: aliceblue;
-  
+  --sponsors_backgrund: rgb(67, 90, 217);
+  font-family: 'Poppins';
 }
 
 [data-theme="dark"]{
@@ -15,6 +14,7 @@ body {
   color: var(--body_color);
   background-color: var(--body_background);
 }
+
 
 a,
 a:link,
@@ -39,6 +39,5 @@ a:active {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: red;
   border-radius: 10px;
 }

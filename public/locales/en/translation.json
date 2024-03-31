@@ -19,12 +19,20 @@
   "Stem-Engament-Award-Description": "The introduction of the STEM Tour and its hands-on activities was a significant achievement, and it enabled the team to win the award. This recognition highlights the team's efforts to promote STEM education and its impact on the Dominican Republic's society.",
   "Coming-Soon-Description": "This year, we are raising the bar even higher and striving to improve in every category. Our team is determined to continue making strides in the field of engineering and technology, and we are excited to see where our dedication and hard work will take us.",
 
+  "Task": "Task",
+  
+
   "Tasks": "Tasks",
   "Find-ARV": "Find ARV-30",
   "Regolith-removal": "Regolith Removal",
   "Moon-maintenance": "Moon Maintenance",
   "Power-it-up": "Power it up",
   "Rover-Redundancy": "Rover Redundancy",
+
+  "taskdesc1": "Remove the regolith from the solar panel",
+  "taskdesc2": "Unscrew the cover plate",
+  "taskdesc3": "Make the cable connection",
+  "taskdesc4": "Retrieve the samples",
 
   "Herc-map": "Nasa HERC Contests map. Huntsville Alabama",
   
@@ -68,8 +76,8 @@
   
   "Plan-a-meeting": "Want to plan a visit to your institution?",
 
-  "Sponsor-Us-Title": "Supporting Our Work: A Look at Our Dedicated Sponsors",
-  "Sponsor-Us-SubTitle": "Discover the valuable role of sponsors in helping us achieve our mission and learn more about the individuals and companies who make it all possible.",
+  "Sponsor-Us-Title": "Our Sponsors",
+  "Sponsor-Us-SubTitle": "We are thankful to each and every company who sponsored our team. Thanks to them we can deliver a great rover and impact thousands of people in our country.",
  
   
   "NelsonMandela": "It always seems to be impossible until it is done.",
@@ -101,6 +109,10 @@
   "School VisitsBody": "Raising awareness about the importance of STEM education in Dominican society is crucial, and our team has been visiting schools to promote this message. Through these visits, we strive to inspire young students to pursue careers in science, technology, engineering, and math. We highlight the benefits of STEM education and showcase its relevance to everyday life.",
   "School VisitsFooter": "Our events inspire individuals to pursue their passions.",
   "School VisitsFooter2": "We showcase the power of hard work to achieve success.",
+
+  "WithUS": "WITH US",
+  "MarsText": "The surface of Mars is orange-red because it is covered in iron oxide dust, giving it the nickname \"the Red Planet\".",
+  "NoEvents": "The events are coming...",
 
   "Blogs": "Recent Blogs",
 

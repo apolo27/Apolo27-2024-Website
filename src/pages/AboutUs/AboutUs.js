@@ -3,20 +3,22 @@ import { useState } from 'react';
 import { useTheme, useMediaQuery } from '@mui/material';
 import {Container, Card, Carousel, Button} from 'react-bootstrap';
 
-import first from '../../imgs/carousel/first.jpg'
+import first from '../../imgs/group-picture.webp'
 import second from '../../imgs/carousel/second.jpeg'
 import third from '../../imgs/carousel/third.jpg'
 import fourth from '../../imgs/carousel/fourth.jpg'
 
 import photochards from '../../imgs/AboutUs/photocards.png'
 
+import stem1 from '../../imgs/AboutUs/stem-1.jpg'
+import stem2 from '../../imgs/AboutUs/stem-2.jpg'
+import stem3 from '../../imgs/AboutUs/stem-3.jpg'
 
 import Ezequiel from '../../imgs/AboutUs/TeamMembers/Ezequiel.jpg'
 import Angello from '../../imgs/AboutUs/TeamMembers/Angello.jpg'
 import Anne from '../../imgs/AboutUs/TeamMembers/Anne.jpg'
 import Avril from '../../imgs/AboutUs/TeamMembers/Avril.jpg'
 import Camila from '../../imgs/AboutUs/TeamMembers/Camila.jpg'
-import Chaljub from '../../imgs/AboutUs/TeamMembers/Chaljub.jpg'
 import Colmenares from '../../imgs/AboutUs/TeamMembers/Colmenares.jpg'
 import Coral from '../../imgs/AboutUs/TeamMembers/Coral.jpg'
 import Eridania from '../../imgs/AboutUs/TeamMembers/Eridania.jpg'
@@ -37,7 +39,7 @@ import Marko from '../../imgs/AboutUs/TeamMembers/Marko.jpg'
 import Miguel from '../../imgs/AboutUs/TeamMembers/Miguel.jpg'
 import Randy from '../../imgs/AboutUs/TeamMembers/Randy.jpg'
 import Raymond from '../../imgs/AboutUs/TeamMembers/Raymond.jpg'
-import Rossana from '../../imgs/AboutUs/TeamMembers/Rossana.jpg'
+import Rosanna from '../../imgs/AboutUs/TeamMembers/Rosanna.jpg'
 import Vantroi from '../../imgs/AboutUs/TeamMembers/Vantroi.jpg'
 
 import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab/';
@@ -137,8 +139,8 @@ const AboutUs = (props) =>{
       equipo: ["3D Printing"]
     },
     {
-      img: Rossana,
-      nombre: "Rossana Bautista",
+      img: Rosanna,
+      nombre: "Rosanna Bautista",
       titulo: "Software Engineering",
       equipo: ["Telemetry Team", "Woman"]
     },
@@ -500,8 +502,6 @@ const AboutUs = (props) =>{
               </div>
           </div>
         </section>
-
-
       </Container>
     </div>
   )
