@@ -1293,8 +1293,8 @@ function Sensors({ data }) {
                             },
                           },
                           y: {
-                            min: Math.min(...inclinacionRover_z) - 3,
-                            max: Math.max(...inclinacionRover_z) + 3,
+                            min: Math.min(...inclinacionRover_x),
+                            max: Math.max(...inclinacionRover_z),
                             display: false,
                             grid: {
                               display: false,
