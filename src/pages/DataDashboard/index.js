@@ -5,6 +5,7 @@ import "./DataDashboard.css";
 import React, { useEffect, useState } from "react";
 import database from "../../services/firebase";
 import FrameComponentAmbient from './DataDashboardAmbiente/src/components/Home';
+import Mapa from '../../components/Mapa/index.js';
 import Sensors from './DataDashboardSensors/index.js';
 // import {Container,Tab, Tabs} from 'react-bootstrap';
 
@@ -695,6 +696,7 @@ const DataDashboard = (props) => {
                     </div>
                   </div>
                   <div className="environment-sneakpeek">
+                    {/* <Mapa latitud={latitud[9]} longitud={longitud[9]}/> */}
                     <iframe
                       src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
                       style={{
