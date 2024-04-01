@@ -9,8 +9,8 @@ const usersData = [
     {
       userName: "Miguel",
       bmiData: [
-        { label: "Altura", value: "170 cm", icon: "URL_ICON_ALTURA" },
-        { label: "Peso", value: "72 kg", icon: "URL_ICON_PESO" },
+        { label: "Height", value: "170 cm", icon: "URL_ICON_ALTURA" },
+        { label: "Weight", value: "72 kg", icon: "URL_ICON_PESO" },
       ],
       measurementData: [
         { label: "Chest (in)", value: "44.5", icon: SignGreen },
@@ -18,15 +18,15 @@ const usersData = [
         { label: "Hip (in)", value: "42.5", icon: SignRed },
       ],
       bmiValue: "24.9",
-      bmiStatus: "SALUDABLE",
+      bmiStatus: "Healthy",
       userIcon: "ICON",
       bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_VANTROI"
     },
     {
       userName: "Eridania",
       bmiData: [
-        { label: "Altura", value: "160 cm", icon: "URL_ICON_ALTURA_CAMILA" },
-        { label: "Peso", value: "55 kg", icon: "URL_ICON_PESO_CAMILA" },
+        { label: "Height", value: "160 cm", icon: "URL_ICON_ALTURA_CAMILA" },
+        { label: "Weight", value: "55 kg", icon: "URL_ICON_PESO_CAMILA" },
       ],
       measurementData: [
         { label: "Chest (in)", value: "38", icon: "URL_ICON_CHEST_CAMILA" },
@@ -34,7 +34,7 @@ const usersData = [
         { label: "Hip (in)", value: "40", icon: "URL_ICON_HIP_CAMILA" },
       ],
       bmiValue: "21.5",
-      bmiStatus: "SALUDABLE",
+      bmiStatus: "Healthy",
       userIcon: "ICON",
       bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_CAMILA"
     },

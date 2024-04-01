@@ -103,7 +103,7 @@ const generateECGData = (bpm) => {
 const HeartRateCard = ({data}) => {
   const hasData = data && data.length > 0;
   const currentRate = hasData ? data[data.length - 1] : "NaN"; // Maneja el caso de no disponibilidad
-  const status = hasData ? determineStatus(currentRate) : "No reconocido";
+  const status = hasData ? determineStatus(currentRate) : "Not recognized";
   const ecgData = hasData ? generateECGData(currentRate) : []; // Si no hay datos, genera un array vacío para evitar errores en el gráfico
   const { backgroundColor, textColor } = determineStatusColor(status);
 

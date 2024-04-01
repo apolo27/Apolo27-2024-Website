@@ -22,7 +22,6 @@ const getStatusBackgroundColor = (status) => {
   switch (status) {
     case "Normal":
       return "rgba(36, 228, 164, 0.5)";
-
     case "Caution":
       return "rgba(255, 206, 86, 0.5)";
     case "Alert":
