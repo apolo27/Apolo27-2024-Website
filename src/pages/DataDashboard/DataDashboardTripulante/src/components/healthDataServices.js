@@ -25,7 +25,7 @@ const bloodPressureDataByUser = {
   Eridania: {
     currentSystolic: 125,
     currentDiastolic: 85,
-    status: "Elevado",
+    status: "High",
     historicalData: {
       systolic: [125, 126, 127, 128, 129, 130],
       diastolic: [85, 86, 87, 88, 89, 90],

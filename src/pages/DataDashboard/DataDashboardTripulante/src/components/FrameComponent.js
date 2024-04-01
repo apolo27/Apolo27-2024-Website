@@ -95,10 +95,10 @@ function FrameComponent() {
 
 
   const calculateBmiStatus = (bmiValue) => {
-    if (bmiValue < 18.5) return "BAJO PESO";
-    if (bmiValue >= 18.5 && bmiValue < 25) return "SALUDABLE";
-    if (bmiValue >= 25 && bmiValue < 30) return "SOBREPESO";
-    return "OBESIDAD";
+    if (bmiValue < 18.5) return "Low Weight";
+    if (bmiValue >= 18.5 && bmiValue < 25) return "Healthy";
+    if (bmiValue >= 25 && bmiValue < 30) return "Overweight";
+    return "Obese";
   };
 
   const calculateMarkerPosition = () => {
@@ -132,9 +132,9 @@ function FrameComponent() {
             <CCol>
               <div className='mb-4'>
               {userData.bmiData.map((data, index) => {
-                let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
+                let Icon = data.label === "Height" ? AlturaIcon : PesoIcon;
                 let backgroundColor =
-                  data.label === "Altura" ? "#F8DEBD" : "#D0FBFF"; // Colores de fondo
+                  data.label === "Height" ? "#F8DEBD" : "#D0FBFF"; // Colores de fondo
                 return (
                   <BmiDataItem key={index} backgroundColor={backgroundColor}>
                     <BmiDataLabel>{data.label}</BmiDataLabel>
@@ -148,7 +148,7 @@ function FrameComponent() {
             <CCol>
               <div className='mb-4'>
               <BodyIndexWrapper>
-                <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
+                <BodyIndexTitle>Body Mass Index (BMI)</BodyIndexTitle>
                 <BodyIndexContent>
                   <BodyIndexValue>{userData.bmiValue}</BodyIndexValue>
                   <BodyIndexStatus>{userData.bmiStatus}</BodyIndexStatus>

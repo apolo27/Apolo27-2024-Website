@@ -8,9 +8,9 @@ import { ReactComponent as BloodSugarIcon } from '../../public/vector-3.svg';
 const spO2Data = [97, 95, 92, 88, 85, 82, 96]; 
 
 const SPO2_THRESHOLDS = {
-  NORMAL: 95,
-  LOW: 90,
-  CRITICAL: 85,
+  Normal: 95,
+  Low: 90,
+  Critical: 85,
 };
 
 const determineStatusColor = (status) => {
@@ -47,14 +47,14 @@ const getStatusColor = (status) => {
 const SpO2Card = ({ data}) => {
   const determineSpo2Status = (value) => {
     if (value >= SPO2_THRESHOLDS.NORMAL) return 'Normal';
-    if (value < SPO2_THRESHOLDS.NORMAL && value >= SPO2_THRESHOLDS.LOW) return 'Bajo';
-    if (value < SPO2_THRESHOLDS.LOW) return 'Crítico';
-    return 'No reconocido';
+    if (value < SPO2_THRESHOLDS.NORMAL && value >= SPO2_THRESHOLDS.LOW) return 'Low';
+    if (value < SPO2_THRESHOLDS.LOW) return 'Critical';
+    return 'Not recognized';
   };
 
   // Preparación del último valor de SpO2 y su estado
   const latestSpO2Value = data.length > 0 ? data[data.length - 1] : null;
-  const spO2Status = latestSpO2Value ? determineSpo2Status(latestSpO2Value) : 'No reconocido';
+  const spO2Status = latestSpO2Value ? determineSpo2Status(latestSpO2Value) : 'Not recognized';
 
   // Configuración de los datos y opciones para el gráfico
   const chartData = {
