@@ -12,6 +12,8 @@ import team2021 from '../../imgs/Home/2021.jpg';
 import team2022 from '../../imgs/Home/2022.jpg';
 import team2023 from '../../imgs/Home/2023.jpg';
 import team2024 from '../../imgs/Home/2024.jpg';
+import arrow from '../../imgs/Home/arrow.png';
+import graph from '../../imgs/Home/grafico.png';
 
 
 // TEAM MEMBERS PICTURES
@@ -60,28 +62,35 @@ function Home() {
                 NASA’s Human Exploration Rover<br />
                 Challenge
               </h1>
-              <Link to='/'>
                 <img src={astronaut} alt="Astronaut" className="astronaut-image" />
-              </Link>
             </div>
 
             <div id="item-1" className='item-1'>
-              <Link to='/Simulation'>
+              <Link to='/Simulation' className="link-container">
                 <img src={simulation} alt="Simulation" className='group-picture' />
               </Link>
             </div>
 
-            <div id="item-2">
-              <Link to='/Data-Dashboard'>
-                <img src={mapa} alt="Mapa" className="map-image" />
+            <div id="item-2" className="item-2">
+              <Link to='/DataDashboard'>
+                <div className='containerg'>
+                <img src={graph} alt="gráfico" className='map' />
+                </div>
               </Link>
             </div>
+
             
             <div id="item-3">
-              <Link to='/Simulation'>
-                
+              <Link to='/Sponsors'>
+                <div id='container23'>
+                <img src={arrow} alt="arrow" className="arrow-image" />
+                <h5>Help us reach our mission</h5>
+                <h4>Sponsor Us</h4>
+                <h6>By doing this, you will impulse our team</h6>
+                </div>
               </Link>
             </div>
+
           </div>
 
           {/* TIMELINE */}
@@ -95,7 +104,7 @@ function Home() {
                 <div class="number-box">
                   <span>2019</span>
                 </div>
-                <h2><span class="small">Beginning</span> Resilence</h2>
+                <h2><span class="small">First</span> Resilence</h2>
               </div>
               <div class="body">
                 <p>
