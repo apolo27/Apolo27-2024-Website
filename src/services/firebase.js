@@ -22,11 +22,11 @@ firebase.auth().signInWithEmailAndPassword(user, password)
   .then((userCredential) => {
     // El usuario ha iniciado sesión correctamente
     const user = userCredential.user;
-    console.log('Usuario autenticado:', user);
+    // console.log('Usuario autenticado:', user);
   })
   .catch((error) => {
     // Manejar errores de inicio de sesión
-    console.error('Error al iniciar sesión:', error);
+    // console.error('Error al iniciar sesión:', error);
   });
 
 export const auth = firebase.auth();

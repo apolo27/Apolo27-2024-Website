@@ -65,6 +65,6 @@ export async function getLastVideo(callback) {
     const storedRecentVideosArray = JSON.parse(storedRecentVideosString);
     callback(storedRecentVideosArray);
   } catch (error) {
-    console.error("Error fetching data:", error.message);
+    // console.error("Error fetching data:", error.message);
   }
 }

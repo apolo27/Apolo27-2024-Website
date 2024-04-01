@@ -129,7 +129,7 @@ Chart.register(...registerables);
 
 const ActivityGrowth = ({bloodPressure, spO2, heartRate}) => {
 
-  console.log(bloodPressure, spO2, heartRate);
+  // console.log(bloodPressure, spO2, heartRate);
   const [chartData, setChartData] = useState({
     labels: [], // Las fechas irán aquí
     datasets: [],

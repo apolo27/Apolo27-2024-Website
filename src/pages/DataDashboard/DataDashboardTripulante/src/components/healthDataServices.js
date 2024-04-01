@@ -68,7 +68,7 @@ export const useUserSelection = () => useContext(UserSelectionContext);
 // Función hipotética que simula llamadas a la API
 const fetchFromAPI = async (userName) => {
   // Simula una llamada a la API y retorna datos
-  console.log(`Fetching data for ${userName} from API...`);
+  // console.log(`Fetching data for ${userName} from API...`);
   return {}; // Retorna datos de ejemplo
 };
 
