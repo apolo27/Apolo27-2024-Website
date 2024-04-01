@@ -922,7 +922,7 @@ const DataDashboard = (props) => {
               // </div>
             )}
           </div>
-          <div id="crewmembers">{activeIndex === 2 && <FrameComponent />}</div>
+          <div id="crewmembers">{activeIndex === 2 && <FrameComponent data={dataGrafico} />}</div>
           <div id="sensors">
             {activeIndex === 3 && <Sensors data={dataGrafico} />}
           </div>

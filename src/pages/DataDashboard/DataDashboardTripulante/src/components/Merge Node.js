@@ -7,7 +7,7 @@ import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
   CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
   } from '@coreui/react'
 
-const MeditionsDetails = () => {
+const MeditionsDetails = ({ bloodPressure, spO2, heartRate }) => {
 
   return (
     <CContainer style={{
@@ -15,21 +15,22 @@ const MeditionsDetails = () => {
       padding: '24px 22px 2px',
       borderRadius: '48px',
       alignItems: 'center',
-      }}>
+    }}>
       <CRow>
         <CCol xl={4}>
           <div className='mb-4'>
-            <BloodSugar/>
+            {/* Pasar los datos relevantes a cada componente */}
+            <BloodSugar data={spO2}/>
           </div>
         </CCol>
         <CCol xl={4}>
           <div className='mb-4'>
-            <BloodPressure/>
+          <BloodPressure bloodPressureData={bloodPressure}/>
           </div>
         </CCol>
         <CCol xl={4}>
           <div className='mb-4'>
-            <HeartRate/>
+            <HeartRate data={heartRate}/>
           </div>
         </CCol>
       </CRow>
