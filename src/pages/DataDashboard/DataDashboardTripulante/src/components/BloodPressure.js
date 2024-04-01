@@ -57,7 +57,7 @@ const BloodPressureCard = ({ bloodPressureData  }) => {
     labels: hasData ? bloodPressureData.historicalData.systolic.map((_, index) => `Mes ${index + 1}`) : ['No hay datos'],
     datasets: [
       {
-        label: 'Sistólica',
+        label: 'Sistolic',
         data: hasData ? bloodPressureData.historicalData.systolic : [0],
         borderColor: getStatusColor(status),
         backgroundColor: getStatusBackgroundColor(status),
@@ -66,7 +66,7 @@ const BloodPressureCard = ({ bloodPressureData  }) => {
         borderWidth: 2,
       },
       {
-        label: 'Diastólica',
+        label: 'Diastolic',
         data: hasData ? bloodPressureData.historicalData.diastolic : [0],
         borderColor: getStatusColor(status),
         backgroundColor: getStatusBackgroundColor(status),
@@ -118,7 +118,7 @@ const BloodPressureCard = ({ bloodPressureData  }) => {
         <IconWrapper>
           <BloodPressureIcon />
         </IconWrapper>
-        <CardTitle>Presión Arterial</CardTitle>
+        <CardTitle>Blood Pressure</CardTitle>
       </CardHeader>
       <CardContent>
         <PressureValue>{currentSystolic} / {currentDiastolic} </PressureValue>
@@ -147,6 +147,7 @@ const CardHeader = styled.header`
   gap: 16px;
   font-size: 16px;
   color: #54e3f0;
+  font-weight: 600;
 `;
 
 const IconWrapper = styled.div`
@@ -164,7 +165,7 @@ const IconWrapper = styled.div`
 `;
 
 const CardTitle = styled.h2`
-  text-shadow: 0px 0px 7.6px rgba(84, 227, 240, 0.42);
+  text-shadow: 0px 0px 5.6px rgba(84, 227, 240, 0.42);
   font-family: Poppins, sans-serif;
   margin: auto 0;
   font-size: 20px;
@@ -182,7 +183,7 @@ const CardContent = styled.div`
 const PressureValue = styled.span`
   color: #54e3f0;
   text-shadow: 0px 0px 8.9px rgba(68, 236, 251, 0.54);
-  font: 400 24px Poppins, sans-serif; // Reduce el tamaño de la fuente aquí si es necesario.
+  font: 400 19px Poppins, sans-serif; // Reduce el tamaño de la fuente aquí si es necesario.
 `;
 
 const PressureUnit = styled.span`

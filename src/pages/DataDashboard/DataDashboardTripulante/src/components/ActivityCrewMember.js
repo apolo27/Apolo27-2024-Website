@@ -66,15 +66,19 @@ const AcitivityCrewMember = () => {
     //     </CCol>
     //   </CRow>
     // </CContainer>
-    <div className={styles.searchTree}>
+    
+    <div>
       {isLoading && <p>Cargando datos...</p>}
       {error && <p>{error}</p>}
       {!isLoading && !error && (
+      <div className={styles.searchTree}>
         <div className={styles.sortingNode}>
           <MeditionsDetails bloodPressure={bloodPressureData} spO2={spO2Data} heartRate={heartRateData} />
           <AcitivityGrowth bloodPressure={bloodPressureData} spO2={spO2Data} heartRate={heartRateData}/>
-          <FrameComponent onUserChange={changeSelectedUser} />
+          
         </div>
+        <FrameComponent onUserChange={changeSelectedUser} />
+      </div>
       )}
     </div>
   );
