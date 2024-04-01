@@ -24,35 +24,20 @@ function RoverSimulation(props){
           marginTop: 50,
         }}
       >
-        <Container>
-          <h2 className="simulation_header">
-            Simulador del NASA Human Exploration Rover Challenge
-          </h2>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {window.screen.width >= 1280 ? (
-              <iframe
-                title="NASA HERC SIMULATION"
-                frameborder="0"
-                src="https://itch.io/embed-upload/10012853?color=333333"
-                allowfullscreen=""
-                width="1280"
-                height="740"
-              >
-                <a href="https://ctrl-sebastian.itch.io/rover-simulation">
-                  Play Rover Simulation on itch.io
-                </a>
-              </iframe>
-            ) : (
-              <h1 className="simulation_warning">{t("SimulationWarning")}</h1>
-            )}
-          </div>
+        <h2 className="simulation_header">
+          Nasa Human Exploration Rover Challenge Simulator
+        </h2>
 
+        {window.screen.width >= 1280 ? (
+          <iframe title='nasa herc simulator' frameborder="0" src="https://itch.io/embed-upload/10076757?color=333333" allowfullscreen=""
+            width="1280" 
+            height="800">
+          </iframe>
+        ) : (
+          <h1 className="simulation_warning">{t("SimulationWarning")}</h1>
+        )}
+
+        <Container>
           <hr></hr>
 
           <div className="simulation_info">
@@ -67,7 +52,7 @@ function RoverSimulation(props){
                     alt="second"
                   ></img>
                   <Carousel.Caption>
-                    <h2>¡Customiza tu rover!</h2>
+                    <h2>Customize your Rover!</h2>
                   </Carousel.Caption>
                 </Carousel.Item>
 
@@ -78,21 +63,21 @@ function RoverSimulation(props){
                     alt="second"
                   ></img>
                   <Carousel.Caption>
-                    <h2>¡Esquiva obstaculos!</h2>
+                    <h2>Go through Obstacles!</h2>
                   </Carousel.Caption>
                 </Carousel.Item>
 
                 <Carousel.Item>
                   <img className="d-block w-100" src={moon} alt="second"></img>
                   <Carousel.Caption>
-                    <h2>¡Visita La Luna!</h2>
+                    <h2>Visit the Moon!</h2>
                   </Carousel.Caption>
                 </Carousel.Item>
 
                 <Carousel.Item>
                   <img className="d-block w-100" src={tasks} alt="second"></img>
                   <Carousel.Caption>
-                    <h2>¡Cumple tareas!</h2>
+                    <h2>Finish tasks!</h2>
                   </Carousel.Caption>
                 </Carousel.Item>
               </Carousel>
@@ -142,11 +127,11 @@ function RoverSimulation(props){
 
             <section className="simulation_text">
               <h4>
-                Ya sea que estés buscando una experiencia educativa emocionante
-                o simplemente quieras desafiar tus habilidades de conducción y
-                resolución de problemas, nuestra simulación del NASA HERC es la
-                opción perfecta. ¡Únete a nosotros en esta emocionante aventura
-                espacial y haz historia como un auténtico explorador del cosmos!
+                On this Simulation, you will indulge into the competition
+                team Apolo 27 will go through in Huntsville, Alabama. Learn the obstacles and tasks
+                our Rover will face and help us get first in the shortest time possible! We trust you
+                on this mission!
+
               </h4>
             </section>
           </div>
@@ -154,6 +139,5 @@ function RoverSimulation(props){
       </div>
     );
 }
-
 
 export default RoverSimulation;

@@ -1,3 +1,4 @@
+
 .simulation{
     height: 720px;
     border: 5px solid #3E4879;
@@ -16,9 +17,11 @@
 }
 
 .simulation_text, .simulation_header{
-    background: linear-gradient(#3E4879, #1366aec6);    
+    background: linear-gradient(#3e5579, #1356aec6);    
     border-radius: 15px;
+    text-align: center;
     padding: 25px;
+    font-weight: bold;
 }
 
 .cards{
@@ -27,11 +30,12 @@
     margin-top: 25px;
     margin-bottom: 25px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .cards .card{
     width: 300px;
+    text-align: center;
 }
 
 @media screen and (max-width: 1200px) {
