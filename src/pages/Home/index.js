@@ -243,7 +243,7 @@ function Home() {
           </div>
       </section>
 
-      <section id='sliderSection'>
+      <section id='Members'>
           <div class="containerSlider">
               <div id='divTitulo'>
                 <h1 id='comienzoTitulo'>
