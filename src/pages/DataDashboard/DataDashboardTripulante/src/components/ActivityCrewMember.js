@@ -68,7 +68,7 @@ const AcitivityCrewMember = () => {
     // </CContainer>
     
     <div>
-      {isLoading && <p>Cargando datos...</p>}
+      {isLoading && <p>Loading data...</p>}
       {error && <p>{error}</p>}
       {!isLoading && !error && (
       <div className={styles.searchTree}>
