@@ -16,25 +16,27 @@ import Footer from './components/Footer'
 import { useTranslation } from 'react-i18next'
 
 function App() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div>
-      <Header t={t}/>
+      <Header t={t} />
       <Routes>
-        {<Route path='/' element={<Home t={t}/>}/>}
-        {/*<Route path='/About-Us' element={<AboutUs t={t}/>}/>*/}
-        <Route path='/DataDashboard' element={<DataDashboard t={t}/>}/>
-        <Route path='/Sponsors' element={<Sponsors t={t}/>}/>
-        <Route path='/StemWithUs' element={<StemWithUs t={t}/>}/>
-        <Route path='/Simulation' element={<RoverSimulation t={t}/>}/>
-        <Route path='/Telemetry' element={<Telemetry t={t}/>}/>
-        <Route path='/STEM' element={<STEM t={t}/>}/>
-        <Route path='/Manufacturing' element={<Manufacturing t={t}/>}/>
-        <Route path='/ContactUs' element={<ContactUs t={t}/>}/>
-        <Route path='/*' element={<PageNotFound t={t}/>}/>
+        <Route path='/' element={<Home t={t} />}>
+          <Route index element={<Home t={t} />} />
+          <Route path='Telemetry' element={<Telemetry t={t} />} />
+          <Route path='STEM' element={<STEM t={t} />} />
+          <Route path='Manufacturing' element={<Manufacturing t={t} />} />
+        </Route>
+        <Route path='About-Us' element={<AboutUs t={t} />} />
+        <Route path='DataDashboard' element={<DataDashboard t={t} />} />
+        <Route path='Sponsors' element={<Sponsors t={t} />} />
+        <Route path='StemWithUs' element={<StemWithUs t={t} />} />
+        <Route path='Simulation' element={<RoverSimulation t={t} />} />
+        <Route path='ContactUs' element={<ContactUs t={t} />} />
+        <Route path='*' element={<PageNotFound t={t} />} />
       </Routes>
-      <Footer t={t}/>
+      <Footer t={t} />
     </div>
   );
 }
