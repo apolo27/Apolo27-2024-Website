@@ -105,6 +105,9 @@ function Header(props) {
                     <li className={`nav-item ${location.pathname === '/StemWithUs' ? 'active' : ''}`}>
                         <Link to="/StemWithUs" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>STEM With Us</Link>
                     </li>
+                    <li className={`nav-item ${location.pathname === '/Simulation' ? 'active' : ''}`}>
+                        <Link to="/Simulation" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>Simulation</Link>
+                    </li>
                     <li className={`nav-item ${location.pathname === '/Sponsors' ? 'active' : ''}`}>
                         <Link to="/Sponsors" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>Become a Sponsor</Link>
                     </li>
