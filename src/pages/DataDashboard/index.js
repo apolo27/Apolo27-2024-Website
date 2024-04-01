@@ -77,7 +77,7 @@ const DataDashboard = (props) => {
   const [surroundingTemp, setSurroundingTemp] = useState(61);
 
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [piloto, setPiloto] = React.useState("Miguel Arredondo");
+  const [piloto, setPiloto] = React.useState("Eridania Pérez");
   const [lastVideo, setLastVideo] = useState([]);
   const [resentVideos, setRecentVideos] = useState([]);
 
@@ -590,12 +590,14 @@ const DataDashboard = (props) => {
                   {lastVideo.map((video) => {
                     return (
                       <div className="video-container">
-                        <p>{video.url}</p>
                         <iframe
                           title={video.title}
                           src={video.url}
                           frameBorder="0"
                           allowFullScreen
+                          style={{
+                            borderRadius: "16px",
+                          }}
                         />
                       </div>
                     );
