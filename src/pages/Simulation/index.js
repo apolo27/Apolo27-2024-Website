@@ -24,35 +24,20 @@ function RoverSimulation(props){
           marginTop: 50,
         }}
       >
-        <Container>
-          <h2 className="simulation_header">
-            Nasa Human Exploration Rover Challenge Simulator
-          </h2>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {window.screen.width >= 1280 ? (
-              <iframe
-                title="NASA HERC SIMULATION"
-                frameborder="0"
-                src="https://itch.io/embed-upload/10012853?color=333333"
-                allowfullscreen=""
-                width="1280"
-                height="740"
-              >
-                <a href="https://ctrl-sebastian.itch.io/rover-simulation">
-                  Play Rover Simulation
-                </a>
-              </iframe>
-            ) : (
-              <h1 className="simulation_warning">{t("SimulationWarning")}</h1>
-            )}
-          </div>
+        <h2 className="simulation_header">
+          Nasa Human Exploration Rover Challenge Simulator
+        </h2>
 
+        {window.screen.width >= 1280 ? (
+          <iframe title='nasa herc simulator' frameborder="0" src="https://itch.io/embed-upload/10076757?color=333333" allowfullscreen=""
+            width="1280" 
+            height="800">
+          </iframe>
+        ) : (
+          <h1 className="simulation_warning">{t("SimulationWarning")}</h1>
+        )}
+
+        <Container>
           <hr></hr>
 
           <div className="simulation_info">

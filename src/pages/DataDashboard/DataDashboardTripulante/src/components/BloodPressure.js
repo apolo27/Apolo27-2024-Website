@@ -4,6 +4,7 @@ import { Line } from "react-chartjs-2";
 import 'chart.js/auto';
 import { ReactComponent as BloodPressureIcon } from '../../public/group.svg';
 
+/*
 const fetchBloodPressureData = () => {
   return {
     currentSystolic: 120,
@@ -14,19 +15,20 @@ const fetchBloodPressureData = () => {
       diastolic: [80, 82, 81, 79, 78, 77]
     },
   };
-};
+}; */
 
 
 const getStatusBackgroundColor = (status) => {
   switch (status) {
     case "Normal":
-      return "rgba(36, 228, 164, 0.2)"; // Color verde más claro
+      return "rgba(36, 228, 164, 0.5)";
+
     case "Caution":
-      return "rgba(255, 206, 86, 0.5)"; // Color amarillo más claro
+      return "rgba(255, 206, 86, 0.5)";
     case "Alert":
-      return "rgba(255, 99, 132, 0.5)"; // Color rojo más claro
+      return "rgba(255, 99, 132, 0.5)";
     default:
-      return "rgba(201, 203, 207, 0.5)"; // Color gris por defecto más claro
+      return "rgba(201, 203, 207, 0.5)";
   }
 };
 
@@ -43,40 +45,40 @@ const getStatusColor = (status) => {
   }
 };
 
-const BloodPressureCard = () => {
-  const [bloodPressure, setBloodPressure] = useState(fetchBloodPressureData());
+const BloodPressureCard = ({ bloodPressureData  }) => {
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setBloodPressure(fetchBloodPressureData());
-    }, 5000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  const hasData = bloodPressureData && bloodPressureData.historicalData && bloodPressureData.historicalData.systolic && bloodPressureData.historicalData.diastolic;
+  const currentSystolic = hasData ? bloodPressureData.currentSystolic : 'NaN';
+  const currentDiastolic = hasData ? bloodPressureData.currentDiastolic : 'NaN';
+  const status = hasData ? bloodPressureData.status : "Datos no disponibles";
 
+  // Datos y opciones para el gráfico
   const data = {
-    labels: bloodPressure.historicalData.sistolic.map((_, index) => `Mes ${index + 1}`),
+    labels: hasData ? bloodPressureData.historicalData.systolic.map((_, index) => `Mes ${index + 1}`) : ['No hay datos'],
     datasets: [
       {
-        label: 'Systolic',
-        data: bloodPressure.historicalData.sistolic,
-        borderColor: getStatusColor(bloodPressure.status),
-        backgroundColor: getStatusColor(bloodPressure.status),
+        label: 'Sistolic',
+        data: hasData ? bloodPressureData.historicalData.systolic : [0],
+        borderColor: getStatusColor(status),
+        backgroundColor: getStatusBackgroundColor(status),
+
         fill: false,
         tension: 0.1,
         borderWidth: 2,
       },
       {
         label: 'Diastolic',
-        data: bloodPressure.historicalData.diastolic,
-        borderColor: getStatusColor(bloodPressure.status),
-        backgroundColor: getStatusColor(bloodPressure.status),
+        data: hasData ? bloodPressureData.historicalData.diastolic : [0],
+        borderColor: getStatusColor(status),
+        backgroundColor: getStatusBackgroundColor(status),
         fill: false,
         tension: 0.1,
         borderWidth: 2,
       },
     ],
   };
+
 
   const options = {
     plugins: {
@@ -121,16 +123,17 @@ const BloodPressureCard = () => {
         <CardTitle>Blood Pressure</CardTitle>
       </CardHeader>
       <CardContent>
-        <PressureValue>{bloodPressure.currentSystolic}</PressureValue>
-        <PressureUnit>/ {bloodPressure.currentDiastolic} mmHg</PressureUnit>
-        <StatusLabel status={bloodPressure.status}>{bloodPressure.status}</StatusLabel>
-      </CardContent>
+        <PressureValue>{currentSystolic} / {currentDiastolic} </PressureValue>
+        
+        mmHg<StatusLabel status={status}>{status}</StatusLabel>
+        </CardContent>
       <GraphWrapper>
         <Line data={data} options={options} />
       </GraphWrapper>
     </CardWrapper>
   );
 };
+
 
 
 const CardWrapper = styled.div`
@@ -146,6 +149,7 @@ const CardHeader = styled.header`
   gap: 16px;
   font-size: 16px;
   color: #54e3f0;
+  font-weight: 600;
 `;
 
 const IconWrapper = styled.div`
@@ -163,7 +167,7 @@ const IconWrapper = styled.div`
 `;
 
 const CardTitle = styled.h2`
-  text-shadow: 0px 0px 7.6px rgba(84, 227, 240, 0.42);
+  text-shadow: 0px 0px 5.6px rgba(84, 227, 240, 0.42);
   font-family: Poppins, sans-serif;
   margin: auto 0;
   font-size: 20px;
@@ -181,7 +185,7 @@ const CardContent = styled.div`
 const PressureValue = styled.span`
   color: #54e3f0;
   text-shadow: 0px 0px 8.9px rgba(68, 236, 251, 0.54);
-  font: 400 24px Poppins, sans-serif; // Reduce el tamaño de la fuente aquí si es necesario.
+  font: 400 19px Poppins, sans-serif; // Reduce el tamaño de la fuente aquí si es necesario.
 `;
 
 const PressureUnit = styled.span`

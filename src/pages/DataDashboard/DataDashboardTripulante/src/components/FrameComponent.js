@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import { ReactComponent as SignGreen } from '../../public/FramesignGreen.svg';
 import { ReactComponent as SignRed } from '../../public/FramesignRed.svg';
@@ -9,15 +9,25 @@ import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
   CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
   } from '@coreui/react'
 
+import { useUserSelection } from './UserSelectionContext'; // Ajusta la ruta según sea necesario
+import {
+  fetchBloodPressureData,
+  fetchSpO2Data,
+  fetchHeartRateData,
+} from './healthDataServices';
+
 
 
 // Datos iniciales para VANTROI
+
+
+/*
 const usersData = [
   {
-    userName: "Miguel Arredondo",
+    userName: "Miguel",
     bmiData: [
-      { label: "Height", value: "170 cm", icon: "URL_ICON_ALTURA" },
-      { label: "Weight", value: "72 kg", icon: "URL_ICON_PESO" },
+      { label: "Altura", value: "170 cm", icon: "URL_ICON_ALTURA" },
+      { label: "Peso", value: "72 kg", icon: "URL_ICON_PESO" },
     ],
     measurementData: [
       { label: "Chest (in)", value: "44.5", icon: SignGreen },
@@ -25,15 +35,15 @@ const usersData = [
       { label: "Hip (in)", value: "42.5", icon: SignRed },
     ],
     bmiValue: "24.9",
-    bmiStatus: "Healthy",
-    userIcon: "URL_ICON_VANTROI",
+    bmiStatus: "SALUDABLE",
+    userIcon: "ICON",
     bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_VANTROI"
   },
   {
-    userName: "Eridania Pérez",
+    userName: "Eridania",
     bmiData: [
-      { label: "Height", value: "160 cm", icon: "URL_ICON_ALTURA_CAMILA" },
-      { label: "Weight", value: "55 kg", icon: "URL_ICON_PESO_CAMILA" },
+      { label: "Altura", value: "160 cm", icon: "URL_ICON_ALTURA_CAMILA" },
+      { label: "Peso", value: "55 kg", icon: "URL_ICON_PESO_CAMILA" },
     ],
     measurementData: [
       { label: "Chest (in)", value: "38", icon: "URL_ICON_CHEST_CAMILA" },
@@ -41,13 +51,13 @@ const usersData = [
       { label: "Hip (in)", value: "40", icon: "URL_ICON_HIP_CAMILA" },
     ],
     bmiValue: "21.5",
-    bmiStatus: "Healthy",
-    userIcon: "URL_ICON_CAMILA",
+    bmiStatus: "SALUDABLE",
+    userIcon: "ICON",
     bodyMeasurementImage: "URL_IMAGEN_MEDIDAS_CORPORAL_CAMILA"
   },
   // Más usuarios
 ];
-
+*/
 
 const BMIData = [
   { value: 15, label: "15" },
@@ -59,30 +69,36 @@ const BMIData = [
 
 
 
+const calculatePosition = (value) => {
+  const scaleMin = 15;
+  const scaleMax = 40;
+  const position = ((value - scaleMin) / (scaleMax - scaleMin)) * 100;
+  return position;
+};
+
 
 
 
 function FrameComponent() {
-  const [userData, setUserData] = useState(usersData[0]);
+  const { selectedUserName, changeSelectedUser, getSelectedUserData, usersData } = useUserSelection();
 
   const handleSelectChange = (event) => {
-    const selectedUserName = event.target.value;
-    const selectedUser = usersData.find((user) => user.userName === selectedUserName);
-    setUserData(selectedUser);
+    const newUser = event.target.value;
+    changeSelectedUser(newUser); // Actualiza el contexto con el nuevo usuario seleccionado
   };
 
-  const calculatePosition = (value) => {
-    const scaleMin = 15;
-    const scaleMax = 40;
-    const position = ((value - scaleMin) / (scaleMax - scaleMin)) * 100;
-    return position;
-  };
+  const userData = getSelectedUserData(); // Datos del usuario seleccionado
+
+
+  // Obtener datos del usuario seleccionado
+  // Actualización de datos de salud basada en el usuario seleccionado
+
 
   const calculateBmiStatus = (bmiValue) => {
-    if (bmiValue < 18.5) return "Low weight";
-    if (bmiValue >= 18.5 && bmiValue < 25) return "Healthy";
-    if (bmiValue >= 25 && bmiValue < 30) return "Overweight";
-    return "Obese";
+    if (bmiValue < 18.5) return "BAJO PESO";
+    if (bmiValue >= 18.5 && bmiValue < 25) return "SALUDABLE";
+    if (bmiValue >= 25 && bmiValue < 30) return "SOBREPESO";
+    return "OBESIDAD";
   };
 
   const calculateMarkerPosition = () => {
@@ -105,22 +121,20 @@ function FrameComponent() {
       <CCol>
         <Header>
           <Title>BMI Calculator</Title>
-          <UserSelector onChange={handleSelectChange} value={userData.userName}>
-            {usersData.map((user) => (
-              <option key={user.userName} value={user.userName}>
-                {user.userName}
-              </option>
-            ))}
-          </UserSelector>
+          <UserSelector onChange={handleSelectChange} value={selectedUserName || ''}>
+              {usersData.map((user) => (
+                <option key={user.userName} value={user.userName}>{user.userName}</option>
+              ))}
+            </UserSelector>
         </Header>
         <BodyMeasurements>
           <BodyMeasurementsContent>
             <CCol>
               <div className='mb-4'>
               {userData.bmiData.map((data, index) => {
-                let Icon = data.label === "Height" ? AlturaIcon : PesoIcon;
+                let Icon = data.label === "Altura" ? AlturaIcon : PesoIcon;
                 let backgroundColor =
-                  data.label === "Height" ? "#F8DEBD" : "#D0FBFF"; // Colores de fondo
+                  data.label === "Altura" ? "#F8DEBD" : "#D0FBFF"; // Colores de fondo
                 return (
                   <BmiDataItem key={index} backgroundColor={backgroundColor}>
                     <BmiDataLabel>{data.label}</BmiDataLabel>
@@ -134,7 +148,7 @@ function FrameComponent() {
             <CCol>
               <div className='mb-4'>
               <BodyIndexWrapper>
-                <BodyIndexTitle>Body Mass Index (BMI)</BodyIndexTitle>
+                <BodyIndexTitle>Índice de Masa Corporal (BMI)</BodyIndexTitle>
                 <BodyIndexContent>
                   <BodyIndexValue>{userData.bmiValue}</BodyIndexValue>
                   <BodyIndexStatus>{userData.bmiStatus}</BodyIndexStatus>
