@@ -22,6 +22,7 @@ const getStatusBackgroundColor = (status) => {
   switch (status) {
     case "Normal":
       return "rgba(36, 228, 164, 0.5)";
+
     case "Caution":
       return "rgba(255, 206, 86, 0.5)";
     case "Alert":
@@ -35,9 +36,9 @@ const getStatusColor = (status) => {
   switch (status) {
     case "Normal":
       return "#24e4a4";
-    case "Precaución":
+    case "Caution":
       return "#f7b500";
-    case "Alerta":
+    case "Alert":
       return "#ff4d4d";
     default:
       return "#999";
@@ -61,6 +62,7 @@ const BloodPressureCard = ({ bloodPressureData  }) => {
         data: hasData ? bloodPressureData.historicalData.systolic : [0],
         borderColor: getStatusColor(status),
         backgroundColor: getStatusBackgroundColor(status),
+
         fill: false,
         tension: 0.1,
         borderWidth: 2,
@@ -131,7 +133,7 @@ const BloodPressureCard = ({ bloodPressureData  }) => {
     </CardWrapper>
   );
 };
-  
+
 
 
 const CardWrapper = styled.div`
@@ -195,8 +197,6 @@ const PressureUnit = styled.span`
   }
 `;
 
-
-
 const StatusLabel = styled.div`
   border-radius: 4px;
   background-color: ${(props) => getStatusBackgroundColor(props.status)};
@@ -218,6 +218,5 @@ const GraphWrapper = styled.div`
     height: auto !important;
   }
 `;
-
 
 export default BloodPressureCard;

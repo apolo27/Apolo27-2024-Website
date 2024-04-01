@@ -1,61 +1,12 @@
-.rover-tab{
-    position: relative;
-    height: fit-content;
+.title-class {
+    text-transform: none;
+    font-family: 'Poppins';
 }
 
-
-.data-dashboard-container{
-    padding: 0px;
-}
-
-.graph-izq{
-    text-align: center;
-
-    padding-top: 100px;
-
-    position: absolute;
-    top: -158px;
-    left: -24px;
-
-    width: 375px;
-    height: 145.5%;
-
-    background: linear-gradient(321.68deg, rgba(75, 90, 106, 0.46) 12.46%, rgba(28, 43, 123, 0.46) 69.72%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-    border-top-right-radius: 200px;
-
-
-}
-
-
-.graph-der{
-    position: absolute;
-    right: -24px;
-    top: -158px;
-    width: 375px;
-    height: 145.5%;
-    background: linear-gradient(321.68deg, rgba(75, 90, 106, 0.46) 12.46%, rgba(28, 43, 123, 0.46) 69.72%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-    border-bottom-left-radius: 200px;
-
-    
-    line-height: 800px;
-    vertical-align: center;
-}
-
-.graphs-bot{
-    display: none;
-}
-
-@media screen and (max-width: 1200px){
-    .graph-der, .graph-izq{
-        display: none;
-    }
-
-    .graphs-bot{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        background: linear-gradient(321.68deg, rgba(75, 90, 106, 0.46) 12.46%, rgba(28, 43, 123, 0.46) 69.72%), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-        border-radius: 25px;
-        padding-top: 20px;
-    }
+.title-class2 {
+    text-transform: none;
+    font-family: 'Poppins';
+    text-emphasis: none;
+    font-size: 16px;
+    font-weight: normal;
 }

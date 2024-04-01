@@ -180,8 +180,8 @@ const StemWithUs = (props) => {
                   {
                     (tutorials.length !== 0) ?  
                       <div className='tutorialsLine-top'>
-                      <h2>{t('Stem-Tutorials')}</h2>
-                      <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>{t('ShowMore')}<img src={arrow} alt='arrow'></img></p></Link>
+                      <h2>Stem-Tutorials</h2>
+                      <Link to="https://www.youtube.com/@apolo2730" className='ver-mas'><p>Show More<img src={arrow} alt='arrow'></img></p></Link>
                     </div>
                     : <></>
                   }
@@ -225,23 +225,23 @@ const StemWithUs = (props) => {
                     <div className='tutorialsLine-top'>
                       <h2>Reels</h2>
                       <a href="https://www.instagram.com/apolo27_rd/reels/" className='ver-mas'>
-                        <p>{t('ShowMore')}
+                        <p>Show More
                           <img src={arrow} alt='arrow'></img>
                         </p>
                       </a>
                     </div>
                     <div className='reelsLine'>
                         <a className='reel reel1' alt='reel' href='https://www.instagram.com/p/C0mF1IvrihZ/'>
-                          <h2 className='reel_title'>Visitas Escolares</h2>
-                          <h5 className='reel_subtitle'>Marcando la diferencia</h5>
+                          <h2 className='reel_title'>School Visits</h2>
+                          <h5 className='reel_subtitle'>Marking difference</h5>
                         </a>
                         <a className='reel reel2' alt='reel' href='https://www.instagram.com/p/C2aZn8Frew6/'>
-                          <h2 className='reel_title'>Actividades con Apolo 27</h2>
-                          <h5 className='reel_subtitle'>Sorteos y más</h5>
+                          <h2 className='reel_title'>Activities with Apolo 27</h2>
+                          <h5 className='reel_subtitle'>Fun events for kids</h5>
                         </a>
                         <a className='reel reel3' alt='reel' href='https://www.instagram.com/reel/CzcgK0xLmp6/'>
-                          <h2 className='reel_title'>Manufactura y diseño</h2>
-                          <h5 className='reel_subtitle'>Demostración de nuestro empeño</h5>
+                          <h2 className='reel_title'>Manufacturing and design</h2>
+                          <h5 className='reel_subtitle'>Showcasing the process of building our Rover</h5>
                         </a>
                         {
                           // <InstagramEmbed url="https://www.instagram.com/reel/CzcgK0xLmp6/" />
@@ -287,7 +287,7 @@ const StemWithUs = (props) => {
                   
                 </Canvas>
                 <div style={{position: 'absolute', right: '20%', top: '50%'}}>
-                  <h2 className='marte-texto'>Planeta <strong>Marte</strong></h2>
+                  <h2 className='marte-texto'>Planet<strong> Mars</strong></h2>
                   <p className='marte-texto' style={{width: 350, fontWeight: 700}}>{t('MarsText')}</p>
                 </div>
               </section>
@@ -316,7 +316,7 @@ const StemWithUs = (props) => {
                 </section>
 
         
-                <h1 id='events' style={{paddingTop: 25}}>{t('Eventos_Proximos')}</h1>
+                <h1 id='events' style={{paddingTop: 25}}>Next Events</h1>
                 <div className='calendar_container'>
                   <Calendar className="calendario"
                     culture={localStorage.getItem("i18nextLng")}
@@ -403,16 +403,16 @@ const StemWithUs = (props) => {
                   </div>
                   <div className='reelsLine'>
                       <a className='reel reel1' alt='reel' href='https://www.instagram.com/p/C0mF1IvrihZ/'>
-                        <h2 className='reel_title'>Visitas Escolares</h2>
-                        <h5 className='reel_subtitle'>Marcando la diferencia</h5>
+                        <h2 className='reel_title'>School Visits</h2>
+                        <h5 className='reel_subtitle'>Marking the difference</h5>
                       </a>
                       <a className='reel reel2' alt='reel' href='https://www.instagram.com/p/C2aZn8Frew6/'>
-                        <h2 className='reel_title'>Actividades con Apolo 27</h2>
-                        <h5 className='reel_subtitle'>Sorteos y más</h5>
+                        <h2 className='reel_title'>Activities with Apolo 27</h2>
+                        <h5 className='reel_subtitle'>Fun events for kids</h5>
                       </a>
                       <a className='reel reel3' alt='reel' href='https://www.instagram.com/reel/CzcgK0xLmp6/'>
-                        <h2 className='reel_title'>Manufactura y diseño</h2>
-                        <h5 className='reel_subtitle'>Demostración de nuestro empeño</h5>
+                        <h2 className='reel_title'>Manufacturing and design</h2>
+                        <h5 className='reel_subtitle'>Showcasing the process of building our Rover</h5>
                       </a>
                       {
                         // <InstagramEmbed url="https://www.instagram.com/reel/CzcgK0xLmp6/" />

@@ -108,7 +108,7 @@ const data = {
       borderRadius: 20,
     },
     {
-      label: 'Presión',
+      label: 'Pressure',
       data: [28, 48, 40, 19, 86, 27, 90, 85, 70, 60, 80, 95, 55, 60, 80, 100, 90, 65],
       backgroundColor: 'rgba(102,181,188,0.2)', // Corrección aquí
       borderWidth: 0.5,
