@@ -590,12 +590,14 @@ const DataDashboard = (props) => {
                   {lastVideo.map((video) => {
                     return (
                       <div className="video-container">
-                        <p>{video.url}</p>
                         <iframe
                           title={video.title}
                           src={video.url}
                           frameBorder="0"
                           allowFullScreen
+                          style={{
+                            borderRadius: "16px",
+                          }}
                         />
                       </div>
                     );
