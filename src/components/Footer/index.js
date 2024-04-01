@@ -11,7 +11,7 @@ const Footer = () => {
   	 			<h4>Apolo 27</h4>
   	 			<ul>
                    <li><HashLink smooth to="/#timeline">Our Story</HashLink></li>
-                   <li><HashLink smooth to="Sponsors">Sponsors</HashLink></li>
+                   <li><HashLink smooth to="/#Members">Members</HashLink></li>
                    <li><HashLink smooth to="Telemetry">Telemetry</HashLink></li>
                    <li><HashLink smooth to="STEM">STEM</HashLink></li>
                    <li><HashLink smooth to="Manufacturing">Manufacturing</HashLink></li>

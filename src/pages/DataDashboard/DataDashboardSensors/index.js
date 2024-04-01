@@ -29,7 +29,9 @@ import AltitudIcon from "../../../imgs/DataDashboard/altitud.png"
 
 function Sensors({ data }) {
 
-    const [filter, setFilter] = useState('Crewmember 1'); // Estado para mantener el valor seleccionado del dropdown
+  console.log("data del usuario FIREBASE",data);
+
+    const [filter, setFilter] = useState('Crewmember 2'); // Estado para mantener el valor seleccionado del dropdown
 
     // Datos para los gráficos pilotos
     const [temperatura, setTemperatura] = useState([]);
@@ -62,6 +64,9 @@ function Sensors({ data }) {
 
     const handleFilter = (value) => {
         setFilter(value)
+
+        console.log("data del usuario FIREBASE",data);
+ 
 
         if(value === 'Crewmember 1' || value === 'Crewmember 2') {
             console.log('Hola', data)

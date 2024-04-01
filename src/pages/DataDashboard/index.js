@@ -77,7 +77,7 @@ const DataDashboard = (props) => {
   const [surroundingTemp, setSurroundingTemp] = useState(61);
 
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [piloto, setPiloto] = React.useState("Miguel Arredondo");
+  const [piloto, setPiloto] = React.useState("Eridania Pérez");
   const [lastVideo, setLastVideo] = useState([]);
   const [resentVideos, setRecentVideos] = useState([]);
 
@@ -922,7 +922,7 @@ const DataDashboard = (props) => {
               // </div>
             )}
           </div>
-          <div id="crewmembers">{activeIndex === 2 && <FrameComponent />}</div>
+          <div id="crewmembers">{activeIndex === 2 && <FrameComponent data={dataGrafico} />}</div>
           <div id="sensors">
             {activeIndex === 3 && <Sensors data={dataGrafico} />}
           </div>

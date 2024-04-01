@@ -16,9 +16,11 @@
 }
 
 .simulation_text, .simulation_header{
-    background: linear-gradient(#3E4879, #1366aec6);    
+    background: linear-gradient(#3e5579, #1356aec6);    
     border-radius: 15px;
+    text-align: center;
     padding: 25px;
+    font-weight: bold;
 }
 
 .cards{
