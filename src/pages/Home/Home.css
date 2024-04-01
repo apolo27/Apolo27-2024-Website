@@ -37,6 +37,18 @@ body {
     height: 400px; 
 }
 
+.containerg {
+  position: relative;
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure the image fits inside the div */
+}
+
+
 .astronaut-image {
     position: absolute; 
     top: 50%;
@@ -65,7 +77,6 @@ body {
     position: relative;
     cursor: pointer;
 }
-
 
 #item-0 h4 {
     position: absolute; 
@@ -99,15 +110,102 @@ body {
 }
 
 .group-picture {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 40px;
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+.item-1:hover .group-picture {
+  filter: grayscale(100%);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.item-1:hover .overlay {
+  opacity: 1;
+}
+
+.item-1:hover .group-picture {
+  filter: grayscale(100%);
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.item-1:hover .overlay {
+  opacity: 1;
+}
+
+#item-3 h4 {
+  position: absolute; 
+  top: 50px; 
+  left: 10px; 
+  text-align: left; 
+  padding: 5px 20px; 
+  border-radius: 5px; 
+  font-size: 40px; 
+  margin: 0; 
+  z-index: 1; 
+  font-weight: 600;
+}
+
+.arrow-image{
+  position: absolute; 
+  top: 10px;
+  right: 1px;
+}
+
+#item-3 h5 {
+  position: absolute; 
+  top: 30px; 
+  left: 10px; 
+  text-align: left; 
+  padding: 5px 20px; 
+  border-radius: 5px; 
+  font-size: 20px; 
+  margin: 0; 
+  z-index: 1; 
+}
+
+#item-3 h6 {
+  position: absolute; 
+  top: 275px; 
+  left: 10px; 
+  width: 100%; 
+  text-align: left; 
+  padding: 5px 20px; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  margin: 0; 
+  z-index: 1; 
 }
 
 #item-2 {
     border-radius: 40px;
-    background-color: rgb(28, 31, 50);
+    border: 2px solid rgb(65, 69, 97);
     grid-row-start: 3;
     grid-column-start: 3;
     grid-row-end: 3;
@@ -120,22 +218,21 @@ body {
     overflow: hidden;
 }
 
-
-#item-2 img {
-    object-fit: cover; /* Ensure the image covers the div without stretching */
-}
-
-
 #item-3 {
     border-radius: 40px;
     background-color: rgb(28, 31, 50);
     grid-row-start: 3;
     grid-column-start: 4;
-    cursor: pointer;
     grid-row-end: 3;
     grid-column-end: 5;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, rgba(122, 153, 211), rgb(34, 53, 84));
+    
 }
-
 
 /* Media query for mobile view */
 @media (max-width: 768px) {
@@ -192,8 +289,44 @@ body {
     }
 
     .astronaut-image {
-        display: none; 
+        display: none;
     }
+
+    #item-3 h5{
+      left: 5px;
+      font-size: 12px;
+      top: 25px;
+    }
+
+    #item-3 h4{
+      left: 5px;
+      font-size: 24px;
+      top: 40px;
+    }
+
+    .arrow-image{
+      top: 90px;
+      left: 110px;
+    }
+}
+
+@media (max-width: 915px) {
+  #item-3 h5{
+    left: 5px;
+    font-size: 12px;
+    top: 20px;
+  }
+
+  #item-3 h4{
+    left: 5px;
+    font-size: 26px;
+    top: 50px;
+  }
+
+  .arrow-image{
+    top: 90px;
+    left: 60px;
+  }
 }
 
 /* Media query for smaller screen sizes */
@@ -218,6 +351,9 @@ body {
       display: none;
     }
 
+    .astronaut-image {
+      display: none;
+  }
 }
 
 /* LETRAS CAMBIANTES ÁREA */
