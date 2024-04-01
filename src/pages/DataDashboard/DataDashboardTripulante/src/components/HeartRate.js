@@ -4,11 +4,6 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { ReactComponent as HeartIcon } from '../../public/group-1.svg';
 
-
-
-
-
-
 const RATE_THRESHOLDS = {
   HIGH: 100,
   ELEVATED: 90,
@@ -23,23 +18,23 @@ const bpmData = [40, 110, 40, 115, 134];
 
 const determineStatusColor = (status) => {
   const colors = {
-    'Muy alto': { backgroundColor: 'rgba(255, 77, 77, 0.2)', textColor: '#ff4d4d' },
-    Elevado: { backgroundColor: 'rgba(255, 206, 86, 0.2)', textColor: '#ffce56' },
-    Normal: { backgroundColor: 'rgba(36, 228, 164, 0.2)', textColor: '#24e4a4' },
-    Bajo: { backgroundColor: 'rgba(77, 148, 255, 0.2)', textColor: '#4d94ff' },
-    'Muy bajo': { backgroundColor: 'rgba(50, 77, 255, 0.2)', textColor: '#324dff' },
-    'No reconocido': { backgroundColor: 'rgba(0, 0, 0, 0.2)', textColor: '#808080' }
+    'Very high': { backgroundColor: 'rgba(255, 77, 77, 0.2)', textColor: '#ff4d4d' },
+    'High': { backgroundColor: 'rgba(255, 206, 86, 0.2)', textColor: '#ffce56' },
+    'Normal': { backgroundColor: 'rgba(36, 228, 164, 0.2)', textColor: '#24e4a4' },
+    'Low': { backgroundColor: 'rgba(77, 148, 255, 0.2)', textColor: '#4d94ff' },
+    'Very low': { backgroundColor: 'rgba(50, 77, 255, 0.2)', textColor: '#324dff' },
+    'Not recognized': { backgroundColor: 'rgba(0, 0, 0, 0.2)', textColor: '#808080' }
   };
-  return colors[status] || colors['No reconocido'];
+  return colors[status] || colors['Not recognized'];
 };
 
 const determineStatus = (rate) => {
-  if (rate >= RATE_THRESHOLDS.HIGH) return 'Muy alto';
-  if (rate >= RATE_THRESHOLDS.ELEVATED) return 'Elevado';
+  if (rate >= RATE_THRESHOLDS.HIGH) return 'Very high';
+  if (rate >= RATE_THRESHOLDS.ELEVATED) return 'High';
   if (rate < RATE_THRESHOLDS.ELEVATED && rate >= 60) return 'Normal';
-  if (rate < 60 && rate >= 50) return 'Bajo';
-  if (rate < 50) return 'Muy bajo';
-  return 'No reconocido';
+  if (rate < 60 && rate >= 50) return 'Low';
+  if (rate < 50) return 'Very low';
+  return 'Not recognized';
 };
 
 
@@ -221,11 +216,10 @@ const HeartRateCard = () => {
 
 const CardWrapper = styled.div`
   border-radius: 40px;
-  box-shadow: 0px 1px 50px 0px rgba(0, 0, 0, 0.08);
   background-color: var(--Dentro-del-glass, rgba(0, 0, 0, 0.21));
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 20px 
 `;
 
 const CardHeader = styled.header`
@@ -233,25 +227,25 @@ const CardHeader = styled.header`
   gap: 16px;
   font-size: 16px;
   color: #f41c23;
-  font-weight: 600;
 `;
 
 const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20%; // Círculo perfecto
+  border-radius: 20%; // Esto hará que el contenedor sea un círculo perfecto.
   background-color: #fbf0f3;
-  width: 40px; // Tamaño reducido para el icono
-  height: 40px; // Altura igual al ancho para mantener proporción
+  padding: 10px; // Añade un poco de padding para que el SVG no toque los bordes.
+  width: 45px; // Tamaño reducido para el icono
+  height: 45px; // Altura igual al ancho para mantener proporción
   svg {
-    width: 24px; // Ancho del SVG ajustado
-    height: 24px; // Altura del SVG para mantener la proporción
+    width: 24px; // Ajusta el tamaño del SVG.
+    height: 24px; // Asegúrate de que la altura sea igual al ancho para mantener la proporción cuadrada.
   }
 `;
 
 const CardTitle = styled.h2`
-  text-shadow: 0px 0px 5.6px rgba(244, 28, 35, 0.67);
+  text-shadow: 0px 0px 7.6px rgba(244, 28, 35, 0.67);
   font-family: Poppins, sans-serif;
   margin: auto 0;
   font-size: 20px;
@@ -259,43 +253,46 @@ const CardTitle = styled.h2`
 
 const CardContent = styled.div`
   display: flex;
-  margin-top: 19px;
-  gap: 4px;
+  margin-top: 18px;
+  align-items: center;
+  gap: 8px;
+  color: #818181;
+  font-weight: 700;
 `;
 
 const Value = styled.span`
   color: #ff4d4d;
   text-shadow: 0px 0px 9.6px rgba(255, 77, 77, 0.57);
-  font: 400 32px Poppins, sans-serif;
+  font: 400 24px Poppins, sans-serif;
 `;
 
 const Unit = styled.span`
-  color: #818181;
   flex-grow: 1;
   margin: auto 0;
-  font: 700 16px Poppins, sans-serif;
+  font: 16px Poppins, sans-serif;
 `;
 
 const StatusLabel = styled.div`
   border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px; // Reduce el tamaño de la fuente para el estado.
+  margin-top: 3px;
+  text-align: center;
+  display: inline-block; // Asegúrate de que el label se comporte como un bloque para centrar el texto correctamente.
+
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.textColor};
-  text-align: center;
-  padding: 4px 8px;
-  font: 600 12px Poppins, sans-serif;
 `;
 
 const GraphWrapper = styled.div`
-  width: 100%;
-  align-self: center;
-  margin-top: 6px;
-  position: relative; 
-  z-index: 10;
-  height: 150px;
-  canvas {
-    width: 100% !important;
-    height: auto !important;
-  }
+width: 100%;
+align-self: center;
+margin-top: 10px; // Ajusta el margen superior según necesites
+// Para asegurarte de que el gráfico se expanda correctamente dentro de su contenedor
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
 `;
 
 

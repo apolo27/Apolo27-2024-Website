@@ -5,6 +5,7 @@ import "./DataDashboard.css";
 import React, { useEffect, useState } from "react";
 import database from "../../services/firebase";
 import FrameComponentAmbient from './DataDashboardAmbiente/src/components/Home';
+import Mapa from '../../components/Mapa/index.js';
 import Sensors from './DataDashboardSensors/index.js';
 // import {Container,Tab, Tabs} from 'react-bootstrap';
 
@@ -140,8 +141,8 @@ const DataDashboard = (props) => {
   const icons = [
     { label: "Overview", icon: <HomeIcon /> },
     { label: "Rover", icon: <PedalBike /> },
-    { label: "Crewmember", icon: <PersonIcon /> },
-    { label: "Ambient", icon: <PublicIcon /> },
+    { label: "Crewmembers", icon: <PersonIcon /> },
+    // { label: "Ambient", icon: <PublicIcon /> },
     { label: "Sensors", icon: <SensorsIcon /> },
     
   ];
@@ -163,11 +164,11 @@ const DataDashboard = (props) => {
         case "#crewmembers":
             setActiveIndex(2);
             break;
-        case "#environment":
-            setActiveIndex(3);
-            break;
+        // case "#environment":
+        //     setActiveIndex(3);
+        //     break;
         case "#sensors":
-            setActiveIndex(4);
+            setActiveIndex(3);
             break;
     }
 }, [location.hash]);
@@ -254,7 +255,7 @@ const DataDashboard = (props) => {
       const aceleracionLineal1_y = lastTenData.map((data) => data.AceleraciónLineal1_Y);
       setAceleracionLineal1_y(aceleracionLineal1_y);
 
-      const aceleracionLineal1_z = lastTenData.map((data) => data.AceleraciónLineal1_z);
+      const aceleracionLineal1_z = lastTenData.map((data) => data.AceleraciónLineal1_Z);
       setAceleracionLineal1_z(aceleracionLineal1_z);
 
       const pulsoCardiacoBPM1 = lastTenData.map((data) => data.pulsoCardiacoBPM1);
@@ -301,7 +302,7 @@ const DataDashboard = (props) => {
       const aceleracionLineal2_y = lastTenData.map((data) => data.AceleraciónLineal2_Y);
       setAceleracionLineal2_y(aceleracionLineal2_y);
 
-      const aceleracionLineal2_z = lastTenData.map((data) => data.AceleraciónLineal2_z);
+      const aceleracionLineal2_z = lastTenData.map((data) => data.AceleraciónLineal2_Z);
       setAceleracionLineal2_z(aceleracionLineal2_z);
 
       const pulsoCardiacoBPM2 = lastTenData.map((data) => data.pulsoCardiacoBPM2);
@@ -393,19 +394,19 @@ const DataDashboard = (props) => {
 
   const dataChart = [
     {
-      name: "Habitabilidad",
+      name: "Habitability",
       porcentaje: 31.47,
       pv: 2400,
       fill: "#FF4549",
     },
     {
-      name: "Eficiencia Energética",
+      name: "Energetic Efficiency",
       porcentaje: 26.69,
       pv: 4567,
       fill: "#3BF79D",
     },
     {
-      name: "Fatiga del tripulante",
+      name: "Crewmember Fatigue",
       porcentaje: 15.69,
       pv: 1398,
       fill: "#226BD8",
@@ -419,7 +420,7 @@ const DataDashboard = (props) => {
   function getGaugeData() {
     return [
       ["Label", "Value"],
-      ["Impacto(N)", getRandomNumber()],
+      ["Impact (N)", getRandomNumber()],
     ];
   }
 
@@ -439,7 +440,6 @@ const DataDashboard = (props) => {
           value={activeIndex}
           onChange={handleChange}
           showLabels
-          
           sx={{
             width: "auto",
             maxWidth: "30%",
@@ -448,165 +448,169 @@ const DataDashboard = (props) => {
             borderRadius: "30px", // Ajusta el radio de las esquinas
             border: "2px solid #3E4879", // Ajusta el borde del menú de navegación
             backgroundColor: "#1F264B",
-            '@media (max-width: 440px)': {
+            "@media (max-width: 440px)": {
               width: "100%", // Ajusta el ancho al 100% en pantallas pequeñas
               maxWidth: "unset",
               minWidth: "unset", // Elimina el ancho mínimo en pantallas pequeñas
               margin: 0, // Centra el menú de navegación en pantallas pequeñas
               padding: 0,
-              borderRadius: "10px",
-              border: "2px solid #3E4879"
-            }
+              borderRadius: "30px",
+              border: "2px solid #3E4879",
+            },
           }}
         >
           {icons.map((item, index) => (
             <BottomNavigationAction
-            
               key={index}
               label={item.label}
               icon={item.icon}
               //Deshabilitar que se muestre grande el icono seleccionado
-              
-              sx={{ 
+
+              sx={{
                 color: "white",
                 // pegar los botones mas cuando se ponga pequeño
                 minWidth: "20%",
               }}
             />
-            
           ))}
         </BottomNavigation>
 
         <div className="data-dashboard-body">
-        <div id="overview">
-          {activeIndex === 0 && (
-            <Grid
-              container={true}
-              wrap="wrap"
-              justifyContent="space-evenly"
-              rowSpacing={4}
-            >
-              <Grid item xs="auto" order={{ xs: 2, md: 3, lg: 2, xl: 1 }}>
-                <div className="crewmembers">
-                  <h5 className="crewmembers-title">{"Crewmembers health"}</h5>
-                  <FormControl sx={{ m: 1, minWidth: 160 }}>
-                    <InputLabel
-                      id="demo-simple-select-label"
-                      sx={{ color: "white", textAlign: "center" }}
-                    >
-                      <Typography align="center">Crewmember</Typography>
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={piloto}
-                      label="Piloto"
-                      onChange={handleChangePiloto}
-                      sx={{
-                        bgcolor: "#1F264B",
-                        border: "2px solid #3E4879",
-                        borderRadius: "20px",
-                        "& .MuiSelect-select": {
-                          padding: "10px",
-                          lineHeight: "22px", // Adjust as needed
-                          color: "#2196f3", // Cambia el color del texto seleccionado
-                          textAlign: "center", // Centra el texto seleccionado
-                        },
-                      }}
-                    >
-                      <MenuItem value="Miguel Arredondo">Miguel Arredondo</MenuItem>
-                      <MenuItem value="Eridania Pérez">Eridania Pérez</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <div className="crewmembers-health">
-                    <img
-                      src={Crewmembers}
-                      alt="crewmembers"
-                      style={{ textAlign: "left" }}
-                    />
-                    <div className="crewmember-temperatura">
-                      <label>
-                        {piloto === "Miguel Arredondo"
-                          ? pulsoCardiacoBPM1[9]
-                          : pulsoCardiacoBPM2[9]}
-                      </label>
-                      <label
-                        style={{
-                          fontSize: "16px",
-                          color: "#818181",
-                          marginLeft: "4px",
+          <div id="overview">
+            {activeIndex === 0 && (
+              <Grid
+                container={true}
+                wrap="wrap"
+                justifyContent="space-evenly"
+                rowSpacing={4}
+              >
+                <Grid item xs="auto" order={{ xs: 2, md: 3, lg: 2, xl: 1 }}>
+                  <div className="crewmembers">
+                    <h5 className="crewmembers-title">
+                      {"Crewmembers health"}
+                    </h5>
+                    <FormControl sx={{ m: 1, minWidth: 160 }}>
+                      <InputLabel
+                        id="demo-simple-select-label"
+                        sx={{ color: "white", textAlign: "center" }}
+                      >
+                        <Typography align="center">Crewmember</Typography>
+                      </InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={piloto}
+                        label="Piloto"
+                        onChange={handleChangePiloto}
+                        sx={{
+                          bgcolor: "#1F264B",
+                          border: "2px solid #3E4879",
+                          borderRadius: "20px",
+                          "& .MuiSelect-select": {
+                            padding: "10px",
+                            lineHeight: "22px", // Adjust as needed
+                            color: "#2196f3", // Cambia el color del texto seleccionado
+                            textAlign: "center", // Centra el texto seleccionado
+                          },
                         }}
                       >
-                        {" "}
-                        bpm
-                      </label>
-                    </div>
-                    <div className="crewmember-oximetro">
-                      <label>
-                        {piloto === "Migue Arredondo"
-                          ? concentracionGas[9]
-                          : concentracionGas[9]}
-                      </label>
-                      <label
-                        style={{
-                          fontSize: "16px",
-                          color: "#818181",
-                          marginLeft: "4px",
-                        }}
-                      >
-                        {" "}
-                        %
-                      </label>
-                    </div>
-                    <div className="crewmember-radiacion">
-                      <label>
-                        {piloto === "Miguel Arredondo"
-                          ? radiacionUV[9]
-                          : radiacionUV[9]}
-                      </label>
-                      <label
-                        style={{
-                          fontSize: "16px",
-                          color: "#818181",
-                          marginLeft: "4px",
-                        }}
-                      >
-                        {" "}
-                        mW/cm2
-                      </label>
+                        <MenuItem value="Miguel Arredondo">
+                          Miguel Arredondo
+                        </MenuItem>
+                        <MenuItem value="Eridania Pérez">
+                          Eridania Pérez
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+                    <div className="crewmembers-health">
+                      <img
+                        src={Crewmembers}
+                        alt="crewmembers"
+                        style={{ textAlign: "left" }}
+                      />
+                      <div className="crewmember-temperatura">
+                        <label>
+                          {piloto === "Miguel Arredondo"
+                            ? pulsoCardiacoBPM1[9]
+                            : pulsoCardiacoBPM2[9]}
+                        </label>
+                        <label
+                          style={{
+                            fontSize: "16px",
+                            color: "#818181",
+                            marginLeft: "4px",
+                          }}
+                        >
+                          {" "}
+                          bpm
+                        </label>
+                      </div>
+                      <div className="crewmember-oximetro">
+                        <label>
+                          {piloto === "Miguel Arredondo"
+                            ? concentracionGas[9]
+                            : concentracionGas[9]}
+                        </label>
+                        <label
+                          style={{
+                            fontSize: "16px",
+                            color: "#818181",
+                            marginLeft: "4px",
+                          }}
+                        >
+                          {" "}
+                          %
+                        </label>
+                      </div>
+                      <div className="crewmember-radiacion">
+                        <label>
+                          {piloto === "Miguel Arredondo"
+                            ? radiacionUV[9]
+                            : radiacionUV[9]}
+                        </label>
+                        <label
+                          style={{
+                            fontSize: "16px",
+                            color: "#818181",
+                            marginLeft: "4px",
+                          }}
+                        >
+                          {" "}
+                          mW/cm2
+                        </label>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="graph">
-                  <TrackGaugeChart />
-                </div>
-              </Grid>
+                  <div className="graph">
+                    <TrackGaugeChart />
+                  </div>
+                </Grid>
 
-              <Grid item xs="auto" order={{ xs: 1, md: 1, lg: 1, xl: 2 }}>
-                {lastVideo.map((video) => {
-                  return (
-                    <div className="video-container">
-                      <p>{video.url}</p>
-                      <iframe
-                        title={video.title}
-                        src={video.url}
-                        frameBorder="0"
-                        allowFullScreen
-                      />
-                    </div>
-                  );
-                })}
-              </Grid>
+                <Grid item xs="auto" order={{ xs: 1, md: 1, lg: 1, xl: 2 }}>
+                  {lastVideo.map((video) => {
+                    return (
+                      <div className="video-container">
+                        <p>{video.url}</p>
+                        <iframe
+                          title={video.title}
+                          src={video.url}
+                          frameBorder="0"
+                          allowFullScreen
+                        />
+                      </div>
+                    );
+                  })}
+                </Grid>
 
-              <Grid item xs="auto" order={{ xs: 3, md: 3, lg: 3, xl: 3 }}>
-                <div className="graph-acceleration">
-                  <h5
-                    className="crewmembers-title"
-                    style={{ marginBottom: "20px" }}
-                  >
-                    {t("Acceleration")}
-                  </h5>
-                  <Button
+                <Grid item xs="auto" order={{ xs: 3, md: 3, lg: 3, xl: 3 }}>
+                  <div className="graph-acceleration">
+                    <h5
+                      className="crewmembers-title"
+                      style={{ marginBottom: "20px" }}
+                    >
+                      {t("Acceleration")}
+                    </h5>
+                    {/* <Button
                     variant="contained"
                     endIcon={<NavigateNextIcon />}
                     style={{
@@ -619,314 +623,312 @@ const DataDashboard = (props) => {
                     }}
                   >
                     Show more
-                  </Button>
-                  <div className="graph-acceleration-grafico">
-                    <LineChart
-                      slotProps={{
-                        legend: {
-                          labelStyle: {
+                  </Button> */}
+                    <div className="graph-acceleration-grafico">
+                      <LineChart
+                        slotProps={{
+                          legend: {
+                            labelStyle: {
+                              fill: "white",
+                            },
+                          },
+                        }}
+                        sx={{
+                          //change left yAxis label styles
+                          "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                            strokeWidth: "0.4",
                             fill: "white",
                           },
-                        },
-                      }}
-                      sx={{
-                        //change left yAxis label styles
-                        "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                          strokeWidth: "0.4",
-                          fill: "white",
-                        },
-                        // change all labels fontFamily shown on both xAxis and yAxis
-                        "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
-                          {
-                            fontFamily: "poppins",
+                          // change all labels fontFamily shown on both xAxis and yAxis
+                          "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+                            {
+                              fontFamily: "poppins",
+                            },
+                          // change bottom label styles
+                          "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                            strokeWidth: "0.5",
+                            fill: "white",
                           },
-                        // change bottom label styles
-                        "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                          strokeWidth: "0.5",
-                          fill: "white",
-                        },
-                        // bottomAxis Line Styles
-                        "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                          stroke: "white",
-                          strokeWidth: 3,
-                        },
+                          // bottomAxis Line Styles
+                          "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                            stroke: "white",
+                            strokeWidth: 3,
+                          },
 
-                        // leftAxis Line Styles
-                        "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                          stroke: "white",
-                          strokeWidth: 3,
-                        },
-                        "& .MuiAreaElement-root": {
-                          display: "none",
-                        },
-                        "& .MuiChartsLegend-label": {
-                          color: "white",
-                          fontSize: "0.8em", // adjust as needed
-                        },
-                      
-                        position: "absolute",
-                        zIndex: 1,
-                        top: -10,
-                      }}
-                      xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
-                      series={[
-                        {
-                          data: aceleracionLineal1_x,
-                          color: "#0096C7",
-                          label: "Ax",
-                        },
-                        {
-                          data: aceleracionLineal1_y,
-                          color: "#FF4549",
-                          label: "Ay",
-                        },
-                        {
-                          data: aceleracionLineal1_z,
-                          color: "#3BF79D",
-                          label: "Az",
-                        },
-                      ]}
-                      width={350}
-                      height={300}
-                    ></LineChart>
+                          // leftAxis Line Styles
+                          "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                            stroke: "white",
+                            strokeWidth: 3,
+                          },
+                          "& .MuiAreaElement-root": {
+                            display: "none",
+                          },
+                          "& .MuiChartsLegend-label": {
+                            color: "white",
+                            fontSize: "0.8em", // adjust as needed
+                          },
+
+                          position: "absolute",
+                          zIndex: 1,
+                          top: 10,
+                        }}
+                        xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
+                        series={[
+                          {
+                            data: aceleracionLineal1_x,
+                            color: "#0096C7",
+                            label: "Ax",
+                          },
+                          {
+                            data: aceleracionLineal1_y,
+                            color: "#FF4549",
+                            label: "Ay",
+                          },
+                          {
+                            data: aceleracionLineal1_z,
+                            color: "#3BF79D",
+                            label: "Az",
+                          },
+                        ]}
+                        width={350}
+                        height={300}
+                      ></LineChart>
+                    </div>
                   </div>
-                </div>
-                <div className="environment-sneakpeek">
-                  <iframe
-                    src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
-                    style={{
-                      background: <CircularProgress />,
-                      borderRadius: "16px",
-                      paddingBottom: "10px",
-                      paddingRight: "5px",
-                    }}
-                    className="herc-map"
-                    title="Nasa Herc map"
-                    id="herc-map"
-                  ></iframe>
-                </div>
+                  <div className="environment-sneakpeek">
+                    {/* <Mapa latitud={latitud[9]} longitud={longitud[9]}/> */}
+                    <iframe
+                      src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
+                      style={{
+                        background: <CircularProgress />,
+                        borderRadius: "16px",
+                        paddingBottom: "10px",
+                        paddingRight: "5px",
+                      }}
+                      className="herc-map"
+                      title="Nasa Herc map"
+                      id="herc-map"
+                    ></iframe>
+                  </div>
+                </Grid>
               </Grid>
-            </Grid>
-          )}
-        </div>
-        <div id="rover">
-          {activeIndex === 1 && (
-            <div className="rover-tab">
-              <div className="graph-izq">
-                <LineChart
-                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                  series={[
-                    {
-                      data: [2, 5.5, 2, 8.5, 1.5, 5],
-                      color: "#0096C7",
-                    },
-                  ]}
-                  sx={{
-                    //change left yAxis label styles
-                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                      strokeWidth: "0.4",
-                      fill: "white",
-                    },
-                    // change all labels fontFamily shown on both xAxis and yAxis
-                    "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel": {
-                      fontFamily: "poppins",
-                    },
-                    // change bottom label styles
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                      strokeWidth: "0.5",
-                      fill: "white",
-                    },
-                    // bottomAxis Line Styles
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                      stroke: "white",
-                      strokeWidth: 3,
-                    },
-                    // leftAxis Line Styles
-                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                      stroke: "white",
-                      strokeWidth: 3,
-                    },
-                    "& .MuiAreaElement-root": {
-                      display: "none",
-                    },
-                  }}
-                  width={350}
-                  height={300}
-                ></LineChart>
-                <h2>Inclinacion</h2>
+            )}
+          </div>
+          <div id="rover">
+            {activeIndex === 1 && (
+              <Rover data={dataGrafico}/>
+              // <div className="rover-tab">
+              //   <div className="graph-izq">
+              //     <LineChart
+              //       xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+              //       series={[
+              //         {
+              //           data: [2, 5.5, 2, 8.5, 1.5, 5],
+              //           color: "#0096C7",
+              //         },
+              //       ]}
+              //       sx={{
+              //         //change left yAxis label styles
+              //         "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+              //           strokeWidth: "0.4",
+              //           fill: "white",
+              //         },
+              //         // change all labels fontFamily shown on both xAxis and yAxis
+              //         "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+              //           {
+              //             fontFamily: "poppins",
+              //           },
+              //         // change bottom label styles
+              //         "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+              //           strokeWidth: "0.5",
+              //           fill: "white",
+              //         },
+              //         // bottomAxis Line Styles
+              //         "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+              //           stroke: "white",
+              //           strokeWidth: 3,
+              //         },
+              //         // leftAxis Line Styles
+              //         "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+              //           stroke: "white",
+              //           strokeWidth: 3,
+              //         },
+              //         "& .MuiAreaElement-root": {
+              //           display: "none",
+              //         },
+              //       }}
+              //       width={350}
+              //       height={300}
+              //     ></LineChart>
+              //     <h2>Inclination</h2>
 
-                <hr></hr>
+              //     <hr></hr>
 
-                <LineChart
-                  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                  series={[
-                    {
-                      data: [2, 5.5, 2, 8.5, 1.5, 5],
-                      color: "#0096C7",
-                    },
-                  ]}
-                  sx={{
-                    //change left yAxis label styles
-                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                      strokeWidth: "0.4",
-                      fill: "white",
-                    },
-                    // change all labels fontFamily shown on both xAxis and yAxis
-                    "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel": {
-                      fontFamily: "poppins",
-                    },
-                    // change bottom label styles
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                      strokeWidth: "0.5",
-                      fill: "white",
-                    },
-                    // bottomAxis Line Styles
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                      stroke: "white",
-                      strokeWidth: 3,
-                    },
-                    // leftAxis Line Styles
-                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                      stroke: "white",
-                      strokeWidth: 3,
-                    },
-                    "& .MuiAreaElement-root": {
-                      display: "none",
-                    },
-                  }}
-                  width={350}
-                  height={300}
-                ></LineChart>
-                <h2>Vibracion</h2>
-              </div>
+              //     <LineChart
+              //       xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+              //       series={[
+              //         {
+              //           data: [2, 5.5, 2, 8.5, 1.5, 5],
+              //           color: "#0096C7",
+              //         },
+              //       ]}
+              //       sx={{
+              //         //change left yAxis label styles
+              //         "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+              //           strokeWidth: "0.4",
+              //           fill: "white",
+              //         },
+              //         // change all labels fontFamily shown on both xAxis and yAxis
+              //         "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+              //           {
+              //             fontFamily: "poppins",
+              //           },
+              //         // change bottom label styles
+              //         "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+              //           strokeWidth: "0.5",
+              //           fill: "white",
+              //         },
+              //         // bottomAxis Line Styles
+              //         "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+              //           stroke: "white",
+              //           strokeWidth: 3,
+              //         },
+              //         // leftAxis Line Styles
+              //         "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+              //           stroke: "white",
+              //           strokeWidth: 3,
+              //         },
+              //         "& .MuiAreaElement-root": {
+              //           display: "none",
+              //         },
+              //       }}
+              //       width={350}
+              //       height={300}
+              //     ></LineChart>
+              //     <h2>Vibration</h2>
+              //   </div>
 
-              <Rover />
+              //   <Rover />
 
-              <div className="graph-der">
-                <Chart
-                  chartType="Gauge"
-                  width="100%"
-                  height="400px"
-                  data={gaugeData}
-                  options={gaugeOptions}
-                />
-              </div>
+              //   <div className="graph-der">
+              //     <Chart
+              //       chartType="Gauge"
+              //       width="100%"
+              //       height="400px"
+              //       data={gaugeData}
+              //       options={gaugeOptions}
+              //     />
+              //   </div>
 
-              <div className="graphs-bot">
-                <div style={{ textAlign: "center" }}>
-                  <h2>Inclinacion</h2>
-                  <LineChart
-                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                    series={[
-                      {
-                        data: [2, 5.5, 2, 8.5, 1.5, 5],
-                        color: "#0096C7",
-                      },
-                    ]}
-                    sx={{
-                      //change left yAxis label styles
-                      "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                        strokeWidth: "0.4",
-                        fill: "white",
-                      },
-                      // change all labels fontFamily shown on both xAxis and yAxis
-                      "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
-                        {
-                          fontFamily: "poppins",
-                        },
-                      // change bottom label styles
-                      "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                        strokeWidth: "0.5",
-                        fill: "white",
-                      },
-                      // bottomAxis Line Styles
-                      "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                        stroke: "white",
-                        strokeWidth: 3,
-                      },
-                      // leftAxis Line Styles
-                      "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                        stroke: "white",
-                        strokeWidth: 3,
-                      },
-                      "& .MuiAreaElement-root": {
-                        display: "none",
-                      },
-                    }}
-                    width={300}
-                    height={300}
-                  ></LineChart>
-                </div>
+              //   <div className="graphs-bot">
+              //     <div style={{ textAlign: "center" }}>
+              //       <h2>Inclination</h2>
+              //       <LineChart
+              //         xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+              //         series={[
+              //           {
+              //             data: [2, 5.5, 2, 8.5, 1.5, 5],
+              //             color: "#0096C7",
+              //           },
+              //         ]}
+              //         sx={{
+              //           //change left yAxis label styles
+              //           "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+              //             strokeWidth: "0.4",
+              //             fill: "white",
+              //           },
+              //           // change all labels fontFamily shown on both xAxis and yAxis
+              //           "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+              //             {
+              //               fontFamily: "poppins",
+              //             },
+              //           // change bottom label styles
+              //           "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+              //             strokeWidth: "0.5",
+              //             fill: "white",
+              //           },
+              //           // bottomAxis Line Styles
+              //           "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+              //             stroke: "white",
+              //             strokeWidth: 3,
+              //           },
+              //           // leftAxis Line Styles
+              //           "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+              //             stroke: "white",
+              //             strokeWidth: 3,
+              //           },
+              //           "& .MuiAreaElement-root": {
+              //             display: "none",
+              //           },
+              //         }}
+              //         width={300}
+              //         height={300}
+              //       ></LineChart>
+              //     </div>
 
-                <Chart
-                  chartType="Gauge"
-                  width="200px"
-                  height="200px"
-                  data={gaugeData}
-                  options={gaugeOptions}
-                />
+              //     <Chart
+              //       chartType="Gauge"
+              //       width="200px"
+              //       height="200px"
+              //       data={gaugeData}
+              //       options={gaugeOptions}
+              //     />
 
-                <div style={{ textAlign: "center" }}>
-                  <h2>Vibracion</h2>
-                  <LineChart
-                    xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-                    series={[
-                      {
-                        data: [2, 5.5, 2, 8.5, 1.5, 5],
-                        color: "#0096C7",
-                      },
-                    ]}
-                    sx={{
-                      //change left yAxis label styles
-                      "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                        strokeWidth: "0.4",
-                        fill: "white",
-                      },
-                      // change all labels fontFamily shown on both xAxis and yAxis
-                      "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
-                        {
-                          fontFamily: "poppins",
-                        },
-                      // change bottom label styles
-                      "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                        strokeWidth: "0.5",
-                        fill: "white",
-                      },
-                      // bottomAxis Line Styles
-                      "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                        stroke: "white",
-                        strokeWidth: 3,
-                      },
-                      // leftAxis Line Styles
-                      "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                        stroke: "white",
-                        strokeWidth: 3,
-                      },
-                      "& .MuiAreaElement-root": {
-                        display: "none",
-                      },
-                    }}
-                    width={300}
-                    height={300}
-                  ></LineChart>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-        <div id="crewmembers">
-          {activeIndex === 2 && <FrameComponent />}
-        </div>
-        <div id="sensors">
-          {activeIndex === 4 && (
-            <Sensors
-              data={dataGrafico}
-            />
-          )}
-        </div>
-        <div id="environment">
+              //     <div style={{ textAlign: "center" }}>
+              //       <h2>Vibration (Hz)</h2>
+              //       <LineChart
+              //         xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+              //         series={[
+              //           {
+              //             data: [2, 5.5, 2, 8.5, 1.5, 5],
+              //             color: "#0096C7",
+              //           },
+              //         ]}
+              //         sx={{
+              //           //change left yAxis label styles
+              //           "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+              //             strokeWidth: "0.4",
+              //             fill: "white",
+              //           },
+              //           // change all labels fontFamily shown on both xAxis and yAxis
+              //           "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel":
+              //             {
+              //               fontFamily: "poppins",
+              //             },
+              //           // change bottom label styles
+              //           "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+              //             strokeWidth: "0.5",
+              //             fill: "white",
+              //           },
+              //           // bottomAxis Line Styles
+              //           "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+              //             stroke: "white",
+              //             strokeWidth: 3,
+              //           },
+              //           // leftAxis Line Styles
+              //           "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+              //             stroke: "white",
+              //             strokeWidth: 3,
+              //           },
+              //           "& .MuiAreaElement-root": {
+              //             display: "none",
+              //           },
+              //         }}
+              //         width={300}
+              //         height={300}
+              //       ></LineChart>
+              //     </div>
+              //   </div>
+              // </div>
+            )}
+          </div>
+          <div id="crewmembers">{activeIndex === 2 && <FrameComponent />}</div>
+          <div id="sensors">
+            {activeIndex === 3 && <Sensors data={dataGrafico} />}
+          </div>
+          {/* <div id="environment">
           {activeIndex === 3 && <FrameComponentAmbient/>}
-        </div>
+        </div> */}
         </div>
       </Container>
     </div>

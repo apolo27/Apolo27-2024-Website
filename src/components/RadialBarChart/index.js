@@ -126,13 +126,13 @@ const TrackGaugeChart = () => {
                 let status;
                 let statusColor;
                 if (this.yData[0] < 30) {
-                    status = 'Bajo';
+                    status = 'Low';
                     statusColor = '#3BF79D';
                 } else if (this.yData[0] < 70) {
-                    status = 'Medio';
+                    status = 'Medium';
                     statusColor = '#226BD8';
                 } else {
-                    status = 'Alto';
+                    status = 'High';
                     statusColor = '#FF4549';
                 }
                 return '<span><div style="width:10px;height:10px;border-radius:50%;background-color:' + this.userOptions.color + ';display:inline-block;margin-right:10px;"></div><span style="color: ' + this.userOptions.color + '">' + this.name + '</span><br/><span style="font-size: 12px; color: ' + statusColor + '; margin-left: 20px;">' + status + '</span></span>';                //return '<span style="color: ' + this.userOptions.color + '">' + this.name + '</span><br/><span style="font-size: 12px; color: ' + statusColor + '">' + status + '</span>';
@@ -148,7 +148,7 @@ const TrackGaugeChart = () => {
                   color: Highcharts.getOptions().colors[0],
                   radius: "112%",
                   innerRadius: "88%",
-                  y: 80,
+                  y: 97,
                 },
               ],
               showInLegend: true,
@@ -165,7 +165,7 @@ const TrackGaugeChart = () => {
                   color: Highcharts.getOptions().colors[1],
                   radius: "87%",
                   innerRadius: "63%",
-                  y: 65,
+                  y: 68,
                 },
               ],
               showInLegend: true,

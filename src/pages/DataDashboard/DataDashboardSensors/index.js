@@ -201,7 +201,7 @@ function Sensors({ data }) {
         <CDropdown
           className="mb-4"
           style={{
-            backgroundColor: "#1F264B",
+            backgroundColor: "#1C1F32",
             borderRadius: "20px",
             border: "3px solid",
             borderColor: "#1976D2",
@@ -211,9 +211,9 @@ function Sensors({ data }) {
         >
           <CDropdownToggle
             style={{
-              backgroundColor: "#1F264B",
+              backgroundColor: "#1C1F32",
               borderRadius: "20px",
-              borderColor: "#1F264B",
+              borderColor: "#1C1F32",
             }}
           >
             {filter ? `Filter by:  ${filter}` : "Filtrar"}
@@ -222,6 +222,7 @@ function Sensors({ data }) {
             style={{
               backgroundColor: "#1F264B", // Cambia el color del fondo del menú
               color: "white", // Cambia el color del texto del menú
+              width: "100%",
             }}
           >
             <CDropdownItem
@@ -284,7 +285,7 @@ function Sensors({ data }) {
                   }
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                     fontFamily: "Poppins",
                   }}
                   title={"Temperature"}
@@ -377,7 +378,7 @@ function Sensors({ data }) {
                   }
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                   }}
                   title="Humidity"
                   chart={
@@ -466,7 +467,7 @@ function Sensors({ data }) {
                   }
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                   }}
                   title="Pressure"
                   chart={
@@ -573,7 +574,7 @@ function Sensors({ data }) {
                       style={{
                         borderRadius: 20,
                         height: "125px",
-                        backgroundColor: "#1F264B",
+                        backgroundColor: "#1C1F32",
                       }}
                     />
                   </CCol>
@@ -613,7 +614,7 @@ function Sensors({ data }) {
                       style={{
                         borderRadius: 20,
                         height: "125px",
-                        backgroundColor: "#1F264B",
+                        backgroundColor: "#1C1F32",
                       }}
                     />
                   </CCol>
@@ -654,7 +655,7 @@ function Sensors({ data }) {
                       style={{
                         borderRadius: 20,
                         height: "125px",
-                        backgroundColor: "#1F264B",
+                        backgroundColor: "#1C1F32",
                       }}
                     />
                   </CCol>
@@ -689,7 +690,7 @@ function Sensors({ data }) {
                   title="Heart Rate"
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                   }}
                   chart={
                     <CChartLine
@@ -786,7 +787,7 @@ function Sensors({ data }) {
                       style={{
                         borderRadius: 20,
                         height: "125px",
-                        backgroundColor: "#1F264B",
+                        backgroundColor: "#1C1F32",
                       }}
                     />
                   </CCol>
@@ -819,7 +820,7 @@ function Sensors({ data }) {
                       style={{
                         borderRadius: 20,
                         height: "125px",
-                        backgroundColor: "#1F264B",
+                        backgroundColor: "#1C1F32",
                       }}
                     />
                   </CCol>
@@ -854,7 +855,7 @@ function Sensors({ data }) {
                   }
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                     fontFamily: "Poppins",
                   }}
                   title={"Impact"}
@@ -947,7 +948,7 @@ function Sensors({ data }) {
                   }
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                   }}
                   title="Gas Concentration"
                   chart={
@@ -1036,7 +1037,7 @@ function Sensors({ data }) {
                   }
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                   }}
                   title="Vibration"
                   chart={
@@ -1135,7 +1136,7 @@ function Sensors({ data }) {
                       style={{
                         borderRadius: 20,
                         height: "125px",
-                        backgroundColor: "#1F264B",
+                        backgroundColor: "#1C1F32",
                       }}
                     />
                   </CCol>
@@ -1168,7 +1169,7 @@ function Sensors({ data }) {
                       style={{
                         borderRadius: 20,
                         height: "125px",
-                        backgroundColor: "#1F264B",
+                        backgroundColor: "#1C1F32",
                       }}
                     />
                   </CCol>
@@ -1201,7 +1202,7 @@ function Sensors({ data }) {
                       style={{
                         borderRadius: 20,
                         height: "125px",
-                        backgroundColor: "#1F264B",
+                        backgroundColor: "#1C1F32",
                       }}
                     />
                   </CCol>
@@ -1239,7 +1240,7 @@ function Sensors({ data }) {
                   title="Inclination"
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                   }}
                   chart={
                     <CChartLine
@@ -1292,8 +1293,8 @@ function Sensors({ data }) {
                             },
                           },
                           y: {
-                            min: Math.min(...inclinacionRover_z) - 3,
-                            max: Math.max(...inclinacionRover_z) + 3,
+                            min: Math.min(...inclinacionRover_x),
+                            max: Math.max(...inclinacionRover_z),
                             display: false,
                             grid: {
                               display: false,
@@ -1343,7 +1344,7 @@ function Sensors({ data }) {
                   title="UV Radiation"
                   style={{
                     borderRadius: 20,
-                    backgroundColor: "#1F264B",
+                    backgroundColor: "#1C1F32",
                   }}
                   chart={
                     <CChartLine
