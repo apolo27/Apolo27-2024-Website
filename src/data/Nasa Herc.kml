@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Nasa Herc</name>
+    <description/>
+    <Style id="icon-seq2-0-0-F57C00-labelson">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>../imgs/Mapa/numero-uno-task.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-1-F57C00-labelson">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-2.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-2-F57C00-labelson">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-3.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-3-F57C00-labelson">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-4.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-0-4-F57C00-labelson">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-5.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-0-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-6.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-1-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-7.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-2-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-8.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-3-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-9.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-4-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-10.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-5-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-11.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-6-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-12.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-7-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-13.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-8-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-14.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-seq2-1-9-0288D1-labelson">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>images/icon-15.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Tasks</name>
+      <Placemark>
+        <name>Task 1: Find ARV-30: </name>
+        <description><![CDATA[Two crew members are tasked to pilot the LTV to the location of ARV-30 to see if anything can be done with <br>the limited tools available. Since the RLR in question was exploring in the absolute darkness of the PSR, <br>crew must use handheld light sources to examine ARV-30 for signs of damage and to check the status <br>indicators located on the external hull of ARV-30]]></description>
+        <styleUrl>#icon-seq2-0-0-F57C00-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -86.640848,34.7119013,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Task 2: Regolith Removal</name>
+        <description><![CDATA[Pilots must use their task tool to remove the regolith from a solar panel without damaging or moving it. Pilots <br>are to remain on their rover and may use any non-destructive methods to remove a thin covering of simulated <br>regolith; this is a working solar panel, and enough surface area must be cleared to generate the power required <br>to light an indicator light. ]]></description>
+        <styleUrl>#icon-seq2-0-1-F57C00-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -86.6418672,34.71206,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Task 3: Moon Maintenance</name>
+        <description><![CDATA[One rover pilot must safely disembark their rover and approach the task site. Using simulated EVA gloves and <br>a provided hand tool they must remove several fasteners securing the cover plate. The plate is hinged and will <br>not fall open or to the ground. Opening the cover plate and safely returning to and mounting your rover will <br>constitute a successful task. ]]></description>
+        <styleUrl>#icon-seq2-0-2-F57C00-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -86.6426879,34.7112928,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Task 4: Power It Up</name>
+        <description><![CDATA[A cable connection must be made between two simulated batteries with one side of the connection already <br>made. Using the task tool, pilots must attach a provided clamp-ended positive/negative cable to two battery <br>posts. The clamping force of these cables will not be as strong as an automotive jumper/booster cable but will <br>operate similarly. The force required to open the clamps will be less than 15 lbs. Successfully attaching the cable <br>to both posts will constitute a successful task. The cable clamps will not be over 3” wide at a neutral state.]]></description>
+        <styleUrl>#icon-seq2-0-3-F57C00-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -86.6423768,34.7111032,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Task 5: Rover Redundancy</name>
+        <description><![CDATA[Using the task tool, four cylindrical sample containers with a diameter of 2” ± 0.125” and a length of 4 – 6” <br>must be transferred from the task site to the rover and must be stored on the rover until the end of the course. <br>Collection of the sample from the task tool and storing them on the rover may be done by hand, but the sample <br>must be taken from the task site using only the task tool. Not all samples will be presented in a way that allows a <br>full circumference grip, but a full diameter grip will at minimum be available. All samples are stored vertically.]]></description>
+        <styleUrl>#icon-seq2-0-4-F57C00-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -86.6421247,34.7108871,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Obstacles</name>
+      <Placemark>
+        <name>Obstacle 1</name>
+        <description><![CDATA[<img src="https://doc-10-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/m7k1sv3rgd5uji6hk63ilcl76k/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgrEWU9PjTEIxxJu8M-Ixpw_dXLhEeNid7E5tRbZYwxYpqFGt6UeOSwOddEQgwkQvoixY_tbCU-whoHtqJDnNK0ERNM15shNFrrd5Zh2_wjHF4StjePQ-ztY9wnVgOUxRSa22LEeVpLnkPflVZgm4GhQwpJGTy-QctLVv31oZLOukVbNwUT_IMpqRXM9KbHnESTSIytdIXAAmxjBTmBKHMFNd3GPkzYutqFzg1gr6tLVtKs?session=0&fife" height="200" width="auto" /><br><br>Undulating Terrain]]></description>
+        <styleUrl>#icon-seq2-1-0-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-10-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/m7k1sv3rgd5uji6hk63ilcl76k/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgrEWU9PjTEIxxJu8M-Ixpw_dXLhEeNid7E5tRbZYwxYpqFGt6UeOSwOddEQgwkQvoixY_tbCU-whoHtqJDnNK0ERNM15shNFrrd5Zh2_wjHF4StjePQ-ztY9wnVgOUxRSa22LEeVpLnkPflVZgm4GhQwpJGTy-QctLVv31oZLOukVbNwUT_IMpqRXM9KbHnESTSIytdIXAAmxjBTmBKHMFNd3GPkzYutqFzg1gr6tLVtKs?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6399932,34.7102271,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 2</name>
+        <description><![CDATA[<img src="https://doc-0s-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/1imah69unqle2bcv929jr463q4/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgrDVBrKUgidljChZZD5D12x1PGxCg2xE20eWI68W6jDAIsG1sDyMKN2EJ4XNJYswkPLpE3peSCa6Ubi3LBdE14FTW5ahgVj6WVx_69QxFy5NnXUzun99eQv0eukDzKKM6l8Ih-vHp6wakGSFTGKuj4TJMgWQ45DuX0YhiKEx-Wpr41gJ4Q4ytWL72Pe5N5_5yLYF6bmZkEu3gcOHm_nzg274oGQKxzZfveBUjsvcO8IyXo?session=0&fife" height="200" width="auto" /><br><br>Crater with Ejecta]]></description>
+        <styleUrl>#icon-seq2-1-1-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0s-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/1imah69unqle2bcv929jr463q4/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgrDVBrKUgidljChZZD5D12x1PGxCg2xE20eWI68W6jDAIsG1sDyMKN2EJ4XNJYswkPLpE3peSCa6Ubi3LBdE14FTW5ahgVj6WVx_69QxFy5NnXUzun99eQv0eukDzKKM6l8Ih-vHp6wakGSFTGKuj4TJMgWQ45DuX0YhiKEx-Wpr41gJ4Q4ytWL72Pe5N5_5yLYF6bmZkEu3gcOHm_nzg274oGQKxzZfveBUjsvcO8IyXo?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6399771,34.7107041,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 3</name>
+        <description><![CDATA[<img src="https://doc-0k-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/gtdq3e5agpjorogv6t75jo3898/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgrmUDHFaI2sEWgbk_FoP5VjNW_UrJDnC_a3zenioaWRaUPAa_ImuEJhYZYPnmFgjDBM_B2dSXenQo7H5KhKKI434rBcdBT59OqndZPMPBZcEU6vcWj836K8cNy0N9TVQKFBhdZGCAL9dtsCUcTYxT0N_7smr_rrpDht4wD-ewYNUWNLEXG4dd77agpXKqxmM4HA41saF0yk-d72YhtIGQrFUt-g6F10vqjpUbsMJmat4A0?session=0&fife" height="200" width="auto" /><br><br>Traverse Incline]]></description>
+        <styleUrl>#icon-seq2-1-2-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0k-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/gtdq3e5agpjorogv6t75jo3898/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgrmUDHFaI2sEWgbk_FoP5VjNW_UrJDnC_a3zenioaWRaUPAa_ImuEJhYZYPnmFgjDBM_B2dSXenQo7H5KhKKI434rBcdBT59OqndZPMPBZcEU6vcWj836K8cNy0N9TVQKFBhdZGCAL9dtsCUcTYxT0N_7smr_rrpDht4wD-ewYNUWNLEXG4dd77agpXKqxmM4HA41saF0yk-d72YhtIGQrFUt-g6F10vqjpUbsMJmat4A0?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6400468,34.7110877,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 4</name>
+        <description><![CDATA[<img src="https://doc-0g-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/e44qglp6fpbfd3ro21uvdni07c/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgor2TmqzLcAOwt98wI-F0PuADEQlKcfaXdSxybccZheNru0Gazb-QHCFFb-Ksyofp-qGRUl2rQbHQEqUExoNV5xUqicYY1gG42NbFwfP4J7W9jyz6fozvnXJpW_qhSx7xRRHxFI5tOOm2dBh-myMFuC_EPnOHsjpazSmbCwwA1P_SZ4YBg_73UFHC8sm8Cy3jAynCEh0Uc2G7xFLsZJHUi0dveRgLUyg3IIsaKdHlDUO_Y?session=0&fife" height="200" width="auto" /><br><br>Martian Terrain High Butte]]></description>
+        <styleUrl>#icon-seq2-1-3-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0g-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/e44qglp6fpbfd3ro21uvdni07c/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgor2TmqzLcAOwt98wI-F0PuADEQlKcfaXdSxybccZheNru0Gazb-QHCFFb-Ksyofp-qGRUl2rQbHQEqUExoNV5xUqicYY1gG42NbFwfP4J7W9jyz6fozvnXJpW_qhSx7xRRHxFI5tOOm2dBh-myMFuC_EPnOHsjpazSmbCwwA1P_SZ4YBg_73UFHC8sm8Cy3jAynCEh0Uc2G7xFLsZJHUi0dveRgLUyg3IIsaKdHlDUO_Y?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6404063,34.7114934,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 5</name>
+        <description><![CDATA[<img src="https://doc-0g-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/va58s35h789o2qm9uqagclkc9s/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgqUk-ChQt3frmUDIIjhiUlmgiELCtT-F4s8aw6V9PCGvH0_6VCRiIDs1HJucj8ZrzT-rDL4MrFsCMi9Jl_Yf3RL-_R_tMmVinUqr14NbaJn4LS8LR4thBK2684useBw4X45qcdTP76A9jSVo6TsgY2GpLWiFV3-hjgZ0SpwMIXycMyR4YmpXTlGZ-FEBQGVyYYDunh41WiBX5TrUAP6aw7bpvjY9iDId9WfD6HXFTEXZOQ?session=0&fife" height="200" width="auto" /><br><br>Large Ravine ]]></description>
+        <styleUrl>#icon-seq2-1-4-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0g-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/va58s35h789o2qm9uqagclkc9s/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgqUk-ChQt3frmUDIIjhiUlmgiELCtT-F4s8aw6V9PCGvH0_6VCRiIDs1HJucj8ZrzT-rDL4MrFsCMi9Jl_Yf3RL-_R_tMmVinUqr14NbaJn4LS8LR4thBK2684useBw4X45qcdTP76A9jSVo6TsgY2GpLWiFV3-hjgZ0SpwMIXycMyR4YmpXTlGZ-FEBQGVyYYDunh41WiBX5TrUAP6aw7bpvjY9iDId9WfD6HXFTEXZOQ?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6406959,34.7117756,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 6</name>
+        <description><![CDATA[<img src="https://doc-0g-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/4h3muphgh4cd3hirnn9dkcri14/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgr-BdXmMvZhDyzghUlc12jQFDF4I-QvDDv9qmuBAgWgvpzrQ71WEA5J4sTmW6eB_qw9PJg7Attvbn07D0BGRI5eIZQACbd9Xg9c2NI_K113eJBJUqmesEH_oMFKD96DkytGmqdR487N_r4KGYtgA-ST9nxD9vDFqhW9UKdoi9pfiZpDXScVNNbjZjhHraY_nzlNfLmIlXLvXB5Q5RYO43ojVwZ7pFZCq7L91L343PQUcno?session=0&fife" height="200" width="auto" /><br><br>Crevasses]]></description>
+        <styleUrl>#icon-seq2-1-5-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0g-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/4h3muphgh4cd3hirnn9dkcri14/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgr-BdXmMvZhDyzghUlc12jQFDF4I-QvDDv9qmuBAgWgvpzrQ71WEA5J4sTmW6eB_qw9PJg7Attvbn07D0BGRI5eIZQACbd9Xg9c2NI_K113eJBJUqmesEH_oMFKD96DkytGmqdR487N_r4KGYtgA-ST9nxD9vDFqhW9UKdoi9pfiZpDXScVNNbjZjhHraY_nzlNfLmIlXLvXB5Q5RYO43ojVwZ7pFZCq7L91L343PQUcno?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6420317,34.7119763,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 7</name>
+        <description><![CDATA[<img src="https://doc-0s-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/nhp0nti0s5tvhcm8q9d1mqrgos/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgo5CFcnc_YaEIG9WzVUBe4QKXqbtWTNIAmvpymDsZVRmL8xIvy8yArbkV0V6nzC5pg1zsvf7aom9ujxWBHR88F6dohuZynwq0S3tKKMfiY-AvRi56d-Wyy0O2MwB2paTgzYLYYgStEtrl0W6-uqTmFhwEjsse9X6R8DT8Ash90uVgPX9VN-WoZulZWV3EYSCGcgXUYDWeVfHkqpTxN0o2i_dUeKxPC5j0O4hLmuKuhBJZI?session=0&fife" height="200" width="auto" /><br><br>Ice Geyser Slolam]]></description>
+        <styleUrl>#icon-seq2-1-6-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0s-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/nhp0nti0s5tvhcm8q9d1mqrgos/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgo5CFcnc_YaEIG9WzVUBe4QKXqbtWTNIAmvpymDsZVRmL8xIvy8yArbkV0V6nzC5pg1zsvf7aom9ujxWBHR88F6dohuZynwq0S3tKKMfiY-AvRi56d-Wyy0O2MwB2paTgzYLYYgStEtrl0W6-uqTmFhwEjsse9X6R8DT8Ash90uVgPX9VN-WoZulZWV3EYSCGcgXUYDWeVfHkqpTxN0o2i_dUeKxPC5j0O4hLmuKuhBJZI?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.642536,34.7114513,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 8</name>
+        <description><![CDATA[<img src="https://doc-0k-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/4hrddlt9l46unfqad9shgs1o5k/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgr7Gnu6WhfriPU05mKQCdLdAEww7GtbzEz-aVZIuwQ2zXcZouXRqxbLOAhEbdoF0j2X_y64Ft1_o30tsoN8gxwIEfVnu0txRDHV8Qlh42e2ry-Tmvtr-K6Wbhddh0--hiqAmZnmy5wHWYdIs8Kd2MznMdmOpEpS8D3bx1YK2WJoKMc-HRC-GNi8w__EzbE13TSKwKTLo0mlylpLfHaskzKaZhKGOTk-4YRgAjRxiubliOI?session=0&fife" height="200" width="auto" /><br><br>Bouldering Rocks]]></description>
+        <styleUrl>#icon-seq2-1-7-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0k-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/4hrddlt9l46unfqad9shgs1o5k/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgr7Gnu6WhfriPU05mKQCdLdAEww7GtbzEz-aVZIuwQ2zXcZouXRqxbLOAhEbdoF0j2X_y64Ft1_o30tsoN8gxwIEfVnu0txRDHV8Qlh42e2ry-Tmvtr-K6Wbhddh0--hiqAmZnmy5wHWYdIs8Kd2MznMdmOpEpS8D3bx1YK2WJoKMc-HRC-GNi8w__EzbE13TSKwKTLo0mlylpLfHaskzKaZhKGOTk-4YRgAjRxiubliOI?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6425145,34.7112088,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 9</name>
+        <description><![CDATA[<img src="https://doc-0k-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/n83vilqcmfdfsdkul8lhg05dlg/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgpKw3-Vy9d35TFz102-zPE_qfZ_uNWykrmYl3V60oMCJdp-NHbb9IUJcqgCD3JVMtNndYSJ7hu219gB93L29A5PkGjPmGaC3VP-21p7lU6YGIwvwfKI0sPqxcXtfqhDu8A2QbR-fdbQ3Mvnl0i2amnIENhTES7oheitm-iYDkY2yeo5w1N1SLPUiDG6fKSwALgCBj7CrUJz3meYBl9x70uynvzrofKPv_r9u7R2piud688?session=0&fife" height="200" width="auto" /><br><br>Loose Regolith]]></description>
+        <styleUrl>#icon-seq2-1-8-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-0k-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/n83vilqcmfdfsdkul8lhg05dlg/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgpKw3-Vy9d35TFz102-zPE_qfZ_uNWykrmYl3V60oMCJdp-NHbb9IUJcqgCD3JVMtNndYSJ7hu219gB93L29A5PkGjPmGaC3VP-21p7lU6YGIwvwfKI0sPqxcXtfqhDu8A2QbR-fdbQ3Mvnl0i2amnIENhTES7oheitm-iYDkY2yeo5w1N1SLPUiDG6fKSwALgCBj7CrUJz3meYBl9x70uynvzrofKPv_r9u7R2piud688?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6421658,34.7107149,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Obstacle 10</name>
+        <description><![CDATA[<img src="https://doc-14-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/e2c05h91a0ofbdlp308leee9ms/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgocLhMIG93w_WTUVSBgKVJu4RY9ksk_w8K-pvBT1Y6dlSqlOb5q522z4o-3dp6laXat5QGbTcaQUQZfEOCFet0SZ0YwzFXaE53qwLFgSO9S-aAR6PSLNGm3TMpVh4bT5RHGc8tx5HPv8zCocS3rOwNiMqE-xokPVbaq55NUfE-ap31QFAm7nrHR-e7jjDAnRsKWKLR1C-NU4yQ0u_pH3QSLIN6Atfz6w735zPF4TdVveJ0?session=0&fife" height="200" width="auto" /><br><br>Pea Gravel]]></description>
+        <styleUrl>#icon-seq2-1-9-0288D1-labelson</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://doc-14-1g-mymaps.googleusercontent.com/untrusted/hostedimage/m/82jgukeavu6vjq054bjl4e9ao4/e2c05h91a0ofbdlp308leee9ms/1711894375750/3oiRgw959gU-LpzZj5UyFUzU-jEVSg0R/02604613865836867411/5AHUGKgocLhMIG93w_WTUVSBgKVJu4RY9ksk_w8K-pvBT1Y6dlSqlOb5q522z4o-3dp6laXat5QGbTcaQUQZfEOCFet0SZ0YwzFXaE53qwLFgSO9S-aAR6PSLNGm3TMpVh4bT5RHGc8tx5HPv8zCocS3rOwNiMqE-xokPVbaq55NUfE-ap31QFAm7nrHR-e7jjDAnRsKWKLR1C-NU4yQ0u_pH3QSLIN6Atfz6w735zPF4TdVveJ0?session=0&fife]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -86.6424525,34.7103612,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
