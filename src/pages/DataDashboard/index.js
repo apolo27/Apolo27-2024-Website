@@ -77,7 +77,7 @@ const DataDashboard = (props) => {
   const [surroundingTemp, setSurroundingTemp] = useState(61);
 
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [piloto, setPiloto] = React.useState("Miguel Arredondo");
+  const [piloto, setPiloto] = React.useState("Eridania Pérez");
   const [lastVideo, setLastVideo] = useState([]);
   const [resentVideos, setRecentVideos] = useState([]);
 

@@ -31,7 +31,7 @@ function Sensors({ data }) {
 
   console.log("data del usuario FIREBASE",data);
 
-    const [filter, setFilter] = useState('Crewmember 1'); // Estado para mantener el valor seleccionado del dropdown
+    const [filter, setFilter] = useState('Crewmember 2'); // Estado para mantener el valor seleccionado del dropdown
 
     // Datos para los gráficos pilotos
     const [temperatura, setTemperatura] = useState([]);
