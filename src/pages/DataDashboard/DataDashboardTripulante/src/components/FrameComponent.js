@@ -9,12 +9,11 @@ import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
   CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
   } from '@coreui/react'
 
-// Microservicio Salud tripulante
+import { useUserSelection } from './UserSelectionContext'; // Ajusta la ruta según sea necesario
 import {
   fetchBloodPressureData,
   fetchSpO2Data,
   fetchHeartRateData,
-  usersData,
 } from './healthDataServices';
 
 
@@ -70,46 +69,30 @@ const BMIData = [
 
 
 
+const calculatePosition = (value) => {
+  const scaleMin = 15;
+  const scaleMax = 40;
+  const position = ((value - scaleMin) / (scaleMax - scaleMin)) * 100;
+  return position;
+};
 
 
 
 
-
-function FrameComponent({ onUserChange }) {
-  const [userData, setUserData] = useState(usersData[0]);
-  const [bloodPressureData, setBloodPressureData] = useState({});
-  const [SpO2Data, setSpO2Data] = useState([]);
-  const [heartRateData, setHeartRateData] = useState([]);
-
-  // Actualización de datos de salud basada en el usuario seleccionado
-  useEffect(() => {
-    async function fetchData() {
-      const bpData = await fetchBloodPressureData(userData.userName);
-      const spo2Data = await fetchSpO2Data(userData.userName);
-      const hrData = await fetchHeartRateData(userData.userName);
-
-      setBloodPressureData(bpData);
-      setSpO2Data(spo2Data);
-      setHeartRateData(hrData);
-    }
-
-    fetchData();
-  }, [userData]);
+function FrameComponent() {
+  const { selectedUserName, changeSelectedUser, getSelectedUserData, usersData } = useUserSelection();
 
   const handleSelectChange = (event) => {
-    const selectedUser = usersData.find(user => user.userName === event.target.value);
-    setUserData(selectedUser);
-    if (onUserChange) {
-      onUserChange(selectedUser.userName);
-    }
+    const newUser = event.target.value;
+    changeSelectedUser(newUser); // Actualiza el contexto con el nuevo usuario seleccionado
   };
 
-  const calculatePosition = (value) => {
-    const scaleMin = 15;
-    const scaleMax = 40;
-    const position = ((value - scaleMin) / (scaleMax - scaleMin)) * 100;
-    return position;
-  };
+  const userData = getSelectedUserData(); // Datos del usuario seleccionado
+
+
+  // Obtener datos del usuario seleccionado
+  // Actualización de datos de salud basada en el usuario seleccionado
+
 
   const calculateBmiStatus = (bmiValue) => {
     if (bmiValue < 18.5) return "BAJO PESO";
@@ -138,13 +121,11 @@ function FrameComponent({ onUserChange }) {
       <CCol>
         <Header>
           <Title>BMI Calculator</Title>
-          <UserSelector onChange={handleSelectChange} value={userData.userName}>
-            {usersData.map((user) => (
-              <option key={user.userName} value={user.userName}>
-                {user.userName}
-              </option>
-            ))}
-          </UserSelector>
+          <UserSelector onChange={handleSelectChange} value={selectedUserName || ''}>
+              {usersData.map((user) => (
+                <option key={user.userName} value={user.userName}>{user.userName}</option>
+              ))}
+            </UserSelector>
         </Header>
         <BodyMeasurements>
           <BodyMeasurementsContent>

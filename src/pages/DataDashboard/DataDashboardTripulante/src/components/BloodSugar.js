@@ -46,7 +46,7 @@ const getStatusColor = (status) => {
 
 
 
-const SpO2Card = ({ spO2Data = [] }) => {
+const SpO2Card = ({ data}) => {
   const determineSpo2Status = (value) => {
     if (value >= SPO2_THRESHOLDS.NORMAL) return 'Normal';
     if (value < SPO2_THRESHOLDS.NORMAL && value >= SPO2_THRESHOLDS.LOW) return 'Bajo';
@@ -55,16 +55,16 @@ const SpO2Card = ({ spO2Data = [] }) => {
   };
 
   // Preparación del último valor de SpO2 y su estado
-  const latestSpO2Value = spO2Data.length > 0 ? spO2Data[spO2Data.length - 1] : null;
+  const latestSpO2Value = data.length > 0 ? data[data.length - 1] : null;
   const spO2Status = latestSpO2Value ? determineSpo2Status(latestSpO2Value) : 'No reconocido';
 
   // Configuración de los datos y opciones para el gráfico
-  const data = {
-    labels: spO2Data.map((_, index) => `Punto ${index + 1}`),
+  const chartData = {
+    labels: data.map((_, index) => `Punto ${index + 1}`),
     datasets: [
       {
         label: 'SpO2',
-        data: spO2Data,
+        data: data,
         fill: true,
         backgroundColor: 'rgba(231, 155, 56, 0.2)',
         borderColor: 'rgba(231, 155, 56, 1)',
@@ -72,7 +72,8 @@ const SpO2Card = ({ spO2Data = [] }) => {
       },
     ],
   };
-  
+
+
 
 
 
@@ -103,17 +104,17 @@ const SpO2Card = ({ spO2Data = [] }) => {
       <CardTitle>SpO2</CardTitle>
     </CardHeader>
     <CardContent>
-      <Value>{spO2Data[spO2Data.length - 1]}</Value> {/* Muestra el último valor de SpO2 */}
+      <Value>{data[data.length - 1]}</Value> {/* Muestra el último valor de SpO2 */}
       <Unit>%</Unit>
       <StatusLabel style={{
-        backgroundColor: getStatusColor(determineSpo2Status(spO2Data[spO2Data.length - 1])).background,
-        color: getStatusColor(determineSpo2Status(spO2Data[spO2Data.length - 1])).text
+        backgroundColor: getStatusColor(determineSpo2Status(data[data.length - 1])).background,
+        color: getStatusColor(determineSpo2Status(data[data.length - 1])).text
       }}>
-        {determineSpo2Status(spO2Data[spO2Data.length - 1])} {/* Determina y muestra el estado basado en el último valor de SpO2 */}
+        {determineSpo2Status(data[data.length - 1])} {/* Determina y muestra el estado basado en el último valor de SpO2 */}
       </StatusLabel>
     </CardContent>
     <GraphWrapper>
-      <Line data={data} options={options}/>
+      <Line data={chartData} options={options}/>
     </GraphWrapper>
   </CardWrapper>
   );

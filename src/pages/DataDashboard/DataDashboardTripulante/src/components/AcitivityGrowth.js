@@ -1,11 +1,19 @@
-import React from 'react';
+
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
+import React, { useEffect, useState } from 'react';
+import { useUserSelection } from './UserSelectionContext'; // Asegúrate de actualizar la ruta
+
 
 import { CContainer, CRow, CCol, CWidgetStatsF, CWidgetStatsA,
   CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle
 } from '@coreui/react'
+
+
 Chart.register(...registerables);
+
+
+
 
 const roundedCornersPlugin = {
   id: 'roundedCorners',
@@ -59,6 +67,7 @@ const options = {
       ticks: {
         color: 'white',
       },
+      barThickness: 10,
     },
     y: {
       stacked: true,
@@ -73,7 +82,20 @@ const options = {
   },
   responsive: true,
   maintainAspectRatio: false,
+  elements: {
+    bar: {
+      borderWidth: 2,
+      borderRadius: {
+        topLeft: 20,
+        topRight: 20,
+        bottomLeft: 20,
+        bottomRight: 20
+      },
+      barThickness: 2, // Esto hará que las barras sean más finas
+    },
+  },
 };
+/*
 
 const data = {
   labels: ['Jan 1', 'Jan 2', 'Jan 3', 'Jan 4', 'Jan 5', 'Jan 6', 'Jan 7', 'Jan 8', 'Jan 9', 'Jan 10', 'Jan 11', 'Jan 12', 'Jan 13', 'Jan 14', 'Jan 15', 'Jan 16', 'Jan 17', 'Jan 18'],
@@ -100,15 +122,67 @@ const data = {
       borderRadius: 20,
     },
   ],
-};
+};    */
 
-const ActivityGrowth = () => {
+Chart.register(...registerables);
+
+
+const ActivityGrowth = ({bloodPressure, spO2, heartRate}) => {
+
+  console.log(bloodPressure, spO2, heartRate);
+  const [chartData, setChartData] = useState({
+    labels: [], // Las fechas irán aquí
+    datasets: [],
+  });
+  useEffect(() => {
+    // Generar fechas para los datos históricos
+    const generateDates = (historicalDataLength) => {
+      const dates = [];
+      const startDate = new Date('2023-03-23'); // Comienza desde el 23 de marzo de 2023, por ejemplo
+      for (let i = 0; i < historicalDataLength; i++) {
+        const date = new Date(startDate);
+        date.setDate(startDate.getDate() + i); // Incrementa un día por cada punto de dato
+        dates.push(date.toLocaleDateString());
+      }
+      return dates;
+    };
+
+    
+
+    // Configurar los datos para el gráfico usando las props
+    setChartData({
+      labels: generateDates(bloodPressure.historicalData.systolic.length), // Usa la longitud de los datos históricos para generar las fechas
+      datasets: [
+        {
+          label: 'Blood Pressure - Systolic',
+          data: bloodPressure.historicalData.systolic,
+          backgroundColor: 'rgba(93, 183, 249, 0.3)',
+          borderRadius: 20,
+        },
+        {
+          label: 'SpO2',
+          data: spO2,
+          backgroundColor: 'rgba(102, 181, 188, 0.4)',
+          borderRadius: 20,
+
+        },
+        {
+          label: 'Heart Rate',
+          data: heartRate,
+          backgroundColor: 'rgba(129, 236, 172, 0.2)',
+          borderRadius: 50,
+
+        },
+      ],
+    });
+  }, [bloodPressure, spO2, heartRate]);
+
 
   return (
     <CContainer>
       <CRow>
         <CCol lg={12} style={{height: '325px'}}>
-          <Bar data={data} options={options} />
+          <Bar data={chartData} options={options} />
         </CCol>
       </CRow>
     </CContainer>
