@@ -86,8 +86,8 @@ function Header(props) {
 
     return (
         <nav className={`navbar navbar-expand-custom navbar-mainbg ${isOpen ? 'open' : ''}`}>
-            <a className="navbar-brand navbar-logo" href="#/"></a>
-            <a className="navbar-brand navbar-logo" href="#/">
+            <a className="navbar-brand navbar-logo" href="/"></a>
+            <a className="navbar-brand navbar-logo" href="/">
             <img src={logo} alt="Logo" />
         </a>
             <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={toggleMenu}>
@@ -96,20 +96,20 @@ function Header(props) {
             <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto">
                     <div className="hori-selector"><div className="left"></div><div className="right"></div></div>
-                    <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
+                    <li className={`nav-item ${location.pathname === '/#' ? 'active' : ''}`}>
                       <Link to="/" className="nav-link" onClick={() => setIsOpen(false)}><i className=""></i>Home</Link>
                     </li>
                     <li className={`nav-item ${location.pathname.includes('/DataDashboard') ? 'active' : ''}`}>
-                      <Link to="/DataDashboard" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>Dashboard</Link>
+                      <Link to="/#/DataDashboard" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>Dashboard</Link>
                     </li>
                     <li className={`nav-item ${location.pathname.includes('/StemWithUs') ? 'active' : ''}`}>
-                      <Link to="/StemWithUs" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>STEM With Us</Link>
+                      <Link to="/#/StemWithUs" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>STEM With Us</Link>
                     </li>
                     <li className={`nav-item ${location.pathname.includes('/Simulation') ? 'active' : ''}`}>
-                      <Link to="/Simulation" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>Simulation</Link>
+                      <Link to="/#/Simulation" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>Simulation</Link>
                     </li>
                     <li className={`nav-item ${location.pathname.includes('/Sponsors') ? 'active' : ''}`}>
-                      <Link to="/Sponsors" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>Become a Sponsor</Link>
+                      <Link to="/#/Sponsors" onClick={() => setIsOpen(false)} className="nav-link"><i className=""></i>Become a Sponsor</Link>
                     </li>
                 </ul>
             </div>
