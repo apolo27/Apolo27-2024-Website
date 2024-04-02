@@ -14,7 +14,7 @@ import STEM from './pages/Home/TeamAreas/STEM/STEM.js';
 import Manufacturing from './pages/Home/TeamAreas/Manufacturing/Manufacturing.js';
 import Footer from './components/Footer'
 import { useTranslation } from 'react-i18next'
-
+//ver
 function App() {
   const {t} = useTranslation();
 
