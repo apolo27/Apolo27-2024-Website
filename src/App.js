@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header'
 import Home from './pages/Home/index.js';
 import AboutUs from './pages/AboutUs/AboutUs.js'
@@ -21,6 +21,7 @@ function App() {
   return (
     <div>
       <Header t={t}/>
+      <HashRouter>
       <Routes>
         {<Route path='/' element={<Home t={t}/>}/>}
         {/*<Route path='/About-Us' element={<AboutUs t={t}/>}/>*/}
@@ -34,6 +35,7 @@ function App() {
         <Route path='/ContactUs' element={<ContactUs t={t}/>}/>
         <Route path='*' element={<PageNotFound t={t}/>}/>
       </Routes>
+      </HashRouter>
       <Footer t={t}/>
     </div>
   );
