@@ -86,8 +86,8 @@ function Header(props) {
 
     return (
         <nav className={`navbar navbar-expand-custom navbar-mainbg ${isOpen ? 'open' : ''}`}>
-            <a className="navbar-brand navbar-logo" href="/"></a>
-            <a className="navbar-brand navbar-logo" href="/">
+            <a className="navbar-brand navbar-logo" href="#/"></a>
+            <a className="navbar-brand navbar-logo" href="#/">
             <img src={logo} alt="Logo" />
         </a>
             <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={toggleMenu}>
