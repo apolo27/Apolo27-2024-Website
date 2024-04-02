@@ -19,7 +19,6 @@ function App() {
   const {t} = useTranslation();
 
   return (
-    <Router>
     <div>
       <Header t={t}/>
       <Routes>
@@ -33,11 +32,10 @@ function App() {
         <Route path='/STEM' element={<STEM t={t}/>}/>
         <Route path='/Manufacturing' element={<Manufacturing t={t}/>}/>
         <Route path='/ContactUs' element={<ContactUs t={t}/>}/>
-        <Route path='/*' element={<PageNotFound t={t}/>}/>
+        <Route path='*' element={<PageNotFound t={t}/>}/>
       </Routes>
       <Footer t={t}/>
     </div>
-    </Router>
   );
 }
 
