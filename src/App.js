@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route} from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header'
 import Home from './pages/Home/index.js';
 import AboutUs from './pages/AboutUs/AboutUs.js'
@@ -19,6 +19,7 @@ function App() {
   const {t} = useTranslation();
 
   return (
+    <Router>
     <div>
       <Header t={t}/>
       <Routes>
@@ -36,6 +37,7 @@ function App() {
       </Routes>
       <Footer t={t}/>
     </div>
+    </Router>
   );
 }
 
