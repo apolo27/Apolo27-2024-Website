@@ -5,7 +5,7 @@ const keywordQuery = keywords.join('|');
  
 export function getTutorials(callback) {
 
-    request.get(`https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q=${keywordQuery}&part=snippet,id&order=date&maxResults=4&type=video`).end((err, resp) => {
+    request.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCuIUoZCBUGVAfDdqUMyENwfCJ9AytDMDg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q=${keywordQuery}&part=snippet,id&order=date&maxResults=4&type=video`).end((err, resp) => {
         if (!err) {
           const videos = [];
           JSON.parse(resp.text).items.map(video => {
@@ -24,7 +24,7 @@ export function getTutorials(callback) {
 }
 
 export function getRecentVideos(callback) {
-  request.get(`https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q&part=snippet,id&order=date&maxResults=3&type=video`).end((err, resp) => {
+  request.get(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCuIUoZCBUGVAfDdqUMyENwfCJ9AytDMDg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q&part=snippet,id&order=date&maxResults=3&type=video`).end((err, resp) => {
     if (!err) {
       const videos = [];
       JSON.parse(resp.text).items.map(video => {
@@ -46,7 +46,7 @@ export function getRecentVideos(callback) {
 export async function getLastVideo(callback) {
   try {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${process.env.API_KEY}&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q&part=snippet,id&order=date&maxResults=1&type=video`
+      `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCuIUoZCBUGVAfDdqUMyENwfCJ9AytDMDg&channelId=UCUb8Jn33w9TgVRim_wwWoGA&q&part=snippet,id&order=date&maxResults=1&type=video`
     );
 
     if (!response.ok) {
