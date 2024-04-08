@@ -10,44 +10,44 @@
 }
 
 
-
 .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.css-17dkv59-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
   }
 
 .MuiTypography-root.MuiTypography-body1.MuiTypography-alignCenter.css-1uwgr7b-MuiTypography-root {
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
   }
   
 .MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
 }
 
 .MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
 }
 
 .MuiBottomNavigationAction-label.Mui-selected.css-imwso6-MuiBottomNavigationAction-label {
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
 }
 
 .css-1j59aic-MuiBottomNavigation-root{
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
 }
 
 .MuiBottomNavigationAction-label.css-imwso6-MuiBottomNavigationAction-label{
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
 }
 
 
 .data-dashboard-body{
+    font-family: "Poppins";
     margin-top: 50px;
     padding-bottom: 125px;
 }
 
 .tab{
     color: rgba(250, 250, 250, 0.98);
-    font-family: 'Poppins';
+    font-family: "Poppins";
     border-radius: 12px;
     border: 1px solid #373F69;
     background: #101321;
@@ -56,7 +56,7 @@
 .herc-map{
     width: 325px;
     height: 260px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
 
 }
 
@@ -69,19 +69,20 @@
     height: 350px;
     padding-left: 25px;
     padding-top: 15px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
 
 }
 
 .MuiListItemText-primary{
     font-weight: 500;
     font-size: 16px;
+    font-family: "Poppins";
 }
 
 .crewmembers-title{
     font-weight: 700;
     text-align: center;
-    font-family: 'Poppins';
+    font-family: "Poppins";
 }
 
 .crewmembers-select{
