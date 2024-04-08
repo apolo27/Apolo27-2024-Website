@@ -89,7 +89,16 @@ const StemWithUs = (props) => {
  const Modal = () => {
   return (
      <div className={`modal-${modalState === true ? 'show' : 'hide'}`}>
-      <Card>
+      <Card style={{position: 'relative'}}>
+      <Button style={{
+          position: 'absolute', 
+          right: 0, 
+          width: 40,
+          height: 40, 
+          backgroundColor: '#000', 
+          border: 'solid 2px #fff', 
+          borderRadius: '100%'
+          }} onClick={()=> setModalState(false)}>X</Button>
           <Card.Title style={{paddingTop: 25}}>{new Date(eventToShow.start).toLocaleString(i18next.language, {day: 'numeric', month: 'long', hour:'numeric', minute:'numeric'})}</Card.Title>
           <Card.Title>{eventToShow.title}</Card.Title>
         <Card.Body>
@@ -373,6 +382,43 @@ const StemWithUs = (props) => {
                 <section className='recent_videos'>
                   <h1 style={{textAlign: 'center'}}>{t('Recent-Videos')}</h1>
                   <Carousel touch controls={false}>
+                    {/*
+                    <Carousel.Item>
+                      <div style={{position: 'relative'}}>
+                        <a href="https://youtu.be/WZq6pxWE6bo?si=1YRu1UgsQ6xyBiUS" >
+                          <img className='miniatura' src={} alt='miniatura de video'></img>
+                          <h4 className='miniatura_overlay'>Matemáticas con Eduardo Álvarez | Expo STEM - Apolo 27</h4>
+                        </a>
+                      </div>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                      <div style={{position: 'relative'}}>
+                        <a href="https://youtu.be/VdgKxA5YZes?si=RX3lEXToNDGxFRJG" >
+                          <img className='miniatura' src={} alt='miniatura de video'></img>
+                          <h4 className='miniatura_overlay'>Ingenieria con Cristopher Román | Expo STEM - Apolo 27</h4>
+                        </a>
+                      </div>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                      <div style={{position: 'relative'}}>
+                        <a href="https://youtu.be/ldNraNcqhpU?si=39O15lLzcooCfKYR" >
+                          <img className='miniatura' src={} alt='miniatura de video'></img>
+                          <h4 className='miniatura_overlay'>Tecnologia con Darian Vargas | Expo STEM - Apolo 27</h4>
+                        </a>
+                      </div>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                      <div style={{position: 'relative'}}>
+                        <a href="https://www.youtube.com/watch?v=r19mb_sqVNg" >
+                          <img className='miniatura' src={} alt='miniatura de video'></img>
+                          <h4 className='miniatura_overlay'>Ciencia con Adriana Gosálbez | Expo STEM - Apolo 27</h4>
+                        </a>
+                      </div>
+                    </Carousel.Item>
+                    */
+                    }
                     {
                       recentVideos.map((vid, i) => {
                         return(

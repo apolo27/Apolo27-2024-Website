@@ -9,6 +9,9 @@
     
     margin-bottom: 125px;
 
+    margin-left: 100px;
+    margin-right: 100px;
+    
     border-radius: 15px;
 }
 
@@ -22,6 +25,10 @@
     text-align: center;
     padding: 25px;
     font-weight: bold;
+}
+
+.carousel-item{
+    height: fit-content;
 }
 
 .cards{
@@ -39,9 +46,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-    .carousel-item{
-        height: 200px;
-    }
+
     .carousel-caption h2{
         font-size: 18px;
     }
@@ -53,3 +58,4 @@
         font-size: 24px;
     }
 }
+
