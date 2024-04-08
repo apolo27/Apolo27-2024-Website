@@ -37,105 +37,103 @@ function RoverSimulation(props){
           <h1 className="simulation_warning">{t("SimulationWarning")}</h1>
         )}
 
-        <Container>
-          <hr></hr>
+        <hr></hr>
 
-          <div className="simulation_info">
-            {
-              <Carousel
-                style={{ paddingTop: 25, paddingLeft: 25, paddingRight: 25 }}
-              >
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={customizacion}
-                    alt="second"
-                  ></img>
-                  <Carousel.Caption>
-                    <h2>Customize your Rover!</h2>
-                  </Carousel.Caption>
-                </Carousel.Item>
+        <div className="simulation_info">
+          {
+            <Carousel
+              style={{ paddingTop: 25, paddingLeft: 25, paddingRight: 25 }}
+            >
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={customizacion}
+                  alt="second"
+                ></img>
+                <Carousel.Caption>
+                  <h2>Customize your Rover!</h2>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={obstacles}
-                    alt="second"
-                  ></img>
-                  <Carousel.Caption>
-                    <h2>Go through Obstacles!</h2>
-                  </Carousel.Caption>
-                </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={obstacles}
+                  alt="second"
+                ></img>
+                <Carousel.Caption>
+                  <h2>Go through Obstacles!</h2>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-                <Carousel.Item>
-                  <img className="d-block w-100" src={moon} alt="second"></img>
-                  <Carousel.Caption>
-                    <h2>Visit the Moon!</h2>
-                  </Carousel.Caption>
-                </Carousel.Item>
+              <Carousel.Item>
+                <img className="d-block w-100" src={moon} alt="second"></img>
+                <Carousel.Caption>
+                  <h2>Visit the Moon!</h2>
+                </Carousel.Caption>
+              </Carousel.Item>
 
-                <Carousel.Item>
-                  <img className="d-block w-100" src={tasks} alt="second"></img>
-                  <Carousel.Caption>
-                    <h2>Finish tasks!</h2>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              </Carousel>
-            }
+              <Carousel.Item>
+                <img className="d-block w-100" src={tasks} alt="second"></img>
+                <Carousel.Caption>
+                  <h2>Finish tasks!</h2>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
+          }
 
-            <div className="cards">
-              <Card>
-                <Card.Header>
-                  {t("Task")} 1: {t("Regolith-removal")}
-                </Card.Header>
-                <Card.Img variant="top" src={task1}></Card.Img>
-                <Card.Body>
-                  <Card.Text>{t("taskdesc1")}</Card.Text>
-                </Card.Body>
-              </Card>
+          <div className="cards">
+            <Card>
+              <Card.Header>
+                {t("Task")} 1: {t("Regolith-removal")}
+              </Card.Header>
+              <Card.Img variant="top" src={task1}></Card.Img>
+              <Card.Body>
+                <Card.Text>{t("taskdesc1")}</Card.Text>
+              </Card.Body>
+            </Card>
 
-              <Card>
-                <Card.Header>
-                  {t("Task")} 2: {t("Moon-maintenance")}
-                </Card.Header>
-                <Card.Img variant="top" src={task2}></Card.Img>
-                <Card.Body>
-                  <Card.Text>{t("taskdesc2")}</Card.Text>
-                </Card.Body>
-              </Card>
+            <Card>
+              <Card.Header>
+                {t("Task")} 2: {t("Moon-maintenance")}
+              </Card.Header>
+              <Card.Img variant="top" src={task2}></Card.Img>
+              <Card.Body>
+                <Card.Text>{t("taskdesc2")}</Card.Text>
+              </Card.Body>
+            </Card>
 
-              <Card>
-                <Card.Header>
-                  {t("Task")} 3: {t("Power-it-up")}
-                </Card.Header>
-                <Card.Img variant="top" src={task3}></Card.Img>
-                <Card.Body>
-                  <Card.Text>{t("taskdesc3")}</Card.Text>
-                </Card.Body>
-              </Card>
+            <Card>
+              <Card.Header>
+                {t("Task")} 3: {t("Power-it-up")}
+              </Card.Header>
+              <Card.Img variant="top" src={task3}></Card.Img>
+              <Card.Body>
+                <Card.Text>{t("taskdesc3")}</Card.Text>
+              </Card.Body>
+            </Card>
 
-              <Card>
-                <Card.Header>
-                  {t("Task")} 4: {t("Rover-Redundancy")}
-                </Card.Header>
-                <Card.Img variant="top" src={task4}></Card.Img>
-                <Card.Body>
-                  <Card.Text>{t("taskdesc4")}</Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-
-            <section className="simulation_text">
-              <h4>
-                On this Simulation, you will indulge into the competition
-                team Apolo 27 will go through in Huntsville, Alabama. Learn the obstacles and tasks
-                our Rover will face and help us get first in the shortest time possible! We trust you
-                on this mission!
-
-              </h4>
-            </section>
+            <Card>
+              <Card.Header>
+                {t("Task")} 4: {t("Rover-Redundancy")}
+              </Card.Header>
+              <Card.Img variant="top" src={task4}></Card.Img>
+              <Card.Body>
+                <Card.Text>{t("taskdesc4")}</Card.Text>
+              </Card.Body>
+            </Card>
           </div>
-        </Container>
+
+          <section className="simulation_text">
+            <h4>
+              On this Simulation, you will indulge into the competition
+              team Apolo 27 will go through in Huntsville, Alabama. Learn the obstacles and tasks
+              our Rover will face and help us get first in the shortest time possible! We trust you
+              on this mission!
+
+            </h4>
+          </section>
+        </div>
       </div>
     );
 }

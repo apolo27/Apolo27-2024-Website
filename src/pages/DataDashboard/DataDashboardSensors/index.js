@@ -29,7 +29,7 @@ import AltitudIcon from "../../../imgs/DataDashboard/altitud.png"
 
 function Sensors({ data }) {
 
-  console.log("data del usuario FIREBASE",data);
+  // console.log("data del usuario FIREBASE",data);
 
     const [filter, setFilter] = useState('Crewmember 2'); // Estado para mantener el valor seleccionado del dropdown
 
@@ -65,11 +65,11 @@ function Sensors({ data }) {
     const handleFilter = (value) => {
         setFilter(value)
 
-        console.log("data del usuario FIREBASE",data);
+        // console.log("data del usuario FIREBASE",data);
  
 
         if(value === 'Crewmember 1' || value === 'Crewmember 2') {
-            console.log('Hola', data)
+            // console.log('Hola', data)
             if (value === "Crewmember 1") {
                 const aceleracionLineal1_x = data.map(
                     (item) => item.AceleraciónLineal1_X
@@ -120,7 +120,7 @@ function Sensors({ data }) {
                 );
                 setVelocidadAngular_z(velocidadAngular_Z);
 
-                console.log('Aceleracion Lineal X', aceleracionLineal1_x)
+                // console.log('Aceleracion Lineal X', aceleracionLineal1_x)
 
             } else {
                 const aceleracionLineal1_x = data.map(
