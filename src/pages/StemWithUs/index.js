@@ -373,7 +373,41 @@ const StemWithUs = (props) => {
                 <section className='recent_videos'>
                   <h1 style={{textAlign: 'center'}}>{t('Recent-Videos')}</h1>
                   <Carousel touch controls={false}>
-                    {
+                    <Carousel.Item>
+                      <div style={{position: 'relative'}}>
+                        <a href="https://youtu.be/WZq6pxWE6bo?si=1YRu1UgsQ6xyBiUS" >
+                          <img className='miniatura' src={} alt='miniatura de video'></img>
+                          <h4 className='miniatura_overlay'>Matemáticas con Eduardo Álvarez | Expo STEM - Apolo 27</h4>
+                        </a>
+                      </div>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                      <div style={{position: 'relative'}}>
+                        <a href="https://youtu.be/VdgKxA5YZes?si=RX3lEXToNDGxFRJG" >
+                          <img className='miniatura' src={} alt='miniatura de video'></img>
+                          <h4 className='miniatura_overlay'>Ingenieria con Cristopher Román | Expo STEM - Apolo 27</h4>
+                        </a>
+                      </div>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                      <div style={{position: 'relative'}}>
+                        <a href="https://youtu.be/ldNraNcqhpU?si=39O15lLzcooCfKYR" >
+                          <img className='miniatura' src={} alt='miniatura de video'></img>
+                          <h4 className='miniatura_overlay'>Tecnologia con Darian Vargas | Expo STEM - Apolo 27</h4>
+                        </a>
+                      </div>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                      <div style={{position: 'relative'}}>
+                        <a href="https://www.youtube.com/watch?v=r19mb_sqVNg" >
+                          <img className='miniatura' src={} alt='miniatura de video'></img>
+                          <h4 className='miniatura_overlay'>Ciencia con Adriana Gosálbez | Expo STEM - Apolo 27</h4>
+                        </a>
+                      </div>
+                    </Carousel.Item>
+                    {/*
                       recentVideos.map((vid, i) => {
                         return(
                           <Carousel.Item key={i} interval={2000}>
@@ -387,7 +421,7 @@ const StemWithUs = (props) => {
                           </Carousel.Item>
                         )
                       })
-                    }
+                    */}
                   </Carousel>
                 </section>
         

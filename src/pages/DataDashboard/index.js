@@ -700,7 +700,7 @@ const DataDashboard = (props) => {
                   <div className="environment-sneakpeek">
                     {/* <Mapa latitud={latitud[9]} longitud={longitud[9]}/> */}
                     <iframe
-                      src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
+                      src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
                       style={{
                         background: <CircularProgress />,
                         borderRadius: "16px",
