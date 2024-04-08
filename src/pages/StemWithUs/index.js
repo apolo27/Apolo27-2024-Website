@@ -52,28 +52,28 @@ const StemWithUs = (props) => {
   useEffect(() => {
     if(sessionStorage.getItem("events") === null){
       getEvents(setEvents)
-      console.log("api call events");
+      // console.log("api call events");
     } else{
       setEvents(JSON.parse(sessionStorage.getItem('events')))
     }
     
     if(sessionStorage.getItem("tutorials") === null){
       getTutorials(setTutorials)
-      console.log("api call tutorials");
+      // console.log("api call tutorials");
     }else{
       setTutorials(JSON.parse(sessionStorage.getItem('tutorials')))
     }
     
     if(sessionStorage.getItem("recentVideos") === null){
       getRecentVideos(setRecentVideos)
-      console.log("api call recent videos");
+      // console.log("api call recent videos");
     }else{
       setRecentVideos(JSON.parse(sessionStorage.getItem('recentVideos')))
     }
 
     if(sessionStorage.getItem("blogs") === null){
       getBlogs(setBlogs)
-      console.log("api call blogs");
+      // console.log("api call blogs");
     }else{
       setBlogs(JSON.parse(sessionStorage.getItem('blogs')))
     }

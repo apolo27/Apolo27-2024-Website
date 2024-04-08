@@ -31,9 +31,9 @@ const Form = (props) => {
     if (!formSubmitted) {
       emailjs.sendForm('service_prx1qkr', 'template_x8zmeal', form.current, '6HMNKbrBqDfm-dMBG')
       .then((result) => {
-          console.log(result.text);
+          // console.log(result.text);
       }, (error) => {
-          console.log(error.text);
+          // console.log(error.text);
       });
       setFormSubmitted(true)
     } else{
@@ -181,9 +181,6 @@ const Form = (props) => {
           variant="outlined"
           size='medium'
           margin='normal'
-          InputLabelProps={{
-            shrink: true,
-          }}
           value={date}
           inputProps={inputProps}
           InputLabelProps={inputLabelProps}
