@@ -8,7 +8,7 @@ export function getEvents(callback) {
     if (!err) {
       const events = [];
       JSON.parse(resp.text).items.map(event => {
-        // console.log(events);
+        console.log(events);
         return events.push({
           title: event.summary,
           htmlLink: event.htmlLink,
