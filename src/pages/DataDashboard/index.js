@@ -188,15 +188,15 @@ const DataDashboard = (props) => {
       try {
         if (sessionStorage.getItem("lastVideo") === null) {
           await getLastVideo(setLastVideo);
-          console.log("Fetching last video from YouTube");
-          console.log(lastVideo)
+          // console.log("Fetching last video from YouTube");
+          // console.log(lastVideo)
         } else {
           setLastVideo(JSON.parse(sessionStorage.getItem("lastVideo")));
-          console.log("Getting last video from session storage");
-          console.log(lastVideo)
+          // console.log("Getting last video from session storage");
+          // console.log(lastVideo)
         }
       } catch (error) {
-        console.error("Error in fetchData:", error.message);
+        // console.error("Error in fetchData:", error.message);
       }
     };
   
@@ -210,9 +210,9 @@ const DataDashboard = (props) => {
       try {
         const data = await fetchAllData();
         setData(data);
-        console.log("Toda la data", data);
+        // console.log("Toda la data", data);
       } catch (error) {
-        console.error("Error in fetchData Firebase All:", error.message);
+        // console.error("Error in fetchData Firebase All:", error.message);
       }
     };
     fetchData();
@@ -225,9 +225,9 @@ const DataDashboard = (props) => {
       try {
         const data = await fetchLastFiveData();
         setDataGrafico(data);
-        console.log("Ultima 5", data);
+        // console.log("Ultima 5", data);
       } catch (error) {
-        console.error("Error in fetchData Firebase Last Five:", error.message);
+        // console.error("Error in fetchData Firebase Last Five:", error.message);
       }
     };
     fetchData();
@@ -373,7 +373,7 @@ const DataDashboard = (props) => {
       const altitud = lastTenData.map((data) => data.altitud);
       setAltitud(altitud);
 
-      console.log("Last ten data", concentracionGas);
+      // console.log("Last ten data", concentracionGas);
     };
   
     const ref = database.ref("/temperatura-humedad");
@@ -700,7 +700,7 @@ const DataDashboard = (props) => {
                   <div className="environment-sneakpeek">
                     {/* <Mapa latitud={latitud[9]} longitud={longitud[9]}/> */}
                     <iframe
-                      src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1&t=k"
+                      src="https://www.google.com/maps/d/u/0/embed?mid=1O7ZBN5Mw5ox-4F7-HyeIVqI7-Vc3ZG4&ehbc=2E312F&noprof=1"
                       style={{
                         background: <CircularProgress />,
                         borderRadius: "16px",
